@@ -38,8 +38,16 @@
                     <button id='registerbutton' type="submit" class="btn btn-secondary">Register</button>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col text-center mt-4">
+                    <a style="text-decoration: none; color: grey;" href="login.html">Already have an account? <span
+                            style="font-weight: bold; font-size:20px; text-decoration: underline;"> Log in</span></a>
+                </div>
+            </div>
                 
     
+
         
         
         </div>
@@ -81,6 +89,7 @@
 
         const UserSignup=async()=>
         {
+            clearErrors();
             const SignUpEmail=email.value;
             const SignUpPassword=password.value;
             createUserWithEmailAndPassword(auth,SignUpEmail,SignUpPassword)
@@ -91,16 +100,67 @@
                 alert("You have sucessfully registered!");
 
             })
-            .catch((error=>{
+            .catch((error)=>{
                 const errorcode=error.code;
                 const errormessage=error.message;
                 console.log(errorcode+errormessage)
 
-            }))
+                let displayErrorMessage = ''
+                    switch (errorcode) {
+        
+                        case 'auth/user-not-found':
+                            displayErrorMessage = 'Account not found. Please register first.';
+                            break;
+                        case 'auth/invalid-email':
+                            displayErrorMessage = 'Invalid email address. Please enter a valid email address.';
+                            break;
+                        case 'auth/missing-password':
+                            displayErrorMessage = 'Please input your password.';
+                            break;
+                        case 'auth/email-already-in-use':
+                            displayErrorMessage = 'You already have an account. Please log in.';
+                            break;
+                        case 'auth/weak-password':
+                            displayErrorMessage='Your password should have at least 6 characters'
+                            break;
+                            
+                        default:
+                            displayErrorMessage = 'An error occurred: ' + errormessage;
+
+                    }
+
+                    displayError(displayErrorMessage)
+
+
+            })
 
         }
 
-        registerbutton.addEventListener('click',UserSignup);
+
+    function displayError(message) {
+
+        var errordisplay = document.createElement('p');
+        errordisplay.style.color = 'red'
+        errordisplay.style.textAlign = 'center'
+        errordisplay.textContent = message
+
+
+        var registerbox = document.getElementById('authform')
+        registerbox.appendChild(errordisplay)
+
+
+    }
+
+
+    function clearErrors() {
+    const previousError = document.querySelector('#authform p');
+    if (previousError) {
+        previousError.remove();
+    }
+}
+
+       
+      registerbutton.addEventListener('click',UserSignup);
 
 
         const checkAuthstate=async()=>{
