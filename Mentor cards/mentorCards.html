@@ -2,156 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentors</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
-    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Alpine.js for dropdown behavior (optional but recommended for dropdown and carousel) -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
-
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800">
     
-    <!-- None  <576px, sm  ≥576px, md  ≥768px, lg  ≥992px, xl  ≥1200px, xxl  ≥1400px -->
-
     <!-- main container -->
-    <div class = 'container-fluid'>
+    <div class="container mx-auto px-4 py-8">
         
-        <!-- navbar -->
-        <div class='row'>
-            
-            <!-- BS navbar: start -->
-            <!-- Change navbarSupportedContent to your own id -->
-             <nav class="navbar navbar-expand-lg bg-body-tertiary">
-               <div class="container-fluid">
-                 <a class="navbar-brand" href="#">Navbar</a>
-                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                   <span class="navbar-toggler-icon"></span>
-                 </button>
-                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                     <li class="nav-item">
-                       <a class="nav-link active" aria-current="page" href="#">Home</a>
-                     </li>
-                     <li class="nav-item">
-                       <a class="nav-link" href="#">Link</a>
-                     </li>
-                     <li class="nav-item dropdown">
-                       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                         Dropdown
-                       </a>
-                       <ul class="dropdown-menu">
-                         <li><a class="dropdown-item" href="#">Action</a></li>
-                         <li><a class="dropdown-item" href="#">Another action</a></li>
-                         <li><hr class="dropdown-divider"></li>
-                         <li><a class="dropdown-item" href="#">Something else here</a></li>
-                       </ul>
-                     </li>
-                     <li class="nav-item">
-                       <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                     </li>
-                   </ul>
-                   <form class="d-flex" role="search">
-                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                     <button class="btn btn-outline-success" type="submit">Search</button>
-                   </form>
-                 </div>
-               </div>
-             </nav>
-            <!-- BS navbar: end--> 
-            
-        </div> <!-- row -->
-
-
+        <!-- Navbar -->
+        <nav class="bg-white border-b border-gray-200 shadow-md">
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <a href="#" class="text-2xl font-semibold text-blue-600">Navbar</a>
+                <div class="flex space-x-4 items-center">
+                    <ul class="hidden md:flex space-x-6">
+                        <li><a href="#" class="text-gray-600 hover:text-blue-600">Home</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-blue-600">Link</a></li>
+                        <li class="relative group">
+                            <button class = "text-gray-600 hover:text-blue-600 flex items-center">Dropdown
+                                <svg class="ml-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06 0l4.47 4.47a.75.75 0 01-1.06 1.06L5.23 8.27a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <ul class="absolute hidden group-hover:block bg-white border rounded-md shadow-lg mt-2 py-2 space-y-2">
+                                <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Action</a></li>
+                                <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Another Action</a></li>
+                                <li><hr class="my-1 border-gray-200"></li>
+                                <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="text-gray-400 cursor-not-allowed">Disabled</a></li>
+                    </ul>
+                    <form class="hidden md:flex">
+                        <input type="text" placeholder="Search" class="px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
+                        <button class="ml-2 px-4 py-2 bg-blue-600 text-white rounded-lg">Search</button>
+                    </form>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button @click="open = !open" class="focus:outline-none text-gray-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
         <!-- Heading -->
-        <div class = "row my-2 m-auto ">
-            <div class = "col ">
-                <h1>Mentors</h1>
-            </div>
+        <div class="text-center mt-8">
+            <h1 class="text-4xl font-semibold text-blue-600">Mentors</h1>
         </div>
 
-
-        <!-- cards  -->
-        <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="d-flex justify-content-around">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card image 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Card Title 1</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card image 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Card Title 2</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card image 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Card Title 3</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
+        <!-- Carousel with Cards -->
+        <div id="cardCarousel" class="mt-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://via.placeholder.com/150" alt="Card image 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h5 class="text-lg font-semibold text-gray-800">Card Title 1</h5>
+                        <p class="mt-2 text-gray-600">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="block mt-4 text-blue-600 hover:underline">Go somewhere</a>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="d-flex justify-content-around">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card image 4">
-                            <div class="card-body">
-                                <h5 class="card-title">Card Title 4</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card image 5">
-                            <div class="card-body">
-                                <h5 class="card-title">Card Title 5</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card image 6">
-                            <div class="card-body">
-                                <h5 class="card-title">Card Title 6</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://via.placeholder.com/150" alt="Card image 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h5 class="text-lg font-semibold text-gray-800">Card Title 2</h5>
+                        <p class="mt-2 text-gray-600">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="block mt-4 text-blue-600 hover:underline">Go somewhere</a>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://via.placeholder.com/150" alt="Card image 3" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h5 class="text-lg font-semibold text-gray-800">Card Title 3</h5>
+                        <p class="mt-2 text-gray-600">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="block mt-4 text-blue-600 hover:underline">Go somewhere</a>
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+
+            <!-- Add more cards as needed below, duplicating the card structure -->
         </div>
         
-    
     </div> <!-- container -->
-    
-
-
-
-
-    <!-- Bootstrap JS bundle to be placed before the closing </body> tag -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
     
 </body>
 </html>
