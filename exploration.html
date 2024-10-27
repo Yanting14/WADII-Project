@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styleexploration.css">
+
+</head>
+<body>
+
+<div id='app'class="container-fluid">
+
+    <div class="row">
+    <nav class="navbar navbar-expand-lg bg-secondary p-0">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown link
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+
+<div class="row">
+    <div class="jumbotron d-flex flex-column justify-content-center align-items-center text-center bg-light">
+    <div>
+        <h1>JobBudds</h1>
+        <p>Feeling loss in navaigating your future? Unlock your potential with us today!</p>
+     </div>
+    </div>
+</div>
+
+<!-- code the input fields  -->
+<!-- <div class="row">
+
+
+    <div class="col px-3">
+    <div class="input-group mb-4 mx-3">
+        <span class="input-group-text" id="building"><i class="far fa-building"></i></span>
+        <input type="text" v-model="location" id="location" class="form-control" placeholder="City,Country" aria-label="Username" aria-describedby="basic-addon1">
+     </div>
+    </div>
+    
+    <div class="col" >
+     <div class="input-group mb-3 mx-3 px-3 ">
+        <span class="input-group-text" id="stairs"><i class="fas fa-stairs"></i></span>
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Experience Level</button>
+        <div class="dropdown-menu">
+            <div v-for="lvl in level_options" >
+                <input type="checkbox" :value="lvl" v-model="levels"> <span class="checkbox-label">
+                    {{lvl}}
+                 </span>          
+            </div> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="input-group mb-3 mx-3 px-3 ">
+        <span class="input-group-text" id="category"><i class="fas fa-suitcase"></i></span>
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Job Category</button>
+        <div class="dropdown-menu">
+            <select v-model="categories" multiple>
+                <option v-for="category in category_options" v-bind:value="category">
+                    {{category}}
+                </option>
+            </select>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+        <div class="input-group mb-4 mx-3 px-3">
+            <span class="input-group-text" id="building"><i class="far fa-building"></i></span>
+            <input type="text" v-model="company" id="location" class="form-control" placeholder="Company" aria-label="Username" aria-describedby="basic-addon1">
+         </div>
+    
+    </div>
+    
+    <div class="col">
+        <button v-on:click="fetchResults">Search Results</button>
+    </div>
+    
+    
+
+    </div> -->
+
+
+      
+    <div class="row flex-nowrap align-items-center">
+        <div class="col px-3">
+          <div class="input-group mb-4">
+            <span class="input-group-text" id="building"><i class="far fa-building"></i></span>
+            <input type="text" v-model="location" id="location" class="form-control" placeholder="City, Country" aria-label="Location" aria-describedby="building">
+          </div>
+        </div>
+      
+        <div class="col-auto">
+          <div class="input-group mb-4">
+            <span class="input-group-text" id="stairs"><i class="fas fa-stairs"></i></span>
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Experience Level</button>
+            <div class="dropdown-menu">
+              <div v-for="lvl in level_options">
+                <input type="checkbox" :value="lvl" v-model="levels"> <span class="checkbox-label">{{lvl}}</span>          
+              </div> 
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-auto">
+          <div class="input-group mb-4">
+            <span class="input-group-text" id="category"><i class="fas fa-suitcase"></i></span>
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Job Category</button>
+            <div class="dropdown-menu">
+              <select v-model="categories" multiple>
+                <option v-for="category in category_options" :value="category">{{category}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-auto px-3">
+          <div class="input-group mb-4">
+            <span class="input-group-text" id="company"><i class="far fa-building"></i></span>
+            <input type="text" v-model="company" id="company" class="form-control" placeholder="Company" aria-label="Company" aria-describedby="company">
+          </div>
+        </div>
+      
+        <div class="col-auto">
+          <button v-on:click="fetchResults" class="btn btn-secondary mb-4"><i class="fas fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+      
+
+<!-- delete later this just for reference -->
+<!-- {{levels}}
+{{categories}} -->
+
+<!-- display results here -->
+
+<div class="container">
+    <div class="row">
+      <div 
+        v-for="(job, index) in page_results" 
+        :key="index" 
+        class="col-md-4 d-flex align-items-stretch mb-4"
+      >
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <h5 class="card-title">{{ job.categories && job.categories.length > 0 ? job.categories[0].name : '' }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ job.company?.name || 'No company info' }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{ job.locations && job.locations.length > 0 ? job.locations[0].name : 'No location' }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{ job.levels && job.levels.length > 0 ? job.levels[0].name : 'No level' }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{ job.publication_date ? job.publication_date.slice(0, 10) : 'No date' }}</h6>
+            <a v-bind:href="job.refs?.landing_page || '#'" class="card-link">Click here to apply</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div>
+
+    <button v-on:click="loadPrevResults">View Previous Results</button>
+
+
+</div>
+
+
+<div>
+    <button v-on:click="loadMoreResults" :disabled="loading">
+        {{ loading ? 'Loading...' : 'View More Results' }}
+    </button>
+    <!-- //condition value true value false -->
+</div>
+
+
+<div></div>
+
+</div>
+<!-- end container fluid div  and app-->
+
+
+    <script>
+
+        const vm=Vue.createApp({
+            data(){
+                return{
+
+                    company:"",
+                    location:"",
+                    
+                    levels:[],
+                    level_options:['Entry Level', 'Senior Level', 'Internship', 'Mid Level', 'management'],
+                    
+                    categories:[],
+                    category_options:['Accounting', 'Administration and Office','Accounting and Finance', 'Advertising and Marketing', 'Arts', 'Business Operations', 'Customer Care','Computer and IT', 'Coporate', 'Data Analytics',
+                        'Design', 'Data Science','Data Entry' ,'Design and UX', 'Education', 'Editor', 'Food and Hospitality Services',
+                        'Healthcare', 'Human Resources and Recruitment','IT', 'Legal Services','Law', 'Mechanic', 'Marketing', 'Media,PR, and Communications', 'Product Management', 'Project Management', 'Real Estate',
+                        'Software Engineering','Sales','Sience and Engineering', 'Videography', 'Tansporation and Logistics', 'Writing and Editing'
+                    ],
+
+                    currentpage:0,
+                    totalpage:0,
+                    resultsPerPage:20,
+
+                    page_results:[],
+                    
+                    loading:false,
+                   
+
+                }
+            },
+            
+            methods:{
+                //fetch result will always first return the first page since users havent click load more results yet
+                fetchResults(){
+                    this.currentpage=1;
+                    this.page_results=[];
+                    //clear the page_results
+                    this.loadResults()
+                },
+
+                loadMoreResults(){
+                    if(this.currentpage<this.total_page){
+                        this.currentpage++;
+                        this.loadResults()//now load results for this next page....
+                    }
+                },
+                
+                loadPrevResults(){
+                    if(this.currentpage<this.total_page && this.currentpage>0){
+                        this.currentpage--;
+                        this.loadResults()//now load results for this next page....
+                    }
+
+                },
+                
+                loadResults(){
+                    this.page_results = [];
+
+
+                    const params=new URLSearchParams()
+
+                    //i will only pass it as parameters if user defined it
+
+                    if(this.levels){
+                        for(lvl of this.levels){
+                            params.append('level',lvl)
+                        }
+                    }
+
+                    if(this.categories){
+                        for(cat of this.categories){
+                            params.append('category',cat)
+                        }
+                    }
+
+                    if(this.location){
+                        params.append('location',this.location)
+                    }
+        
+                    if(this.company){
+                        params.append('company',this.company)
+                    }
+
+                    params.append('page',this.currentpage)
+
+                    //we are trying to fetch the results of the current page we are in
+
+                    console.log("Query String:", params.toString());
+
+                
+                    var url = `https://www.themuse.com/api/public/jobs?${params.toString()}`;
+
+                    axios.get(url)
+
+                    .then(response=>{
+            
+                        console.log(response.data)
+
+                        this.page_results=this.page_results.concat(response.data.results)
+                        
+                        this.page_results.sort((a,b)=>{
+                            const dateA = new Date(a.publication_date);
+                            const dateB = new Date(b.publication_date);
+
+                            const yearDifference = dateB.getFullYear() - dateA.getFullYear();
+
+                            if (yearDifference === 0) {
+                                return dateB - dateA; // Sort by date descending
+                            }
+
+                            return yearDifference; // Sort by year descending
+
+                        })
+
+                        console.log(this.page_results)
+                        this.total_page=response.data.page_count
+                        //we need to store the page_count suchi that i will only current page ++ as long as its before or equal to page count
+                        // console.log(this.total_page)
+                        
+                    })
+
+                    .catch(error=>{
+                        console.log(error.message)
+                    })
+
+                    //here .finally is to execute piece of code after the promise has been settled, it will run regardless the promise rejected or fulfilled
+
+                    .finally(()=>{
+                        this.loading=false; 
+                        // stop the loading
+                    })
+
+
+                }
+
+
+            }
+
+
+
+        }).mount('#app')
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+</script>
+</body>
+</html>
