@@ -10,7 +10,8 @@
     <script src="https://unpkg.com/axios/dist/axios.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styleexploration.css">
+    <link rel="stylesheet" href="style.css">
+
 
 </head>
 <body>
@@ -20,7 +21,7 @@
     <div class="row">
     <nav class="navbar navbar-expand-lg bg-secondary p-0">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#"><span style="color:white">JobBudds</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -54,70 +55,13 @@
     </div>
 
 <div class="row">
-    <div class="jumbotron d-flex flex-column justify-content-center align-items-center text-center bg-light">
+    <div class="jumbotron d-flex flex-column justify-content-center align-items-center text-center bg-light mb-3">
     <div>
         <h1>JobBudds</h1>
         <p>Feeling loss in navaigating your future? Unlock your potential with us today!</p>
      </div>
     </div>
 </div>
-
-<!-- code the input fields  -->
-<!-- <div class="row">
-
-
-    <div class="col px-3">
-    <div class="input-group mb-4 mx-3">
-        <span class="input-group-text" id="building"><i class="far fa-building"></i></span>
-        <input type="text" v-model="location" id="location" class="form-control" placeholder="City,Country" aria-label="Username" aria-describedby="basic-addon1">
-     </div>
-    </div>
-    
-    <div class="col" >
-     <div class="input-group mb-3 mx-3 px-3 ">
-        <span class="input-group-text" id="stairs"><i class="fas fa-stairs"></i></span>
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Experience Level</button>
-        <div class="dropdown-menu">
-            <div v-for="lvl in level_options" >
-                <input type="checkbox" :value="lvl" v-model="levels"> <span class="checkbox-label">
-                    {{lvl}}
-                 </span>          
-            </div> 
-        </div>
-      </div>
-    </div>
-    
-    <div class="col">
-      <div class="input-group mb-3 mx-3 px-3 ">
-        <span class="input-group-text" id="category"><i class="fas fa-suitcase"></i></span>
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Job Category</button>
-        <div class="dropdown-menu">
-            <select v-model="categories" multiple>
-                <option v-for="category in category_options" v-bind:value="category">
-                    {{category}}
-                </option>
-            </select>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col">
-        <div class="input-group mb-4 mx-3 px-3">
-            <span class="input-group-text" id="building"><i class="far fa-building"></i></span>
-            <input type="text" v-model="company" id="location" class="form-control" placeholder="Company" aria-label="Username" aria-describedby="basic-addon1">
-         </div>
-    
-    </div>
-    
-    <div class="col">
-        <button v-on:click="fetchResults">Search Results</button>
-    </div>
-    
-    
-
-    </div> -->
-
-
       
     <div class="row flex-nowrap align-items-center">
         <div class="col px-3">
@@ -130,7 +74,7 @@
         <div class="col-auto">
           <div class="input-group mb-4">
             <span class="input-group-text" id="stairs"><i class="fas fa-stairs"></i></span>
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Experience Level</button>
+            <button style="background-color: white;" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Experience Level</></button>
             <div class="dropdown-menu">
               <div v-for="lvl in level_options">
                 <input type="checkbox" :value="lvl" v-model="levels"> <span class="checkbox-label">{{lvl}}</span>          
@@ -139,11 +83,17 @@
           </div>
         </div>
       
+
+
         <div class="col-auto">
           <div class="input-group mb-4">
             <span class="input-group-text" id="category"><i class="fas fa-suitcase"></i></span>
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Job Category</button>
+            <button style="background-color: white;"class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Job Category</button>
+
             <div class="dropdown-menu">
+              <!-- <div v-for="category in category_options">
+                <input type="checkbox" :value="category" v-model="categories"> <span class="checkbox-label">{{category}}</span>          
+              </div>  -->
               <select v-model="categories" multiple>
                 <option v-for="category in category_options" :value="category">{{category}}</option>
               </select>
@@ -163,7 +113,6 @@
         </div>
       </div>
       
-
 <!-- delete later this just for reference -->
 <!-- {{levels}}
 {{categories}} -->
@@ -179,35 +128,52 @@
       >
         <div class="card" style="width: 100%;">
           <div class="card-body">
-            <h5 class="card-title">{{ job.categories && job.categories.length > 0 ? job.categories[0].name : '' }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ job.company?.name || 'No company info' }}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">{{ job.locations && job.locations.length > 0 ? job.locations[0].name : 'No location' }}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">{{ job.levels && job.levels.length > 0 ? job.levels[0].name : 'No level' }}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">{{ job.publication_date ? job.publication_date.slice(0, 10) : 'No date' }}</h6>
-            <a v-bind:href="job.refs?.landing_page || '#'" class="card-link">Click here to apply</a>
+            <h5 class="Role card-title">{{ job.categories && job.categories.length > 0 ? job.categories[0].name : '' }}</h5>
+            <h6 class="Company card-subtitle mb-2 text-muted">{{ job.company?.name || 'No company info' }}</h6>
+            <h6 class="Location card-subtitle mb-2 text-muted">{{ job.locations && job.locations.length > 0 ? job.locations[0].name : 'No location' }}</h6>
+            <h6 class="Level card-subtitle mb-2 text-muted">{{ job.levels && job.levels.length > 0 ? job.levels[0].name : 'No level' }}</h6>
+            <h6 class="Date card-subtitle mb-2 text-muted">{{ job.publication_date ?job.publication_date.slice(0, 10) : 'No date' }}</h6>
+            <a v-bind:href="job.refs?.landing_page || '#'" class="card-link"><button type="button" class="btn btn_design"><span style="color:white">Apply</span></button></a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-<div>
+  <!-- justify content center helps me to center the column horizontaly within the row -->
+  <!-- align-items-center: Vertically centers the columns within the row. -->
+  <!-- col-auto: Automatically adjusts each column width to fit the content without taking up more space. -->
 
-    <button v-on:click="loadPrevResults">View Previous Results</button>
 
-
+  <div class="row justify-content-center align-items-center" v-if='loading'>
+    <div class="d-flex justify-content-center align-items-center">
+      <span style="color:white">Loading</span>
+  <div class="spinner-grow text-secondary mx-1" role="status" style="width: 10px; height: 10px;">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="spinner-grow text-secondary mx-1" role="status" style="width: 10px; height: 10px;">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="spinner-grow text-secondary mx-1" role="status" style="width: 10px; height: 10px;">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
 </div>
 
-
-<div>
-    <button v-on:click="loadMoreResults" :disabled="loading">
-        {{ loading ? 'Loading...' : 'View More Results' }}
-    </button>
-    <!-- //condition value true value false -->
-</div>
-
-
-<div></div>
+  <div class="row justify-content-center align-items-center" v-if='showbuttons && !loading'>
+    <div class="col-auto">
+      <button type="button" class="btn btn-light" v-on:click="loadPrevResults">
+        Previous Results
+      </button>
+    </div>
+  
+    <div class="col-auto">
+      <button type="button" class="btn btn-light" v-on:click="loadMoreResults" :disabled="loading">
+        {{ loading ? 'More Results' : 'More Results' }}
+      </button>
+    </div>
+  </div>
+  
 
 </div>
 <!-- end container fluid div  and app-->
@@ -233,14 +199,14 @@
                     ],
 
                     currentpage:0,
-                    totalpage:0,
+                    total_page:0,
                     resultsPerPage:20,
 
                     page_results:[],
                     
-                    loading:false,
+                    loading:true,
+                    showbuttons:false
                    
-
                 }
             },
             
@@ -269,8 +235,10 @@
                 },
                 
                 loadResults(){
-                    this.page_results = [];
 
+
+                    this.loading=true;
+                    this.page_results = [];
 
                     const params=new URLSearchParams()
 
@@ -308,10 +276,14 @@
                     axios.get(url)
 
                     .then(response=>{
-            
-                        console.log(response.data)
+                         this.showbuttons=true;
 
-                        this.page_results=this.page_results.concat(response.data.results)
+                        //  only whwen is sucessful then i show the buttons
+            
+                         console.log(response.data)
+
+                         this.page_results=this.page_results.concat(response.data.results)
+                        
                         
                         this.page_results.sort((a,b)=>{
                             const dateA = new Date(a.publication_date);
@@ -349,7 +321,13 @@
                 }
 
 
+            },
+
+            mounted(){
+              this.fetchResults()
             }
+
+            //use mounted such that it automatically fetch results when the page is load - lifecycle hook that is triggered when the Vue component is mounted
 
 
 
