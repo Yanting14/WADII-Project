@@ -83,12 +83,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function showError(inputElement, message) {
         // Create a small element to display error
         const errorElement = document.createElement('small');
-        errorElement.classList.add('text-danger');
+        errorElement.classList.add('text-red-600');
         errorElement.textContent = message;
 
         // Add error message after the input field or checkbox
         if (inputElement.type === 'checkbox') {
-            inputElement.parentElement.appendChild(errorElement);
+            document.getElementById("tNcError").parentElement.appendChild(errorElement)
         } else {
             inputElement.parentElement.appendChild(errorElement);
         }
