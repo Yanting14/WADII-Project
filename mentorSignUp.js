@@ -1,29 +1,55 @@
+// Import Firestore from Firebase (ensure you have this line in your HTML)
+// <script type="module" src="mentorSignUp.js" defer></script>
+
+import { getFirestore, doc, setDoc, getDoc} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // Get the form elements
-    const form                 = document.querySelector('form');
-    const fullNameInput        = document.querySelector('input[aria-label="Full Name"]');
-    const usernameInput        = document.querySelector('input[aria-label="Username"]');
-    const emailInput           = document.querySelector('input[aria-label="Email"]')
-    const phoneInput           = document.querySelector('input[aria-label="Phone Number"]');
-    const passwordInput        = document.querySelector('input[aria-label="Password"]');
+    const form = document.querySelector('form');
+    const fullNameInput = document.querySelector('input[aria-label="Full Name"]');
+    const usernameInput = document.querySelector('input[aria-label="Username"]');
+    const emailInput = document.querySelector('input[aria-label="Email"]');
+    const phoneInput = document.querySelector('input[aria-label="Phone Number"]');
+    const passwordInput = document.querySelector('input[aria-label="Password"]');
     const confirmPasswordInput = document.querySelector('input[aria-label="Confirm password"]');
-    const termsCheckbox        = document.querySelector('input#termsAndConditions');
-    const submitButton         = document.querySelector('a.btn-primary');
+    const termsCheckbox = document.querySelector('input#termsAndConditions');
 
-    // Add event listener on submit button
-    submitButton.addEventListener('click', function (event) {
-        // Prevent default link navigation
+    // Initialize Firestore
+    const db = getFirestore();  
+
+    // Add event listener on form submission
+    form.addEventListener('submit', async function (event) {
+        // Prevent default form submission
         event.preventDefault();
-
-        // Clear any previous error messages
         clearErrors();
 
         // Perform validation
         let isValid = validateForm();
 
-        // If valid, navigate to the next page
+        // If valid, send data to Firestore
         if (isValid) {
-            window.location.href = 'mentorCredentials.html';
+            try {
+                // get data 
+                let fullName = fullNameInput.value
+                let username = usernameInput.value
+                let email    = emailInput.value
+                let phone    = phoneInput.value
+                let password = passwordInput.value
+
+                await setDoc(doc(db, "Mentors", username), {
+                    name    : fullName,
+                    username: username,
+                    email   : email,
+                    phone   : phone,
+                    password: password,
+                });
+                
+                // comment this out for testing 
+                window.location.href = "mentorCredentials.html";
+            } catch (error) {
+                console.error("Error adding document: ", error);
+            }
         }
     });
 
@@ -40,6 +66,15 @@ document.addEventListener('DOMContentLoaded', function () {
         if (usernameInput.value.trim() === '') {
             showError(usernameInput, 'Username is required');
             valid = false;
+        }
+        else{
+            //check if current username in database 
+            const docRef = doc(db, "Mentors", usernameInput.value)
+            const docSnap = getDoc(docRef)
+            if (docSnap != null){
+                showError(usernameInput, "Username is already taken!")
+                valid = false
+            }
         }
 
         // Validate Email
@@ -88,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Add error message after the input field or checkbox
         if (inputElement.type === 'checkbox') {
-            document.getElementById("tNcError").parentElement.appendChild(errorElement)
+            document.getElementById("tNcError").parentElement.appendChild(errorElement);
         } else {
             inputElement.parentElement.appendChild(errorElement);
         }
@@ -97,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function clearErrors() {
         // Remove all existing error messages
-        document.querySelectorAll('.text-danger').forEach(error => error.remove());
+        document.querySelectorAll('.text-red-600').forEach(error => error.remove());
         // Remove 'is-invalid' class from inputs
         document.querySelectorAll('.is-invalid').forEach(input => input.classList.remove('is-invalid'));
     }
