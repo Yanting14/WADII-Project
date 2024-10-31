@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,56 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Alpine.js for dropdown behavior (optional but recommended for dropdown and carousel) -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
+    <style>
+        /* Blur effect for the background */
+        .modal {
+            display: none;
+            /* Hide by default */
+            position: fixed;
+            /* Fixed position for the modal */
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            background: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent background */
+            z-index: 5;
+            /* Ensure it is above other elements */
+        }
+
+        .expanded {
+            z-index: 10;
+            /* Higher z-index than the modal */
+            position: absolute;
+            /* Position absolute within the modal */
+            top: 50%;
+            /* Center it vertically */
+            left: 50%;
+            /* Center it horizontally */
+            transform: translate(-50%, -50%);
+            /* Center using transform */
+            width: calc(100% - 2rem);
+            /* Full width minus padding */
+            max-width: 600px;
+            /* Limit max width */
+            height: auto;
+            /* Auto height */
+            padding: 2rem;
+            /* Padding inside the expanded card */
+        }
+
+        .modal.active {
+            display: block;
+            /* Show when active */
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+
+<body id="app1" class="bg-gray-100 text-gray-800">
     <!-- Navbar -->
-    <nav class = "bg-gray-800 p-4 mb-6">
+    <nav class="bg-gray-800 p-4 mb-6">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-white text-2xl font-bold">Navbar</a>
             <div class="hidden md:flex space-x-4">
@@ -26,78 +70,53 @@
         </div>
     </nav>
 
-
-    <!-- main container -->
+    <!-- Main container -->
     <div class="container mx-auto px-4 py-8">
-        
+
         <!-- Heading -->
-        <div class="text-center mt-8">
-            <h1 class="text-4xl font-semibold text-blue-600">Mentors</h1>
+        <div class="text-center ">
+            <h1 class="text-5xl font-bold text-indigo-700 mb-3">Our Mentors</h1>
+            <p class="text-gray-500 mb-3 text-lg">Curated just for you</p>
         </div>
 
-        <!-- Carousel with Cards -->
-        <div id="cardCarousel" class="mt-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://via.placeholder.com/150" alt="Card image 1" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h5 class="text-lg font-semibold text-gray-800">Card Title 1</h5>
-                        <p class="mt-2 text-gray-600">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="block mt-4 text-blue-600 hover:underline">Go somewhere</a>
-                    </div>
-                </div>
-                
-                <!-- Card 2 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://via.placeholder.com/150" alt="Card image 2" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h5 class="text-lg font-semibold text-gray-800">Card Title 2</h5>
-                        <p class="mt-2 text-gray-600">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="block mt-4 text-blue-600 hover:underline">Go somewhere</a>
-                    </div>
-                </div>
-                
-                <!-- Card 3 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://via.placeholder.com/150" alt="Card image 3" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h5 class="text-lg font-semibold text-gray-800">Card Title 3</h5>
-                        <p class="mt-2 text-gray-600">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="block mt-4 text-blue-600 hover:underline">Go somewhere</a>
-                    </div>
+
+        <!-- Cards -->
+        <div id="cardCarousel" class="mt-8 shadow-xl p-6 rounded-lg bg-white relative">
+            <div id = "mentor-list"></div>
+
+        </div> <!-- Placeholder for Vue component -->
+
+        <!-- testing -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div v-for="mentor in mentors" :key="mentor.id" class="bg-white rounded-lg shadow-md overflow-hidden card"
+                @click="expandCard(mentor)">
+                <img :src="mentor.imageUrl" alt="Card image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h5 class = "text-lg font-semibold text-gray-800">{{ mentor.name }}</h5>
+                    <p  class = "mt-2 text-gray-600 line-clamp-4">{{ mentor.mentorLinkedIn }}</p>
+                    <p>some code here</p>
                 </div>
             </div>
-
-            <!-- Add more cards as needed below, duplicating the card structure -->
         </div>
-        
+
+
+
+        <!-- Expanded Card Modal -->
+        <!-- <div id="expandedCard" class="modal">
+            <div class="expanded bg-white shadow-lg rounded-lg">
+                <button id="closeModal"
+                    class="text-red-600 hover:text-red-800 absolute top-2 right-2 text-lg">&times;</button>
+                <h2 class="text-3xl font-bold mb-4" id="expandedTitle"></h2>
+                <p id="expandedDescription" class="mb-4"></p>
+                <p id="expandedExtra" class="text-gray-600"></p>
+            </div>
+        </div> -->
+
     </div> <!-- container -->
+
+
+    <script src = "mentorCards.js" type = "module"></script>
     
-</body>
-</html>
-
-
-
-
-    <!-- Form Section -->
-    <div id="app" class="container mx-auto px-4 py-12">
-        <div class="bg-white shadow-lg rounded-lg p-8 max-w-4xl mx-auto">
-            <h1 class="text-3xl font-bold mb-8 text-center text-indigo-600">Become a Mentor</h1>
-            <form @submit.prevent="validateForm" class="space-y-6">
-                <!-- Form Fields Omitted for Brevity -->
-                <button type="submit"
-                    class="w-full py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">Submit
-                </button>
-            </form>
-        </div>
-    </div>
-
-    
-
-    <!-- Vue.js app -->
-    <script src="mentorCredentials.js"></script>
-
 </body>
 
 </html>
