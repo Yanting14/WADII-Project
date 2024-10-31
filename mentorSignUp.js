@@ -2,7 +2,7 @@
 // <script type="module" src="mentorSignUp.js" defer></script>
 
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 document.addEventListener('DOMContentLoaded', function () {
     // Get the form elements
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize Firestore
     const db = getFirestore();
+    const auth = getAuth()
 
     // Add event listener on form submission
     form.addEventListener('submit', async function (event) {
@@ -33,16 +34,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 // get data 
                 let fullName = fullNameInput.value
                 let username = usernameInput.value
-                let email = emailInput.value
-                let phone = phoneInput.value
+                let email    = emailInput.value
+                let phone    = phoneInput.value
                 let password = passwordInput.value
+                
+                // create user in firebase
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+                const user = userCredential.user
 
                 await setDoc(doc(db, "Mentors", username), {
-                    name: fullName,
+                    uid     : user.uid,
+                    name    : fullName,
                     username: username,
-                    email: email,
-                    phone: phone,
-                    password: password,
+                    email   : email,
+                    phone   : phone,
                 });
 
                 // comment this out for testing 
