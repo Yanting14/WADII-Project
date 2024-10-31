@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/axios/dist/axios.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_exploration.css">
 
 
 </head>
@@ -58,7 +58,7 @@
     <div class="jumbotron d-flex flex-column justify-content-center align-items-center text-center bg-light mb-3">
     <div>
         <h1>JobBudds</h1>
-        <p>Feeling loss in navaigating your future? Unlock your potential with us today!</p>
+        <p>Feeling loss in navigating your future? Unlock your potential with us today!</p>
      </div>
     </div>
 </div>
@@ -74,7 +74,7 @@
         <div class="col-auto">
           <div class="input-group mb-4">
             <span class="input-group-text" id="stairs"><i class="fas fa-stairs"></i></span>
-            <button style="background-color: white;" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Experience Level</></button>
+            <button style="background-color: white;" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Experience Level</button>
             <div class="dropdown-menu">
               <div v-for="lvl in level_options">
                 <input type="checkbox" :value="lvl" v-model="levels"> <span class="checkbox-label">{{lvl}}</span>          
@@ -128,7 +128,7 @@
       >
         <div class="card" style="width: 100%;">
           <div class="card-body">
-            <h5 class="Role card-title">{{ job.categories && job.categories.length > 0 ? job.categories[0].name : '' }}</h5>
+            <h5 class="Role card-title">{{ job.categories && job.categories.length > 0 ? job.categories[0].name :'Unknown Job Role' }}</h5>
             <h6 class="Company card-subtitle mb-2 text-muted">{{ job.company?.name || 'No company info' }}</h6>
             <h6 class="Location card-subtitle mb-2 text-muted">{{ job.locations && job.locations.length > 0 ? job.locations[0].name : 'No location' }}</h6>
             <h6 class="Level card-subtitle mb-2 text-muted">{{ job.levels && job.levels.length > 0 ? job.levels[0].name : 'No level' }}</h6>
@@ -140,14 +140,17 @@
     </div>
   </div>
 
+  <p style='text-align: center' v-if="page_results.length==0 && !loading">
+    No results found. Please check back soon for more opportunities!
+  </p>
+
   <!-- justify content center helps me to center the column horizontaly within the row -->
   <!-- align-items-center: Vertically centers the columns within the row. -->
   <!-- col-auto: Automatically adjusts each column width to fit the content without taking up more space. -->
 
-
   <div class="row justify-content-center align-items-center" v-if='loading'>
     <div class="d-flex justify-content-center align-items-center">
-      <span style="color:white">Loading</span>
+      <span style="color:black">Loading</span>
   <div class="spinner-grow text-secondary mx-1" role="status" style="width: 10px; height: 10px;">
     <span class="visually-hidden">Loading...</span>
   </div>
