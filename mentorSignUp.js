@@ -1,11 +1,9 @@
-// Import Firestore from Firebase (ensure you have this line in your HTML)
-// <script type="module" src="mentorSignUp.js" defer></script>
-
+// Import Firestore and Auth from Firebase
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Get the form elements
+    // Get form and input elements
     const form = document.querySelector('form');
     const fullNameInput = document.querySelector('input[aria-label="Full Name"]');
     const usernameInput = document.querySelector('input[aria-label="Username"]');
@@ -15,45 +13,48 @@ document.addEventListener('DOMContentLoaded', function () {
     const confirmPasswordInput = document.querySelector('input[aria-label="Confirm password"]');
     const termsCheckbox = document.querySelector('input#termsAndConditions');
 
-    // Initialize Firestore
+    // Initialize Firestore and Auth
     const db = getFirestore();
-    const auth = getAuth()
+    const auth = getAuth();
 
-    // Add event listener on form submission
+    // Form submission event listener
     form.addEventListener('submit', async function (event) {
-        // Prevent default form submission
         event.preventDefault();
         clearErrors();
 
-        // Perform validation
+        // Perform form validation
         const isValid = await validateForm();
 
-        // If valid, send data to Firestore
+        const fullName = fullNameInput.value;
+        const username = usernameInput.value;
+        const email = emailInput.value;
+        const phone = phoneInput.value;
+        const password = passwordInput.value;
+        
         if (isValid) {
             try {
-                // get data 
-                let fullName = fullNameInput.value
-                let username = usernameInput.value
-                let email    = emailInput.value
-                let phone    = phoneInput.value
-                let password = passwordInput.value
-                
-                // create user in firebase
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-                const user = userCredential.user
+                // Attempt to create the user in Firebase Authentication
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
 
+                // Store user data in Firestore
                 await setDoc(doc(db, "Mentors", username), {
-                    uid     : user.uid,
-                    name    : fullName,
+                    uid: user.uid,
+                    name: fullName,
                     username: username,
-                    email   : email,
-                    phone   : phone,
+                    email: email,
+                    phone: phone,
                 });
 
-                // comment this out for testing 
-                localStorage.setItem('username', username) //store username 
+                // Store username in session
+                sessionStorage.setItem('username', username);
+
+                // next page
                 window.location.href = "mentorCredentials.html";
             } catch (error) {
+                if(error.code === 'auth/email-already-in-use'){
+                    showError(emailInput, 'This email has already been registered')
+                }
                 console.error("Error adding document: ", error);
             }
         }
@@ -62,50 +63,52 @@ document.addEventListener('DOMContentLoaded', function () {
     async function validateForm() {
         let valid = true;
 
-        // Validate Full Name
+        // Full Name Validation
         if (fullNameInput.value.trim() === '') {
             showError(fullNameInput, 'Full Name is required');
             valid = false;
-        }
-        else if (containsNumbers(fullNameInput.value)) {
-            showError(fullNameInput, 'Full name cannot have numbers!')
+        } else if (containsNumbers(fullNameInput.value)) {
+            showError(fullNameInput, 'Full name cannot contain numbers');
             valid = false;
         }
 
-        // Validate Username
+        // Username Validation
         if (usernameInput.value.trim() === '') {
             showError(usernameInput, 'Username is required');
             valid = false;
-        }
-        else {
-            const usernameExists = await checkUsernameExists(usernameInput.value)
+        } else {
+            const usernameExists = await checkUsernameExists(usernameInput.value);
             if (usernameExists) {
-                showError(usernameInput, 'Username is already taken!')
-                valid = false
+                showError(usernameInput, 'Username is already taken');
+                valid = false;
             }
         }
 
-        // Validate Email
+        // Email Validation
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(emailInput.value)) {
             showError(emailInput, 'Please enter a valid email');
             valid = false;
+        } else {
+            const emailExists = await checkEmailExists(emailInput.value);
+            if (emailExists) {
+                showError(emailInput, 'This email is already registered');
+                valid = false;
+            }
         }
 
-        // Validate Phone Number (Check if it's numeric)
+        // Phone Number Validation
         const phonePattern = /^[0-9]+$/;
         if (!phonePattern.test(phoneInput.value) || phoneInput.value.trim() === '' || phoneInput.value.length < 8) {
-            showError(phoneInput, 'Please enter a valid phone number (ie. 93210001)');
+            showError(phoneInput, 'Please enter a valid phone number (e.g., 93210001)');
             valid = false;
         }
 
-        // Validate Password
+        // Password and Confirm Password Validation
         if (passwordInput.value.trim() === '') {
             showError(passwordInput, 'Password is required');
             valid = false;
         }
-
-        // Validate Confirm Password
         if (confirmPasswordInput.value.trim() === '') {
             showError(confirmPasswordInput, 'Confirm Password is required');
             valid = false;
@@ -114,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
             valid = false;
         }
 
-        // Validate Terms and Conditions Checkbox
+        // Terms and Conditions Checkbox Validation
         if (!termsCheckbox.checked) {
             showError(termsCheckbox, 'You must agree to the terms and conditions');
             valid = false;
@@ -124,14 +127,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function showError(inputElement, message) {
-        // Create a small element to display error
         const errorElement = document.createElement('small');
         errorElement.classList.add('text-red-600');
         errorElement.textContent = message;
 
-        // Add error message after the input field or checkbox
         if (inputElement.type === 'checkbox') {
-            document.getElementById("tNcError").parentElement.appendChild(errorElement);
+            document.getElementById("tNcError").appendChild(errorElement);
         } else {
             inputElement.parentElement.appendChild(errorElement);
         }
@@ -139,13 +140,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function clearErrors() {
-        // Remove all existing error messages
         document.querySelectorAll('.text-red-600').forEach(error => error.remove());
-        // Remove 'is-invalid' class from inputs
         document.querySelectorAll('.is-invalid').forEach(input => input.classList.remove('is-invalid'));
     }
 
-    // check if a string contains numbers
     function containsNumbers(str) {
         return str.split('').some(char => !isNaN(char) && char !== ' ');
     }
@@ -154,5 +152,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const docRef = doc(db, "Mentors", username);
         const docSnap = await getDoc(docRef);
         return docSnap.exists();
+    }
+
+    async function checkEmailExists(email) {
+        const methods = await fetchSignInMethodsForEmail(auth, email);
+        return methods.length > 0;
     }
 });

@@ -34,7 +34,7 @@ const app1 = Vue.createApp({
             this.errors = {};
 
             // get username 
-            const username = localStorage.getItem('username')
+            const username = sessionStorage.getItem('username')
 
             // Validate form fields
             const isValid = this.validateForm();
