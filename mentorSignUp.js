@@ -1,7 +1,7 @@
 // Import Firestore from Firebase (ensure you have this line in your HTML)
 // <script type="module" src="mentorSignUp.js" defer></script>
 
-import { getFirestore, doc, setDoc, getDoc} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const termsCheckbox = document.querySelector('input#termsAndConditions');
 
     // Initialize Firestore
-    const db = getFirestore();  
+    const db = getFirestore();
 
     // Add event listener on form submission
     form.addEventListener('submit', async function (event) {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         clearErrors();
 
         // Perform validation
-        let isValid = validateForm();
+        const isValid = await validateForm();
 
         // If valid, send data to Firestore
         if (isValid) {
@@ -33,19 +33,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 // get data 
                 let fullName = fullNameInput.value
                 let username = usernameInput.value
-                let email    = emailInput.value
-                let phone    = phoneInput.value
+                let email = emailInput.value
+                let phone = phoneInput.value
                 let password = passwordInput.value
 
                 await setDoc(doc(db, "Mentors", username), {
-                    name    : fullName,
+                    name: fullName,
                     username: username,
-                    email   : email,
-                    phone   : phone,
+                    email: email,
+                    phone: phone,
                     password: password,
                 });
-                
+
                 // comment this out for testing 
+                localStorage.setItem('username', username) //store username 
                 window.location.href = "mentorCredentials.html";
             } catch (error) {
                 console.error("Error adding document: ", error);
@@ -53,12 +54,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function validateForm() {
+    async function validateForm() {
         let valid = true;
 
         // Validate Full Name
         if (fullNameInput.value.trim() === '') {
             showError(fullNameInput, 'Full Name is required');
+            valid = false;
+        }
+        else if (containsNumbers(fullNameInput.value)) {
+            showError(fullNameInput, 'Full name cannot have numbers!')
             valid = false;
         }
 
@@ -67,12 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
             showError(usernameInput, 'Username is required');
             valid = false;
         }
-        else{
-            //check if current username in database 
-            const docRef = doc(db, "Mentors", usernameInput.value)
-            const docSnap = getDoc(docRef)
-            if (docSnap != null){
-                showError(usernameInput, "Username is already taken!")
+        else {
+            const usernameExists = await checkUsernameExists(usernameInput.value)
+            if (usernameExists) {
+                showError(usernameInput, 'Username is already taken!')
                 valid = false
             }
         }
@@ -86,8 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Validate Phone Number (Check if it's numeric)
         const phonePattern = /^[0-9]+$/;
-        if (!phonePattern.test(phoneInput.value) || phoneInput.value.trim() === '') {
-            showError(phoneInput, 'Please enter a valid phone number');
+        if (!phonePattern.test(phoneInput.value) || phoneInput.value.trim() === '' || phoneInput.value.length < 8) {
+            showError(phoneInput, 'Please enter a valid phone number (ie. 93210001)');
             valid = false;
         }
 
@@ -135,5 +138,16 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.text-red-600').forEach(error => error.remove());
         // Remove 'is-invalid' class from inputs
         document.querySelectorAll('.is-invalid').forEach(input => input.classList.remove('is-invalid'));
+    }
+
+    // check if a string contains numbers
+    function containsNumbers(str) {
+        return str.split('').some(char => !isNaN(char) && char !== ' ');
+    }
+
+    async function checkUsernameExists(username) {
+        const docRef = doc(db, "Mentors", username);
+        const docSnap = await getDoc(docRef);
+        return docSnap.exists();
     }
 });
