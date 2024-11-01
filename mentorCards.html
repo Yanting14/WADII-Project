@@ -33,7 +33,7 @@
             /* Higher z-index than the modal */
             position: absolute;
             /* Position absolute within the modal */
-            top: 50%;
+            top: 35%;
             /* Center it vertically */
             left: 50%;
             /* Center it horizontally */
@@ -41,7 +41,7 @@
             /* Center using transform */
             width: calc(100% - 2rem);
             /* Full width minus padding */
-            max-width: 600px;
+            max-width: 75%;
             /* Limit max width */
             height: auto;
             /* Auto height */
@@ -76,7 +76,7 @@
         <!-- Heading -->
         <div class="text-center ">
             <h1 class="text-5xl font-bold text-indigo-700 mb-3">Our Mentors</h1>
-            <p class="text-gray-500 mb-3 text-lg">Curated just for you</p>
+            <p class="text-gray-500 mb-3 text-lg italic">Curated just for you</p>
         </div>
 
 
@@ -84,33 +84,7 @@
         <div id="cardCarousel" class="mt-8 shadow-xl p-6 rounded-lg bg-white relative">
             <div id = "mentor-list"></div>
 
-        </div> <!-- Placeholder for Vue component -->
-
-        <!-- testing -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div v-for="mentor in mentors" :key="mentor.id" class="bg-white rounded-lg shadow-md overflow-hidden card"
-                @click="expandCard(mentor)">
-                <img :src="mentor.imageUrl" alt="Card image" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h5 class = "text-lg font-semibold text-gray-800">{{ mentor.name }}</h5>
-                    <p  class = "mt-2 text-gray-600 line-clamp-4">{{ mentor.mentorLinkedIn }}</p>
-                    <p>some code here</p>
-                </div>
-            </div>
-        </div>
-
-
-
-        <!-- Expanded Card Modal -->
-        <!-- <div id="expandedCard" class="modal">
-            <div class="expanded bg-white shadow-lg rounded-lg">
-                <button id="closeModal"
-                    class="text-red-600 hover:text-red-800 absolute top-2 right-2 text-lg">&times;</button>
-                <h2 class="text-3xl font-bold mb-4" id="expandedTitle"></h2>
-                <p id="expandedDescription" class="mb-4"></p>
-                <p id="expandedExtra" class="text-gray-600"></p>
-            </div>
-        </div> -->
+        </div> 
 
     </div> <!-- container -->
 

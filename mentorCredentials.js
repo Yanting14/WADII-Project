@@ -17,15 +17,16 @@ const db = getFirestore(app);
 const app1 = Vue.createApp({
     data() {
         return {
-            mentorTitle: '',
-            mentorExperience: '',
-            mentorCompany: '',
-            mentorIndustry: '',
-            mentorSkills: '',
-            mentorEducation: '',
-            mentorLinkedIn: '',
+            mentorTitle        : '',
+            mentorExperience   : '',
+            mentorCompany      : '',
+            mentorIndustry     : '',
+            mentorSkills       : '',
+            mentorEducation    : '',
+            mentorLinkedIn     : '',
             graduatingInstitute: '',
-            errors: {}
+            about              : '',
+            errors             : {}
         }
     },
     methods: {
@@ -44,21 +45,25 @@ const app1 = Vue.createApp({
                 try {
                     const docRef = doc(db, "Mentors", username);
                     await updateDoc(docRef, {
-                        mentorTitle: this.mentorTitle,
-                        mentorExperience: this.mentorExperience,
-                        mentorCompany: this.mentorCompany,
-                        mentorIndustry: this.mentorIndustry,
-                        mentorSkills: this.mentorSkills,
-                        mentorEducation: this.mentorEducation,
-                        mentorLinkedIn: this.mentorLinkedIn,
-                        graduatingInstitute: this.graduatingInstitute
+                        mentorTitle        : this.mentorTitle,
+                        mentorExperience   : this.mentorExperience,
+                        mentorCompany      : this.mentorCompany,
+                        mentorIndustry     : this.mentorIndustry,
+                        mentorSkills       : this.mentorSkills,
+                        mentorEducation    : this.mentorEducation,
+                        mentorLinkedIn     : this.mentorLinkedIn,
+                        graduatingInstitute: this.graduatingInstitute,
+                        about              : this.about,
                     });
-                    alert("Form submitted successfully!");
+                    alert("Thank you for signing up!");
+
+                    window.location.href="mentorCards.html"
                 } catch (error) {
                     console.error("Error adding document:", error);
                 }
             }
         },
+        
         validateForm() {
             let isValid = true;
             if (!this.mentorTitle) {
@@ -94,13 +99,16 @@ const app1 = Vue.createApp({
                 isValid = false;
             }
 
+            if (!this.about) {
+                this.errors.about = "Let our students know more about you!";
+                isValid = false;
+            }
+
             return isValid
             
         }
     }
 }).mount("#app1");
-
-// #TODO: add in logic to clear local storage when user leaves the page 
 
 
 const app2 = Vue.createApp({
