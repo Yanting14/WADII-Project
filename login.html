@@ -51,8 +51,6 @@
                             style="font-weight: bold; font-size:20px; text-decoration: underline;"> Register</span></a>
                 </div>
             </div>
-
-
         </div>
 
     </div>
@@ -61,14 +59,18 @@
 
     <script type="module">
         // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
         import {
             getAuth,
             createUserWithEmailAndPassword,
             signInWithEmailAndPassword,
             onAuthStateChanged,
             signOut
-        } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"
+        } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+        import { collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+       import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.js';
+
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -85,6 +87,8 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        const db=getFirestore(app);
+        console.log(db)
 
         const SignInemail = document.getElementById('email')
         const SignInpassword = document.getElementById('password')
@@ -100,9 +104,25 @@
             const SignInPassword = password.value;
             signInWithEmailAndPassword(auth, SignInEmail, SignInPassword)
                 // create user in authentication path of our firebase object
-                .then((usercredential) => {
+                .then(async(usercredential) => {
                     const user = usercredential.user
+                    console.log(user)
                     alert("You have sucessfully log in");
+
+
+                    try {
+                        const usersCollection = collection(db, "users");
+
+
+                        await addDoc(usersCollection, {
+                            email: user.email, 
+                            uid: user.uid 
+                        });
+                        console.log("User added to Firestore:", user.email);
+                    } catch (error) {
+                       console.log("Error adding document: ", error);
+                    }
+    
 
                 })
                 .catch((error => {
