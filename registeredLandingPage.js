@@ -17,6 +17,10 @@ const app = Vue.createApp({
     methods: {
         goToMentors() {
             window.location.href = "mentorCards.html"
+        },
+
+        goToProfile(){
+            window.location.href = ""
         }
     } // methods
 });
