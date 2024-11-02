@@ -227,9 +227,10 @@
 
   <script type="module">
 
- import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getAuth} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
     import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-    import { collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+    import { collection, doc,getDoc, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
     import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.js';
 
     const firebaseConfig = {
@@ -244,6 +245,8 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+    const auth = getAuth(app);
+
 
 
     const vm = Vue.createApp({
@@ -389,38 +392,49 @@
         },
 
         async saveJob(job) {
-          try {
+    try {
+        const user = auth.currentUser; // Get the current user
 
-            const savedJobsCollection = collection(db, "savedJobs");
-            const savedJobsSnapshot = await getDocs(savedJobsCollection);
-            const isJobSaved = savedJobsSnapshot.docs.some((doc) => doc.data().id === job.id);
+        if (!user) {
+            alert("Please log in to save jobs");
+            return;
+        }
 
+        // Reference to the user's document in Firestore
+        const userDocRef = doc(db, 'users', user.uid);
+        const userDoc = await getDoc(userDocRef);
+
+        if (userDoc.exists()) {
+            const savedJobs = userDoc.data().savedJobs || []; // Get the savedJobs array or initialize it as empty
+
+            const isJobSaved = savedJobs.some(savedJob => savedJob.id === job.id);
 
             if (!isJobSaved) {
-
-              await addDoc(savedJobsCollection, {
-                id: job.id,
-                jobName: job.name,
-                companyName: job.company?.name || 'No company info',
-                location: job.locations && job.locations.length > 0 ? job.locations[0].name : 'No location',
-                level: job.levels && job.levels.length > 0 ? job.levels[0].name : 'No level',
-                publicationDate: job.publication_date ? job.publication_date.slice(0, 10) : 'No date'
-              });
-
-
-              alert("Job saved successfully")
-
+                // Use arrayUnion to add a new job object to savedJobs array
+                await updateDoc(userDocRef, {
+                    savedJobs: arrayUnion({
+                        id: job.id,
+                        jobName: job.name,
+                        companyName: job.company?.name || 'No company info',
+                        location: job.locations && job.locations.length > 0 ? job.locations[0].name : 'No location',
+                        level: job.levels && job.levels.length > 0 ? job.levels[0].name : 'No level',
+                        publicationDate: job.publication_date ? job.publication_date.slice(0, 10) : 'No date'
+                    })
+                });
+                alert("Job saved successfully");
+            } else {
+                alert("Job has already been saved");
             }
-            else {
-              alert("Job has already been saved")
-            }
-          }
+        } else {
+            alert("User document not found");
+        }
+    } catch (error) {
+        console.error("Error saving job:", error);
+    }
+},
 
-          catch (error) {
-            console.error('Error srarching job', error)
-          }
 
-        },
+
 
 
         async fetchSavedJobs() {
