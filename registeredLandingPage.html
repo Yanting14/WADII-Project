@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name    = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Thank You for Signing Up!</title>
+
+    <!-- Tailwind CSS -->
+    <script src = "https://cdn.tailwindcss.com"></script>
+
+    <!-- Vue.js CDN -->
+    <script src = "https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script defer src="registeredLandingPage.js"></script>
+    <style>
+        /* Custom styles if needed */
+    </style>
+
+</head>
+
+<body class = "bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class = "bg-gray-800 p-4 mb-6">
+        <div class = "container mx-auto flex justify-between items-center">
+            <a   href  = "#" class = "text-white text-2xl font-bold">Navbar</a>
+            <div class = "hidden md:flex space-x-4">
+                <a href = "#" class = "text-gray-300 hover:text-white">Home</a>
+                <a href = "#" class = "text-gray-300 hover:text-white">Link</a>
+                <a href = "#" class = "text-gray-300 hover:text-white">Dropdown</a>
+                <a href = "#" class = "text-gray-300 hover:text-white">Disabled</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main container -->
+    <div class="container mx-auto" id="app">
+        <div class="rounded-lg p-8 text-center md:grid-cols-1">
+            <div class = "text-5xl font-bold text-indigo-700 mb-4 tracking-wide text-center px-10">
+                Welcome to the
+            </div>
+            <div class = "text-5xl md:text-8xl font-bold bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent mb-4">
+                JobSeekers
+            </div>
+            <div class = "text-5xl font-bold text-indigo-700 mb-6 tracking-wide text-center px-10">
+                family.
+            </div>
+
+            <div class="text-gray-600 text-lg mb-6">We're excited to have you on board as a Mentor. Your application has been processed.</div>
+            <div class="text-gray-600 text-lg mb-8">Your Mentor Card is now available. </div>
+            
+            <a href="#mentors" class="inline-block mx-5 px-6 py-3 text-white bg-gradient-to-r from-[#9600FF] to-teal-300 rounded-lg hover:from-[#EEDB89] hover:to-[#D13ABD] text-lg" @click="goToMentors">
+                View All Mentors
+            </a>
+            <div class="text-gray-600 text-lg my-3 ">
+                or
+            </div>
+
+            <a href = "#mentors" class = "inline-block mx-5 px-6 py-3 text-white bg-gradient-to-r from-[#9600FF] to-teal-300 rounded-lg hover:from-[#EEDB89] hover:to-[#D13ABD] text-lg">
+                Head To Your Profile
+            </a>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
