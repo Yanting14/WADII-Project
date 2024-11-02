@@ -22,6 +22,13 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         clearErrors();
 
+        const loading = true
+        const button  = document.getElementById('submitButton')
+        const spinner = document.getElementById('spinner')
+
+        button.classList.add('hidden')
+        spinner.classList.remove('hidden')
+
         // Perform form validation
         const isValid = await validateForm();
 
@@ -48,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Store username in session
                 sessionStorage.setItem('username', username);
-
+                sessionStorage.setItem('name', fullName)
                 // next page
                 window.location.href = "mentorCredentials.html";
             } catch (error) {
@@ -56,7 +63,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     showError(emailInput, 'This email has already been registered')
                 }
                 console.error("Error adding document: ", error);
+
             }
+        }
+        else{
+            button.classList.remove('hidden')
+            spinner.classList.add('hidden')
         }
     });
 
