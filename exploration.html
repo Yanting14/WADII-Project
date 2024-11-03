@@ -12,13 +12,11 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style_exploration.css">
-
-
+  <script type="module" src="firebaseConfig.js"></script>
 </head>
 
 <body>
   <!-- test -->
-
   <div id='app' class="container-fluid">
 
     <div class="row">
@@ -125,12 +123,10 @@
       </div>
 
       <div class="col-auto">
-        <button type="button" class="btn btn-outline-secondary mb-4" @click="ViewSave"><i class="far fa-bookmark"></i>
+        <button type="button" class="btn btn-outline-secondary mb-4" @click="getSavedJobs"><i class="far fa-bookmark"></i>
           Saved Jobs</button>
       </div>
     </div>
-
-
 
     <!-- delete later this just for reference -->
     <!-- {{levels}}
@@ -138,7 +134,7 @@
 
     <!-- display results here -->
 
-    <div class="container">
+    <div class="container" v-if="!showsaved">
       <div class="row">
         <div v-for="(job, index) in page_results" :key="index"
           class="col-lg-4 col-md-4 col-sm-12 d-flex align-items-stretch mb-4">
@@ -171,14 +167,12 @@
                     class="btn btn_design"><span style="color:white">Apply</span></button></a>
               </div>
 
-
-
             </div>
           </div>
         </div>
       </div>
     </div>
-    
+
 
     <p style='text-align: center; font-weight: bold ;' v-if="page_results.length==0 && !loading">
       No results found. Please check back soon for more opportunities!
@@ -217,37 +211,12 @@
       </div>
     </div>
 
-
-
   </div>
   <!-- end container fluid div  and app-->
 
-
-
-
   <script type="module">
-
-   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-    import { getAuth} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-    import { collection, doc,getDoc, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-    import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.js';
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
-      authDomain: "wadii-career-20ae3.firebaseapp.com",
-      projectId: "wadii-career-20ae3",
-      storageBucket: "wadii-career-20ae3.appspot.com",
-      messagingSenderId: "967171133152",
-      appId: "1:967171133152:web:42cac325a66903712bca85"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const auth = getAuth(app);
-
-
+  import { collection, addDoc, doc, getDoc, setDoc, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+  import { auth,db } from './firebaseConfig.js';
 
     const vm = Vue.createApp({
       data() {
@@ -391,82 +360,93 @@
 
         },
 
-        async saveJob(job) {
+async  saveJob(job) {
     try {
-        const user = auth.currentUser; // Get the current user
-
+        const user = auth.currentUser;
+        // check if user is login first
         if (!user) {
             alert("Please log in to save jobs");
             return;
         }
-
-        // Reference to the user's document in Firestore
+        // get ref to current user document in firestore using the unique identifier uid
         const userDocRef = doc(db, 'users', user.uid);
         const userDoc = await getDoc(userDocRef);
+        // fetch user document from firestore
+        let savedJobs = [];
+        // initialise this array that we will later on add to field
 
-        if (userDoc.exists()) {
-            const savedJobs = userDoc.data().savedJobs || []; // Get the savedJobs array or initialize it as empty
-
-            const isJobSaved = savedJobs.some(savedJob => savedJob.id === job.id);
-
-            if (!isJobSaved) {
-                // Use arrayUnion to add a new job object to savedJobs array
-                await updateDoc(userDocRef, {
-                    savedJobs: arrayUnion({
-                        id: job.id,
-                        jobName: job.name,
-                        companyName: job.company?.name || 'No company info',
-                        location: job.locations && job.locations.length > 0 ? job.locations[0].name : 'No location',
-                        level: job.levels && job.levels.length > 0 ? job.levels[0].name : 'No level',
-                        publicationDate: job.publication_date ? job.publication_date.slice(0, 10) : 'No date'
-                    })
-                });
-                alert("Job saved successfully");
-            } else {
-                alert("Job has already been saved");
-            }
-        } else {
-            alert("User document not found");
+        if (!userDoc.exists()) {
+            // document dont exist so use set doc to create it 
+            await setDoc(userDocRef, {
+                email: user.email,
+                uid: user.uid,
+                savedJobs: []  // initialise as an empty array 
+            });
+            console.log("User document created");
         }
-    } catch (error) {
+        else{
+            savedJobs=userDoc.data().savedJobs||[]
+        }
+
+        const jobAlreadySaved=savedJobs.some(savedJob=>savedJob.id===job.id)
+        if(jobAlreadySaved){
+            alert('Job has already been saved')
+            return; 
+            // return n stop running subsequent code 
+        }
+
+        //if job array exists and the new save is unique then update the Doc
+        await updateDoc(userDocRef, {
+            savedJobs: arrayUnion({
+                id: job.id,
+                name: job.name,
+                category:job.categories && job.categories.length > 0 ?
+                job.categories[0].name :'Unknown Job Role',
+                company: job.company?.name || 'No company info' ,
+                locations: job.locations && job.locations.length > 0 ? job.locations[0].name : 'No location',
+                levels: job.levels && job.levels.length > 0 ? job.levels[0].name : 'No level',
+                publication_date:job.publication_date ?job.publication_date.slice(0, 10) : 'No date',
+                refs:job.refs?.landing_page || '#'
+                
+            })
+        });
+
+        alert("Job saved successfully");
+    } 
+    // end of try block
+    
+    catch (error) {
         console.error("Error saving job:", error);
     }
 },
 
+async getSavedJobs(){
 
+    const user=auth.currentUser
+    if (!user) {
+        alert("Please log in to view saved jobs");
+        return;
+      }
+    //   this will set up a pointer reference to  document (db,collectionName,documentID)
+    
+      const userDocRef=doc(db,'users',user.uid)
+    
+      //this is what retrieves  document
+      const userDoc=await getDoc(userDocRef)
+      console.log(userDoc)
 
+      if(userDoc.exists()){
+        this.savedJobs=userDoc.data().savedJobs||[];
+        console.log(this.savedJobs)
+        this.showsaved=true;
 
+      }
+      else{
+        console.log("You have no saved jobs yet.")
 
-        async fetchSavedJobs() {
-          try {
+      }
 
-            this.savedJobs = []
-            const savedJobssnapshot = await db.collection('savedJobs').get();
-            savedJobsSnapshopt.forEach((doc) => {
-              this.savedJobs.push({ id: doc.id, ...doc.data() })
-
-
-            })
-          }
-
-          catch (error) {
-            console.error('error fetching saved jobs:', error)
-          }
-        },
-
-        async removeJob(job) {
-
-          try {
-            const jobDoc = db.collection('savedJobs').doc(job.id)
-            await jobDoc.delete()
-            this.fetchSavedJobs();
-
-          }
-          catch (error) {
-            console.error('error removing job', error)
-          }
-        }
-
+},
 
 
       },
@@ -476,8 +456,6 @@
       }
 
       //use mounted such that it automatically fetch results when the page is load - lifecycle hook that is triggered when the Vue component is mounted
-
-
 
     }).mount('#app')
 
