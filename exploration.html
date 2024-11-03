@@ -134,7 +134,7 @@
 
     <!-- display results here -->
 
-    <div class="container" v-if="!showsaved">
+    <div class="container" v-if="!loading">
       <div class="row">
         <div v-for="(job, index) in page_results" :key="index"
           class="col-lg-4 col-md-4 col-sm-12 d-flex align-items-stretch mb-4">
@@ -182,7 +182,7 @@
     <!-- align-items-center: Vertically centers the columns within the row. -->
     <!-- col-auto: Automatically adjusts each column width to fit the content without taking up more space. -->
 
-    <div class="row justify-content-center align-items-center" v-if='loading'>
+    <div class="row justify-content-center align-items-center" v-if="loading">
       <div class="d-flex justify-content-center align-items-center">
         <span style="color:black">Loading</span>
         <div class="spinner-grow text-secondary mx-1" role="status" style="width: 10px; height: 10px;">
@@ -209,6 +209,7 @@
           {{ loading ? 'More Results' : 'More Results' }}
         </button>
       </div>
+
     </div>
 
   </div>
@@ -239,7 +240,7 @@
           total_page: 0,
           resultsPerPage: 20,
 
-          page_results: [],
+          page_results:[],
 
           savedJobs: [],
 
@@ -247,7 +248,6 @@
           showbuttons: false,
 
           showsaved: false
-
 
         }
       },
@@ -354,7 +354,10 @@
             //here .finally is to execute piece of code after the promise has been settled, it will run regardless the promise rejected or fulfilled
 
             .finally(() => {
+
+              document.getElementById('app').style.display = 'block';
               this.loading = false;
+
               // stop the loading
             })
 
@@ -451,7 +454,7 @@ async getSavedJobs(){
 
       },
 
-      mounted() {
+       mounted() {
         this.fetchResults()
       }
 
