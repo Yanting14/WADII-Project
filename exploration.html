@@ -74,7 +74,14 @@
 
     <!-- large bp : >=992   med bp: >=768 small bp: >=576-->
 
-    <div class="row d-flex justify-content-center align-items-center">
+
+
+
+
+
+
+    <div class="row d-flex justify-content-center align-items-center" v-if="!showsaved">
+
       <div class="flex-nowrap col-xl-3 col-lg-4 col-md-12 col-sm-12 px-3">
         <div class="input-group mb-4">
           <span class="input-group-text" id="building"><i class="far fa-building"></i></span>
@@ -128,13 +135,14 @@
       </div>
     </div>
 
-    <!-- delete later this just for reference -->
-    <!-- {{levels}}
-{{categories}} -->
+    <div class="d-flex justify-content-end" v-if="showsaved">
+      <button type="button" class="btn btn-outline-secondary mb-4" @click="fetchResults">
+        <i class="far fa-circle-xmark"></i> Back to Search Jobs
+      </button>
+    </div>
+   
 
-    <!-- display results here -->
-
-    <div class="container" v-if="!loading">
+    <div class="container" v-if="!loading && !showsaved">
       <div class="row">
         <div v-for="(job, index) in page_results" :key="index"
           class="col-lg-4 col-md-4 col-sm-12 d-flex align-items-stretch mb-4">
@@ -174,6 +182,49 @@
     </div>
 
 
+    <div class="container" v-if="showsaved">
+      <div class="row">
+        <div v-for="(job, index) in savedJobs" :key="index"
+          class="col-lg-4 col-md-4 col-sm-12 d-flex align-items-stretch mb-4">
+          <div class="card position-relative" style="width: 100%;">
+            <button type="button" class="btn btn-secondary save-button" @click="removeJob(job)">
+              <i class="fas fa-circle-minus"></i>
+            </button>
+  
+            <div class="card-body">
+              <h5 class="Role card-title">{{job.name}}</h5>
+              <h6 class="category card-subtitle mb-2 text-muted">{{job.category}}
+              </h6>
+              <h6 class="Company card-subtitle mb-2 text-muted">{{job.companyName}}</h6>
+              <h6 class="Location card-subtitle mb-2 text-muted
+            "><i class="fas fa-map-marker-alt me-2"></i>
+                {{job.locations}}</h6>
+
+
+              <h6 class="Level card-subtitle mb-2 text-muted"><i class="fas fa-briefcase me-2"></i>
+                {{job.levels }}</h6>
+              <h6 class="Date card-subtitle mb-2 text-muted">
+                <i class="fas fa-calendar-alt me-2"></i>
+                {{ job.publication_date }}
+              </h6>
+
+              <div class="d-flex justify-content-center align-items-center">
+                <a v-bind:href="job.refs|| '#'" class="card-link"><button type="button"
+                    class="btn btn_design"><span style="color:white">Apply</span></button></a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <p style='text-align: center; font-weight: bold ;' v-if="showsaved && savedJobs.length==0">
+      No Jobs saved yet. Start exploring!
+    </p>
+
+
     <p style='text-align: center; font-weight: bold ;' v-if="page_results.length==0 && !loading">
       No results found. Please check back soon for more opportunities!
     </p>
@@ -206,7 +257,7 @@
 
       <div class="col-auto">
         <button type="button" class="btn btn-light" v-on:click="loadMoreResults" :disabled="loading">
-          {{ loading ? 'More Results' : 'More Results' }}
+          {{ loading ? 'Loading...' : 'More Results' }}
         </button>
       </div>
 
@@ -216,7 +267,7 @@
   <!-- end container fluid div  and app-->
 
   <script type="module">
-  import { collection, addDoc, doc, getDoc, setDoc, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+  import { collection, addDoc, doc, getDoc, setDoc, updateDoc, arrayUnion,arrayRemove } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
   import { auth,db } from './firebaseConfig.js';
 
     const vm = Vue.createApp({
@@ -279,6 +330,7 @@
         loadResults() {
 
           this.loading = true;
+          this.showsaved=false;
           this.page_results = [];
 
           const params = new URLSearchParams()
@@ -441,7 +493,10 @@ async getSavedJobs(){
       if(userDoc.exists()){
         this.savedJobs=userDoc.data().savedJobs||[];
         console.log(this.savedJobs)
+        // these is array of jobs saved
         this.showsaved=true;
+        // user click on view save icon this.showsaved is true
+      
 
       }
       else{
@@ -450,6 +505,34 @@ async getSavedJobs(){
       }
 
 },
+
+async removeJob(job){
+  try{
+    const user=auth.currentUser
+    const userDocRef=doc(db,'users',user.uid)
+    const userDoc=await getDoc(userDocRef)
+    console.log(userDoc)
+
+
+    if(userDoc.exists()){
+      await updateDoc(userDocRef,{
+        savedJobs:arrayRemove(job)
+      })
+      
+      // remove from local array as well, only include in new array if the job id is not what we want to remove
+      this.savedJobs = this.savedJobs.filter(savedJob => savedJob.id !== job.id)
+      alert('Sucessfully removed from savedJobs')
+
+      }
+
+  }
+
+  catch(error){
+    console.log('error in removing job!',error)
+  }
+
+  
+}
 
 
       },
