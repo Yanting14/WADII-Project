@@ -412,6 +412,7 @@
 
 async  saveJob(job) {
     try {
+
         const user = auth.currentUser;
         // check if user is login first
         if (!user) {
@@ -419,7 +420,7 @@ async  saveJob(job) {
             return;
         }
         // get ref to current user document in firestore using the unique identifier uid
-        const userDocRef = doc(db, 'users', user.uid);
+        const userDocRef = doc(db, 'users', user.email);
         const userDoc = await getDoc(userDocRef);
         // fetch user document from firestore
         let savedJobs = [];
@@ -478,7 +479,7 @@ async getSavedJobs(){
         return;
       }
     //   this will set up a pointer reference to  document (db,collectionName,documentID)
-      const userDocRef=doc(db,'users',user.uid)
+      const userDocRef=doc(db,'users',user.email)
 
       //this is what retrieves  document
       const userDoc=await getDoc(userDocRef)
@@ -501,7 +502,7 @@ async getSavedJobs(){
 async removeJob(job){
   try{
     const user=auth.currentUser
-    const userDocRef=doc(db,'users',user.uid)
+    const userDocRef=doc(db,'users',user.email)
     const userDoc=await getDoc(userDocRef)
     console.log(userDoc)
 
