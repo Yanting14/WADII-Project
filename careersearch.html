@@ -258,6 +258,26 @@
 
     </div>
 
+
+
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="messageModalLabel">JobBudds</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            {{ modalMessage }}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
   </div>
   <!-- end container fluid div  and app-->
 
@@ -269,8 +289,10 @@
       data() {
         return {
 
+
           company: "",
           location: "",
+          modalMessage:"",
 
           levels: [],
           level_options: ['Entry Level', 'Senior Level', 'Internship', 'Mid Level', 'management'],
@@ -299,6 +321,14 @@
       },
 
       methods: {
+
+
+        showModal(message) {
+          this.modalMessage = message;
+          const messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
+          messageModal.show();
+        },
+
         //fetch result will always first return the first page since users havent click load more results yet
         fetchResults() {
           this.currentpage = 1;
@@ -333,13 +363,13 @@
           //i will only pass it as parameters if user defined it
 
           if (this.levels) {
-            for (lvl of this.levels) {
+            for (let lvl of this.levels) {
               params.append('level', lvl)
             }
           }
 
           if (this.categories) {
-            for (cat of this.categories) {
+            for (let cat of this.categories) {
               params.append('category', cat)
             }
           }
@@ -416,7 +446,7 @@ async  saveJob(job) {
         const user = auth.currentUser;
         // check if user is login first
         if (!user) {
-            alert("Please log in to save jobs");
+            this.showModal("Please log in to save jobs");
             return;
         }
         // get ref to current user document in firestore using the unique identifier uid
@@ -441,7 +471,7 @@ async  saveJob(job) {
 
         const jobAlreadySaved=savedJobs.some(savedJob=>savedJob.id===job.id)
         if(jobAlreadySaved){
-            alert('Job has already been saved')
+            this.showModal('Job has already been saved')
             return; 
             // return n stop running subsequent code 
         }
@@ -462,7 +492,7 @@ async  saveJob(job) {
             })
         });
 
-        alert("Job saved successfully");
+        this.showModal("Job saved successfully");
     } 
     // end of try block
     
@@ -475,7 +505,7 @@ async getSavedJobs(){
 
     const user=auth.currentUser
     if (!user) {
-        alert("Please log in to view saved jobs");
+        this.showModal("Please log in to view saved jobs");
         return;
       }
     //   this will set up a pointer reference to  document (db,collectionName,documentID)
@@ -514,7 +544,7 @@ async removeJob(job){
       
       // remove from local array as well, only include in new array if the job id is not what we want to remove
       this.savedJobs = this.savedJobs.filter(savedJob => savedJob.id !== job.id)
-      alert('Sucessfully removed from savedJobs')
+      this.showModal('Sucessfully removed from saved Jobs')
 
       }
 
@@ -546,6 +576,7 @@ async removeJob(job){
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
 </script>
+
 
 
 
