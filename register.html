@@ -56,6 +56,23 @@
         </div>
     </div>
 
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="messageModalLabel">JobBudds</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalMessage">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
     </div>
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -69,6 +86,7 @@
         import { auth,db } from './firebaseConfig.js';
 
 
+
       
 
     
@@ -76,6 +94,14 @@
         const password=document.getElementById('password')
         const registerbutton=document.getElementById('registerbutton')
         const authform=document.getElementById('authform')
+
+
+          
+      function showModal(message) {
+        document.getElementById('modalMessage').textContent = message;
+        const messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
+        messageModal.show();
+    }
 
 
         const UserSignup=async()=>
@@ -88,7 +114,7 @@
             .then((usercredential)=>{
                 const user=usercredential.user 
                 console.log(user);
-                alert("You have sucessfully registered!");
+                showModal("You have sucessfully registered!");
 
             })
             .catch((error)=>{
@@ -157,8 +183,14 @@
         const checkAuthstate=async()=>{
             onAuthStateChanged(auth,user=>{
                 if(user){
-                    window.location="homepage.html"
 
+            // showModal("You have sucessfully registered");
+
+                setTimeout(() => {
+   window.location.href = 'homepage.html';
+
+            }, 1000); 
+            
                 }
                 else{
                     authform.style.display="block"
