@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,102 +8,115 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <script type="module" src="firebaseConfig.js"></script>
 
 </head>
-
 <body>
     <div class="container">
 
         <div id="authform" class="loginbox">
             <h1>Login</h1>
             <div class="row justify-content-center">
-                <div class="col-8 ">
-                    <div class="input-group mb-4 h-75">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6">
+                    <div class="input-group mb-4">
                         <input id='email' type="email" class="form-control" placeholder="Email" aria-label="Email">
                     </div>
                 </div>
-
             </div>
-
+    
             <div class="row justify-content-center">
-                <div class="col-8">
-                    <div class="input-group mb-4 h-75">
-                        <input id="password" type="password" class="form-control" id="exampleInputPassword1"
-                            placeholder="Password">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6">
+                    <div class="input-group mb-4">
+                        <input id="password" type="password" class="form-control" placeholder="Password">
                     </div>
-
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="text-center">
-                    <button id="loginbutton" type="submit" class="btn btn-secondary">Login</button>
                 </div>
             </div>
-
-
-            <div class="row">
-                <div class="col text-center mt-4">
-                    <a style="text-decoration: none; color: grey;" href="register.html">Don't have an account? <span
-                            style="font-weight: bold; font-size:20px; text-decoration: underline;"> Register</span></a>
+    
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <button id="loginbutton" type="submit" class="btn btn-secondary btn-block">Login</button>
                 </div>
             </div>
-
-
+    
+            <div class="row justify-content-center">
+                <div class="col-12 text-center mt-4">
+                    <a style="text-decoration: none; color: grey;" href="register.html">
+                        Don't have an account?
+                        <span style="font-weight: bold; font-size:20px; text-decoration: underline;">Register</span>
+                    </a>
+                </div>
+            </div>
         </div>
-
+    
     </div>
 
+    
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="messageModalLabel">JobBudds</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalMessage">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
-
+    
     <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-        import {
-            getAuth,
-            createUserWithEmailAndPassword,
-            signInWithEmailAndPassword,
-            onAuthStateChanged,
-            signOut
-        } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
-            authDomain: "wadii-career-20ae3.firebaseapp.com",
-            projectId: "wadii-career-20ae3",
-            storageBucket: "wadii-career-20ae3.appspot.com",
-            messagingSenderId: "967171133152",
-            appId: "1:967171133152:web:42cac325a66903712bca85"
-        };
+   //  db` and `auth` are instances already initialized in firebaseConfig.js
+   import { auth,db } from './firebaseConfig.js';
+// import functions u will be using 
+    import {signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+   import { getFirestore, collection, addDoc, doc,setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
+   function showModal(message) {
+    document.getElementById('modalMessage').textContent = message;
+    const messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
+    messageModal.show();
+}
 
-        const SignInemail = document.getElementById('email')
-        const SignInpassword = document.getElementById('password')
-        const loginbutton = document.getElementById('loginbutton')
-        const authform = document.getElementById('authform')
-
-
-        const UserSignin = async () => {
-
+   
+   const UserSignin = async () => {
             clearErrors();
 
             const SignInEmail = email.value;
             const SignInPassword = password.value;
             signInWithEmailAndPassword(auth, SignInEmail, SignInPassword)
                 // create user in authentication path of our firebase object
-                .then((usercredential) => {
+                .then(async(usercredential) => {
                     const user = usercredential.user
-                    alert("You have sucessfully log in");
+                    console.log(user)
 
-                })
+
+                    try {
+                        const userDocRef = doc(db, "users", user.email);
+                        const userDoc = await getDoc(userDocRef);
+
+
+                if (!userDoc.exists()) {
+                    await setDoc(userDocRef, {
+                        email: user.email,
+                        uid: user.uid,
+                        savedJobs: []  // Initialize with an empty savedJobs array if first time logging in
+                    });
+                    console.log("New user document created in Firestore:", user.email);
+                } else {
+                    console.log("User document already exists in Firestore:", user.email);
+                }
+
+                // Redirect to Career Search page
+                window.location.href = 'homepage.html';
+            } catch (error) {
+                console.log("Error adding or fetching document: ", error);
+            }
+            
+        })
                 .catch((error => {
                     const errorcode = error.code;
                     const errormessage = error.message;
@@ -134,17 +146,14 @@
                         default:
                             displayErrorMessage = 'An error occurred: ' + errormessage;
 
-
                     }
 
                     displayError(displayErrorMessage)
 
-                  
-
+                
                 }))
 
         }
-
 
 
     function displayError(message) {
@@ -169,7 +178,6 @@
         previousError.remove();
     }
 }
-
    
 
         loginbutton.addEventListener("click", UserSignin)
@@ -177,7 +185,10 @@
         const checkAuthstate = async () => {
             onAuthStateChanged(auth, user => {
                 if (user) {
-                    window.location.href = 'homepage.html'
+                showModal("You have sucessfully log in");
+                setTimeout(() => {
+                window.location.href = 'homepage.html';
+            }, 1000); 
 
                 }
                 else {
