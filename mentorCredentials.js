@@ -73,7 +73,7 @@ const app1 = Vue.createApp({
                         
                     } 
                     alert("Thank you for signing up!");
-                    window.location.href = "mentorCards.html";
+                    window.location.href = "registeredLandingPage.html";
                 } catch (error) {
                     console.error("Error adding document:", error);
                     alert("There was an error signing up. Please try again later.");
