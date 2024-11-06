@@ -1,0 +1,76 @@
+
+body{
+    background-image: url(images/careerbackg.jpg);
+}
+
+.industry-category {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #eaf3fb;
+}
+.job-role {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+}
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#nav-bar{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar-brand img{
+    height: 50px;
+    
+    padding-left: 30px;
+    
+}
+
+.navbar-nav li{
+    padding: 0 10px;
+}
+
+.navbar-nav li a{
+    float: right;
+    text-align: left;
+}
+
+#nav-bar ul li a:hover{
+    color: #007bff;
+}
+
+.navbar{
+    background:#fff;
+}
+
+.navbar-toggle{
+    border:none
+}
+
+.nav-link{
+    color:#555;
+    font-weight: 600;
+    font-size: 16px;
+}
+.jumbotron{
+
+    height:200px;
+    background-image: url(./images/jumbotron.jpg);
+    background-size: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.industry-category {
+    min-height: 250px; /* Adjust this value based on your preference */
+}
