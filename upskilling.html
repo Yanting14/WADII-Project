@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>Upskilling</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -128,19 +128,38 @@
     </div>
 
 
-    <script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
+            authDomain: "wadii-career-20ae3.firebaseapp.com",
+            projectId: "wadii-career-20ae3",
+            storageBucket: "wadii-career-20ae3.appspot.com",
+            messagingSenderId: "967171133152",
+            appId: "1:967171133152:web:42cac325a66903712bca85"
+        };
+
+        const firebaseApp = initializeApp(firebaseConfig);
+        const db = getFirestore(firebaseApp);
+        const auth = getAuth(firebaseApp);
+
         const app = Vue.createApp({
             data(){
                 return {
                     entered:'',
                     courses:[],
-                    buttons: ["All Courses", "Tech", "Business", "Design", "Soft Skills", "Marketing", "Data Science"],
+                    buttons: ["All Courses", "Tech", "Business", "Design", "Soft Skills", "Healthcare", "Accountancy","Law","Media & Communications","Social Science"],
                     activeButton: null,
-                    clicked: ''
+                    clicked: '',
+                    interest: ''
                 }
             },
             mounted(){
-                this.give()
+                this.give();
+                this.fetchUserProfile();
             },
             methods: {
                 give(){
@@ -154,31 +173,56 @@
                 setcolor(index){
                     this.activeButton = index,
                     this.clicked = this.buttons[index]
+                },
+                async fetchUserProfile() {
+                    onAuthStateChanged(auth, async (user) => {
+                        if (user) {
+                            const docRef = doc(db, "users", user.email);
+                            const docSnap = await getDoc(docRef);
+
+                            if (docSnap.exists()) {
+                                const profileData = docSnap.data();
+                                if (profileData.selectedIndustries && profileData.selectedIndustries.length > 0) {
+                                    // Set the interest to the first selected industry
+                                    this.interest = profileData.selectedIndustries[0];
+                                }
+                                console.log("Profile data:", profileData);
+                            } else {
+                                console.log("No such document!");
+                            }
+                        } else {
+                            console.log("User is not logged in.");
+                        }
+                    });
                 }
             },
             computed: {
                 filteredCourses() {
+                    if (!this.courses || this.courses.length === 0) return [];
 
-            if (!this.courses || this.courses.length === 0) return [];
+                    const searchMatch = course => this.entered 
+                        ? course.title.toLowerCase().includes(this.entered.toLowerCase())
+                        : true;
 
-            return this.courses.filter(course => {
+                    if (this.activeButton === null || this.buttons[this.activeButton] === "All Courses") {
+                        const interestMatch = course => course.category 
+                            ? course.category.toLowerCase() === this.interest.toLowerCase()
+                            : false;
 
-                const searchMatch = this.entered 
-                    ? course.title.toLowerCase().includes(this.entered.toLowerCase())
-                    : true;
-                
-                if (this.activeButton === null || this.buttons[this.activeButton] === "All Courses") {
-                    return searchMatch;
+                        const prioritizedCourses = this.courses.filter(course => searchMatch(course) && interestMatch(course));
+                        const otherCourses = this.courses.filter(course => searchMatch(course) && !interestMatch(course));
+
+                        return [...prioritizedCourses, ...otherCourses];
+                    } else {
+                        const categoryMatch = course => course.category 
+                            ? course.category.toLowerCase() === this.buttons[this.activeButton].toLowerCase()
+                            : false;
+
+                        return this.courses.filter(course => searchMatch(course) && categoryMatch(course));
+                    }
                 }
-
-                const categoryMatch = course.category 
-                    ? course.category.toLowerCase() === this.buttons[this.activeButton].toLowerCase()
-                    : false;
-                
-                return searchMatch && categoryMatch;
-            });
-  }
             }
+            
         })
         const vm = app.mount("#app")
 
@@ -189,3 +233,4 @@
 
     <script src="./courses.js"></script>
 </body>
+</html>
