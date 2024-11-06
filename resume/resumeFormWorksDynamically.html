@@ -21,97 +21,8 @@
     <!-- Vue 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <style>
+    <link rel="stylesheet" href="resume.css">
 
-        .form {
-            padding: 15px;
-            margin: 15px 10px;
-        }
-
-        .box {
-            border-radius: 2%;
-            padding: 10px;
-            margin-bottom: 20px;
-            /* border: 1px solid rgb(194, 221, 245); */
-            border: 1px solid rgb(1, 16, 29);
-            background-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .paper {
-            margin: 25px 20px;
-            /* box-shadow: 0 40px 80px rgb(255, 255, 255); */
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background-color: #fdfcf4;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1),
-                0 6px 6px rgba(0, 0, 0, 0.1);
-            font-family: 'Georgia', serif;
-            /* Elegant font */
-            font-size: 12px;
-            line-height: 1.3;
-            height: fit-content;
-            /* position: relative; */
-            word-wrap: break-word;
-            /* Allows long words to break to the next line */
-            white-space: normal;
-
-        }
-
-        .form-group {
-            margin: 5px;
-        }
-
-        @font-face {
-            font-family: "bannerName";
-            src: url("../fonts/Slabo_27px/Slabo27px-Regular.ttf");
-        }
-
-        .pink {
-            background-color: rgb(251, 235, 217);
-            padding: 5px;
-        }
-
-        .title1 {
-            background-color: #535353;
-            text-transform: uppercase;
-            color: rgb(251, 235, 217);
-            letter-spacing: 2px;
-            padding: 0px 8px;
-            margin: 7px;
-            text-align: center;
-            font-family: bannerName;
-            font-weight: bold;
-            font-size: small;
-        }
-
-        .title2 {
-            text-transform: uppercase;
-            color: #535353;
-            letter-spacing: 2px;
-            margin: 20px;
-            font-family: bannerName;
-            font-weight: bold;
-            font-size: small;
-
-        }
-
-        .icon {
-            height: 20px;
-            width: auto;
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%)
-        }
-
-        body {
-            background-image: url(../images/resumeformbg6.avif);
-            background-repeat: no-repeat;
-            /* Prevents repeating */
-            background-size: cover;
-            /* Ensures it covers the whole container */
-            background-position: center;
-
-        }
-    </style>
 </head>
 
 <body>
@@ -155,10 +66,10 @@
     </div>
     <!-- form -->
 
-    <div id="app">
+    <div id="app1">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-5">
+                <div class="col-sm-5">
                     <form>
                         <div class="form">
                             <!-- first box on personal info -->
@@ -168,41 +79,41 @@
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" class="form-control" id="name" placeholder="John Doe"
-                                            v-model="name">
+                                            v-model="name" @input="autoSave('name', name)">
                                     </div>
                                     <div class="form-group" style="height: fit-content;">
                                         <label for="profile">Profile</label>
                                         <textarea class="form-control" id="profile" rows="3"
                                             placeholder="Results-driven marketing professional with a strong background in digital marketing and content creation."
-                                            v-model="profile"></textarea>
+                                            v-model="profile" @input="autoSave('profile', profile)"></textarea>
                                     </div>
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="phone">Phone</label>
                                             <input type="text" class="form-control" id="phone"
-                                                placeholder="+65 9123 4567" v-model="phone">
+                                                placeholder="+65 9123 4567" v-model="phone" @input="autoSave('phone', phone)">
                                         </div>
                                         <div class="col form-group">
                                             <label for="email">Email address</label>
                                             <input type="email" class="form-control" id="email"
-                                                placeholder="name@example.com" v-model="email">
+                                                placeholder="name@example.com" v-model="email" @input="autoSave('email', email)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="location">Location</label>
                                         <input type="text" class="form-control" id="location"
-                                            placeholder="123 Orchard Road, Singapore" v-model="location">
+                                            placeholder="123 Orchard Road, Singapore" v-model="location" @input="autoSave('location', location)"> 
                                     </div>
                                     <div class="form-group">
                                         <label for="website">Website</label>
                                         <input type="text" class="form-control" id="website"
-                                            placeholder="linkedin.com/johndoe" v-model="website">
+                                            placeholder="linkedin.com/johndoe" v-model="website" @input="autoSave('website', website)">
                                     </div>
 
                                     <!-- input img -->
-                                    <!--  CHECK IF NEED V-MODEL   -->
+                                    <!-- CHANGE FOR FIREBASE OF IMG -->
                                     <div class="form-group">
-                                        <label for="photo">Your Photo</label>
+                                        <label for="imageInput">Your Photo</label>
                                         <!-- File Input -->
                                         <input type="file" class="form-control" id="imageInput" accept="image/*" />
                                     </div>
@@ -221,84 +132,84 @@
                                     <div class="form-group">
                                         <label for="company1">Company</label>
                                         <input type="text" class="form-control" id="company1"
-                                            placeholder="Singapore Management University" v-model="company1">
+                                            placeholder="Singapore Management University" v-model="company1" @input="autoSave('company1', company1)">
                                     </div>
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="job1">{{ job1 }}</label>
                                             <input type="text" class="form-control" id="job1"
-                                                placeholder="Part time retail associate" v-model="job1">
+                                                placeholder="Part time retail associate" v-model="job1" @input="autoSave('job1', job1)">
                                         </div>
                                         <div class="col form-group">
                                             <label for="job-date1">Date</label>
                                             <!-- change name -->
                                             <input type="text" class="form-control" id="job-date1"
-                                                placeholder="May 2024 - Present" v-model="jobDate1">
+                                                placeholder="May 2024 - Present" v-model="jobDate1" @input="autoSave('jobDate1', jobDate1)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="description1" style="height: fit-content;">Description</label>
                                         <textarea class="form-control" id="description1" rows="3"
                                             placeholder="Conducted market research to identify customer trends and opportunities."
-                                            v-model="description1"></textarea>
+                                            v-model="description1" @input="autoSave('description1', description1)"></textarea>
                                     </div>
                                     <hr>
                                     <!-- job 2 -->
 
                                     <h6>Job Experience 2</h6><span class="d-inline"
-                                    style="color: rgb(158, 157, 157);">(If any)</span>
+                                        style="color: rgb(158, 157, 157);">(If any)</span>
                                     <div class="form-group">
                                         <label for="company2">Company</label>
                                         <input type="text" class="form-control" id="company2"
-                                            placeholder="Singapore Management University" v-model="company2">
+                                            placeholder="Singapore Management University" v-model="company2" @input="autoSave('company2', company2)">
                                     </div>
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="job2">Job Title</label>
                                             <input type="text" class="form-control" id="job2"
-                                                placeholder="Part time retail associate" v-model="job2">
+                                                placeholder="Part time retail associate" v-model="job2" @input="autoSave('job2', job2)">
                                         </div>
                                         <div class="col form-group">
                                             <label for="job-date2">Date</label>
                                             <!-- change name -->
                                             <input type="text" class="form-control" id="job-date2"
-                                                placeholder="May 2022 - May 2024" v-model="jobDate2">
+                                                placeholder="May 2022 - May 2024" v-model="jobDate2" @input="autoSave('jobDate2', jobDate2)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="description2" style="height: fit-content;">Description</label>
                                         <textarea class="form-control" id="description2" rows="3"
                                             placeholder="Conducted market research to identify customer trends and opportunities."
-                                            v-model="description2"></textarea>
+                                            v-model="description2" @input="autoSave('description2', description2)"></textarea>
                                     </div>
                                     <hr>
                                     <!-- job 3 -->
 
                                     <h6>Job Experience 3</h6><span class="d-inline"
-                                    style="color: rgb(158, 157, 157);">(If any)</span>
+                                        style="color: rgb(158, 157, 157);">(If any)</span>
                                     <div class="form-group">
                                         <label for="company3">Company</label>
                                         <input type="text" class="form-control" id="company3"
-                                            placeholder="Singapore Management University" v-model="company3">
+                                            placeholder="Singapore Management University" v-model="company3" @input="autoSave('company3', company3)">
                                     </div>
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="job3">Job Title</label>
                                             <input type="text" class="form-control" id="job3"
-                                                placeholder="Part time retail associate" v-model="job3">
+                                                placeholder="Part time retail associate" v-model="job3" @input="autoSave('job3', job3)">
                                         </div>
                                         <div class="col form-group">
                                             <label for="job-date3">Date</label>
                                             <!-- change name -->
                                             <input type="text" class="form-control" id="job-date3"
-                                                placeholder="May 2021 - May 2022" v-model="jobDate3">
+                                                placeholder="May 2021 - May 2022" v-model="jobDate3" @input="autoSave('jobDate3', jobDate3)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="description3" style="height: fit-content;">Description</label>
                                         <textarea class="form-control" id="description3" rows="3"
                                             placeholder="Conducted market research to identify customer trends and opportunities."
-                                            v-model="description3"></textarea>
+                                            v-model="description3" @input="autoSave('description3', description3)"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -315,64 +226,64 @@
                                             <label for="degree-major1">Degree & Major</label>
                                             <input type="text" class="form-control" id="degree-major1"
                                                 placeholder="Bachelor of Science in Information Systems"
-                                                v-model="degreeMajor1">
+                                                v-model="degreeMajor1" @input="autoSave('degreeMajor1', degreeMajor1)">
                                         </div>
                                         <div class="col form-group">
                                             <label for="school1">School</label>
                                             <input type="text" class="form-control" id="school1"
-                                                placeholder="Singapore Management University" v-model="school1">
+                                                placeholder="Singapore Management University" v-model="school1"  @input="autoSave('school1', school1)">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="gpa1">GPA</label>
                                             <input type="text" class="form-control" id="gpa1" placeholder="3.72"
-                                                v-model="gpa1">
+                                                v-model="gpa1" @input="autoSave('gpa1', gpa1)">
                                         </div>
 
                                         <div class="col form-group">
                                             <label for="school-date1">Date</label>
                                             <!-- change name -->
                                             <input type="text" class="form-control" id="school-date1"
-                                                placeholder="June 2024" v-model="schoolDate1">
+                                                placeholder="June 2024" v-model="schoolDate1" @input="autoSave('schoolDate1', schoolDate1)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="additional-information1" style="height: fit-content;">Additional
                                             Information (Optional)</label>
                                         <textarea class="form-control" id="additional-information1" rows="3"
-                                            placeholder="" v-model="additionalInformation1"></textarea>
+                                            placeholder="" v-model="additionalInformation1" @input="autoSave('additionalInformation1', additionalInformation1)"></textarea>
                                     </div>
 
                                     <hr>
                                     <!-- edu 2 -->
-                                    <h6>Education 2</h6><span class="d-inline"
-                                    style="color: rgb(158, 157, 157);">(If any)</span>
+                                    <h6>Education 2</h6><span class="d-inline" style="color: rgb(158, 157, 157);">(If
+                                        any)</span>
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="degree-major2">Degree & Major</label>
                                             <input type="text" class="form-control" id="degree-major2"
                                                 placeholder="Bachelor of Science in Information Systems"
-                                                v-model="degreeMajor2">
+                                                v-model="degreeMajor2" @input="autoSave('degreeMajor2', degreeMajor2)">
                                         </div>
 
                                         <div class="col form-group">
                                             <label for="school2">School</label>
                                             <input type="text" class="form-control" id="school2"
-                                                placeholder="Singapore Management University" v-model="school2">
+                                                placeholder="Singapore Management University" v-model="school2" @input="autoSave('school2', school2)">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="gpa2">GPA</label>
                                             <input type="text" class="form-control" id="gpa2" placeholder="3.72"
-                                                v-model="gpa2">
+                                                v-model="gpa2" @input="autoSave('gpa2', gpa2)">
                                         </div>
                                         <div class="col form-group">
                                             <label for="school-date2">Date</label>
                                             <!-- change name -->
                                             <input type="text" class="form-control" id="school-date2"
-                                                placeholder="June 2024" v-model="schoolDate2">
+                                                placeholder="June 2024" v-model="schoolDate2" @input="autoSave('schoolDate2', schoolDate2)">
                                         </div>
                                     </div>
 
@@ -380,38 +291,38 @@
                                         <label for="additional-information2" style="height: fit-content;">Additional
                                             Information (Optional)</label>
                                         <textarea class="form-control" id="additional-information2" rows="3"
-                                            placeholder="" v-model="additionalInformation2"></textarea>
+                                            placeholder="" v-model="additionalInformation2" @input="autoSave('additionalInformation2', additionalInformation2)"></textarea>
                                     </div>
                                     <hr>
 
                                     <!-- edu 3 -->
-                                    <h6>Education 3</h6><span class="d-inline"
-                                    style="color: rgb(158, 157, 157);">(If any)</span>
+                                    <h6>Education 3</h6><span class="d-inline" style="color: rgb(158, 157, 157);">(If
+                                        any)</span>
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="degree-major3">Degree & Major</label>
                                             <input type="text" class="form-control" id="degree-major3"
                                                 placeholder="Bachelor of Science in Information Systems"
-                                                v-model="degreeMajor3">
+                                                v-model="degreeMajor3" @input="autoSave('degreeMajor3', degreeMajor3)">
                                         </div>
 
                                         <div class="col form-group">
                                             <label for="school3">School</label>
                                             <input type="text" class="form-control" id="school3"
-                                                placeholder="Singapore Management University" v-model="school3">
+                                                placeholder="Singapore Management University" v-model="school3" @input="autoSave('school3', school3)">
                                         </div>
                                     </div>
-                                    <div class="row">                                    
+                                    <div class="row">
                                         <div class="col form-group">
                                             <label for="gpa3">GPA</label>
                                             <input type="text" class="form-control" id="gpa3" placeholder="3.72"
-                                                v-model="gpa3">
+                                                v-model="gpa3" @input="autoSave('gpa3', gpa3)">
                                         </div>
                                         <div class="col form-group">
                                             <label for="school-date3">Date</label>
                                             <!-- change name -->
                                             <input type="text" class="form-control" id="school-date3"
-                                                placeholder="June 2024" v-model="schoolDate3">
+                                                placeholder="June 2024" v-model="schoolDate3" @input="autoSave('schoolDate3', schoolDate3)">
                                         </div>
                                     </div>
 
@@ -419,7 +330,7 @@
                                         <label for="additional-information3" style="height: fit-content;">Additional
                                             Information (Optional)</label>
                                         <textarea class="form-control" id="additional-information3" rows="3"
-                                            placeholder="" v-model="additionalInformation3"></textarea>
+                                            placeholder="" v-model="additionalInformation3" @input="autoSave('additionalInformation3', additionalInformation3)"></textarea>
                                     </div>
                                 </div>
 
@@ -434,7 +345,7 @@
                                     <div class="form-group">
                                         <label for="skills" style="height: fit-content;">Skills List</label>
                                         <textarea class="form-control" id="skills" rows="3"
-                                            placeholder="Effective communication" v-model="skills"></textarea>
+                                            placeholder="Effective communication" v-model="skills" @input="autoSave('skills', skills)"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -450,7 +361,8 @@
                                         <span class="d-inline" style="color: rgb(158, 157, 157);"> (Language -
                                             Proficiency)</span>
                                         <input type="text" class="form-control" id="languages"
-                                            placeholder="English - Highly proficient, Chinese - Approaching proficient" v-model="languages">
+                                            placeholder="English - Highly proficient, Chinese - Approaching proficient"
+                                            v-model="languages" @input="autoSave('languages', languages)">
                                     </div>
                                 </div>
                             </div>
@@ -463,7 +375,8 @@
                                     <h5>Interests</h5>
                                     <div class="form-group">
                                         <label for="interests" style="height: fit-content;">Interests</label>
-                                        <input type="text" class="form-control" id="interests" placeholder="English" v-model="interests">
+                                        <input type="text" class="form-control" id="interests" placeholder="English"
+                                            v-model="interests" @input="autoSave('interests', interests)">
                                     </div>
                                 </div>
                             </div>
@@ -473,23 +386,32 @@
                                 <button @click="exportResume()" class="btn btn-light mx-auto">Confirm details</button>
                             </div>
                         </div>
-
-
-
-
                     </form>
                 </div>
 
 
                 <!-- DISPLAY RESUME ON RIGHT -->
-                <div class="col-7">
+                <div class="col-sm-7">
+                    <!-- choose color -->
+                    <div class="col-sm-5 text-center mt-4">
+                        <H3>Customise Your Resume</H3>
+                        Resume Title Colour: <input type="color" @input="changeTitleColour" v-model="title1"><br>
+                        Background Colour 1: <input type="color" @input="changeBackgroundColour1"
+                            v-model="background1"><br>
+                        Background Colour 2: <input type="color" @input="changeBackgroundColour2"
+                            v-model="background2"><br>
+                        Text Color: <input type="color" @input="changeTextColour"
+                            v-model="text1"><br>
+                            
+                    </div>
+
                     <!-- paper -->
                     <div id="resumeContent" class="paper sticky-top">
                         <!-- banner -->
                         <!-- NOTE: ADD v-if="complete" -->
                         <div class="container">
                             <div class="row">
-                                <div class="p-4" style="background-color: #535353;">
+                                <div class="p-4 title1">
                                     <div class="d-flex flex-column justify-content-center align-items-center">
                                         <!-- img -->
                                         <img id="imagePreview" src="" alt="Image Preview"
@@ -501,11 +423,10 @@
                                             }}</span>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="row">
                                 <!-- left side of 2nd row -->
-                                <div class="col-4 pink">
+                                <div class="col-4 left">
 
                                     <div class="position-relative p-2">
                                         <p class="title1">CONTACT</p>
@@ -536,7 +457,7 @@
                                         <span style="text-transform: capitalize;">{{ school1 }}</span><br>
                                         <span>GPA: {{ gpa1 }}</span><br>
                                         <span style="font-weight: bold;">{{ schoolDate1 }}</span><br>
-                                        <span style="color:#607D8B;">{{ additionalInformation1 }}</span>                                        
+                                        <span style="color:#607D8B;">{{ additionalInformation1 }}</span>
                                     </div>
 
                                     <div style="text-align: center;" class="p-2">
@@ -544,15 +465,15 @@
                                         <span style="text-transform: capitalize;">{{ school2 }}</span><br>
                                         <span>GPA: {{ gpa2 }}</span><br>
                                         <span style="font-weight: bold;">{{ schoolDate2 }}</span><br>
-                                        <span style="color:#607D8B;">{{ additionalInformation2 }}</span>                                        
+                                        <span style="color:#607D8B;">{{ additionalInformation2 }}</span>
                                     </div>
 
                                     <div style="text-align: center;" class="p-2">
                                         <span style="color:#9C786C; font-weight: bold;">{{ degreeMajor3 }}</span><br>
                                         <span style="text-transform: capitalize;">{{ school3 }}</span><br>
                                         <span>GPA: {{ gpa3 }}</span><br>
-                                        <span style="font-weight: bold;">{{ schoolDate3 }}</span><br> 
-                                        <span style="color:#607D8B;">{{ additionalInformation3 }}</span>                                       
+                                        <span style="font-weight: bold;">{{ schoolDate3 }}</span><br>
+                                        <span style="color:#607D8B;">{{ additionalInformation3 }}</span>
                                     </div>
 
                                     <p class="title1">Language proficiency</p>
@@ -625,7 +546,17 @@
     </div>
 
 
-    <script src="resumeForm.js"></script>
+
+
+    <script type="module" src="./resumeForm.js">
+        // firebase
+                // Initialize Firebase
+
+        // add data
+
+
+
+    </script>
 
 </body>
 

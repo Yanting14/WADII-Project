@@ -1,5 +1,31 @@
 
-const app = Vue.createApp({
+// to be exported and removed here
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+// to be edited
+import {
+    getFirestore, doc, setDoc, getDoc
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+// TODO: Replace the following with your app's Firebase project configuration
+// See: https://support.google.com/firebase/answer/7015592
+// const firebaseConfig = {
+//     apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
+//     authDomain: "wadii-career-20ae3.firebaseapp.com",
+//     projectId: "wadii-career-20ae3",
+//     storageBucket: "wadii-career-20ae3.firebasestorage.app",
+//     messagingSenderId: "967171133152",
+//     appId: "1:967171133152:web:42cac325a66903712bca85"
+// };
+// const app = initializeApp(firebaseConfig);
+// // Initialize Cloud Firestore and get a reference to the service
+// const db = getFirestore(app);
+
+// const auth = getAuth(app);
+
+
+
+const app1 = Vue.createApp({
     data() {
         return {
             name: '',
@@ -58,9 +84,11 @@ const app = Vue.createApp({
             // interests
             interests: '',
 
-            // NOTE: deploy when using vue - completed
-
-            confirm: false
+            // note change this to default set 
+            title1: '#474747',
+            background1: '#dea5aa4',
+            background2: '#f1e6cf',
+            text1: '#000000'
 
         }
     },
@@ -70,25 +98,34 @@ const app = Vue.createApp({
             const newWindow = window.open('', '_blank');
 
             // Start writing the HTML structure in the new window
-
+            const { title1, background1, background2, text1 } = this;
             newWindow.document.write(`
                 <html>
                     <head>
                         <title>Exported Resume</title>
                         <style>
+                            :root {
+                            --header-color: ${title1};
+                            --background-color1: ${background1};
+                            --background-color2: ${background2};
+                            --text-color: ${text1};
+                            }
+
                             body {
                                 background-size: cover;
                                 background-position: center;
-                                }
+                            }
 
                             .paper {
-                                background-color: #fdfcf4;
+                                background-color: var(--background-color2);
+                                color: var(--text-color);
                                 font-family: 'Georgia', serif;
                                 font-size: 12px;
                                 line-height: 1.3;
                                 height: fit-content;
                                 white-space: normal;
                                 word-wrap: break-word;
+                                
                             }
                                 
                             @font-face {
@@ -97,12 +134,12 @@ const app = Vue.createApp({
                             }
                        
                             .title1 {
-                                background-color: #535353;
+                                background-color: var(--header-color);
                                 text-transform: uppercase;
                                 color: rgb(251, 235, 217);
                                 letter-spacing: 2px;
                                 padding: 0px 8px;
-                                margin: 7px;
+                                margin: 0px;
                                 text-align: center;
                                 font-family: bannerName;
                                 font-weight: bold;
@@ -128,8 +165,8 @@ const app = Vue.createApp({
                                 transform: translate(-50%)
                             }
 
-                            .pink {
-                            background-color: rgb(251, 235, 217);
+                            .left {
+                            background-color: var(--background-color1);
                             padding: 5px;
                             margin: 0;
                             }
@@ -146,7 +183,7 @@ const app = Vue.createApp({
                                     margin: 0;
                                 }
                                 
-                                .banner, .pink {
+                                .banner, .left {
                                     width: 100%; /* Full width for printing */
                                     margin: 0;
                                 }
@@ -187,12 +224,84 @@ const app = Vue.createApp({
 
             const resumeContent = document.getElementById('resumeContent').cloneNode(true);
             newWindow.document.body.appendChild(resumeContent);
-            
+
             newWindow.print();
 
+        },
+
+
+        changeTitleColour() {
+            document.documentElement.style.setProperty('--header-color', this.title1);
+            localStorage.setItem('headerColor', this.title1);
+        },
+        changeBackgroundColour1() {
+            document.documentElement.style.setProperty('--background-color1', this.background1);
+            localStorage.setItem('backgroundColor1', this.background1);
+        },
+        changeBackgroundColour2() {
+            document.documentElement.style.setProperty('--background-color2', this.background2);
+            localStorage.setItem('backgroundColor2', this.background2);
+        },
+        changeTextColour() {
+            document.documentElement.style.setProperty('--text-color', this.text1);
+            localStorage.setItem('textColor', this.text1);
+        },
+
+
+        //   firebase
+
+        // info,onkeyup 
+        async autoSave(field, value) {
+            try {
+                const user = auth.currentUser;
+                // check if user is login first
+                if (!user) {
+                    alert("Please log in to save resume");
+                    return;
+                }
+                // get ref to current user document in fiestore using the unique identifier uid
+                const userDocRef = doc(db, 'resumes', user.uid);
+                // no matter exists or not, will still require it to be set again after each input
+                await setDoc(userDocRef, { [field]: value }, { merge: true });
+                console.log(`Auto-saved ${field}`);
+
+            } catch (error) {
+                console.error("Error saving to Firestore:", error);
+            }
+        },
+        async mounted() {
+            auth.onAuthStateChanged(async user => {
+                if (user) {
+                    const userDocRef = doc(db, 'resumes', user.uid);
+                    const userDoc = await getDoc(userDocRef);
+                    if (userDoc.exists()) {
+                        // reallocates the data property with the retrieved value if there is any existing, else no allocation occurs
+                        Object.assign(this, userDoc.data());
+                    }
+
+                }
+            })
         }
+
+
+    },
+    mounted() {
+        const headerColor = localStorage.getItem('headerColor') || this.title1;
+        const backgroundColor1 = localStorage.getItem('backgroundColor1') || this.background1;
+        const backgroundColor2 = localStorage.getItem('backgroundColor2') || this.background2;
+        const textColor = localStorage.getItem('textColor') || this.text1;
+
+        document.documentElement.style.setProperty('--header-color', headerColor);
+        document.documentElement.style.setProperty('--background-color1', backgroundColor1);
+        document.documentElement.style.setProperty('--background-color2', backgroundColor2);
+        document.documentElement.style.setProperty('--text-color', textColor);
+
+        this.title1 = headerColor;
+        this.background1 = backgroundColor1;
+        this.background2 = backgroundColor2;
+        this.text1 = textColor;
     }
-}).mount('#app');
+}).mount('#app1');
 
 
 
@@ -223,5 +332,8 @@ imageInput.addEventListener('change', function (event) {
         reader.readAsDataURL(file);
     }
 });
+
+
+
 
 
