@@ -73,10 +73,9 @@
    //  db` and `auth` are instances already initialized in firebaseConfig.js
    import { auth,db } from './firebaseConfig.js';
 // import functions u will be using 
-   import {signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import {signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
    import { getFirestore, collection, addDoc, doc,setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-     
    function showModal(message) {
     document.getElementById('modalMessage').textContent = message;
     const messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
@@ -98,17 +97,27 @@
 
                     try {
                         const userDocRef = doc(db, "users", user.email);
+                        const userDoc = await getDoc(userDocRef);
 
-                        await setDoc(userDocRef, {
-                            email: user.email, 
-                            uid: user.uid 
-                        });
-                        console.log("User added to Firestore:", user.email);
-                    } catch (error) {
-                       console.log("Error adding document: ", error);
-                    }
 
-                })
+                if (!userDoc.exists()) {
+                    await setDoc(userDocRef, {
+                        email: user.email,
+                        uid: user.uid,
+                        savedJobs: []  // Initialize with an empty savedJobs array if first time logging in
+                    });
+                    console.log("New user document created in Firestore:", user.email);
+                } else {
+                    console.log("User document already exists in Firestore:", user.email);
+                }
+
+                // Redirect to Career Search page
+                window.location.href = 'homepage.html';
+            } catch (error) {
+                console.log("Error adding or fetching document: ", error);
+            }
+
+        })
                 .catch((error => {
                     const errorcode = error.code;
                     const errormessage = error.message;
@@ -177,7 +186,6 @@
         const checkAuthstate = async () => {
             onAuthStateChanged(auth, user => {
                 if (user) {
-
                 showModal("You have sucessfully log in");
                 setTimeout(() => {
                 window.location.href = 'homepage.html';
