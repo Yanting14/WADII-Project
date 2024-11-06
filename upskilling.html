@@ -129,29 +129,17 @@
 
 
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+        import { db, auth, app } from './firebaseconfig.js';
+        import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
-            authDomain: "wadii-career-20ae3.firebaseapp.com",
-            projectId: "wadii-career-20ae3",
-            storageBucket: "wadii-career-20ae3.appspot.com",
-            messagingSenderId: "967171133152",
-            appId: "1:967171133152:web:42cac325a66903712bca85"
-        };
 
-        const firebaseApp = initializeApp(firebaseConfig);
-        const db = getFirestore(firebaseApp);
-        const auth = getAuth(firebaseApp);
-
-        const app = Vue.createApp({
+        const vueapp = Vue.createApp({
             data(){
                 return {
                     entered:'',
                     courses:[],
-                    buttons: ["All Courses", "Tech", "Business", "Design", "Soft Skills", "Healthcare", "Accountancy","Law","Media & Communications","Social Science"],
+                    buttons: ["All Courses", "Information Technology", "Finance and Banking","Marketing & Advertising","Design", "Soft Skills", "Healthcare","Law","Media & Communications","Social Science","Education and Training","Engineering","Retail and Customer Service","Hospitality and Tourism"],
                     activeButton: null,
                     clicked: '',
                     interest: ''
@@ -223,8 +211,7 @@
                 }
             }
             
-        })
-        const vm = app.mount("#app")
+        }).mount("#app")
 
 
 
