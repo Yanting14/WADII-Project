@@ -67,6 +67,11 @@
       padding: 5px;
       width: 100px;
     }
+
+    .industry-item {
+      display: inline-block;
+      margin-right: 10px; /* Adjust spacing as needed */
+    }
   </style>
   <link rel="stylesheet" href="navbar.css">
 </head>
@@ -85,7 +90,8 @@
           </div>
           <div class="col-md-9">
             <h2>{{profile.firstName}} {{profile.lastName}}</h2>
-            <p class="text-muted">Computer Science Graduate | Aspiring Software Developer</p>
+            <p class="text-muted">{{profile.shortinfo}}</p>
+            <p style="color:gray">{{profile.email}}</p>
             <p><i class="fas fa-map-marker-alt"></i> {{profile.address}}</p>
             <button class="btn btn-primary me-2">Edit Profile</button>
           </div>
@@ -110,19 +116,11 @@
           <div class="card mb-4">
             <div class="card-body">
               <h5 class="card-title">Skills</h5>
-              <div class="skill-badge" v-for="skill in profile.skills">{{skill}}</div>
+              <div class="skill-badge" v-for="skill in skills">{{skill}}</div>
             </div>
           </div>
 
-          <!-- Career Interests -->
-          <div class="card mb-4">
-            <div class="card-body">
-              <h5 class="card-title">Career Interests</h5>
-              <ul style="list-style-type: none;">
-                <li v-for="career in profile.careerInterests">{{career}}</li>
-              </ul>
-            </div>
-          </div>
+          <!-- Education -->
           <div class="card mb-4">
             <div class="card-body">
               <h5 class="card-title">Education</h5>
@@ -131,6 +129,17 @@
                   <li>{{edu.school}}</li>
                   <li style="color:grey;">{{edu.degree}}</li>
                   <li style="color:grey;">{{edu.startDate}} - {{edu.endDate}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Industry interest</h5>
+              <div v-for="int in profile.interest">
+                <ul style="list-style-type: none;">
+                  <li>{{int}}</li>
+                  <li style="color:grey;">{{int}}</li>
                 </ul>
               </div>
             </div>
@@ -151,18 +160,18 @@
                 <div class="col-md-6">
                   <!-- can do check if the required criteria is sucessful dynamically-->
                   <small>
-                    <i class="criterial fas fa-check-circle text-success"></i> Basic Info
+                    <i :class="{'criterial fas fa-check-circle text-success': isBasicInfoComplete(), 'criterial fas fa-times-circle text-muted': !isBasicInfoComplete()}"></i> Basic Info
                     <br>
-                    <i class="criterial fas fa-check-circle text-success"></i> Skills Added
+                    <i :class="{'criterial fas fa-check-circle text-success': isSkillsAdded(), 'criterial fas fa-times-circle text-muted': !isSkillsAdded()}"></i> Skills Added
                     <br>
-                    <i class="criterial fas fa-check-circle text-success"></i> Career Interests
+                    <i :class="{'criterial fas fa-check-circle text-success': isCareerInterestsComplete(), 'criterial fas fa-times-circle text-muted': !isCareerInterestsComplete()}"></i> Industry Interests
                   </small>
                 </div>
                 <div class="col-md-6">
                   <small>
-                    <i class="criterial fas fa-times-circle text-muted"></i> Resume Upload
+                    <i :class="{'criterial fas fa-check-circle text-success': isResumeUploaded(), 'criterial fas fa-times-circle text-muted': !isResumeUploaded()}"></i> Resume Upload
                     <br>
-                    <i class="criterial fas fa-times-circle text-muted"></i> Assessment Completion
+                    <i :class="{'criterial fas fa-check-circle text-success': isAssessmentCompleted(), 'criterial fas fa-times-circle text-muted': !isAssessmentCompleted()}"></i> Assessment Completion
                   </small>
                 </div>
               </div>
@@ -248,6 +257,10 @@
                     <input type="tel" class="form-control" v-model="profile.phone">
                   </div>
                   <div class="col-12">
+                    <label class="form-label">Short Infomation About You</label>
+                    <input type="text" class="form-control" v-model="profile.shortinfo">
+                  </div>
+                  <div class="col-12">
                     <label class="form-label">Location</label>
                     <input type="text" class="form-control" v-model="profile.address">
                   </div>
@@ -297,7 +310,7 @@
                 <h6 class="mb-3">Skills</h6>
                 <div class="border rounded p-3">
                   <div id="skillTags" class="mb-2">
-                    <span v-for="(skill, index) in profile.skills" :key="index" class="skill-tag">
+                    <span v-for="(skill, index) in skills" :key="index" class="skill-tag">
                       {{ skill }} <span class="remove-skill" @click="removeSkill(index)">&times;</span>
                     </span>
                     <input type="text" id="skillInput" placeholder="Add skill" v-model="newSkill"
@@ -306,16 +319,15 @@
                 </div>
               </div>
 
-              <!-- Career Interests -->
-              <div class="mb-4">
-                <h6 class="mb-3">Career Interests</h6>
-                <div class="row g-3">
-                  <div v-for="(interest, index) in profile.careerInterests" :key="index" class="col-md-4">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" v-model="profile.interests" :value="interest">
-                      <label class="form-check-label">{{ interest }}</label>
-                    </div>
-                  </div>
+              <!-- Industry Interests -->
+              <div class="industry-options">
+                <h6 class="mb-3">Industry interests</h6>
+                <div v-for="industry in profile.industries" :key="industry" class="industry-item">
+                  <label :for="industry">
+                    <input type="checkbox" :value="industry" v-model="profile.selectedIndustries"
+                      :disabled="isMaxSelected(industry)">
+                    {{ industry }}
+                  </label>
                 </div>
               </div>
 
@@ -333,6 +345,7 @@
                   </div>
                 </div>
               </div>
+            
             </form>
           </div>
           <div class="modal-footer">
@@ -346,6 +359,7 @@
   </div>
   <script type="module" src="profile.js"></script>
   <script>
+    
     document.addEventListener('DOMContentLoaded', function () {
       const editButton = document.querySelector('button.btn-primary');
       editButton.addEventListener('click', function () {
