@@ -54,15 +54,14 @@
 }
 
 .carousel-caption h5 {
-    color:#fff;
+    color:lightskyblue;
     font-size: 42px;
-
 
 }
 
-.carousel-content img{
-    width: 1682px;
-    height: 1122px;
+.carousel-item img{
+    width: 800px;
+    height: 800px;
 }
 
 /* ABOUT */
@@ -84,6 +83,7 @@
     text-align: justify;
 
 }
+
 .stats-bar p{
     margin-bottom: 6px;
     font-weight: 600;
@@ -95,7 +95,7 @@
 
 .progress{
     border-radius: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 /* Services */
@@ -185,14 +185,14 @@
     display: block;
     position: relative;
 }
-.profile-pic .img-box img{
+/* .profile-pic .img-box img{
     filter: grayscale(1);
 }
 
 .profile-pic .img-box img:hover{
     filter: grayscale(0);
     cursor: pointer;
-}
+} */
 
 .profile-pic h2{
     font-size: 22px;
@@ -366,8 +366,111 @@
 ::placeholder{
     color: #999;
 }
+.follow{
+    background: #fff;
+    padding: 10px;
+    margin: 15px;
+}
+
 
 /* map */
 #map {
-    height: 100%;
+    height: 340px;
+    width: 606px;
+    margin: 15px;
   }
+
+
+  @media (max-width: 1286px) {
+    #map {
+    height: 350px;
+    width: auto; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 992px) {
+    #map {
+    height: 250px;
+    width: auto; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    #map {
+    height: 200px;
+    width: auto; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    #map {
+      height: 150px; /* Adjust height for very small screens */
+      width: auto;
+    }
+  }
+
+/* footer */
+#footer{
+    background-color: #24262b;
+    padding: 70px 0 ;
+}
+
+#footer .container{
+    max-width: 1170px;
+    margin: auto;
+}
+
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+
+}
+
+.footer-col h4{
+    font-size: 18px;
+    color:white;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #0081dd;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+#footer ul{
+    list-style: none;
+    list-style-position: inside;
+    padding: 0;
+
+}
+
+
+/* everything of li except the last one has a margin bottom of 10px */
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: white;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.5s ease;
+    text-decoration: none;
+}
+
+.footer-col ul li a:hover{
+    color: white;
+    padding-left: 8px;
+}
+
