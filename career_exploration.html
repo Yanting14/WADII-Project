@@ -63,7 +63,7 @@
         <div class="row">
             <div v-for="industry in industries">
                 <div class="card" style="width: 35rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img :src="industry.image_url" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">{{industry.name}}</h5>
                       <p class="card-text">{{industry.description}}</p>
