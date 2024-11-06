@@ -324,6 +324,19 @@
 
       methods: {
 
+    async  fetchSavedJobsForUser(user) {
+    const userDocRef = doc(db, 'users', user.email);
+    const userDoc = await getDoc(userDocRef);
+
+    if (userDoc.exists()) {
+        vm.savedJobs = userDoc.data().savedJobs || [];
+        console.log("Saved jobs loaded for user:", vm.savedJobs);
+    } else {
+        console.log("No saved jobs found for this user.");
+        vm.savedJobs = [];
+    }
+},
+
 
         showModal(message) {
           this.modalMessage = message;
