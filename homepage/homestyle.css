@@ -10,7 +10,8 @@
 }
 
 .navbar-brand img{
-    height: 50px;
+    height: 65px;
+    width: auto;
     
     padding-left: 30px;
     
@@ -54,7 +55,7 @@
 }
 
 .carousel-caption h5 {
-    color:lightskyblue;
+    color: white;
     font-size: 42px;
 
 }
@@ -146,7 +147,7 @@
     color: #ccc;
 }
 
-.services .col-md-3:hover{
+.services .col-md-4:hover{
     background: #007bff;
     cursor: pointer;
     transition: 0.7s;
