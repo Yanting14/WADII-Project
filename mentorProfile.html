@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Sign Up</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script type="module">
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
+            authDomain: "wadii-career-20ae3.firebaseapp.com",
+            projectId: "wadii-career-20ae3",
+            storageBucket: "wadii-career-20ae3.appspot.com",
+            messagingSenderId: "967171133152",
+            appId: "1:967171133152:web:42cac325a66903712bca85"
+        };
+
+        // Initialize Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    </script>
+
+    <script src="mentorSignUp.js" type="module"></script>
+
+
+
+</head>
+
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <!-- Navbar -->
+    <nav class = "bg-white p-4 md:mb-6">
+        <div class = "container mx-auto flex justify-between items-center">
+            <a   href  = "#" class = "text-[#555] text-2xl font-bold">Navbar</a>
+            <div class = "hidden md:flex space-x-4">
+                <a href = "#" class = "text-[#555] hover:text-[#007bff]">Home</a>
+                <a href = "#" class = "text-[#555] hover:text-[#007bff]">Link</a>
+                <a href = "#" class = "text-[#555] hover:text-[#007bff]">Dropdown</a>
+                <a href = "#" class = "text-[#555] hover:text-[#007bff]">Disabled</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class = "container mx-auto py-8">
+        
+        
+        <!-- Two Column Layout -->
+        <div class="grid grid-cols-7 gap-6">
+            <!-- Description Card -->
+            <div class="rounded-lg p-6 max-w-prose col-span-2">
+                <h1 class="text-5xl font-bold text-indigo-700 mb-2">Welcome back, {name here}</h1>
+                <p class="text-gray-500 mb-4 text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla voluptate quam, sed nihil labore sit illo veritatis rerum vero corporis ipsa, quidem, commodi blanditiis asperiores omnis sequi libero officiis! Voluptas.</p>
+            </div>
+
+
+            <div class = "bg-white/30 shadow-xl rounded-lg p-6 col-span-5 backdrop-blur-sm">
+                <div>
+                    
+                </div>
+            </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

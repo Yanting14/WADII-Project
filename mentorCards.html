@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentors</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Blur effect for the background */
+        .modal {
+            display: none;
+            /* Hide by default */
+            position: fixed;
+            /* Fixed position for the modal */
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            background: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent background */
+            z-index: 5;
+            /* Ensure it is above other elements */
+        }
+
+        .expanded {
+            z-index: 10;
+            /* Higher z-index than the modal */
+            position: absolute;
+            /* Position absolute within the modal */
+            top: 35%;
+            /* Center it vertically */
+            left: 50%;
+            /* Center it horizontally */
+            transform: translate(-50%, -50%);
+            /* Center using transform */
+            width: calc(100% - 2rem);
+            /* Full width minus padding */
+            max-width: 75%;
+            /* Limit max width */
+            height: auto;
+            /* Auto height */
+            padding: 2rem;
+            /* Padding inside the expanded card */
+        }
+
+        .modal.active {
+            display: block;
+            /* Show when active */
+        }
+    </style>
+</head>
+
+<body id="app1" class="bg-gray-100 text-gray-800">
+    <!-- Navbar -->
+    <nav class = "bg-white p-4 md:mb-6">
+        <div class = "container mx-auto flex justify-between items-center">
+            <a   href  = "#" class = "text-[#555] text-2xl font-bold">Navbar</a>
+            <div class = "hidden md:flex space-x-4">
+                <a href = "#" class = "text-[#555] hover:text-[#007bff]">Home</a>
+                <a href = "#" class = "text-[#555] hover:text-[#007bff]">Link</a>
+                <a href = "#" class = "text-[#555] hover:text-[#007bff]">Dropdown</a>
+                <a href = "#" class = "text-[#555] hover:text-[#007bff]">Disabled</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main container -->
+    <div class="container mx-auto px-4 py-8">
+
+        <!-- Heading -->
+        <div class="text-center ">
+            <h1 class="text-5xl font-bold text-[#007bff] mb-3">Our Mentors</h1>
+            <p class="text-gray-500 mb-3 text-lg italic">Curated just for you</p>
+        </div>
+
+
+        <!-- Cards -->
+        <div id="cardCarousel" class="mt-8  p-6 rounded-lg relative">
+            <div id = "mentor-list"></div>
+
+        </div> 
+
+    </div> <!-- container -->
+
+
+    <script src = "mentorCards.js" type = "module"></script>
+    
+</body>
+
+</html>
