@@ -148,7 +148,7 @@
     color: #ccc;
 }
 
-.services .col-md-4:hover{
+.services .col-md-3:hover{
     background: #007bff;
     cursor: pointer;
     transition: 0.7s;
