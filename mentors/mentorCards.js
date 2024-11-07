@@ -3,7 +3,7 @@ import { collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/f
 import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.js';
 
 // Initialize Firebase
-import {db} from './firebaseconfig.js'
+import {db} from '../firebaseconfig.js'
 
 // Vue component to fetch and display mentors
 const MentorList = {

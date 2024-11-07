@@ -20,7 +20,7 @@ const app = Vue.createApp({
         },
 
         goToProfile(){
-            window.location.href = "Profile.html"
+            window.location.href = "../profile/Profile.html"
         }
     } // methods
 });
