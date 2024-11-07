@@ -9,12 +9,14 @@
     z-index: 10;
 }
 
-.navbar-brand img{
+/* .navbar-brand img{
     height: 50px;
     
     padding-left: 30px;
     
-}
+} */
+
+
 
 .navbar-nav li{
     padding: 0 10px;

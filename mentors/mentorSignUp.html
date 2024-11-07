@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Sign Up</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script type="module">
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
+            authDomain: "wadii-career-20ae3.firebaseapp.com",
+            projectId: "wadii-career-20ae3",
+            storageBucket: "wadii-career-20ae3.appspot.com",
+            messagingSenderId: "967171133152",
+            appId: "1:967171133152:web:42cac325a66903712bca85"
+        };
+
+        // Initialize Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    </script>
+
+    <script src="mentorSignUp.js" type="module"></script>
+
+
+</head>
+
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <!-- Navbar -->
+    <nav class="bg-white p-4 md:mb-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-[#555] text-2xl font-bold">Navbar</a>
+            <div class="hidden md:flex space-x-4">
+                <a href="#" class="text-[#555] hover:text-[#007bff]">Home</a>
+                <a href="#" class="text-[#555] hover:text-[#007bff]">Link</a>
+                <a href="#" class="text-[#555] hover:text-[#007bff]">Dropdown</a>
+                <a href="#" class="text-[#555] hover:text-[#007bff]">Disabled</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container mx-auto md:py-8 ">
+        <!-- Two Column Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-7 gap-6">
+            <!-- Description Card -->
+            <div class="rounded-lg p-6 max-w-prose md:col-span-2 ">
+                <h1 class="text-5xl font-bold text-[#007bff] mb-2">Be a Mentor</h1>
+                <p class="text-gray-500 md:mb-4 text-lg">Sign up now to become a mentor and make a difference!</p>
+            </div>
+
+            <!-- Sign-up Form Card -->
+            <div class="bg-white/30 shadow-xl rounded-lg p-6 col-span-5 backdrop-blur-sm">
+                <form id="mentorSignUpForm">
+                    <!-- Full Name -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-xl mb-2" for="fullName">Full Name</label>
+                        <input type="text" id="fullName" aria-label="Full Name"
+                            class="w-full p-2 border border-gray-300 rounded-lg" placeholder="John Tan">
+                    </div>
+
+                    <!-- Username -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm text-xl mb-2" for="username">Username</label>
+                        <input type="text" id="username" aria-label="Username"
+                            class="w-full p-2 border border-gray-300 rounded-lg" placeholder="">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm text-xl mb-2" for="email">Email</label>
+                        <input type="email" id="email" aria-label="Email"
+                            class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Email">
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm text-xl mb-2" for="phoneNumber">Phone Number</label>
+                        <input type="text" id="phoneNumber" aria-label="Phone Number"
+                            class="w-full p-2 border border-gray-300 rounded-lg" placeholder="+65">
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm text-xl mb-2" for="password">Password</label>
+                        <input type="password" id="password" aria-label="Password"
+                            class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Password">
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm text-xl mb-2" for="confirmPassword">Confirm
+                            Password</label>
+                        <input type="password" id="confirmPassword" aria-label="Confirm password"
+                            class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Confirm Password">
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="mb-4">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="termsAndConditions" class="mr-2 leading-tight">
+                            <span class="text-gray-700">I agree to the terms and conditions</span>
+                        </label>
+                        <div id="tNcError"></div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit"
+                            class="w-full p-3 text-white rounded-lg bg-gradient-to-r from-[#007bff] to-teal-300 hover:from-[#EEDB89] hover:to-[#D13ABD]">
+                            <span>
+                                <div id="spinner" class="flex justify-center items-center hidden">
+                                    <div
+                                        class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full">
+                                    </div>
+                                </div>
+                            </span>
+
+                            <span id="submitButton">
+                                Next
+                            </span>
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
