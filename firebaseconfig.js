@@ -5,7 +5,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase
 
 // Firebase configuration
 const firebaseConfig = {
-   apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
+   apiKey: import.meta.env.VITE_FIREBASE_KEY,
    authDomain: "wadii-career-20ae3.firebaseapp.com",
    projectId: "wadii-career-20ae3",
    storageBucket: "wadii-career-20ae3.appspot.com",
