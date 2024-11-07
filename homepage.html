@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="signoutbutton">Sign Out!</button>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import {
+            getAuth,
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
+          authDomain: "wadii-career-20ae3.firebaseapp.com",
+          projectId: "wadii-career-20ae3",
+          storageBucket: "wadii-career-20ae3.appspot.com",
+          messagingSenderId: "967171133152",
+          appId: "1:967171133152:web:42cac325a66903712bca85"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth=getAuth(app);
+
+        const SignOutButton=document.getElementById('signoutbutton')
+
+        const UserSignOut=async()=>{
+            await signOut(auth);
+            window.location="login.html"
+
+        }
+
+        SignOutButton.addEventListener("click",UserSignOut)
+
+
+    </script>
+
+
+
+
+</body>
+</html>

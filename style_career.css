@@ -1,0 +1,135 @@
+
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+body{
+    background-image: url(images/careerbackg.jpg);
+    background-size: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+}
+
+.btn_design{
+    background-color: #145da0;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: auto; 
+
+}
+
+.jumbotron{
+
+    height:200px;
+    background-image: url(images/jumbotron.jpg);
+    background-size: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.jumbotron h1{
+    font-weight: bold;
+    font-size: 80px;
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+}
+
+.jumbotron p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color:white
+}
+
+
+
+.btn_design:hover {
+    background-color: grey;
+  }
+
+  .Role{
+    font-size: 22px;
+  }
+
+  .category{
+    font-size: 20px;
+
+  }
+
+  .Location{
+    font-size:15px;
+  }
+
+  .Level{
+    font-size:15px;
+  }
+
+
+  #nav-bar{
+
+    width: 100%;
+    margin:0;
+    padding:0
+
+  
+  }
+
+.navbar-brand img{
+    height: 50px;
+    padding-left: 30px;
+    
+}
+
+.navbar-nav li{
+    padding: 0 10px;
+}
+
+.navbar-nav li a{
+    float: right;
+    text-align: left;
+}
+
+#nav-bar ul li a:hover{
+    color: #007bff;
+}
+
+.navbar{
+    background:#fff;
+}
+
+.navbar-toggle{
+    border:none
+}
+
+.nav-link{
+    color:#555;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+
+.save-button {
+  position: absolute; 
+  top: 0.5px; 
+  right: 0px; 
+  z-index: 10;
+  background-color: transparent;
+  border: none; 
+  color: gray; 
+  font-size: 20px;
+
+}
+
+#app {
+  display: none; /* Hide the app container initially */
+}

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Search</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+  <script src="https://unpkg.com/axios/dist/axios.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style_career.css">
+  <script type="module" src="firebaseConfig.js"></script>
+</head>
+
+<body>
+  <!-- test -->
+  <div id='app' class="container-fluid">
+
+    <div class="row">
+      <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="./img/logo.png"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#">HOME</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#about">ABOUT US</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#services">SERVICES</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#notable-mentors">NOTABLE MENTORS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#testimonials">TESTIMONIALS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">PROFILE</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">CONTACT</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </section>
+
+    </div>
+
+    <div class="row">
+      <div
+        class="jumbotron d-flex flex-column justify-content-center align-items-center text-center bg-light mb-3 p-lg-5 p-md-4 p-3 w-100">
+        <div class="container">
+          <h1 class="display-4 fs-1 fs-md-2 fs-lg-1">JobBudds</h1>
+          <p class="lead fs-5 fs-md-6">
+            Feeling lost navigating your future? Explore your career choices with our
+            <a class="text-white" href="explorationmap.html">Exploration Map</a> today!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- large bp : >=992   med bp: >=768 small bp: >=576-->
+
+
+    <div class="row d-flex justify-content-center align-items-center" v-if="!showsaved">
+
+      <div class="flex-nowrap col-xl-3 col-lg-4 col-md-12 col-sm-12 px-3">
+        <div class="input-group mb-4">
+          <span class="input-group-text" id="building"><i class="far fa-building"></i></span>
+          <input type="text" v-model="location" id="location" class="form-control" placeholder="City, Country"
+            aria-label="Location" aria-describedby="building">
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6 col-sm-6 px-3">
+        <div class="input-group flex-nowrap mb-4">
+          <span class="input-group-text" id="stairs"><i class="fas fa-stairs"></i></span>
+          <button style="background-color: white;" class="btn btn-outline-secondary dropdown-toggle text-truncate"
+            type="button" data-bs-toggle="dropdown" aria-expanded="false">Experience Level</button>
+          <div class="dropdown-menu">
+            <div v-for="lvl in level_options">
+              <input type="checkbox" :value="lvl" v-model="levels"> <span class="checkbox-label">{{lvl}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6 col-sm-6 px-3">
+        <div class="input-group flex-nowrap mb-4">
+          <span class="input-group-text" id="category"><i class="fas fa-suitcase"></i></span>
+          <button style="background-color: white;" class="btn btn-outline-secondary dropdown-toggle text-truncate"
+            type="button" data-bs-toggle="dropdown" aria-expanded="false">Job Category</button>
+          <div class="dropdown-menu">
+            <select v-model="categories" multiple>
+              <option v-for="category in category_options" :value="category">{{category}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-2 col-md-12 col-sm-12 px-3">
+        <div class="input-group mb-4">
+          <span class="input-group-text" id="company"><i class="far fa-building"></i></span>
+          <input type="text" v-model="company" id="company" class="form-control" placeholder="Company"
+            aria-label="Company" aria-describedby="company">
+        </div>
+      </div>
+
+      <div class="col-auto">
+        <button v-on:click="fetchResults" class="btn btn-secondary mb-4"><i
+            class="fas fa-magnifying-glass"></i></button>
+      </div>
+
+      <div class="col-auto">
+        <button type="button" class="btn btn-outline-secondary mb-4" @click="getSavedJobs"><i class="far fa-bookmark"></i>
+          Saved Jobs</button>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end" v-if="showsaved">
+      <button type="button" class="btn btn-outline-secondary mb-4" @click="fetchResults">
+        <i class="far fa-circle-xmark"></i> Back to Search Jobs
+      </button>
+    </div>
+  
+  
+    <div class="container" v-if="!loading && !showsaved">
+      <div class="row">
+        <div v-for="(job, index) in page_results" :key="index"
+          class="col-lg-4 col-md-4 col-sm-12 d-flex align-items-stretch mb-4">
+          <div class="card position-relative" style="width: 100%;">
+            <button type="button" class="btn btn-secondary save-button" @click="saveJob(job)">
+              <i class="fas fa-bookmark"></i>
+            </button>
+
+            <div class="card-body">
+              <h5 class="Role card-title">{{job.name}}</h5>
+              <h6 class="category card-subtitle mb-2 text-muted">{{ job.categories && job.categories.length > 0 ?
+                job.categories[0].name :'Unknown Job Role' }}
+              </h6>
+              <h6 class="Company card-subtitle mb-2 text-muted">{{ job.company?.name || 'No company info' }}</h6>
+              <h6 class="Location card-subtitle mb-2 text-muted
+            "><i class="fas fa-map-marker-alt me-2"></i>
+                {{ job.locations && job.locations.length > 0 ? job.locations[0].name : 'No location' }}</h6>
+
+
+              <h6 class="Level card-subtitle mb-2 text-muted"><i class="fas fa-briefcase me-2"></i>
+                {{ job.levels && job.levels.length > 0 ? job.levels[0].name : 'No level' }}</h6>
+              <h6 class="Date card-subtitle mb-2 text-muted">
+                <i class="fas fa-calendar-alt me-2"></i>
+                {{ job.publication_date ?job.publication_date.slice(0, 10) : 'No date' }}
+              </h6>
+
+
+              <div class="d-flex justify-content-center align-items-center">
+                <a v-bind:href="job.refs?.landing_page || '#'" class="card-link"><button type="button"
+                    class="btn btn_design"><span style="color:white">Apply</span></button></a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container" v-if="showsaved">
+      <div class="row">
+        <div v-for="(job, index) in savedJobs" :key="index"
+          class="col-lg-4 col-md-4 col-sm-12 d-flex align-items-stretch mb-4">
+          <div class="card position-relative" style="width: 100%;">
+            <button type="button" class="btn btn-secondary save-button" @click="removeJob(job)">
+              <i class="fas fa-circle-minus"></i>
+            </button>
+  
+            <div class="card-body">
+              <h5 class="Role card-title">{{job.name}}</h5>
+              <h6 class="category card-subtitle mb-2 text-muted">{{job.category}}
+              </h6>
+              <h6 class="Company card-subtitle mb-2 text-muted">{{job.company}}</h6>
+              <h6 class="Location card-subtitle mb-2 text-muted
+            "><i class="fas fa-map-marker-alt me-2"></i>
+                {{job.locations}}</h6>
+
+
+              <h6 class="Level card-subtitle mb-2 text-muted"><i class="fas fa-briefcase me-2"></i>
+                {{job.levels }}</h6>
+              <h6 class="Date card-subtitle mb-2 text-muted">
+                <i class="fas fa-calendar-alt me-2"></i>
+                {{ job.publication_date }}
+              </h6>
+
+              <div class="d-flex justify-content-center align-items-center">
+                <a v-bind:href="job.refs|| '#'" class="card-link"><button type="button"
+                    class="btn btn_design"><span style="color:white">Apply</span></button></a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <p style='text-align: center; font-weight: bold ;' v-if="showsaved && savedJobs.length==0">
+      No Jobs saved yet. Start exploring!
+    </p>
+
+
+    <p style='text-align: center; font-weight: bold ;' v-if="page_results.length==0 && !loading">
+      No results found. Please check back soon for more opportunities!
+    </p>
+
+    <!-- justify content center helps me to center the column horizontaly within the row -->
+    <!-- align-items-center: Vertically centers the columns within the row. -->
+    <!-- col-auto: Automatically adjusts each column width to fit the content without taking up more space. -->
+
+    <div class="row justify-content-center align-items-center" v-if="loading">
+      <div class="d-flex justify-content-center align-items-center">
+        <span style="color:black">Loading</span>
+        <div class="spinner-grow text-secondary mx-1" role="status" style="width: 10px; height: 10px;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary mx-1" role="status" style="width: 10px; height: 10px;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary mx-1" role="status" style="width: 10px; height: 10px;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center" v-if='showbuttons && !loading && page_results.length>0 && !showsaved'>
+      <div class="col-auto">
+        <button type="button" class="btn btn-light" v-on:click="loadPrevResults">
+          Previous Results
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button type="button" class="btn btn-light" v-on:click="loadMoreResults" :disabled="loading">
+          {{ loading ? 'Loading...' : 'More Results' }}
+        </button>
+      </div>
+
+    </div>
+
+
+
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="messageModalLabel">JobBudds</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            {{ modalMessage }}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+  <!-- end container fluid div  and app-->
+
+  <script type="module">
+    
+  import { collection, addDoc, doc, getDoc, setDoc, updateDoc, arrayUnion,arrayRemove } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+  import { auth,db } from './firebaseConfig.js';
+
+    const vm = Vue.createApp({
+      data() {
+        return {
+
+
+          company: "",
+          location: "",
+          modalMessage:"",
+
+          levels: [],
+          level_options: ['Entry Level', 'Senior Level', 'Internship', 'Mid Level', 'management'],
+
+          categories: [],
+          category_options: ['Accounting', 'Administration and Office', 'Accounting and Finance', 'Advertising and Marketing', 'Arts', 'Business Operations', 'Customer Care', 'Computer and IT', 'Coporate', 'Data Analytics',
+            'Design', 'Data Science', 'Data Entry', 'Design and UX', 'Education', 'Editor', 'Food and Hospitality Services',
+            'Healthcare', 'Human Resources and Recruitment', 'IT', 'Legal Services', 'Law', 'Mechanic', 'Marketing', 'Media,PR, and Communications', 'Product Management', 'Project Management', 'Real Estate',
+            'Software Engineering', 'Sales', 'Sience and Engineering', 'Videography', 'Tansporation and Logistics', 'Writing and Editing'
+          ],
+
+          currentpage: 0,
+          total_page: 0,
+          resultsPerPage: 20,
+
+          page_results:[],
+
+          savedJobs: [],
+
+          loading: true,
+          showbuttons: false,
+
+          showsaved: false
+
+        }
+      },
+
+      methods: {
+
+    async  fetchSavedJobsForUser(user) {
+    const userDocRef = doc(db, 'users', user.email);
+    const userDoc = await getDoc(userDocRef);
+
+    if (userDoc.exists()) {
+        vm.savedJobs = userDoc.data().savedJobs || [];
+        console.log("Saved jobs loaded for user:", vm.savedJobs);
+    } else {
+        console.log("No saved jobs found for this user.");
+        vm.savedJobs = [];
+    }
+},
+
+
+        showModal(message) {
+          this.modalMessage = message;
+          const messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
+          messageModal.show();
+        },
+
+        //fetch result will always first return the first page since users havent click load more results yet
+        fetchResults() {
+          this.currentpage = 1;
+          this.page_results = [];
+          //clear the page_results
+          this.loadResults()
+        },
+
+        loadMoreResults() {
+          if (this.currentpage < this.total_page) {
+            this.currentpage++;
+            this.loadResults()//now load results for this next page....
+          }
+        },
+
+        loadPrevResults() {
+          if (this.currentpage < this.total_page && this.currentpage > 0) {
+            this.currentpage--;
+            this.loadResults()//now load results for this next page....
+          }
+
+        },
+
+        loadResults() {
+
+          this.loading = true;
+          this.showsaved=false;
+          this.page_results = [];
+
+          const params = new URLSearchParams()
+
+          //i will only pass it as parameters if user defined it
+
+          if (this.levels) {
+            for (let lvl of this.levels) {
+              params.append('level', lvl)
+            }
+          }
+
+          if (this.categories) {
+            for (let cat of this.categories) {
+              params.append('category', cat)
+            }
+          }
+
+          if (this.location) {
+            params.append('location', this.location)
+          }
+
+          if (this.company) {
+            params.append('company', this.company)
+          }
+
+          params.append('page', this.currentpage)
+
+          //we are trying to fetch the results of the current page we are in
+
+          console.log("Query String:", params.toString());
+
+
+          var url = `https://www.themuse.com/api/public/jobs?${params.toString()}`;
+
+          axios.get(url)
+
+            .then(response => {
+              this.showbuttons = true;
+
+              //  only whwen is sucessful then i show the buttons
+
+              console.log(response.data)
+
+              this.page_results = this.page_results.concat(response.data.results)
+
+
+              this.page_results.sort((a, b) => {
+                const dateA = new Date(a.publication_date);
+                const dateB = new Date(b.publication_date);
+
+                const yearDifference = dateB.getFullYear() - dateA.getFullYear();
+
+                if (yearDifference === 0) {
+                  return dateB - dateA; // Sort by date descending
+                }
+
+                return yearDifference; // Sort by year descending
+
+              })
+
+              console.log(this.page_results)
+              this.total_page = response.data.page_count
+              //we need to store the page_count suchi that i will only current page ++ as long as its before or equal to page count
+              // console.log(this.total_page)
+
+            })
+
+            .catch(error => {
+              console.log(error.message)
+            })
+
+            //here .finally is to execute piece of code after the promise has been settled, it will run regardless the promise rejected or fulfilled
+
+            .finally(() => {
+
+              document.getElementById('app').style.display = 'block';
+              this.loading = false;
+
+              // stop the loading
+            })
+
+        },
+
+async  saveJob(job) {
+    try {
+
+        const user = auth.currentUser;
+        // check if user is login first
+        if (!user) {
+            this.showModal("Please log in to save jobs");
+            return;
+        }
+        // get ref to current user document in firestore using the unique identifier uid
+        const userDocRef = doc(db, 'users', user.email);
+        const userDoc = await getDoc(userDocRef);
+        // fetch user document from firestore
+        let savedJobs = [];
+        // initialise this array that we will later on add to field
+
+        if (!userDoc.exists()) {
+            // document dont exist so use set doc to create it 
+            await setDoc(userDocRef, {
+                email: user.email,
+                uid: user.uid,
+                savedJobs: []  // initialise as an empty array 
+            });
+            console.log("User document created");
+        }
+        else{
+            savedJobs=userDoc.data().savedJobs||[]
+        }
+
+        const jobAlreadySaved=savedJobs.some(savedJob=>savedJob.id===job.id)
+        if(jobAlreadySaved){
+            this.showModal('Job has already been saved')
+            return; 
+            // return n stop running subsequent code 
+        }
+
+        //if job array exists and the new save is unique then update the Doc
+        await updateDoc(userDocRef, {
+            savedJobs: arrayUnion({
+                id: job.id,
+                name: job.name,
+                category:job.categories && job.categories.length > 0 ?
+                job.categories[0].name :'Unknown Job Role',
+                company: job.company?.name || 'No company info' ,
+                locations: job.locations && job.locations.length > 0 ? job.locations[0].name : 'No location',
+                levels: job.levels && job.levels.length > 0 ? job.levels[0].name : 'No level',
+                publication_date:job.publication_date ?job.publication_date.slice(0, 10) : 'No date',
+                refs:job.refs?.landing_page || '#'
+                
+            })
+        });
+
+        this.showModal("Job saved successfully");
+    } 
+    // end of try block
+    
+    catch (error) {
+        console.error("Error saving job:", error);
+    }
+},
+
+async getSavedJobs(){
+
+    const user=auth.currentUser
+    if (!user) {
+        this.showModal("Please log in to view saved jobs");
+        return;
+      }
+    //   this will set up a pointer reference to  document (db,collectionName,documentID)
+      const userDocRef=doc(db,'users',user.email)
+
+      //this is what retrieves  document
+      const userDoc=await getDoc(userDocRef)
+      console.log(userDoc)
+
+      if(userDoc.exists()){
+        this.savedJobs=userDoc.data().savedJobs||[];
+        console.log(this.savedJobs)
+        // these is array of jobs saved
+        this.showsaved=true;
+        // user click on view save icon this.showsaved is tru
+
+      }
+      else{
+        console.log("You have no saved jobs yet.")
+
+      }
+},
+
+async removeJob(job){
+  try{
+    const user=auth.currentUser
+    const userDocRef=doc(db,'users',user.email)
+    const userDoc=await getDoc(userDocRef)
+    console.log(userDoc)
+
+
+    if(userDoc.exists()){
+      await updateDoc(userDocRef,{
+        savedJobs:arrayRemove(job)
+      })
+      
+      // remove from local array as well, only include in new array if the job id is not what we want to remove
+      this.savedJobs = this.savedJobs.filter(savedJob => savedJob.id !== job.id)
+      this.showModal('Sucessfully removed from saved Jobs')
+
+      }
+
+  }
+
+  catch(error){
+    console.log('error in removing job!',error)
+  }
+
+  
+}
+
+
+      },
+
+       mounted() {
+        this.fetchResults()
+      }
+
+      //use mounted such that it automatically fetch results when the page is load - lifecycle hook that is triggered when the Vue component is mounted
+
+    }).mount('#app')
+
+
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+</script>
+
+
+
+
+
+
+</body >
+</html >
