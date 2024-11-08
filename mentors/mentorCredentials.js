@@ -1,6 +1,6 @@
 import {doc, getDoc ,updateDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-import {db} from '../temp.js'
+import {db} from '../firebaseconfig.js'
 
 const API_KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTU0NjM2NmQtZDI0OC00NTE5LWI5MjMtNTVkZjQxOWQwZGI4IiwidHlwZSI6ImFwaV90b2tlbiJ9.FO6LLfcb6v-L_HtOE9mPyYSGpTlNunYkmZhVCQkyLHs";
 

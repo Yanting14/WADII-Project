@@ -24,6 +24,48 @@
 
     <style>
         /* Set the size of the div element that contains the map */
+
+
+        #nav-bar {
+
+            width: 100%;
+            margin: 0;
+            padding: 0
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            padding-left: 30px;
+
+        } 
+
+        .navbar-nav li {
+            padding: 0 10px;
+        }
+
+        .navbar-nav li a {
+            float: right;
+            text-align: left;
+        }
+
+        #nav-bar ul li a:hover {
+            color: #007bff;
+        }
+
+        .navbar {
+            background: #fff;
+        }
+
+        .navbar-toggle {
+            border: none
+        }
+
+        .nav-link {
+            color: #555;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
         .check {
             font-style: italic;
         }
@@ -87,16 +129,16 @@
             font-weight: bold;
             font-size: small;
         }
-        
+
         .title2 {
             text-transform: uppercase;
-            color:#535353;
+            color: #535353;
             letter-spacing: 2px;
             margin: 20px;
             font-family: bannerName;
             font-weight: bold;
             font-size: small;
-           
+
         }
 
         .icon {
@@ -108,7 +150,7 @@
         }
 
         body {
-            background-image: url(../images/resumeformbg6.avif);
+            background-image: url(../images/careerbackg.jpg);
             background-repeat: no-repeat;
             /* Prevents repeating */
             background-size: cover;
@@ -120,42 +162,47 @@
 
 <body>
     <!-- navbar -->
-    <div class="row">
-        <nav class="navbar navbar-expand-lg bg-secondary p-0">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown link
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+    <div class="row">
+
+        <section id="nav-bar">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="../images/logo.png"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a style="color:blue" class="nav-link" href="" aria-current="page">CAREER SEARCH</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page"
+                                    href="../careerexploration/career_exploration.html">CAREER EXPLORATION</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color:blue">RESUME CRAFTING</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#notable-mentors">UPSKILLING</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#testimonials">MENTORS</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">LOGOUT</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </section>
+
+
+
     </div>
     <!-- form -->
 
@@ -444,8 +491,10 @@
 
                                     <div class="form-group">
                                         <label for="language" style="height: fit-content;">Languages </label>
-                                        <span class="d-inline" style="color: rgb(158, 157, 157);"> (Language - Proficiency)</span>
-                                        <input type="text" class="form-control" id="language" placeholder="English - Highly proficient, Chinese - Approaching proficient">
+                                        <span class="d-inline" style="color: rgb(158, 157, 157);"> (Language -
+                                            Proficiency)</span>
+                                        <input type="text" class="form-control" id="language"
+                                            placeholder="English - Highly proficient, Chinese - Approaching proficient">
                                     </div>
                                 </div>
                             </div>
@@ -496,7 +545,7 @@
                             <div class="row">
                                 <!-- left side of 2nd row -->
                                 <div class="col-3 pink">
-                                    
+
                                     <div class="position-relative p-2">
                                         <p class="title1">CONTACT</p>
                                         <div>
@@ -524,7 +573,8 @@
                                     <p class="title1">Education</p>
                                     <div style="text-align: center;" class="p-2">
                                         <span style="color:#9C786C;">Degree & Major in Information Systems</span><br>
-                                        <span style="text-transform: capitalize;">Singapore Management University</span><br>
+                                        <span style="text-transform: capitalize;">Singapore Management
+                                            University</span><br>
                                         <span>GPA: 3.72</span><br>
                                         <span style="color:#607D8B;">Additional Information</span><br>
                                         <span style="font-weight: bold;">May 2022-June 2024</span>
@@ -532,7 +582,8 @@
 
                                     <div style="text-align: center;" class="p-2">
                                         <span style="color:#9C786C;">Degree & Major in Information Systems</span><br>
-                                        <span style="text-transform: capitalize;">Singapore Management University</span><br>
+                                        <span style="text-transform: capitalize;">Singapore Management
+                                            University</span><br>
                                         <span>GPA: 3.72</span><br>
                                         <span style="color:#607D8B;">Additional Information</span><br>
                                         <span style="font-weight: bold;">May 2022-June 2024</span>
@@ -540,7 +591,8 @@
 
                                     <div style="text-align: center;" class="p-2">
                                         <span style="color:#9C786C;">Degree & Major in Information Systems</span><br>
-                                        <span style="text-transform: capitalize;">Singapore Management University</span><br>
+                                        <span style="text-transform: capitalize;">Singapore Management
+                                            University</span><br>
                                         <span>GPA: 3.72</span><br>
                                         <span style="color:#607D8B;">Additional Information</span><br>
                                         <span style="font-weight: bold;">May 2022-June 2024</span>
@@ -561,7 +613,14 @@
                                 <div class="col-9">
                                     <p class="title2">Profile</p>
                                     <div style="margin: 20px;">
-                                        I'm a passionate marketing professional with a solid background in digital marketing and content creation. I thrive on developing innovative campaigns that boost brand awareness and engage customers. With skills in SEO, social media management, and data analysis, I love diving into the numbers to uncover insights that drive results. I believe in the power of teamwork and communication, and I'm dedicated to delivering high-quality outcomes. I'm excited to bring my experience to a dynamic marketing role where I can help the organization grow and make a real impact.
+                                        I'm a passionate marketing professional with a solid background in digital
+                                        marketing and content creation. I thrive on developing innovative campaigns that
+                                        boost brand awareness and engage customers. With skills in SEO, social media
+                                        management, and data analysis, I love diving into the numbers to uncover
+                                        insights that drive results. I believe in the power of teamwork and
+                                        communication, and I'm dedicated to delivering high-quality outcomes. I'm
+                                        excited to bring my experience to a dynamic marketing role where I can help the
+                                        organization grow and make a real impact.
                                     </div>
                                     <hr>
 
@@ -570,10 +629,13 @@
                                         <span style="color:#607D8B; margin-right: 80px;">Company Name</span>
                                         <span style="color:#535353;">May 2022 - May 2024</span><br>
                                         <span style="color:#535353;">Job Title</span><br>
-                                        <span>Developed and executed innovative digital marketing strategies to enhance brand awareness and drive customer engagement.
-                                            Created high-quality content for websites, blogs, and social media platforms, optimizing for SEO to improve organic search visibility.
-                                            Managed social media channels, engaging with the audience and analyzing performance metrics to refine marketing tactics.
-                                            </span>
+                                        <span>Developed and executed innovative digital marketing strategies to enhance
+                                            brand awareness and drive customer engagement.
+                                            Created high-quality content for websites, blogs, and social media
+                                            platforms, optimizing for SEO to improve organic search visibility.
+                                            Managed social media channels, engaging with the audience and analyzing
+                                            performance metrics to refine marketing tactics.
+                                        </span>
 
 
 

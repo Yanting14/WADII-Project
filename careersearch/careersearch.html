@@ -11,7 +11,7 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style_career.css">
-  <script type="module" src="firebaseConfig.js"></script>
+  <script type="module" src="../firebaseconfig.js"></script>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
       <section id="nav-bar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="./img/logo.png"></a>
+            <a class="navbar-brand" href="#"><img src="../images/logo.png"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -30,25 +30,23 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="">HOME</a>
+                  <a style="color:blue" class="nav-link" aria-current="page">CAREER SEARCH</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#about">ABOUT US</a>
+                  <a class="nav-link" aria-current="page" href="../careerexploration/career_exploration.html">CAREER EXPLORATION</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#services">SERVICES</a>
+                  <a class="nav-link" href="../resume/resumeForm.html">RESUME CRAFTING</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#notable-mentors">NOTABLE MENTORS</a>
+                  <a class="nav-link" href="#notable-mentors">UPSKILLING</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#testimonials">TESTIMONIALS</a>
+                  <a class="nav-link" href="#testimonials">MENTORS</a>
                 </li>
+      
                 <li class="nav-item">
-                  <a class="nav-link" href="#">PROFILE</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">CONTACT</a>
+                  <a class="nav-link" href="#">LOGOUT</a>
                 </li>
               </ul>
             </div>
@@ -64,7 +62,8 @@
         <div class="container">
           <h1 class="display-4 fs-1 fs-md-2 fs-lg-1">JobBudds</h1>
           <p class="lead fs-5 fs-md-6">
-            Feeling lost navigating your future? <a style='color:white ; text-decoration: none;' href="career_exploration.html">Explore</a> your career choices with us today!
+            With countless job opportunities available, you’re sure to find one that suits you!
+
           </p>
         </div>
       </div>
@@ -283,7 +282,7 @@
   <script type="module">
     
   import { collection, addDoc, doc, getDoc, setDoc, updateDoc, arrayUnion,arrayRemove } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-  import { auth,db } from './firebaseConfig.js';
+  import { auth,db } from '../firebaseconfig.js';
 
     const vm = Vue.createApp({
       data() {

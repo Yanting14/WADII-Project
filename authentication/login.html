@@ -8,14 +8,23 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script type="module" src="firebaseConfig.js"></script>
+    <script type="module" src="../firebaseconfig.js"></script>
 
 </head>
 <body>
     <div class="container">
 
         <div id="authform" class="loginbox">
+
+            <div class="row justify-content-center mb-4">
+                <div class="col-12 text-center">
+                    <img src="../images/logo.png" alt="Company Logo" style="max-width: 200px; height: auto;">
+                </div>
+            </div>
+            
             <h1>Login</h1>
+
+    
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6">
                     <div class="input-group mb-4">
@@ -23,7 +32,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6">
                     <div class="input-group mb-4">
@@ -70,7 +79,7 @@
     <script type="module">
 
    //  db` and `auth` are instances already initialized in firebaseConfig.js
-   import { auth,db } from './firebaseConfig.js';
+   import { auth,db } from '../firebaseconfig.js';
 // import functions u will be using 
     import {signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
    import { getFirestore, collection, addDoc, doc,setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
@@ -80,6 +89,7 @@
     const messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
     messageModal.show();
 }
+
 
    
    const UserSignin = async () => {
@@ -187,7 +197,7 @@
                 if (user) {
                 showModal("You have sucessfully log in");
                 setTimeout(() => {
-                window.location.href = 'homepage.html';
+                window.location.href = '../careersearch/careersearch.html';
             }, 1000); 
 
                 }
@@ -198,6 +208,7 @@
             })
 
         }
+    
 
         checkAuthstate();
 
