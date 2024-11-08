@@ -58,8 +58,7 @@ const app1 = Vue.createApp({
                             graduatingInstitute: this.graduatingInstitute,
                             about              : summary,
                         });
-
-                        
+     
                     } 
                     alert("Thank you for signing up!");
                     window.location.href = "registeredLandingPage.html";
