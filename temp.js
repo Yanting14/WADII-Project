@@ -4,6 +4,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth
 import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // Firebase configuration
+
 const firebaseConfig = {
    apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
    authDomain: "wadii-career-20ae3.firebaseapp.com",
