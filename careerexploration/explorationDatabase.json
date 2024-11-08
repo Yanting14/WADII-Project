@@ -1,0 +1,918 @@
+[{
+    "id": 1,
+    "name": "Healthcare",
+    "image_url":"../images/healthcare.jpeg",
+    "description": "Healthcare offers fulfilling career paths focused on improving lives and providing essential services to communities. This industry spans environments from fast-paced hospitals to tranquil private practices, offering diverse and rewarding opportunities for those driven by compassion and a desire to make a real impact.",
+    "roles": [
+        {
+            "id": 1,
+            "name": "Doctor",
+            "description": "Do you have a mind that never stops questioning and a heart that never stops caring? As a doctor, you'll be diagnosing, treating, and making life-changing decisions for your patients.",
+            "skills": [
+                "Medical Knowledge: Extensive understanding of human anatomy, medical conditions, and treatment protocols.",
+                "Analytical Thinking: Ability to analyze symptoms and medical history to diagnose conditions accurately.",
+                "Patient Management: Skills to manage patient care and treatment plans effectively.",
+                "Communication Skills: Essential for explaining diagnoses, treatments, and outcomes to patients and families.",
+                "Attention to Detail: Critical for ensuring accurate diagnoses and preventing medical errors."
+            ],
+            "annual_average_salary": "$180,000 - $300,000"
+        },
+        {
+            "id": 2,
+            "name": "Nurse",
+            "description": "Are you compassionate, patient, and driven to help? Nurses are the frontline caregivers, providing essential support and comfort to patients every day.",
+            "skills": [
+                "Medical & Technical Skills: Knowledge of healthcare procedures, medication administration, and patient monitoring.",
+                "Compassion: Essential for providing emotional support and care to patients.",
+                "Communication: Key for coordinating with doctors and relaying information to patients and families.",
+                "Adaptability: Ability to respond to changing patient needs and medical emergencies.",
+                "Team Collaboration: Works closely with doctors, other nurses, and healthcare staff."
+            ],
+            "annual_average_salary": "$60,000 - $90,000"
+        },
+        {
+            "id": 3,
+            "name": "Paramedic",
+            "description": "Can you stay calm in chaos? Paramedics respond to emergencies, providing life-saving care and making split-second decisions.",
+            "skills": [
+                "Emergency Medical Knowledge: Proficiency in first-aid, CPR, and life-saving procedures.",
+                "Physical Stamina: Ability to lift, carry, and assist patients in emergency situations.",
+                "Critical Thinking: Making quick, accurate decisions under pressure.",
+                "Calm Under Pressure: Essential for managing high-stress emergency environments.",
+                "Communication: Clear communication with patients and emergency teams is crucial."
+            ],
+            "annual_average_salary": "$45,000 - $60,000"
+        },
+        {
+            "id": 4,
+            "name": "Therapist & Counselor",
+            "description": "Do you feel drawn to help others through challenges? Therapists provide a safe space to work through emotions and personal obstacles.",
+            "skills": [
+                "Empathy: Understanding and relating to clients' emotions is fundamental.",
+                "Listening Skills: Carefully listening to clients to identify issues and provide guidance.",
+                "Communication: Effective in articulating therapeutic approaches and creating trust.",
+                "Problem-Solving: Ability to identify root causes of clients' challenges and develop strategies.",
+                "Analytical Skills: Helps in interpreting clients’ behaviors and emotional responses."
+            ],
+            "annual_average_salary": "$50,000 - $80,000"
+        },
+        {
+            "id": 5,
+            "name": "Veterinarian",
+            "description": "Passionate about animals? Veterinarians provide essential healthcare to pets and wildlife, helping them lead healthy lives.",
+            "skills": [
+                "Animal Health Knowledge: Deep understanding of animal anatomy, diseases, and treatments.",
+                "Manual Dexterity: Precision for performing surgeries and medical procedures on animals.",
+                "Problem-Solving: Diagnostic skills to identify and treat various animal health issues.",
+                "Compassion: Essential for caring for animals and comforting pet owners.",
+                "Communication: Key for explaining treatments and health advice to pet owners."
+            ],
+            "annual_average_salary": "$80,000 - $110,000"
+        }
+    ]
+},
+
+
+{
+    "id": 2,
+    "name": "Tech",
+    "image_url":"../images/tech.jpg",
+    "description": "The tech industry is dynamic and rapidly evolving, providing innovative solutions that transform how we live and work. This field offers opportunities for creative problem-solvers and analytical minds who are passionate about technology.",
+    "roles": [
+        {
+            "id": 1,
+            "name": "Software Development",
+            "description": "Love coding and solving puzzles? Software developers create and maintain applications that millions rely on daily.",
+            "skills": [
+                "Programming: Proficiency in languages like Java, Python, or JavaScript.",
+                "Debugging: Ability to identify, analyze, and fix issues in code.",
+                "Problem-Solving: Creative solutions for complex technical challenges.",
+                "Team Collaboration: Works well in cross-functional teams to develop features.",
+                "Adaptability: Ability to work in fast-paced, evolving project environments."
+            ],
+            "annual_average_salary": "$70,000 - $120,000"
+        },
+        {
+            "id": 2,
+            "name": "Data Science & Analytics",
+            "description": "Do you enjoy working with data and uncovering insights? Data scientists and analysts make sense of large datasets to drive decision-making.",
+            "skills": [
+                "Data Analysis: Skilled in analyzing and interpreting large datasets.",
+                "Statistical Knowledge: Understanding statistical methods and data patterns.",
+                "SQL: Proficient in SQL for querying databases and managing data.",
+                "Data Visualization: Skilled in tools like Tableau and Power BI for presenting data insights.",
+                "Analytical Thinking: Ability to derive meaningful conclusions and insights from data."
+            ],
+            "annual_average_salary": "$80,000 - $130,000"
+        },
+        {
+            "id": 3,
+            "name": "Networking & Systems",
+            "description": "Interested in building secure, reliable networks? Networking and systems professionals keep our infrastructure running smoothly and safely.",
+            "skills": [
+                "Network Protocols: Knowledge of network configuration and protocols (e.g., TCP/IP).",
+                "Troubleshooting: Strong ability to diagnose and solve network issues.",
+                "Security Awareness: Ensures networks are secure and data is protected.",
+                "System Configuration: Configures and manages network infrastructure efficiently.",
+                "Attention to Detail: Precise management of network components and updates."
+            ],
+            "annual_average_salary": "$60,000 - $100,000"
+        },
+        {
+            "id": 4,
+            "name": "Support & Operations",
+            "description": "Are you patient and love solving problems? Support and operations roles ensure that technology works smoothly for users.",
+            "skills": [
+                "Customer Service: Ability to effectively assist clients with technical issues.",
+                "Technical Troubleshooting: Skilled in diagnosing and solving IT-related problems.",
+                "Communication: Clearly explains technical solutions to non-technical users.",
+                "Problem-Solving: Finds quick solutions to maintain operational continuity.",
+                "Adaptability: Flexible in responding to a variety of technical issues."
+            ],
+            "annual_average_salary": "$40,000 - $70,000"
+        },
+        {
+            "id": 5,
+            "name": "Cybersecurity Analyst",
+            "description": "Passionate about protecting data? Cybersecurity analysts safeguard systems from cyber threats, ensuring data privacy and security.",
+            "skills": [
+                "Network Security: Proficient in securing networks against cyber threats.",
+                "Threat Analysis: Ability to assess and mitigate potential security risks.",
+                "Risk Assessment: Skilled in identifying and addressing vulnerabilities.",
+                "Analytical Skills: Detects patterns that may indicate security breaches.",
+                "Continuous Learning: Keeps up with evolving security threats and technology."
+            ],
+            "annual_average_salary": "$60,000 - $100,000"
+        }
+    ]
+},
+
+{
+    "id":3,
+    "name": "Education and Training",
+    "image_url":"../images/education.jpg",
+    "description": "The education and training industry is dedicated to shaping the future by imparting knowledge and skills. If you’re passionate about teaching, learning, or developing curricula, this industry provides fulfilling roles.",
+    "roles": [
+        {
+            "id": 1,
+            "name": "Teacher",
+            "description": "Do you love inspiring young minds? Teachers educate students, prepare lesson plans, and guide them toward achieving their goals.",
+            "skills": [
+                "Communication: Clearly explains concepts to students of all ages.",
+                "Patience: Manages a variety of learning styles and student behaviors.",
+                "Classroom Management: Creates a positive and organized learning environment.",
+                "Subject Matter Expertise: Deep knowledge in the specific teaching subject.",
+                "Adaptability: Adjusts teaching methods based on student needs."
+            ],
+            "annual_average_salary": "$40,000 - $70,000"
+        },
+        {
+            "id": 2,
+            "name": "Education Administrator",
+            "description": "Are you a natural leader with an eye for detail? Education administrators manage school operations and support faculty for a smooth-running institution.",
+            "skills": [
+                "Leadership: Guides and supports teaching and administrative staff.",
+                "Organizational Skills: Manages school operations and policies effectively.",
+                "Communication: Connects with parents, staff, and the school community.",
+                "Problem-Solving: Handles issues that arise within the school environment.",
+                "Budget Management: Allocates resources efficiently across departments."
+            ],
+            "annual_average_salary": "$60,000 - $120,000"
+        },
+        {
+            "id": 3,
+            "name": "Curriculum Developer",
+            "description": "Passionate about creating educational content? Curriculum developers design learning materials and lesson plans to improve student outcomes.",
+            "skills": [
+                "Instructional Design: Creates engaging and effective learning materials.",
+                "Research Skills: Stays updated with educational trends and standards.",
+                "Creativity: Designs innovative and interactive curricula.",
+                "Attention to Detail: Ensures curricula align with educational standards.",
+                "Collaboration: Works with educators to create cohesive content."
+            ],
+            "annual_average_salary": "$50,000 - $90,000"
+        },
+        {
+            "id": 4,
+            "name": "Educational Technology Specialist",
+            "description": "Love integrating technology with learning? EdTech specialists train teachers on digital tools and enhance learning with innovative technology.",
+            "skills": [
+                "Tech Proficiency: Knowledge of digital tools like learning management systems.",
+                "Problem-Solving: Assists teachers in troubleshooting tech issues.",
+                "Training Skills: Educates staff on effective use of educational tools.",
+                "Research: Keeps up with emerging technologies in education.",
+                "Communication: Clearly explains tech solutions to non-technical users."
+            ],
+            "annual_average_salary": "$55,000 - $85,000"
+        },
+        {
+            "id": 5,
+            "name": "Tutor",
+            "description": "Do you enjoy personalized teaching? Tutors provide one-on-one assistance to students, helping them master specific subjects.",
+            "skills": [
+                "Subject Expertise: Strong knowledge in the area being tutored.",
+                "Communication: Breaks down complex concepts into simpler terms.",
+                "Adaptability: Tailors teaching methods to individual learning needs.",
+                "Patience: Works at the student's pace and reassures them through challenges.",
+                "Motivational Skills: Encourages and inspires confidence in students."
+            ],
+            "annual_average_salary": "Hourly rates vary from $20 to $60, depending on expertise"
+        }
+    ]
+},
+
+
+
+{
+    "id": 4,
+    "image_url":"../images/engineering.jpg",
+    "name": "Engineering",
+    "description": "Engineering careers involve designing, building, and improving structures and technologies that enhance daily life. It combines creativity with problem-solving to address complex challenges and make impactful contributions.",
+    "roles": [
+        {
+            "id": 1,
+            "name": "Civil Engineering",
+            "description": "Do you love planning and building? Civil engineers design and oversee projects like roads, bridges, and buildings that shape our communities.",
+            "skills": [
+                "Project Management: Overseeing construction projects from start to finish.",
+                "Analytical Skills: Evaluating structural integrity and design feasibility.",
+                "Construction Knowledge: Understanding materials, techniques, and tools.",
+                "Problem-Solving: Finding solutions for design and construction challenges.",
+                "Collaboration: Works with architects, contractors, and clients."
+            ],
+            "annual_average_salary": "$70,000 - $120,000"
+        },
+        {
+            "id": 2,
+            "name": "Mechanical Engineering",
+            "description": "Are you a problem-solver with a love for machines? Mechanical engineers design and test mechanical systems, from engines to robotics.",
+            "skills": [
+                "CAD Proficiency: Skilled in using CAD software for mechanical designs.",
+                "Technical Knowledge: Strong foundation in mechanical systems and physics.",
+                "Problem-Solving: Develops solutions for mechanical and design issues.",
+                "Attention to Detail: Ensures precision in design and testing.",
+                "Collaboration: Works with other engineers and departments."
+            ],
+            "annual_average_salary": "$70,000 - $110,000"
+        },
+        {
+            "id": 3,
+            "name": "Electrical Engineering",
+            "description": "Are you interested in circuits and power systems? Electrical engineers design, develop, and test electrical equipment that powers our world.",
+            "skills": [
+                "Circuit Design: Skilled in designing and testing electrical circuits.",
+                "Technical Knowledge: Expertise in electrical systems and components.",
+                "Problem-Solving: Resolves issues in system design and efficiency.",
+                "Project Management: Manages project timelines and deliverables.",
+                "Safety Awareness: Ensures compliance with electrical safety standards."
+            ],
+            "annual_average_salary": "$70,000 - $120,000"
+        },
+        {
+            "id": 4,
+            "name": "Software & Systems Engineering",
+            "description": "Excited by technology integration? Software and systems engineers build solutions that connect complex systems into cohesive operations.",
+            "skills": [
+                "Programming: Proficient in relevant languages for system integration.",
+                "Systems Integration: Combines multiple systems into cohesive solutions.",
+                "Analytical Thinking: Develops scalable and efficient system architectures.",
+                "Troubleshooting: Identifies and resolves technical issues quickly.",
+                "Collaboration: Works with software developers and other engineers."
+            ],
+            "annual_average_salary": "$80,000 - $120,000"
+        },
+        {
+            "id": 5,
+            "name": "Environmental Engineering",
+            "description": "Are you passionate about sustainability? Environmental engineers work to protect and improve natural resources through sustainable practices.",
+            "skills": [
+                "Environmental Regulations: Knowledge of environmental laws and policies.",
+                "Analytical Skills: Interprets environmental data to make informed decisions.",
+                "Problem-Solving: Develops sustainable solutions for environmental issues.",
+                "Fieldwork Skills: Performs assessments in diverse environmental settings.",
+                "Communication: Clearly presents findings and recommendations."
+            ],
+            "annual_average_salary": "$60,000 - $100,000"
+        }
+    ]
+},
+
+
+{
+    "id": 15,
+    "image_url":"../images/financeandbanking.jpg",
+    "name": "Finance and Banking",
+    "description": "The finance and banking industry is ideal for those interested in economic analysis, investment strategies, and financial planning. This field supports the financial growth and stability of businesses, governments, and individuals, offering a range of high-impact roles.",
+    "roles": [
+        {
+            "id": 1,
+            "name": "Investment Banker",
+            "description": "Are you drawn to high-stakes finance and complex transactions? Investment bankers help businesses raise capital, manage mergers, and navigate major financial decisions.",
+            "skills": [
+                "Financial Modeling: Expert in creating detailed financial models for valuations and transactions.",
+                "Analytical Thinking: Evaluates investment risks and opportunities with a critical eye.",
+                "Negotiation: Skilled in negotiating high-value deals with clients and stakeholders.",
+                "Attention to Detail: Ensures accuracy in financial reports and agreements.",
+                "Stress Management: Capable of thriving under tight deadlines and high pressure."
+            ],
+            "annual_average_salary": "$90,000 - $150,000"
+        },
+        {
+            "id": 2,
+            "name": "Financial Analyst",
+            "description": "Do you have a passion for data and market trends? Financial analysts evaluate economic conditions, forecast trends, and provide insights to guide business decisions.",
+            "skills": [
+                "Data Analysis: Proficient in interpreting financial data to identify trends.",
+                "Financial Modeling: Skilled in building models to predict financial outcomes.",
+                "Attention to Detail: Ensures accuracy in financial analysis and reporting.",
+                "Communication: Effectively presents findings to clients and stakeholders.",
+                "Research Skills: Conducts in-depth market and economic research."
+            ],
+            "annual_average_salary": "$60,000 - $100,000"
+        },
+        {
+            "id": 3,
+            "name": "Risk Manager",
+            "description": "Do you excel at identifying potential issues? Risk managers assess and mitigate financial and operational risks, safeguarding companies from potential losses.",
+            "skills": [
+                "Risk Assessment: Proficient in evaluating financial and strategic risks.",
+                "Analytical Thinking: Critical for identifying and managing risk exposures.",
+                "Decision-Making: Develops and implements risk mitigation strategies.",
+                "Communication: Clearly conveys risk factors and solutions to stakeholders.",
+                "Attention to Detail: Thorough in assessing risks and potential outcomes."
+            ],
+            "annual_average_salary": "$70,000 - $120,000"
+        },
+        {
+            "id": 4,
+            "name": "Wealth Manager",
+            "description": "Are you passionate about helping clients secure their financial futures? Wealth managers guide clients on investments, estate planning, and retirement strategies.",
+            "skills": [
+                "Investment Knowledge: In-depth understanding of stocks, bonds, and other investment vehicles.",
+                "Financial Planning: Designs comprehensive, tailored plans for clients.",
+                "Interpersonal Skills: Builds trust and rapport with clients.",
+                "Strategic Thinking: Develops long-term wealth accumulation strategies.",
+                "Regulatory Knowledge: Stays current on financial regulations and compliance."
+            ],
+            "annual_average_salary": "$80,000 - $150,000"
+        },
+        {
+            "id": 5,
+            "name": "Credit Analyst",
+            "description": "Are you good with numbers and credit assessment? Credit analysts review the financial health of borrowers, helping banks and institutions make sound lending decisions.",
+            "skills": [
+                "Credit Analysis: Skilled in evaluating financial statements to assess risk.",
+                "Attention to Detail: Ensures thoroughness in credit application reviews.",
+                "Financial Literacy: Knowledgeable in reading balance sheets and cash flow.",
+                "Analytical Thinking: Identifies creditworthiness through financial ratios.",
+                "Decision-Making: Provides recommendations on credit approvals."
+            ],
+            "annual_average_salary": "$50,000 - $85,000"
+        },
+        {
+            "id": 6,
+            "name": "Tax Accountant",
+            "description": "Are you interested in tax laws and compliance? Tax accountants ensure accurate tax filings, helping clients minimize liabilities and remain compliant.",
+            "skills": [
+                "Tax Knowledge: Expert understanding of tax laws and regulations.",
+                "Attention to Detail: Ensures accuracy in tax documentation and filings.",
+                "Analytical Skills: Evaluates financial data to optimize tax outcomes.",
+                "Communication: Advises clients on tax implications and planning.",
+                "Problem-Solving: Identifies tax-saving opportunities within legal frameworks."
+            ],
+            "annual_average_salary": "$55,000 - $95,000"
+        }
+    ]
+},
+
+{
+    "id": 14,
+    "name": "Accountancy",
+    "image_url":"../images/accountancy.jpg",
+    "description": "The accountancy industry is perfect for detail-oriented individuals who enjoy working with numbers and ensuring accuracy. Accountants play a vital role in financial reporting, auditing, and compliance across various sectors.",
+    "roles": [
+        {
+            "id": 1,
+            "name": "Certified Public Accountant (CPA)",
+            "description": "Do you have a knack for detail and precision? CPAs prepare and review financial documents, ensuring they’re accurate and comply with tax laws and regulations.",
+            "skills": [
+                "Financial Reporting: Prepares accurate and compliant financial statements.",
+                "Analytical Skills: Reviews financial data to identify trends or discrepancies.",
+                "Regulatory Knowledge: Thorough understanding of tax and accounting laws.",
+                "Attention to Detail: Ensures accuracy in all financial records and reports.",
+                "Communication: Explains complex financial information to clients or stakeholders."
+            ],
+            "annual_average_salary": "$60,000 - $120,000"
+        },
+        {
+            "id": 2,
+            "name": "Auditor",
+            "description": "Love uncovering details? Auditors examine financial records to ensure accuracy and detect fraud or errors, providing an essential check on financial integrity.",
+            "skills": [
+                "Attention to Detail: Scrutinizes records for accuracy and compliance.",
+                "Analytical Thinking: Evaluates financial data for irregularities or fraud.",
+                "Regulatory Knowledge: Familiar with auditing standards and legal requirements.",
+                "Problem-Solving: Identifies discrepancies and suggests corrective actions.",
+                "Communication: Prepares reports and presents findings to management."
+            ],
+            "annual_average_salary": "$55,000 - $100,000"
+        },
+        {
+            "id": 3,
+            "name": "Management Accountant",
+            "description": "Interested in budgeting and cost analysis? Management accountants create financial reports for internal use, helping businesses make strategic decisions.",
+            "skills": [
+                "Budgeting: Develops and monitors budgets to control costs.",
+                "Financial Analysis: Analyzes financial performance for strategic insights.",
+                "Decision-Making: Provides financial information to support business decisions.",
+                "Attention to Detail: Ensures accuracy in internal financial reports.",
+                "Data Interpretation: Translates financial data into actionable insights."
+            ],
+            "annual_average_salary": "$65,000 - $110,000"
+        },
+        {
+            "id": 4,
+            "name": "Tax Accountant",
+            "description": "Are you interested in tax laws and regulations? Tax accountants prepare tax returns, ensuring compliance and finding ways to minimize tax liabilities.",
+            "skills": [
+                "Tax Knowledge: Deep understanding of tax laws and regulations.",
+                "Attention to Detail: Ensures accuracy in tax filings and documentation.",
+                "Analytical Skills: Analyzes financial data to optimize tax outcomes.",
+                "Communication: Advises clients on tax matters and implications.",
+                "Problem-Solving: Identifies tax-saving opportunities for clients."
+            ],
+            "annual_average_salary": "$55,000 - $95,000"
+        },
+        {
+            "id": 5,
+            "name": "Forensic Accountant",
+            "description": "Do you have a detective's mindset? Forensic accountants investigate financial discrepancies, fraud, and misconduct, often working with law enforcement.",
+            "skills": [
+                "Investigative Skills: Skilled in detecting financial fraud and discrepancies.",
+                "Attention to Detail: Meticulously examines records for irregularities.",
+                "Analytical Thinking: Analyzes complex financial data for legal cases.",
+                "Communication: Prepares reports for legal proceedings and testifies in court.",
+                "Ethics and Integrity: Adheres to high ethical standards in investigations."
+            ],
+            "annual_average_salary": "$70,000 - $120,000"
+        }
+    ]
+},
+
+
+{
+    "id": 6,
+    "image_url":"../images/retailandcustomer.jpg",
+    "name": "Retail and Customer Service",
+    "description": "This industry is centered on providing exceptional customer experiences, whether in stores or online. Careers in retail and customer service are perfect for those who love interacting with people and solving problems.",
+    "roles": [
+        {
+            "id": 1,
+            "name": "Sales",
+            "description": "Do you enjoy engaging with customers? Sales professionals connect people with products and services they need.",
+            "skills": [
+                "Communication: Engages customers and explains products effectively.",
+                "Persuasion: Encourages customers to make purchases.",
+                "Customer Service: Provides positive interactions and resolves issues.",
+                "Negotiation: Works to meet customer needs while achieving sales goals.",
+                "Product Knowledge: Deep understanding of products being sold."
+            ],
+            "annual_average_salary": "$30,000 - $60,000"
+        },
+        {
+            "id": 2,
+            "name": "Customer Support",
+            "description": "Are you a people person with patience? Customer support professionals assist clients and resolve their issues with care.",
+            "skills": [
+                "Patience: Manages customer inquiries and complaints calmly.",
+                "Problem-Solving: Identifies solutions for customer issues.",
+                "Communication: Clearly explains solutions and provides assistance.",
+                "Empathy: Understands and addresses customer concerns.",
+                "Technical Knowledge: Familiarity with products or services supported."
+            ],
+            "annual_average_salary": "$30,000 - $50,000"
+        },
+        {
+            "id": 3,
+            "name": "E-Commerce",
+            "description": "Interested in the online shopping world? E-commerce professionals oversee digital sales and ensure smooth customer experiences.",
+            "skills": [
+                "Digital Marketing: Promotes products effectively on online platforms.",
+                "Data Analysis: Analyzes online sales and customer engagement metrics.",
+                "Customer Service: Provides virtual assistance and support.",
+                "Product Management: Manages product listings and descriptions.",
+                "SEO Knowledge: Ensures product pages are optimized for search engines."
+            ],
+            "annual_average_salary": "$50,000 - $80,000"
+        },
+        {
+            "id": 4,
+            "name": "Merchandiser",
+            "description": "Are you creative with a knack for displays? Merchandisers organize products in ways that attract and engage customers.",
+            "skills": [
+                "Creativity: Designs visually appealing product displays.",
+                "Attention to Detail: Ensures accuracy in product arrangement.",
+                "Sales Strategy: Arranges products to drive sales effectively.",
+                "Market Awareness: Understands customer preferences and trends.",
+                "Collaboration: Works with sales and store teams on merchandising plans."
+            ],
+            "annual_average_salary": "$40,000 - $70,000"
+        },
+        {
+            "id": 5,
+            "name": "Retail Buyer",
+            "description": "Love shopping trends? Retail buyers select the products that fill store shelves, balancing trends and customer demand.",
+            "skills": [
+                "Negotiation: Works with suppliers to get favorable terms.",
+                "Market Analysis: Analyzes trends to forecast demand accurately.",
+                "Decision-Making: Makes timely purchasing decisions.",
+                "Budget Management: Manages and allocates budget for inventory.",
+                "Communication: Builds strong relationships with vendors and suppliers."
+            ],
+            "annual_average_salary": "$50,000 - $90,000"
+        }
+    ]
+},
+
+{
+    "id": 7,
+    "image_url":"../images/hosptour.jpg",
+
+    "name": "Hospitality and Tourism",
+    "description": "The hospitality and tourism industry focuses on creating memorable experiences for people. If you’re passionate about travel, food, or customer satisfaction, this industry offers vibrant career opportunities.",
+    "roles": [
+        {
+            "id": 1,
+            "name": "Hotel Management",
+            "description": "Enjoy leading teams and creating exceptional guest experiences? Hotel managers oversee day-to-day operations to keep guests happy.",
+            "skills": [
+                "Leadership: Manages hotel staff and coordinates daily activities.",
+                "Problem-Solving: Quickly resolves guest issues and maintains satisfaction.",
+                "Financial Management: Oversees budgets and financial performance.",
+                "Customer Service: Focuses on creating a positive guest experience.",
+                "Organizational Skills: Ensures smooth hotel operations."
+            ],
+            "annual_average_salary": "$50,000 - $100,000"
+        },
+        {
+            "id": 2,
+            "name": "Food & Beverage",
+            "description": "Passionate about food and service? Food and beverage managers ensure excellent dining experiences in restaurants and catering services.",
+            "skills": [
+                "Culinary Knowledge: Strong understanding of food preparation and presentation.",
+                "Customer Service: Ensures a positive dining experience.",
+                "Inventory Management: Maintains stock levels and orders supplies.",
+                "Leadership: Manages kitchen and serving staff effectively.",
+                "Financial Management: Controls costs and maximizes revenue."
+            ],
+            "annual_average_salary": "$40,000 - $90,000"
+        },
+        {
+            "id": 3,
+            "name": "Travel Services",
+            "description": "Are you organized and love planning? Travel service agents help clients book trips and create memorable travel experiences.",
+            "skills": [
+                "Customer Service: Assists clients with booking and travel inquiries.",
+                "Organizational Skills: Coordinates complex travel itineraries.",
+                "Attention to Detail: Ensures accuracy in bookings and schedules.",
+                "Communication: Explains travel options and offers advice.",
+                "Problem-Solving: Addresses travel issues and adjusts plans as needed."
+            ],
+            "annual_average_salary": "$35,000 - $60,000"
+        },
+        {
+            "id": 4,
+            "name": "Event Coordinator",
+            "description": "Love organizing and seeing your plans come to life? Event coordinators plan everything from weddings to corporate events.",
+            "skills": [
+                "Organizational Skills: Manages event schedules and logistics.",
+                "Creativity: Designs unique and memorable event experiences.",
+                "Communication: Coordinates with vendors, clients, and teams.",
+                "Budget Management: Plans and controls event budgets.",
+                "Problem-Solving: Quickly resolves issues during events."
+            ],
+            "annual_average_salary": "$40,000 - $70,000"
+        },
+        {
+            "id": 5,
+            "name": "Tour Guide",
+            "description": "Enjoy sharing knowledge and meeting new people? Tour guides lead groups and provide insights about local sites and culture.",
+            "skills": [
+                "Public Speaking: Engages and informs tour groups effectively.",
+                "Customer Service: Ensures a positive experience for tourists.",
+                "Knowledgeable: Deep understanding of the area’s history and culture.",
+                "Problem-Solving: Addresses issues that arise during tours.",
+                "Flexibility: Adapts to changes in schedule or group needs."
+            ],
+            "annual_average_salary": "$25,000 - $50,000"
+        }
+    ]
+},
+
+{
+    "id": 9,
+    "name": "Legal and Compliance",
+    "image_url":"../images/legalcomp.jpg",
+
+    "description": "The legal and compliance industry ensures that laws, rules, and regulations are followed in various sectors. This field is ideal for those who love precision, analysis, and a structured approach to problem-solving.",
+    "roles": [
+        {
+            "id": 1,
+            "name": "Lawyer",
+            "description": "Are you passionate about justice and advocacy? Lawyers represent clients, argue cases, and ensure the legal system is upheld.",
+            "skills": [
+                "Legal Knowledge: In-depth understanding of laws and legal procedures.",
+                "Analytical Skills: Ability to analyze complex cases and legal documents.",
+                "Communication: Articulates arguments clearly in court and client discussions.",
+                "Negotiation: Skilled in negotiating settlements and agreements.",
+                "Attention to Detail: Reviews legal documentation for accuracy and precision."
+            ],
+            "annual_average_salary": "$70,000 - $200,000+ depending on specialty"
+        },
+        {
+            "id": 2,
+            "name": "Compliance Officer",
+            "description": "Love keeping things in check? Compliance officers ensure that companies adhere to laws, regulations, and internal policies.",
+            "skills": [
+                "Regulatory Knowledge: Deep understanding of industry regulations.",
+                "Analytical Skills: Identifies potential compliance issues and risks.",
+                "Attention to Detail: Ensures policies and procedures are followed accurately.",
+                "Communication: Clearly explains compliance requirements to staff.",
+                "Problem-Solving: Develops solutions to address compliance violations."
+            ],
+            "annual_average_salary": "$60,000 - $120,000"
+        },
+        {
+            "id": 3,
+            "name": "Paralegal",
+            "description": "Are you detail-oriented and love supporting legal work? Paralegals assist lawyers with research, document preparation, and case management.",
+            "skills": [
+                "Legal Research: Conducts research on laws, regulations, and case precedents.",
+                "Document Management: Organizes legal documents efficiently.",
+                "Attention to Detail: Ensures accuracy in preparing legal documents.",
+                "Communication: Liaises with clients and provides case updates.",
+                "Time Management: Balances multiple cases and deadlines effectively."
+            ],
+            "annual_average_salary": "$40,000 - $70,000"
+        },
+        {
+            "id": 4,
+            "name": "Contract Manager",
+            "description": "Have a knack for reviewing contracts? Contract managers draft, review, and negotiate contracts to protect company interests.",
+            "skills": [
+                "Contract Drafting: Creates clear and legally sound contracts.",
+                "Negotiation: Works with clients and vendors to finalize agreements.",
+                "Attention to Detail: Ensures all contract details are accurate.",
+                "Legal Knowledge: Understands contract law and compliance requirements.",
+                "Analytical Skills: Evaluates contract terms for risk and benefits."
+            ],
+            "annual_average_salary": "$60,000 - $90,000"
+        },
+        {
+            "id": 5,
+            "name": "Compliance Analyst",
+            "description": "Do you enjoy digging into details? Compliance analysts evaluate internal policies and ensure organizations meet regulatory standards.",
+            "skills": [
+                "Data Analysis: Analyzes data to identify compliance trends.",
+                "Attention to Detail: Thoroughly reviews documents for regulatory adherence.",
+                "Regulatory Knowledge: Familiar with industry-specific regulations.",
+                "Problem-Solving: Identifies compliance issues and proposes solutions.",
+                "Communication: Reports findings and recommendations to management."
+            ],
+            "annual_average_salary": "$50,000 - $80,000"
+        }
+    ]
+},
+
+{
+    "id": 10,
+    "name": "Human Resources",
+    "image_url":"../images/humanresource.jpg",
+
+    "description": "The human resources industry is all about managing and developing an organization’s most valuable asset—its people. If you’re passionate about fostering growth, improving workplace culture, or managing talent, this field offers rewarding career paths.",
+    "roles": [
+        {
+            "id": 1,
+            "name": "HR Manager",
+            "description": "Do you enjoy leading teams and shaping company culture? HR managers oversee recruitment, employee relations, and organizational policies.",
+            "skills": [
+                "Leadership: Guides HR team and supports employee needs.",
+                "Communication: Effectively communicates policies and handles sensitive matters.",
+                "Conflict Resolution: Skilled in mediating disputes and maintaining a positive work environment.",
+                "Policy Development: Designs and implements HR policies and procedures.",
+                "Employee Engagement: Fosters a supportive and engaging workplace culture."
+            ],
+            "annual_average_salary": "$70,000 - $120,000"
+        },
+        {
+            "id": 2,
+            "name": "Recruiter",
+            "description": "Do you love connecting with people? Recruiters identify and attract top talent, matching candidates with roles that fit their skills and interests.",
+            "skills": [
+                "Interpersonal Skills: Builds strong relationships with candidates and hiring managers.",
+                "Screening & Interviewing: Assesses candidate qualifications and cultural fit.",
+                "Networking: Actively connects with professionals and maintains industry contacts.",
+                "Sales & Persuasion: Encourages top talent to join the organization.",
+                "Attention to Detail: Ensures accuracy in job postings and candidate profiles."
+            ],
+            "annual_average_salary": "$50,000 - $80,000"
+        },
+        {
+            "id": 3,
+            "name": "Training and Development Specialist",
+            "description": "Passionate about helping others grow? Training specialists design and conduct programs that enhance employees’ skills and career development.",
+            "skills": [
+                "Instructional Design: Creates effective training materials and programs.",
+                "Communication: Clearly presents information and engages trainees.",
+                "Analytical Skills: Assesses training needs and evaluates program effectiveness.",
+                "Project Management: Manages training schedules and resources.",
+                "Creativity: Develops engaging and innovative training activities."
+            ],
+            "annual_average_salary": "$55,000 - $90,000"
+        },
+        {
+            "id": 4,
+            "name": "Compensation and Benefits Specialist",
+            "description": "Enjoy working with numbers and policies? Compensation and benefits specialists ensure fair and competitive pay and benefits for employees.",
+            "skills": [
+                "Data Analysis: Analyzes salary data to determine competitive pay rates.",
+                "Attention to Detail: Ensures accuracy in benefits and payroll processing.",
+                "Financial Acumen: Manages budget and cost analysis for compensation plans.",
+                "Compliance Knowledge: Keeps up with legal requirements for compensation.",
+                "Negotiation: Works with providers to secure the best benefits packages."
+            ],
+            "annual_average_salary": "$60,000 - $100,000"
+        },
+        {
+            "id": 5,
+            "name": "HR Analyst",
+            "description": "Are you detail-oriented with a knack for data? HR analysts use data to help improve hiring processes, employee retention, and HR strategies.",
+            "skills": [
+                "Data Analysis: Analyzes HR metrics like turnover and recruitment efficiency.",
+                "Problem-Solving: Identifies trends and suggests improvements in HR processes.",
+                "Technical Skills: Proficiency in HR software and data visualization tools.",
+                "Reporting: Creates reports and insights for HR and company leadership.",
+                "Attention to Detail: Ensures accuracy in HR data and metrics."
+            ],
+            "annual_average_salary": "$50,000 - $85,000"
+        }
+    ]
+},
+
+
+{
+    "id": 11,
+    "name": "Science and Research",
+    "image_url":"../images/science.jpg",
+
+    "description": "The science and research industry is for those who are curious, meticulous, and passionate about discovering new knowledge and technologies. Whether you’re in a lab or the field, a career in science allows you to make meaningful contributions to our understanding of the world.",
+    "roles": [
+        {
+            "id": 1,
+            "name": "Research Scientist",
+            "description": "Are you naturally curious and love experimentation? Research scientists design and conduct experiments, analyze data, and contribute to scientific advancements.",
+            "skills": [
+                "Experimental Design: Plans and conducts experiments methodically.",
+                "Data Analysis: Proficient in analyzing complex datasets and drawing conclusions.",
+                "Technical Writing: Documents findings in research papers and reports.",
+                "Critical Thinking: Evaluates data to develop new theories and hypotheses.",
+                "Collaboration: Works with other scientists and research assistants."
+            ],
+            "annual_average_salary": "$60,000 - $110,000"
+        },
+        {
+            "id": 2,
+            "name": "Biochemist",
+            "description": "Fascinated by the chemistry of life? Biochemists study biological processes at the molecular level, contributing to fields like medicine, agriculture, and genetics.",
+            "skills": [
+                "Lab Skills: Skilled in using lab equipment for biochemical experiments.",
+                "Analytical Thinking: Interprets chemical and biological data accurately.",
+                "Knowledge of Chemistry and Biology: Deep understanding of molecular biology and biochemistry.",
+                "Problem-Solving: Tackles complex biological questions and experiments.",
+                "Attention to Detail: Ensures accuracy in experiments and documentation."
+            ],
+            "annual_average_salary": "$50,000 - $100,000"
+        },
+        {
+            "id": 3,
+            "name": "Physicist",
+            "description": "Do you enjoy unlocking the mysteries of the universe? Physicists study the fundamental forces of nature, often working on theories and experiments that drive technological innovation.",
+            "skills": [
+                "Mathematics: Uses advanced mathematics to analyze and model physical phenomena.",
+                "Problem-Solving: Develops solutions for complex theoretical or experimental problems.",
+                "Research: Conducts experiments or theoretical analysis to explore physical laws.",
+                "Technical Skills: Proficient in using specialized physics equipment and software.",
+                "Critical Thinking: Applies logical reasoning to understand scientific phenomena."
+            ],
+            "annual_average_salary": "$70,000 - $130,000"
+        },
+        {
+            "id": 4,
+            "name": "Microbiologist",
+            "description": "Are you intrigued by the microscopic world? Microbiologists study microorganisms, researching their roles in ecosystems, medicine, and beyond.",
+            "skills": [
+                "Lab Techniques: Skilled in culturing, isolating, and analyzing microorganisms.",
+                "Attention to Detail: Ensures accuracy in observing and documenting microbial behavior.",
+                "Research Skills: Conducts studies on microbial genetics, physiology, and ecology.",
+                "Problem-Solving: Develops methods to address issues like antibiotic resistance.",
+                "Communication: Presents findings clearly to the scientific community."
+            ],
+            "annual_average_salary": "$45,000 - $90,000"
+        },
+        {
+            "id": 5,
+            "name": "Clinical Research Coordinator",
+            "description": "Do you have an interest in advancing medical treatments? Clinical research coordinators oversee clinical trials, ensuring they’re conducted ethically and accurately.",
+            "skills": [
+                "Project Management: Manages trial logistics, timelines, and budgets.",
+                "Regulatory Knowledge: Familiar with ethical standards and regulatory requirements.",
+                "Attention to Detail: Ensures accuracy in data collection and participant records.",
+                "Communication: Coordinates with patients, doctors, and research staff.",
+                "Analytical Thinking: Reviews trial data to ensure validity and reliability."
+            ],
+            "annual_average_salary": "$50,000 - $80,000"
+        }
+    ]
+},
+{
+    "id": 12,
+    "image_url":"../images/env.jpeg",
+
+    "name": "Environmental Science and Sustainability",
+    "description": "The environmental science and sustainability industry is ideal for those passionate about protecting the planet, conserving resources, and implementing sustainable practices. It offers roles where you can make a real difference in environmental health and future resource management.",
+    "roles": [
+        {
+            "id": 1,
+            "name": "Environmental Scientist",
+            "description": "Do you love studying nature and solving environmental challenges? Environmental scientists analyze data and develop solutions to protect natural resources and public health.",
+            "skills": [
+                "Data Collection: Gathers samples and data for environmental analysis.",
+                "Analytical Skills: Analyzes environmental data to assess risks and impacts.",
+                "Technical Skills: Proficient in environmental modeling software and GIS.",
+                "Research: Conducts studies on ecosystems, pollution, and sustainability.",
+                "Communication: Presents findings to stakeholders and policymakers."
+            ],
+            "annual_average_salary": "$50,000 - $90,000"
+        },
+        {
+            "id": 2,
+            "name": "Sustainability Specialist",
+            "description": "Passionate about green practices? Sustainability specialists help organizations reduce their environmental impact through sustainable strategies and practices.",
+            "skills": [
+                "Project Management: Manages sustainability projects from start to finish.",
+                "Regulatory Knowledge: Understands environmental laws and regulations.",
+                "Analytical Skills: Identifies and analyzes sustainability metrics.",
+                "Communication: Educates and engages staff on sustainable practices.",
+                "Problem-Solving: Develops creative solutions to reduce waste and emissions."
+            ],
+            "annual_average_salary": "$60,000 - $100,000"
+        },
+        {
+            "id": 3,
+            "name": "Environmental Engineer",
+            "description": "Love designing solutions for environmental problems? Environmental engineers create and implement systems to control pollution, manage waste, and restore natural resources.",
+            "skills": [
+                "Engineering Knowledge: Applies principles of engineering to environmental challenges.",
+                "Problem-Solving: Develops innovative solutions for pollution control.",
+                "Regulatory Compliance: Ensures projects meet environmental laws and standards.",
+                "Project Management: Manages project timelines and budgets effectively.",
+                "Data Analysis: Uses data to evaluate the effectiveness of environmental systems."
+            ],
+            "annual_average_salary": "$70,000 - $110,000"
+        },
+        {
+            "id": 4,
+            "name": "Conservation Scientist",
+            "description": "Are you passionate about preserving nature? Conservation scientists work to manage natural habitats, ensuring they’re sustainable and protected for future generations.",
+            "skills": [
+                "Ecology Knowledge: Deep understanding of ecosystems and biodiversity.",
+                "Fieldwork Skills: Collects data and assesses environmental health in various locations.",
+                "Problem-Solving: Develops plans to protect endangered species and habitats.",
+                "Collaboration: Works with government agencies, NGOs, and landowners.",
+                "Data Analysis: Analyzes environmental data to inform conservation strategies."
+            ],
+            "annual_average_salary": "$50,000 - $85,000"
+        },
+        {
+            "id": 5,
+            "name": "Environmental Policy Analyst",
+            "description": "Interested in shaping environmental laws? Environmental policy analysts research, evaluate, and recommend policies to address environmental issues.",
+            "skills": [
+                "Policy Knowledge: In-depth understanding of environmental regulations and policies.",
+                "Research Skills: Conducts research to inform policy recommendations.",
+                "Analytical Skills: Evaluates the impact of proposed policies on the environment.",
+                "Communication: Clearly presents findings to stakeholders and policymakers.",
+                "Critical Thinking: Analyzes complex issues to create effective policies."
+            ],
+            "annual_average_salary": "$55,000 - $95,000"
+        }
+    ]
+}
+
+
+
+
+
+
+
+]

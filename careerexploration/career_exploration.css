@@ -1,4 +1,4 @@
-
+/* 
 body{
     background-image: url(images/careerbackg.jpg);
 }
@@ -73,8 +73,206 @@ footer {
 
 .industry-category {
     min-height: 250px; /* Adjust this value based on your preference */
-}
 
 
-.card{
-}
+
+
+        .swiper-container {
+            width: 100%;
+            /* Adjust width as needed */
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .swiper-scrollbar {
+            display: none;
+        }
+
+
+        .swiper-slide .card1 {
+            background: #f9f9f9;
+            padding: 8px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            /* Adjust card width for a narrow, centered look */
+            margin: 0px;
+        }
+
+        .swiper-slide img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+
+        /* .card1 {
+            width: 200px;
+            margin: 30px;
+        } */
+
+
+        .tab-content {
+            /* margin-top: 60px; */
+            /* position: sticky; */
+            /* max-width: 100%; */
+            padding: 0px;
+        }
+
+        .roles {
+            height: 550px;
+            width: 800px;
+            padding: 55px;
+
+
+
+
+        }
+
+        .card-title {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 20px;
+        }
+
+        .card-name,
+        .card-info,
+        .card-desc {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+
+        }
+
+        .card-info {
+            font-size: 16px;
+            margin: 10px;
+
+        }
+
+        .typing-effect {
+            transform: scale(0.8);
+            /* Start smaller */
+            opacity: 0;
+            animation: scaleUp 0.5s ease forwards;
+        }
+
+        .card-name {
+            text-transform: uppercase;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 25px;
+        }
+
+        .card-desc {
+            color: rgb(22, 22, 117);
+            font-style: italic;
+            font-size: 15px;
+
+        }
+
+
+        @keyframes scaleUp {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            filter: brightness(0.8);
+            transition: filter 0.2s ease;
+
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            filter: brightness(1);
+        }
+
+        .jumbotron {
+            height: 200px;
+            background-image: url(../images/jumbotron.jpg);
+            background-size: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .heading {
+            height: 200px;
+            background-image: url(../images/resumeformbg4.avif);
+            background-size: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+
+        #nav-bar{
+
+            width: 100%;
+            margin:0;
+            padding:0
+        
+          
+          }
+        
+        .navbar-brand img{
+            height: 50px;
+            padding-left: 30px;
+            
+        }
+        
+        .navbar-nav li{
+            padding: 0 10px;
+        }
+        
+        .navbar-nav li a{
+            float: right;
+            text-align: left;
+        }
+        
+        #nav-bar ul li a:hover{
+            color: #007bff;
+        }
+        
+        .navbar{
+            background:#fff;
+        }
+        
+        .navbar-toggle{
+            border:none
+        }
+        
+        .nav-link{
+            color:#555;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .badge-container {
+            position: relative;
+            display: inline-block;
+          }
+          
+          .tooltip {
+            visibility: hidden;
+            background-color: #f8f9fa;
+            color: #000;
+            text-align: left;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            position: absolute;
+            z-index: 1000;
+            white-space: nowrap;
+            bottom: 125%; /* Position above the badge */
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 200px;
+          }
+          
+          /* Show tooltip on hover */
+          .badge-container:hover .tooltip {
+            visibility: visible;
+          }
+          
