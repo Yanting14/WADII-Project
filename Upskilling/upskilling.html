@@ -97,6 +97,9 @@ body{
 </head>
 
 <body>
+
+    <div class="container" id="app">
+
     
 
     <section id="nav-bar">
@@ -125,8 +128,8 @@ body{
                           </li>
                 
                           <li class="nav-item">
-                            <a class="nav-link" href="#">LOGOUT</a>
-                          </li>
+                            <a class="nav-link" @click="logout">LOGOUT</a>
+                        </li>
 
                     </ul>
                 </div>
@@ -135,7 +138,6 @@ body{
     </section>
 
 
-    <div class="container" id="app">
         <div class="row mt-4">
             <div>
                 <h1>Upskill Your Career</h1>
@@ -180,7 +182,12 @@ body{
     <script type="module">
         import { db, auth, app } from '../firebaseconfig.js';
         import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+        import {
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
 
 
         const vueapp = Vue.createApp({
@@ -199,6 +206,17 @@ body{
                 this.fetchUserProfile();
             },
             methods: {
+
+async logout() {
+    try {
+        console.log("Logout function called"); // Check if logout is triggered
+
+      await signOut(auth);
+      window.location = "../homepage/home.html";
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  },
                 give(){
                     axios.get("./courses.php")
                     .then(response => {

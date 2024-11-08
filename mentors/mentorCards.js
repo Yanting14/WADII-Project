@@ -1,9 +1,19 @@
 // Initialize Firebase
 import { collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.js';
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut,
+    getAuth
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
 
-// Initialize Firebase
-import {db} from '../firebaseconfig.js'
+
+// Initialize Firebas
+import {db,auth} from '../firebaseconfig.js'
+
+
 
 // Vue component to fetch and display mentors
 const MentorList = {
@@ -71,5 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
+document.getElementById('logout-link').addEventListener('click', (event) => {
+    event.preventDefault();
+    const auth = getAuth();
+    signOut(auth).then(() => {
+        window.location.href = "../homepage/home.html";
+    }).catch((error) => {
+        console.error("Error logging out:", error);
+    });
+})

@@ -44,9 +44,13 @@
                 <li class="nav-item">
                   <a class="nav-link" href="../mentors/mentorCards.html">MENTORS</a>
                 </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="../profile/Profile.html">PROFILE</a>
+                </li>
       
                 <li class="nav-item">
-                  <a class="nav-link" href="#">LOGOUT</a>
+                  <a class="nav-link" id="logout" @click="logout">LOGOUT</a>
                 </li>
               </ul>
             </div>
@@ -282,7 +286,17 @@
   <script type="module">
     
   import { collection, addDoc, doc, getDoc, setDoc, updateDoc, arrayUnion,arrayRemove } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+  import {
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
+        
   import { auth,db } from '../firebaseconfig.js';
+
+
+
 
     const vm = Vue.createApp({
       data() {
@@ -320,6 +334,18 @@
 
       methods: {
 
+
+        async logout() {
+    try {
+      await signOut(auth);
+      window.location = "../homepage/home.html";
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  },
+
+
+    
     async  fetchSavedJobsForUser(user) {
     const userDocRef = doc(db, 'users', user.email);
     const userDoc = await getDoc(userDocRef);
@@ -578,6 +604,7 @@ async removeJob(job){
       //use mounted such that it automatically fetch results when the page is load - lifecycle hook that is triggered when the Vue component is mounted
 
     }).mount('#app')
+
 
 
   </script>
