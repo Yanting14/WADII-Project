@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,35 +16,60 @@
 <body>
     <div id="app">
         <!-- Navbar -->
-        <section id="nav-bar">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="row">
+            <section id="nav-bar">
+              <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><img src="../images/logo.png" alt="Logo"></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="../home/home.html">HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">CAREER SEARCH</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#notable-mentors">MENTORS</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#testimonials">RESUME CRAFTING</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">CAREER EXPLORATION</a></li>
-                        </ul>
-                    </div>
+                  <a class="navbar-brand" href="#"><img src="../images/logo.png"></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../careersearch/careersearch.html">CAREER SEARCH</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" style="color:blue" aria-current="page">CAREER EXPLORATION</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="../resume/resumeForm.html">RESUME CRAFTING</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="../Upskilling/upskilling.html">UPSKILLING</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="../mentors/mentorCards.html">MENTORS</a>
+                      </li>
+      
+                      <li class="nav-item">
+                        <a class="nav-link" href="../profile/Profile.html">PROFILE</a>
+                      </li>
+            
+                      <li class="nav-item">
+                        <a class="nav-link" id="logout" @click="logout">LOGOUT</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-            </nav>
-        </section>
+              </nav>
+            </section>
+      
+          </div>
 
-        <div class="row justify-content-center">
-            <div class="jumbotron text-center p-lg-5 p-md-4 p-3 w-100">
-                <div class="container">
-                    <h1 class="display-4" style="color:white;">JobBudds</h1>
-                    <p class="lead" style="color:white;">Discover Job Industries and Roles with us today</p>
-                </div>
+        <div class="row">
+            <div
+              class="jumbotron d-flex flex-column justify-content-center align-items-center text-center bg-light mb-0 p-lg-5 p-md-4 p-3 w-100">
+              <div class="container">
+                <h1 class="display-4 fs-1 fs-md-2 fs-lg-1">JobBudds</h1>
+                <p class="lead fs-5 fs-md-6">Discover Job Industries and Roles with us today!
+    
+                </p>
+              </div>
             </div>
-        </div>
+          </div>
+      
 
         <section class="container my-5 mb-0">
             <div class="container-fluid" style="margin-top: 80px; overflow-x: hidden">
@@ -51,70 +77,73 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="suggested-tab" data-bs-toggle="tab"
                             data-bs-target="#suggested" type="button" role="tab" aria-controls="suggested"
-                            aria-selected="true">Suggested Jobs For You</button>
+                            aria-selected="true" @click="activeTab='suggested'">Suggested Jobs For You</button>
                     </li>
+
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="explore-tab" data-bs-toggle="tab" data-bs-target="#explore"
-                            type="button" role="tab" aria-controls="explore" aria-selected="false">Explore All Industries</button>
+                            type="button" role="tab" aria-controls="explore" aria-selected="false"
+                            @click="activeTab='explore'">Explore All
+                            Industries</button>
                     </li>
                 </ul>
             </div>
         </section>
 
-        <!-- Tab Content Sections -->
+
         <div class="container-fluid" style="overflow-y: scroll;">
             <section>
                 <div class="tab-content">
-                    <!-- Suggested Tab Pane -->
-                    <div class="tab-pane fade show active" id="suggested" role="tabpanel" aria-labelledby="suggested-tab">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-                                <div v-for="industry in allindustries" :key="industry">
-                                    <div class="swiper-slide">
-                                        <div class="card1" style="position:relative; width: 300px; height: 580px; margin: 20px;">
-                                            <div class="card-body d-flex flex-column">
-                                                <img :src="industry.image_url" class="card-img-top" alt="Industry Image"
-                                                     style="object-fit:cover; width:100%; height:200px;">
-                                                <div class="row">
-                                                    <h5 class="card-title">{{ industry.name }}</h5>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="card-text">{{ industry.description }}</p>
-                                                </div>
-                                                <div class="row">
-                                                    <a style="position: absolute; bottom:10px; text-align: center;"
-                                                       class="btn btn-primary" @click="showroles(industry.name)">Explore</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div class="tab-pane fade show active" id="suggested" role="tabpanel"
+                        aria-labelledby="suggested-tab">
+                        <div class="container mt-4" style="max-height: 600px; overflow-y: auto;">
+                            <div v-for="role in matchedRoles" :key="role.name" class="card mb-3 shadow-sm">
+                                <div class="skill-match-badge-container position-relative">
+                                    <div class="skill-match-badge bg-danger position-absolute top-0 end-0 m-2 p-2 text-white">
+                                        {{ role.matchedSkillString }} Skills Match
                                     </div>
+                                    <span class="match-tooltip-text">{{ role.displayString }}</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ role.name }}</h5>
+                                    <p style="font-size: 18px" class="card-text ">{{ role.description }}</p>
+                                    <p class="card-text ">Annual Average Salary: {{
+                                        role.annual_average_salary }}</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <div v-for="(skill, index) in role.skills" :key="index" class="position-relative skill-tooltip-container" >
+                                            <span class="badge bg-primary skill-badge" style="font-size: 15px;">
+                                                {{ skill && skill.includes(':') ? skill.split(':')[0] : skill }}
+                                            </span>
+                                            <span v-if="skill && skill.includes(':')" class="tooltip-text">
+                                                {{ skill.split(':')[1] }}
+                                            </span>
+                                        </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-                    
-                    <!-- Explore Tab Pane -->
+                </div>
 
                     <div class="tab-pane fade" id="explore" role="tabpanel" aria-labelledby="explore-tab">
-                    <div class="swiper-container">
+                        <div class="swiper-container">
                             <div class="swiper-wrapper">
                                 <div v-for="industry in allindustries" :key="industry">
                                     <div class="swiper-slide">
-                                        <div class="card1" style="position:relative; width: 300px; height: 580px; margin: 20px;">
+                                        <div class="card1 shadow-sm rounded-lg border-0"
+                                            style="position:relative; width: 300px; height: 580px; margin: 20px; ">
                                             <div class="card-body d-flex flex-column">
                                                 <img :src="industry.image_url" class="card-img-top" alt="Industry Image"
-                                                     style="object-fit:cover; width:100%; height:200px;">
+                                                    style="object-fit:cover; width:100%; height:200px; margin-bottom: 5px;">
                                                 <div class="row">
-                                                    <h5 class="card-title">{{ industry.name }}</h5>
+                                                    <h5 class="card-title mb-2">{{ industry.name }}</h5>
                                                 </div>
                                                 <div class="row">
                                                     <p class="card-text">{{ industry.description }}</p>
                                                 </div>
-                                                <div class="row">
-                                                    <a style="position: absolute; bottom:10px; text-align: center;"
-                                                       class="btn btn-primary" href="#rolecontainer" @click="showroles(industry.name)">Explore</a>
+                                                <div class="row mt-auto justify-content-center">
+                                                    <a style="width: 200px; position: absolute; bottom:10px; text-align: center;"
+                                                        class="btn btn-primary" href="#rolecontainer"
+                                                        @click="showroles(industry.name)">Explore</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -128,66 +157,104 @@
         </div>
 
 
-        
         <!-- Role Details Section -->
-        <div class="container-fluid" style="overflow-y: scroll;" id="rolecontainer">
+        <div v-if="activeTab === 'explore'" class="container-fluid" style="overflow-y: scroll;" id="rolecontainer">
             <div class="swiper-container" v-if="viewrole">
                 <div class="swiper-wrapper">
                     <div v-for="role in roles" :key="role.name" class="col-12 col-md-6 col-lg-4 mb-4 mx-4">
                         <div class="card h-100 shadow-sm rounded-lg border-0">
                             <div class="card-body d-flex flex-column">
-                                <h2 class="card-title font-weight-bold mb-2">{{ role.name }}</h2>
-                                <h6 class="card-subtitle mb-3 text-muted">{{ role.description }}</h6>
-                                <p class="card-text font-weight-bold text-secondary">{{ role.annual_average_salary }}</p>
-                                
+                                <h2 class="card-title  mb-2">{{ role.name }}</h2>
+                                <p class=" card-text mb-3">{{ role.description }}</p>
+                                <p class=" card-text">Annual Average Salary : {{ role.annual_average_salary }}</p>
                                 <div class="d-flex flex-wrap gap-2">
-                                    <span 
-                                      v-for="(skill, index) in role.skills" 
-                                      :key="index" 
-                                      class="badge bg-primary">
-                                      {{ skill.split(':')[0] }}
-                                    </span>
-                                  </div>
-                                
+                                    <div v-for="(skill, index) in role.skills" :key="index"
+                                        class="skill-tooltip-container">
+                                        <span class="badge bg-primary skill-badge" style="font-size: 15px;">
+                                            {{ skill.split(':')[0] }}
+                                        </span>
+                                        <span class="tooltip-text">
+                                            {{ skill.split(':')[1] }}
+                                        </span>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
 
-        <script>
+        <script type="module">
+
+            import { collection, addDoc, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+            import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+            import { db, auth } from '../firebaseconfig.js';
+            import {
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
+            
+
+
             const app = Vue.createApp({
                 data() {
                     return {
                         allindustries: [],
                         roles: [],
                         viewrole: false,
-                        showdesc:false,
-                        skilldesc:""
+                        activeskillIndex: null,
+                        userskills: [],
+                        matchedRoles: [],
+                        suggestedindustries: [],
+                        similarindustryroles: [],
+                        matchedskillcount: 0,
+                        activeTab: 'suggested',
+                        matchedSkillString: '',
+                        displaystring:'',
+                        matchedSkills:[]
 
                     };
                 },
                 methods: {
+
+        async logout() {
+    try {
+      await signOut(auth);
+      window.location = "../homepage/home.html";
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  },
                     give() {
                         axios.get("./explorationDatabase.json")
                             .then(response => {
                                 this.allindustries = response.data;
+                                console.log(this.allindustries)
+                                this.getrolesbysuggestedIndustries();
+
+
                             })
                             .catch(error => {
                                 console.error(error);
                             });
                     },
                     async getProfileInfo() {
-                        // Ensure Firebase auth and db are initialized
                         onAuthStateChanged(auth, async (user) => {
                             if (user) {
                                 const docRef = doc(db, "users", user.email);
                                 const docSnap = await getDoc(docRef);
                                 if (docSnap.exists()) {
                                     const profileData = docSnap.data();
+                                    this.userskills = profileData.skills || [];
                                     this.suggestedindustries = profileData.selectedIndustries || [];
+                                    console.log(this.userskills)
+                                    console.log(this.suggestedindustries)
+                                    this.getrolesbysuggestedIndustries();
+
+
                                 } else {
                                     console.log("No such document!");
                                 }
@@ -210,15 +277,72 @@
                         });
                     },
 
-                    showskilldesc(){
+                    //lets first find the matching industries then get all its roles and push into an array first
 
-                        for(role of this.roles){
-                            this.skilldesc=role.split(":")[1];
-                            showdesc=true
 
+                    getrolesbysuggestedIndustries() {
+                        // Make sure both suggestedindustries and allindustries have data
+                        if (this.suggestedindustries.length > 0 && this.allindustries.length > 0) {
+                            this.similarindustryroles = [];
+
+                            this.allindustries.forEach(industry => {
+                                if (this.suggestedindustries.includes(industry.name)) {
+                                    this.similarindustryroles = this.similarindustryroles.concat(industry.roles);
+                                }
+                            });
+
+                            console.log("Similar industry roles:", this.similarindustryroles);
+                            this.filterRolesByUserSkills();
+
+                        } else {
+                            console.log("Waiting for data in suggestedindustries or allindustries...");
                         }
+                    },
 
+
+                    filterRolesByUserSkills() {
+                        this.matchedRoles = [];
+
+                        this.similarindustryroles.forEach(role => {
+                            let matchedskillcount = 0;
+                            const totalskills = role.skills.length;
+
+                            this.matchedSkills = []; 
+
+
+                            role.skills.forEach(roleSkill => {
+                                // Split the roleSkill by ':' and take the first p
+                                const skillName = roleSkill.split(':')[0].trim().toLowerCase();
+
+                                const hasMatchingSkill = this.userskills.some(userSkill =>
+                                    skillName.includes(userSkill.toLowerCase())
+                                );
+
+                                if (hasMatchingSkill) {
+                                    matchedskillcount++;
+                                    this.matchedSkills.push(skillName); 
+
+                                }
+                            });
+
+                            if (matchedskillcount > 0) {
+                                const roleWithMatchCount = {
+                                    ...role,
+                                    matchedSkillString: `${matchedskillcount}/${totalskills}`,
+                                    displayString: this.matchedSkills.join(',') // Create a comma-separated string of matched skills
+
+
+                                };
+
+                                this.matchedRoles.push(roleWithMatchCount);
+                                console.log(this.matchedRoles)
+
+                            }
+                        });
                     }
+
+
+
 
                 },
                 computed: {
@@ -228,8 +352,14 @@
                 },
                 mounted() {
                     this.give();
+                    this.getProfileInfo();
 
-        
+
+
+
+
+
+
                 }
 
             });
@@ -239,4 +369,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>

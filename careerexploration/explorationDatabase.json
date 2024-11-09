@@ -4,19 +4,87 @@
     "image_url":"../images/healthcare.jpeg",
     "description": "Healthcare offers fulfilling career paths focused on improving lives and providing essential services to communities. This industry spans environments from fast-paced hospitals to tranquil private practices, offering diverse and rewarding opportunities for those driven by compassion and a desire to make a real impact.",
     "roles": [
+    
         {
             "id": 1,
-            "name": "Doctor",
-            "description": "Do you have a mind that never stops questioning and a heart that never stops caring? As a doctor, you'll be diagnosing, treating, and making life-changing decisions for your patients.",
+            "name": "Surgeon",
+            "description": "As a surgeon, you'll perform complex surgeries to treat injuries, diseases, and deformities. This role requires a high degree of precision, focus, and the ability to make quick decisions under pressure.",
             "skills": [
-                "Medical Knowledge: Extensive understanding of human anatomy, medical conditions, and treatment protocols.",
-                "Analytical Thinking: Ability to analyze symptoms and medical history to diagnose conditions accurately.",
-                "Patient Management: Skills to manage patient care and treatment plans effectively.",
-                "Communication Skills: Essential for explaining diagnoses, treatments, and outcomes to patients and families.",
-                "Attention to Detail: Critical for ensuring accurate diagnoses and preventing medical errors."
+                "Surgical Techniques: Mastery in performing surgical procedures safely and effectively.",
+                "Anatomical Knowledge: Detailed understanding of human anatomy for accurate surgical intervention.",
+                "Manual Dexterity: High level of precision and control in hands-on procedures.",
+                "Critical Thinking: Ability to make quick, effective decisions in high-stakes situations.",
+                "Patient Care: Planning pre- and post-operative care for optimal recovery."
             ],
-            "annual_average_salary": "$180,000 - $300,000"
+            "annual_average_salary": "$250,000 - $400,000"
         },
+        {
+            "id": 2,
+            "name": "Radiologist",
+            "description": "Radiologists specialize in diagnosing and sometimes treating diseases and injuries using medical imaging techniques such as X-rays, MRI, and CT scans.",
+            "skills": [
+                "Medical Imaging: Proficiency in interpreting X-rays, MRI, CT, and ultrasound images.",
+                "Diagnostic Skills: Identifying diseases and conditions based on imaging results.",
+                "Anatomy and Pathology Knowledge: Understanding body structures and pathology to detect abnormalities.",
+                "Attention to Detail: Careful analysis of images to identify subtle changes or issues.",
+                "Communication: Collaborating with other doctors to provide imaging findings and guidance."
+            ],
+            "annual_average_salary": "$300,000 - $450,000"
+        },
+        {
+            "id": 3,
+            "name": "Cardiologist",
+            "description": "Cardiologists specialize in diagnosing and treating heart and cardiovascular system disorders. They work with patients to manage heart disease, prevent cardiac events, and promote heart health.",
+            "skills": [
+                "Cardiac Physiology: Comprehensive understanding of the heart and cardiovascular system.",
+                "Diagnostic Skills: Using tools like EKGs, stress tests, and imaging to assess heart health.",
+                "Treatment Planning: Creating treatment plans for managing heart conditions.",
+                "Patient Communication: Discussing diagnoses, treatments, and lifestyle recommendations with patients.",
+                "Problem-Solving: Developing solutions for complex cardiac health issues."
+            ],
+            "annual_average_salary": "$300,000 - $500,000"
+        },
+        {
+            "id": 4,
+            "name": "Pediatrician",
+            "description": "Pediatricians focus on the medical care of infants, children, and adolescents. They diagnose and treat a variety of conditions while guiding children and their families in preventive healthcare.",
+            "skills": [
+                "Child Development Knowledge: Understanding of physical and psychological child development.",
+                "Diagnostic Skills: Proficiency in diagnosing and treating childhood illnesses.",
+                "Communication with Children and Parents: Explaining medical care to both children and their families.",
+                "Preventive Care: Emphasizing wellness, vaccinations, and preventive health.",
+                "Empathy: Providing compassionate care tailored to young patients and their families."
+            ],
+            "annual_average_salary": "$180,000 - $250,000"
+        },
+        {
+            "id": 5,
+            "name": "Oncologist",
+            "description": "Oncologists specialize in the diagnosis and treatment of cancer, offering care plans that may include chemotherapy, radiation, surgery, and palliative care.",
+            "skills": [
+                "Cancer Biology: In-depth understanding of cancer cell behavior and treatments.",
+                "Diagnostic Skills: Identifying types and stages of cancer accurately.",
+                "Treatment Planning: Developing chemotherapy, radiation, or surgical treatment plans.",
+                "Patient Communication: Compassionately explaining diagnosis and treatment options to patients.",
+                "Research and Knowledge Update: Staying updated on advancements in cancer treatments."
+            ],
+            "annual_average_salary": "$250,000 - $400,000"
+        },
+        {
+            "id": 6,
+            "name": "Neurologist",
+            "description": "Neurologists specialize in treating disorders of the nervous system, including the brain, spinal cord, and nerves.",
+            "skills": [
+                "Neurological Examination: Conducting exams to assess nervous system function.",
+                "Diagnostic Skills: Diagnosing conditions like epilepsy, stroke, and neurological disorders.",
+                "Neuroimaging Interpretation: Using MRI, CT, and EEG to identify issues.",
+                "Patient Communication: Explaining complex neurological conditions and treatments.",
+                "Treatment Planning: Developing management plans for chronic neurological conditions."
+            ],
+            "annual_average_salary": "$250,000 - $350,000"
+        }
+       
+        ,
         {
             "id": 2,
             "name": "Nurse",
@@ -76,76 +144,155 @@
 {
     "id": 2,
     "name": "Tech",
-    "image_url":"../images/tech.jpg",
+    "image_url": "../images/tech.jpg",
     "description": "The tech industry is dynamic and rapidly evolving, providing innovative solutions that transform how we live and work. This field offers opportunities for creative problem-solvers and analytical minds who are passionate about technology.",
     "roles": [
         {
             "id": 1,
             "name": "Software Development",
-            "description": "Love coding and solving puzzles? Software developers create and maintain applications that millions rely on daily.",
+            "description": "Passionate about coding and solving complex problems? Software developers design, build, and maintain applications that serve millions of users daily, ensuring efficiency, reliability, and continuous improvement.",
             "skills": [
-                "Programming: Proficiency in languages like Java, Python, or JavaScript.",
-                "Debugging: Ability to identify, analyze, and fix issues in code.",
-                "Problem-Solving: Creative solutions for complex technical challenges.",
-                "Team Collaboration: Works well in cross-functional teams to develop features.",
-                "Adaptability: Ability to work in fast-paced, evolving project environments."
+                "Java: Strong proficiency in Java for developing robust, scalable applications.",
+                "Python: Extensive experience in Python, particularly for data processing and automation.",
+                "JavaScript: Advanced skills in JavaScript to create dynamic and interactive web experiences.",
+                "Debugging: Proficient in identifying, analyzing, and resolving software issues to ensure smooth application performance.",
+                "Problem-Solving: Skilled in devising innovative solutions for complex technical challenges."
             ],
             "annual_average_salary": "$70,000 - $120,000"
         },
         {
             "id": 2,
+            "name": "Software Engineer",
+            "description": "A Software Engineer develops, tests, and maintains applications that drive businesses and delight users. This role is perfect for those who enjoy coding, creating innovative solutions, and collaborating in diverse teams to solve complex technical problems.",
+            "skills": [
+                "Java: Solid foundation and hands-on experience in Java for building scalable applications.",
+                "Python: Proficiency in Python for data processing, scripting, and application development.",
+                "JavaScript: Strong knowledge of JavaScript, especially for developing interactive web applications.",
+                "C++: Experience in C for low-level programming and systems development.",
+                "Adaptability: Thrives in environments with changing requirements and evolving project goals."
+            ],
+            "annual_average_salary": "$70,000 - $120,000"
+        },
+        {
+            "id": 3,
             "name": "Data Science & Analytics",
             "description": "Do you enjoy working with data and uncovering insights? Data scientists and analysts make sense of large datasets to drive decision-making.",
             "skills": [
                 "Data Analysis: Skilled in analyzing and interpreting large datasets.",
                 "Statistical Knowledge: Understanding statistical methods and data patterns.",
                 "SQL: Proficient in SQL for querying databases and managing data.",
-                "Data Visualization: Skilled in tools like Tableau and Power BI for presenting data insights.",
-                "Analytical Thinking: Ability to derive meaningful conclusions and insights from data."
+                "Data Visualization( Tableau, Power BI): Skilled in tools like Tableau and Power BI for presenting data insights.",
+                "Machine Learning: Ability to develop and apply machine learning models to solve problems."
             ],
             "annual_average_salary": "$80,000 - $130,000"
         },
         {
-            "id": 3,
+            "id": 4,
             "name": "Networking & Systems",
             "description": "Interested in building secure, reliable networks? Networking and systems professionals keep our infrastructure running smoothly and safely.",
             "skills": [
                 "Network Protocols: Knowledge of network configuration and protocols (e.g., TCP/IP).",
                 "Troubleshooting: Strong ability to diagnose and solve network issues.",
                 "Security Awareness: Ensures networks are secure and data is protected.",
-                "System Configuration: Configures and manages network infrastructure efficiently.",
-                "Attention to Detail: Precise management of network components and updates."
+                "Virtualization: Experience in setting up virtual environments (e.g., VMware).",
+                "System Configuration: Configures and manages network infrastructure efficiently."
             ],
             "annual_average_salary": "$60,000 - $100,000"
         },
         {
-            "id": 4,
+            "id": 5,
             "name": "Support & Operations",
             "description": "Are you patient and love solving problems? Support and operations roles ensure that technology works smoothly for users.",
             "skills": [
                 "Customer Service: Ability to effectively assist clients with technical issues.",
                 "Technical Troubleshooting: Skilled in diagnosing and solving IT-related problems.",
+                "Scripting: Basic scripting (e.g., PowerShell) to automate repetitive tasks.",
                 "Communication: Clearly explains technical solutions to non-technical users.",
-                "Problem-Solving: Finds quick solutions to maintain operational continuity.",
                 "Adaptability: Flexible in responding to a variety of technical issues."
             ],
             "annual_average_salary": "$40,000 - $70,000"
         },
         {
-            "id": 5,
+            "id": 6,
             "name": "Cybersecurity Analyst",
             "description": "Passionate about protecting data? Cybersecurity analysts safeguard systems from cyber threats, ensuring data privacy and security.",
             "skills": [
                 "Network Security: Proficient in securing networks against cyber threats.",
                 "Threat Analysis: Ability to assess and mitigate potential security risks.",
                 "Risk Assessment: Skilled in identifying and addressing vulnerabilities.",
-                "Analytical Skills: Detects patterns that may indicate security breaches.",
+                "Digital Forensics: Skilled in investigating data breaches and cyber incidents.",
                 "Continuous Learning: Keeps up with evolving security threats and technology."
             ],
             "annual_average_salary": "$60,000 - $100,000"
+        },
+        {
+            "id": 7,
+            "name": "Cloud Engineer",
+            "description": "Cloud Engineers design, develop, and manage cloud infrastructure, ensuring scalable and efficient cloud solutions for businesses.",
+            "skills": [
+                "Cloud Platforms: Proficiency in platforms like AWS, Azure, or Google Cloud.",
+                "Infrastructure as Code: Knowledge of tools like Terraform and CloudFormation.",
+                "Automation: Using scripts and tools to automate cloud processes.",
+                "Cost Management: Optimizing cloud infrastructure costs for efficiency.",
+                "Network Configuration: Setting up secure, scalable cloud networks."
+            ],
+            "annual_average_salary": "$90,000 - $140,000"
+        },
+        {
+            "id": 8,
+            "name": "DevOps Engineer",
+            "description": "DevOps Engineers bridge development and operations, ensuring faster and more reliable software delivery through automation and CI/CD practices.",
+            "skills": [
+                "Continuous Integration/Continuous Deployment (CI/CD): Proficiency in CI/CD tools like Jenkins, GitLab CI.",
+                "Containerization: Experience with Docker and Kubernetes for managing applications.",
+                "Infrastructure as Code: Skilled in using Terraform or Ansible for automating infrastructure.",
+                "Monitoring and Logging: Implementing monitoring tools (e.g., Prometheus, ELK stack).",
+                "Collaboration: Works closely with developers and operations to ensure smooth deployments."
+            ],
+            "annual_average_salary": "$80,000 - $130,000"
+        },
+        {
+            "id": 9,
+            "name": "Product Manager",
+            "description": "Product Managers define product vision, align teams, and drive the product development process, balancing user needs and business goals.",
+            "skills": [
+                "Market Research: Ability to analyze market trends and customer needs.",
+                "Roadmap Planning: Experience in planning product features and releases.",
+                "Cross-Functional Collaboration: Works with engineering, design, and marketing teams.",
+                "Data Analysis: Uses data to inform product decisions and measure success.",
+                "User Experience (UX) Design: Understands UX principles to create user-friendly products."
+            ],
+            "annual_average_salary": "$90,000 - $150,000"
+        },
+        {
+            "id": 10,
+            "name": "UX/UI Designer",
+            "description": "UX/UI Designers create user-centered designs, ensuring a seamless and enjoyable experience for users interacting with digital products.",
+            "skills": [
+                "User Research: Conducts research to understand user needs and behaviors.",
+                "Wireframing and Prototyping: Skilled in tools like Figma or Sketch for design mockups.",
+                "Visual Design: Creates visually appealing interfaces aligned with brand identity.",
+                "Usability Testing: Tests designs with users to identify pain points and improvements.",
+                "Collaboration: Works closely with developers and product managers for implementation."
+            ],
+            "annual_average_salary": "$70,000 - $120,000"
+        },
+        {
+            "id": 11,
+            "name": "Artificial Intelligence Engineer",
+            "description": "AI Engineers design, build, and deploy AI models and algorithms, creating intelligent solutions for real-world applications.",
+            "skills": [
+                "Machine Learning: Proficiency in building and deploying machine learning models.",
+                "Programming: Strong coding skills in Python or R for data science and AI tasks.",
+                "Data Preprocessing: Experience in preparing and cleaning data for model training.",
+                "Model Deployment: Skilled in deploying models with tools like TensorFlow Serving.",
+                "Continuous Learning: Staying updated with advancements in AI and machine learning."
+            ],
+            "annual_average_salary": "$100,000 - $160,000"
         }
     ]
 },
+
 
 {
     "id":3,

@@ -8,7 +8,6 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="career_exploration.css">
     <script src="https://unpkg.com/axios/dist/axios.js"></script>
-
 </head>
 <body>
 
@@ -57,39 +56,12 @@
     
         <div class="tab-content">
 
+            
+            
 
 
-            <div class="tab-pane fade show active" id="suggested" role="tabpanel" aria-labelledby="suggested-tab">
-                <div class="row d-flex align-items-stretch">
-                    <div v-for="industry in filteredIndustries" :key="industry.id" class="col-12 col-sm-6 col-md-3 mb-4">
-                        <div class="card h-100">
-                            <img :src="industry.image_url" class="card-img-top" alt="Industry Image" style="height:200px; object-fit:cover;">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">{{ industry.name }}</h5>
-                                <p class="card-text">{{ industry.description }}</p>
-                                <a class="btn btn-primary mt-auto">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-    
-            <!-- Explore Tab Pane -->
-            <div class="tab-pane fade" id="explore" role="tabpanel" aria-labelledby="explore-tab">
-                <div class="row d-flex align-items-stretch">
-                    <div v-for="industry in allindustries" :key="industry.id" class="col-12 col-sm-6 col-md-3 mb-4">
-                        <div class="card h-100">
-                            <img :src="industry.image_url" class="card-img-top" alt="Industry Image" style="height:200px; object-fit:cover;">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">{{ industry.name }}</h5>
-                                <p class="card-text">{{ industry.description }}</p>
-                                <a href="#" class="btn btn-primary mt-auto">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
 
         </div>
@@ -103,6 +75,12 @@
 import { collection, addDoc, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import { db, auth } from './firebaseConfig.js';
+import {
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
 
     const app = Vue.createApp({
         data() {
