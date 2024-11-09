@@ -12,62 +12,112 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <style>
         .bigview {
-            padding: 300px;
+            position: relative;
+            padding: 400px;
+            overflow: hidden;
+        }
+
+        .bigview canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .bigview .container {
+            position: relative;
+            z-index: 1;
         }
 
         .img {
             width: 700px;
         }
-        .subheader{
-            font-family:'Lato', sans-serif;
+
+        .subheader {
+            font-family: 'Lato', sans-serif;
             margin: 15px 0px;
         }
-        .body{
+
+        .body {
             font-family: 'Merriweather', serif;
             margin: 15px 0px;
         }
-        .btn{
+
+        .btn {
             background-color: orange;
             color: white;
             padding: 15px 30px;
+        }
+
+        .row {
+            margin-top: 100px;
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg p-0">
-        <div class="container-fluid bg-primary p-3">
-            <a class="navbar-brand text-dark mr-5" href="#">Logo</a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../images/logo.png" alt=""></a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark mr-2 active" aria-current="page" href="#">HOME</a>
+                        <a class="nav-link" aria-current="page" href="#">HOME</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">SERVICES</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#about">ABOUT US</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#notable-mentors">NOTABLE MENTORS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark mr-2" href="#">FEATURES</a>
+                        <a class="nav-link" href="#testimonials">TESTIMONIALS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark mr-2" href="#">PRICING</a>
+                        <a class="nav-link" href="../profile/Profile.html">PROFILE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark mr-2" href="#">ABOUT US</a>
+                        <a class="nav-link" href="#contact">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../authentication/login.html">LOGIN</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <header class="hero-section bg-light bigview">
-        <div class="container text-center">
-            <h1 class="display-4">About CareerLaunch</h1>
+        <div class="container text-center" style="color:white">
+            <h1 class="display-4">About JobBuds</h1>
             <p class="lead">Empowering the next generation of professionals</p>
         </div>
     </header>
     <div class="container">
-        <div class="row">
+        <div class="row hidden">
             <div class="col-1"></div>
             <div class="col-10 p-5 text-center">
                 <h1>Our Mission</h1>
@@ -79,12 +129,12 @@
             </div>
             <div class="col-1"></div>
         </div>
-        <div class="row mb-3">
+        <div class="row mb-3 hidden">
             <div class="col-10">
                 <h1 class="subheader">What We Do</h1>
             </div>
         </div>
-        <div class="card mb-5" style="width: 100%; border:none;">
+        <div class="card mb-5 hidden" style="width: 100%; border:none;">
             <div class="row no-gutters">
                 <div class="col-md-8">
                     <img src="./Images/Ai design-Photoroom.png" class="card-img">
@@ -99,12 +149,13 @@
                 </div>
             </div>
         </div>
-        <div class="card mb-5" style="width: 100%; border:none;">
+        <div class="card mb-5 hidden" style="width: 100%; border:none;">
             <div class="row no-gutters">
                 <div class="col-md-4 d-flex align-items-center">
                     <div class="card-body">
                         <h3 class="card-title subheader">Resume Crafting Guidance</h3>
-                        <p class="card-text body">We provide expert advice on creating standout resumes that catch employers' attention.</p>
+                        <p class="card-text body">We provide expert advice on creating standout resumes that catch
+                            employers' attention.</p>
                         <button class="btn">Find out more</button>
                     </div>
                 </div>
@@ -113,7 +164,7 @@
                 </div>
             </div>
         </div>
-        <div class="card mb-5" style="width: 100%; border:none;">
+        <div class="card mb-5 hidden" style="width: 100%; border:none;">
             <div class="row no-gutters">
                 <div class="col-md-8">
                     <img src="./Images/Writing design-Photoroom.png" class="card-img" style="height: 460px;">
@@ -121,16 +172,18 @@
                 <div class="col-md-4 d-flex align-items-center">
                     <div class="card-body">
                         <h3 class="card-title subheader">Interview Preparation</h3>
-                        <p class="card-text body">From pre-assessment tests to mock interviews, we help you prepare for every stage.</p>
+                        <p class="card-text body">From pre-assessment tests to mock interviews, we help you prepare for
+                            every stage.</p>
                         <button class="btn">Find out more</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row mb-5">
+        <div class="row mb-5 hidden">
             <div class="col-10">
                 <h1>Our Approach</h1>
-                <p class="body">We believe in the power of personalization and real-world connections. That's why our platform combines cutting-edge technology with human expertise:</p>
+                <p class="body">We believe in the power of personalization and real-world connections. That's why our
+                    platform combines cutting-edge technology with human expertise:</p>
                 <ul>
                     <li>Data-Driven Insights</li>
                     <li>Real-Time Support</li>
@@ -138,16 +191,92 @@
                 </ul>
             </div>
         </div>
-        <div class="row mb-5">
+        <div class="row mb-5 hidden">
             <div class="col">
                 <h1>Join Us on Your Career Journey</h1>
-                <p class="mb-3 body">Whether you're just starting to explore career options or you're ready to land your first job, CareerLaunch is here to support you every step of the way. Let's launch your career together!</p>
+                <p class="mb-3 body">Whether you're just starting to explore career options or you're ready to land your
+                    first job, CareerLaunch is here to support you every step of the way. Let's launch your career
+                    together!</p>
                 <button class="p-2 btn">Get Started</button>
             </div>
-
         </div>
     </div>
 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        let scene, camera, renderer, stars = [];
+
+        function init() {
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x000000); // Temporarily set background color to black for visibility
+
+
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 1;
+
+            renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.querySelector('.bigview').appendChild(renderer.domElement);
+
+            createStars();
+
+            animate();
+        }
+
+        function createStars() {
+            const starGeometry = new THREE.BufferGeometry();
+            const starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
+
+            const starVertices = [];
+            for (let i = 0; i < 10000; i++) {
+                const x = (Math.random() - 0.5) * 2000;
+                const y = (Math.random() - 0.5) * 2000;
+                const z = -Math.random() * 2000;
+                starVertices.push(x, y, z);
+            }
+
+            starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+            const stars = new THREE.Points(starGeometry, starMaterial);
+            scene.add(stars);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            scene.children[0].geometry.attributes.position.array.forEach((value, index) => {
+                if (index % 3 === 2) {
+                    scene.children[0].geometry.attributes.position.array[index] += 1;
+                    if (scene.children[0].geometry.attributes.position.array[index] > 0) {
+                        scene.children[0].geometry.attributes.position.array[index] = -2000;
+                    }
+                }
+            });
+            scene.children[0].geometry.attributes.position.needsUpdate = true;
+
+            renderer.render(scene, camera);
+        }
+
+        init();
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.hidden').forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+
+    </script>
 </body>
 
 </html>
