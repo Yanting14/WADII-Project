@@ -1,10 +1,7 @@
-import { db, auth, app } from '../firebaseconfig.js';
+import { db, auth, app } from './firebaseconfig.js';
 import { collection, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
-import {
-    signOut
-} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
 const vueApp = Vue.createApp({
     data() {
         return {
@@ -34,9 +31,9 @@ const vueApp = Vue.createApp({
                 industries: ['Education and Training', 'Information Technology', 'Finance and Banking', 'Healthcare','Social Science','Law','Media & Communications','Marketing & Advertising','Retail and Customer Service','Hospitality and Tourism',"Engineering"],
                 selectedIndustries: [],
                 resume: false,
-                assessmentCompleted: false
+                assessmentCompleted: false,
+                skills: []
             },
-            skills: [],
             percentage : 0,
             newSkill :"",
             maxSelections: 3,
@@ -45,17 +42,6 @@ const vueApp = Vue.createApp({
         }
     },
     methods: {
-        async logout() {
-            try {
-              await signOut(auth);
-              window.location = "../homepage/home.html";
-            } catch (error) {
-              console.error("Error logging out:", error);
-            }
-          },
-      
-
-
         calculateProgressBar(){
             this.$nextTick(() => {
                 try {
@@ -79,13 +65,13 @@ const vueApp = Vue.createApp({
             this.profile.education.splice(index, 1)
         },
         addSkill() {
-            if (this.newSkill.trim() && !this.skills.includes(this.newSkill.trim())) {
-              this.skills.push(this.newSkill.trim())
+            if (this.newSkill.trim() && !this.profile.skills.includes(this.newSkill.trim())) {
+              this.profile.skills.push(this.newSkill.trim())
               this.newSkill = ''
             }
         },
         removeSkill(index) {
-            this.skills.splice(index, 1)
+            this.profile.skills.splice(index, 1)
         },
         async saveProfile() {
             try {
@@ -167,7 +153,7 @@ const vueApp = Vue.createApp({
             return this.profile.firstName && this.profile.lastName && this.profile.email && this.profile.phone && this.profile.address;
         },
         isSkillsAdded() {
-            return this.skills.length > 0;
+            return this.profile.skills.length > 0;
         },
         isCareerInterestsComplete() {
             return this.profile.selectedIndustries.length > 0;
