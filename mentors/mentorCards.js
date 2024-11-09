@@ -9,11 +9,13 @@ import {
     getAuth
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
 
+import { ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
+
 
 // Initialize Firebas
-import {db,auth} from '../firebaseconfig.js'
+import {db,auth, getStorage} from '../firebaseconfig.js'
 
-
+const storage = getStorage()
 
 // Vue component to fetch and display mentors
 const MentorList = {
@@ -26,7 +28,23 @@ const MentorList = {
     methods: {
         async fetchMentors() {
             const querySnapshot = await getDocs(collection(db, 'Mentors'));
-            this.mentors = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            
+            // Use Promise.all to fetch image URLs asynchronously
+            this.mentors = await Promise.all(querySnapshot.docs.map(async (doc) => {
+                const mentorData = doc.data();
+                if (mentorData.imagePath) {
+                    try {
+                        // Create a reference to the image in Firebase Storage
+                        const imageRef = ref(storage, mentorData.imagePath);
+                        // Get the download URL
+                        mentorData.imageUrl = await getDownloadURL(imageRef);
+                    } catch (error) {
+                        console.error("Error fetching image URL:", error);
+                        mentorData.imageUrl = ''; // Fallback in case of error
+                    }
+                }
+                return { id: doc.id, ...mentorData };
+            }));
         },
         expandCard(mentor) {
             this.expandedMentor = mentor;
@@ -40,6 +58,8 @@ const MentorList = {
             const mailtoLink = `mailto:${mentor.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             window.location.href = mailtoLink;
         }
+
+
     },
     created() {
         this.fetchMentors();
@@ -51,24 +71,29 @@ const MentorList = {
                  :key="mentor.id"
                  class="bg-white rounded-lg shadow-md overflow-hidden card"
                  @click="expandCard(mentor)">
-                <img :src="mentor.imageUrl" alt="Image here" class="w-full h-48 object-cover">
+                <img :src="mentor.imageURL" alt="Image here" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h5 class="text-3xl font-semibold text-[#007bff]">{{ mentor.name }}</h5>
                     <p class="mt-2 text-gray-600 line-clamp-4 text-xl">{{ mentor.about }}</p>
-                    <button @click.prevent="contactMentor(mentor)" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-                        Contact
-                    </button>
+                    
                 </div>
             </div>
 
             <div v-if="expandedMentor" class="modal active" @click.self="closeModal">
                 <div class="expanded bg-white shadow-lg rounded-lg" @click.stop>
-                    <button class="text-red-600 hover:text-red-800 absolute top-2 right-2 text-lg" @click="closeModal">X</button>
-                    <h2 class="text-3xl font-semibold mb-4 text-[#007bff]">{{ expandedMentor.name }}</h2>
+                    <div class = 'flex items-center mb-4'>
+                        <img :src="expandedMentor.imageURL" class="h-24 w-24 rounded-full mr-4">
+                                                
+                        <h2 class="text-3xl font-semibold mb-4 text-[#007bff]">  {{ expandedMentor.name }}</h2>
+
+                    </div>
+                    <p class = "text-gray-600 mb-3">{{ expandedMentor.mentorEducation }} at {{ expandedMentor.graduatingInstitute}}</p>
+                    
                     <p class="mb-4">{{ expandedMentor.about }}</p>
-                    <p class="text-gray-600">{{ expandedMentor.extraDetails }}</p>
-                    <p class="text-gray-600 mb-1">{{ expandedMentor.mentorEducation }} at {{ expandedMentor.graduatingInstitute}}</p>
-                    <p class="text-gray-600">You can contact {{expandedMentor.name}} at {{expandedMentor.email}}</p>
+                    
+                    <button @click.prevent="contactMentor(expandedMentor)" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                        Contact via email
+                    </button>
                 </div>
             </div>
         </div>

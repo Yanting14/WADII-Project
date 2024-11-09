@@ -9,19 +9,19 @@ import {
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://support.google.com/firebase/answer/7015592
-// const firebaseConfig = {
-//     apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
-//     authDomain: "wadii-career-20ae3.firebaseapp.com",
-//     projectId: "wadii-career-20ae3",
-//     storageBucket: "wadii-career-20ae3.firebasestorage.app",
-//     messagingSenderId: "967171133152",
-//     appId: "1:967171133152:web:42cac325a66903712bca85"
-// };
-// const app = initializeApp(firebaseConfig);
-// // Initialize Cloud Firestore and get a reference to the service
-// const db = getFirestore(app);
+const firebaseConfig = {
+    apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
+    authDomain: "wadii-career-20ae3.firebaseapp.com",
+    projectId: "wadii-career-20ae3",
+    storageBucket: "wadii-career-20ae3.firebasestorage.app",
+    messagingSenderId: "967171133152",
+    appId: "1:967171133152:web:42cac325a66903712bca85"
+};
+const app = initializeApp(firebaseConfig);
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
 
-// const auth = getAuth(app);
+const auth = getAuth(app);
 
 
 
@@ -334,6 +334,107 @@ imageInput.addEventListener('change', function (event) {
 });
 
 
+// document.addEventListener("DOMContentLoaded", function() {
+//     const result = document.getElementById("result");
+//     const query = document.getElementById("query")
+//     var isHovered = true;
+
+//     // query.addEventListener("mouseenter", function() {
+//     //     if(isHovered){
+//     //         result.style.display = "block"; // Change color on hover
+//     //         isHovered = false;
+//     //     }
+//     //     else{
+//     //         result.style.display = "none"; // Change color on hover
+//     //         isHovered = true;
+//     //     }
+//     // });
 
 
+// });
+
+const apiKey = 'dwT7WKp9dJSBSQJM';
+document.addEventListener('keyup', event => {
+    if (event.code === 'Space' || event.code === 'Comma' || event.code === 'Period') {
+        const element = event.target;   // Get the element where the input occurred
+        const elementId = element.id;   // Get the id of that element
+        console.log(elementId);
+        
+        const resultId = `${elementId}-result`;
+        const queryId = `${elementId}-query`;
+        console.log(resultId);
+        console.log(queryId);
+        
+        doCheck(elementId, resultId,queryId);
+        // doCheck();
+    }
+});
+
+
+function doCheck(elementId, resultId,queryId) {
+    
+    
+    let query = document.getElementById(queryId).textContent;
+    let result = document.getElementById(resultId);
+    // let elementId = document.getElementById(elementId);
+    // let query = document.getElementById("query").textContent;
+    // let result = document.getElementById("result");
+    result.textContent = ""; // Clear previous results
+    console.log(query)
+    axios.get('https://api.textgears.com/check.php', {
+        params: {
+            text: query,
+            language: "en-GB",
+            ai: true,
+            key: apiKey
+        }
+    })
+        .then(response => {
+            console.log(response);
+            
+            
+            if (response.data && Array.isArray(response.data.errors) && response.data.errors.length > 0) {
+
+                
+                
+                for (let err of response.data.errors) {
+                    console.log(err.bad)
+                    let p = document.createElement("p");
+                    p.textContent = `Do you mean for "${err.bad}": `;
+                    let ul = document.createElement("ul");
+                    // Create spans for each suggestion
+                    for (let suggestion of err.better) {
+                        let li = document.createElement("li");
+                        // let suggestionSpan = document.createElement("span");
+                        li.className = "suggestion";
+                        li.textContent = suggestion;
+
+                        li.addEventListener("click", () => {
+                            let inputField = document.getElementById(queryId);
+                            let currentText = inputField.textContent;
+                            // Replace only the first instance of the incorrect word with the chosen suggestion
+                            // Bascially RegExp is a pattern of characters that checks for the error words only,  due to \b boundaries
+                            // We use double \\ as we want it as a literal backslash
+                            let updatedText = currentText.replace(new RegExp(`\\b${err.bad}\\b`), suggestion);
+                            inputField.textContent = updatedText;
+                            console.log(updatedText);
+                            document.getElementById(elementId).value = updatedText
+                            
+
+                            // Remove only this suggestion line after making the change
+                            result.removeChild(p)
+                            result.removeChild(ul);
+                            result.style.display = "inline";
+                        });
+                        ul.appendChild(li);
+                    }
+                    result.appendChild(p)
+                    result.appendChild(ul);
+                }
+            }
+        })
+        .catch(error => {
+            result.textContent = "Error: HTTP status=" + error;
+        });
+}
 

@@ -46,11 +46,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Store user data in Firestore
                 await setDoc(doc(db, "Mentors", username), {
-                    uid: user.uid,
-                    name: fullName,
+                    uid     : user.uid,
+                    name    : fullName,
                     username: username,
-                    email: email,
-                    phone: phone,
+                    email   : email,
+                    phone   : phone,
+                    imageURL: "https://firebasestorage.googleapis.com/v0/b/wadii-career-20ae3.firebasestorage.app/o/mentors%2Fdefault-profile-picture1.jpg?alt=media&token=74484aa9-4eee-4b2c-b9a4-2e1ec5fc7186",
                 });
 
                 // Store username in session
