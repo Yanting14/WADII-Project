@@ -491,8 +491,12 @@
                                 <div class="col-8">
                                     <!-- profile -->
                                     <p class="title2">Profile</p>
-                                    <div style="margin: 20px;">
+                                    <div style="margin: 20px;" class="hover-word" id="profile-query">
                                         {{ profile }}
+                                    </div>
+                                    
+                                    <div class="hover-div" id="profile-result">
+                                        
                                     </div>
                                     <hr>
 
@@ -505,8 +509,16 @@
                                         <span style="color:#535353; float: right;">{{ jobDate1 }}</span><br>
                                         <span style="color:#535353; font-style: italic; font-weight: bold;">{{ job1
                                             }}</span><br>
-                                        <span>{{ description1 }}
-                                        </span>
+
+                                        <div class="hover-word" id="description1-query">
+                                            {{ description1 }}
+                                        </div>
+
+                                        <div class="hover-div" id="description1-result">
+                                        
+                                        </div>
+
+
                                     </div>
                                     <!-- second experience -->
                                     <div style="margin: 30px 20px;">
@@ -514,8 +526,14 @@
                                         <span style="color:#535353; float: right;">{{ jobDate2 }}</span><br>
                                         <span style="color:#535353; font-style: italic; font-weight: bold;">{{ job2
                                             }}</span><br>
-                                        <span>{{ description2 }}
-                                        </span>
+
+                                            <div class="hover-word" id="description2-query">
+                                                {{ description2 }}
+                                            </div>
+    
+                                            <div class="hover-div" id="description2-result">
+                                            
+                                            </div>
                                     </div>
                                     <!-- third experience -->
                                     <div style="margin: 30px 20px;">
@@ -523,8 +541,14 @@
                                         <span style="color:#535353; float: right;">{{ jobDate3 }}</span><br>
                                         <span style="color:#535353; font-style: italic; font-weight: bold;">{{ job3
                                             }}</span><br>
-                                        <span>{{ description3 }}
-                                        </span>
+                                        
+                                        <div class="hover-word" id="description3-query">
+                                            {{ description3 }}
+                                        </div>
+
+                                        <div class="hover-div" id="description3-result">
+                                        
+                                        </div>
 
                                     </div>
                                     <hr>
