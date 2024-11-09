@@ -15,14 +15,17 @@
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.js"></script>
     <!-- Vue.js -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js" ></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <link rel="stylesheet" href="navbar.css">
 
     <style>
-        .card{
+        .card {
             border-radius: 25px;
             margin: 20px 0;
+            width: 100%;
+            max-width: 85%;
+            margin: auto;
         }
 
         #search {
@@ -30,6 +33,7 @@
             box-sizing: border-box;
 
         }
+
         .color-button {
             background-color: lightgrey;
             color: black;
@@ -45,6 +49,16 @@
             background-color: blue;
             color: white
         }
+
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .col-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
     </style>
 </head>
 
@@ -96,29 +110,35 @@
         <div class="row">
             <div class="col p-0">
                 <i class="bi bi-search position-absolute p-1"></i>
-                <input type="text" placeholder="Search courses..." @keyup.enter="give" id="search" v-model="entered"/>
+                <input type="text" placeholder="Search courses..." @keyup.enter="give" id="search" v-model="entered" />
             </div>
         </div>
         <div class="row">
             <div>
-                <button v-for="(button, index) in buttons" :key="index" :class="['color-button', {active: activeButton === index }]" @click="setcolor(index)">{{button}}</button>
+                <button v-for="(button, index) in buttons" :key="index"
+                    :class="['color-button', {active: activeButton === index }]"
+                    @click="setcolor(index)">{{button}}</button>
             </div>
         </div>
-        <div class="row" v-for="course in filteredCourses">
+        <div class="row mt-5" v-for="course in filteredCourses">
             <div class="card col-12">
                 <div class="row">
                     <div class="col-6">
-                        
+                        <img :src="course.image">
                     </div>
                     <div class="col-6 d-flex align-items-center">
                         <div class="card-body">
                             <h3>{{course.title}}</h3>
-                            <p style="color:grey"><i class="bi bi-clock"></i> {{course.duration +" • "+ course.level}}</p>
+                            <p style="color:grey"><i class="bi bi-clock"></i> {{course.duration +" • "+ course.level}}
+                            </p>
                             <p>{{course.description}}</p>
                             <div class="container p-0" style="display:flex;">
-                                <p class="p-1 mr-1" v-for="skill in course.skills" style="border-radius: 10%; background-color: lightblue; color:blue;">{{skill + " "}}</p>
+                                <p class="p-1 mr-1" v-for="skill in course.skills"
+                                    style="border-radius: 10%; background-color: lightblue; color:blue;">{{skill + " "}}
+                                </p>
                             </div>
-                            <p><span style="color: gold">★</span>{{course.rating}}<span style="color:grey"> (Enrolled: {{course.enrolled}})</span> </p>
+                            <p><span style="color: gold">★</span>{{course.rating}}<span style="color:grey"> (Enrolled:
+                                    {{course.enrolled}})</span> </p>
                         </div>
                     </div>
                 </div>
@@ -135,32 +155,32 @@
 
 
         const vueapp = Vue.createApp({
-            data(){
+            data() {
                 return {
-                    entered:'',
-                    courses:[],
-                    buttons: ["All Courses", "Information Technology", "Finance and Banking","Marketing & Advertising","Design", "Soft Skills", "Healthcare","Law","Media & Communications","Social Science","Education and Training","Engineering","Retail and Customer Service","Hospitality and Tourism"],
+                    entered: '',
+                    courses: [],
+                    buttons: ["All Courses", "Information Technology", "Finance and Banking", "Marketing & Advertising", "Design", "Soft Skills", "Healthcare", "Law", "Media & Communications", "Social Science", "Education and Training", "Engineering", "Retail and Customer Service", "Hospitality and Tourism"],
                     activeButton: null,
                     clicked: '',
                     interest: ''
                 }
             },
-            mounted(){
+            mounted() {
                 this.give();
                 this.fetchUserProfile();
             },
             methods: {
-                give(){
-                    axios.get("./courses.php")
-                    .then(response => {
-                        console.log(response.data)
-                        this.courses = response.data
-                    })
-                    
+                give() {
+                    axios.get("./courses.json")
+                        .then(response => {
+                            console.log(response.data)
+                            this.courses = response.data
+                        })
+
                 },
-                setcolor(index){
+                setcolor(index) {
                     this.activeButton = index,
-                    this.clicked = this.buttons[index]
+                        this.clicked = this.buttons[index]
                 },
                 async fetchUserProfile() {
                     onAuthStateChanged(auth, async (user) => {
@@ -188,12 +208,12 @@
                 filteredCourses() {
                     if (!this.courses || this.courses.length === 0) return [];
 
-                    const searchMatch = course => this.entered 
+                    const searchMatch = course => this.entered
                         ? course.title.toLowerCase().includes(this.entered.toLowerCase())
                         : true;
 
                     if (this.activeButton === null || this.buttons[this.activeButton] === "All Courses") {
-                        const interestMatch = course => course.category 
+                        const interestMatch = course => course.category
                             ? course.category.toLowerCase() === this.interest.toLowerCase()
                             : false;
 
@@ -202,7 +222,7 @@
 
                         return [...prioritizedCourses, ...otherCourses];
                     } else {
-                        const categoryMatch = course => course.category 
+                        const categoryMatch = course => course.category
                             ? course.category.toLowerCase() === this.buttons[this.activeButton].toLowerCase()
                             : false;
 
@@ -210,7 +230,7 @@
                     }
                 }
             }
-            
+
         }).mount("#app")
 
 
@@ -220,4 +240,5 @@
 
     <script src="./courses.js"></script>
 </body>
+
 </html>

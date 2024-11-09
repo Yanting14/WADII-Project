@@ -1,0 +1,936 @@
+[
+    {
+        "id": 1,
+        "title": "Introduction to Web Development",
+        "category": "Information Technology",
+        "duration": "8 weeks",
+        "level": "Beginner",
+        "rating": 4.5,
+        "enrolled": 1234,
+        "description": "Learn the fundamentals of web development including HTML, CSS, and JavaScript.",
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "image" : "./Images/courseImages/Web Development Introduction.png"
+    },
+    {
+        "id": 2,
+        "title": "Business Communication",
+        "category": "Marketing & Advertising",
+        "duration": "4 weeks",
+        "level": "Intermediate",
+        "rating": 4.8,
+        "enrolled": 2156,
+        "description": "Master the art of professional communication in the workplace.",
+        "skills": [
+            "Communication",
+            "Presentation",
+            "Writing"
+        ],
+        "image" : "./Images/courseImages/business-communication.jpg"
+        
+    },
+    {
+        "id": 3,
+        "title": "UI/UX Design Fundamentals",
+        "category": "Design",
+        "duration": "6 weeks",
+        "level": "Beginner",
+        "rating": 4.6,
+        "enrolled": 1789,
+        "description": "Learn the principles of user interface and experience design.",
+        "skills": [
+            "Figma",
+            "Design Thinking",
+            "Prototyping"
+        ],
+        "image" : "./Images/courseImages/ui:ux design fundamentals.jpeg"
+    },
+    {
+        "id": 4,
+        "title": "Python for Data Science",
+        "category": "Information Technology",
+        "duration": "10 weeks",
+        "level": "Intermediate",
+        "rating": 4.7,
+        "enrolled": 3421,
+        "description": "Master Python programming for data analysis and visualization.",
+        "skills": [
+            "Python",
+            "Pandas",
+            "NumPy",
+            "Matplotlib"
+        ],
+        "image" : "./Images/courseImages/Python-Data-Science-Tutorial.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Digital Marketing Essentials",
+        "category": "Marketing & Advertising",
+        "duration": "6 weeks",
+        "level": "Beginner",
+        "rating": 4.4,
+        "enrolled": 2890,
+        "description": "Learn core concepts of digital marketing and social media strategy.",
+        "skills": [
+            "Social Media",
+            "SEO",
+            "Content Marketing"
+        ],
+        "image" : "./Images/courseImages/Digital marketing essential.png"
+    },
+    {
+        "id": 6,
+        "title": "Project Management Fundamentals",
+        "category": "Soft Skills",
+        "duration": "8 weeks",
+        "level": "Intermediate",
+        "rating": 4.9,
+        "enrolled": 1567,
+        "description": "Learn essential project management methodologies and tools.",
+        "skills": [
+            "Agile",
+            "Scrum",
+            "Project Planning"
+        ],
+        "image" : "./Images/courseImages/00960_AIM_Screens_ProjectManagementFundamentals_0.jpg"
+    },
+    {
+        "id": 7,
+        "title": "React.js Development",
+        "category": "Information Technology",
+        "duration": "12 weeks",
+        "level": "Advanced",
+        "rating": 4.8,
+        "enrolled": 2345,
+        "description": "Build modern web applications using React.js and its ecosystem.",
+        "skills": [
+            "React",
+            "Redux",
+            "JavaScript",
+            "REST APIs"
+        ],
+        "image" : "./Images/courseImages/React js development.jpeg"
+    },
+    {
+        "id": 8,
+        "title": "Leadership & Team Management",
+        "category": "Soft Skills",
+        "duration": "5 weeks",
+        "level": "Intermediate",
+        "rating": 4.7,
+        "enrolled": 1890,
+        "description": "Develop essential leadership skills for managing teams effectively.",
+        "skills": [
+            "Leadership",
+            "Conflict Resolution",
+            "Team Building"
+        ],
+        "image" : "./Images/courseImages/leadership & team manageent.jpeg"
+    },
+    {
+        "id": 9,
+        "title": "Data Analytics with SQL",
+        "category": "Information Technology",
+        "duration": "7 weeks",
+        "level": "Beginner",
+        "rating": 4.6,
+        "enrolled": 2678,
+        "description": "Master SQL for data analysis and database management.",
+        "skills": [
+            "SQL",
+            "Database Design",
+            "Data Analysis"
+        ],
+        "image" : "./Images/courseImages/SQL data analytics.png"
+    },
+    {
+        "id": 10,
+        "title": "Brand Strategy & Marketing",
+        "category": "Marketing & Advertising",
+        "duration": "6 weeks",
+        "level": "Intermediate",
+        "rating": 4.5,
+        "enrolled": 1456,
+        "description": "Learn to build and maintain strong brand presence in the market.",
+        "skills": [
+            "Brand Management",
+            "Marketing Strategy",
+            "Consumer Behavior"
+        ],
+        "image" : "./Images/courseImages/Brand-Strategy-2.png"
+    },
+    {
+        "id": 11,
+        "title": "Mobile App Design",
+        "category": "Design",
+        "duration": "8 weeks",
+        "level": "Intermediate",
+        "rating": 4.7,
+        "enrolled": 1234,
+        "description": "Create engaging mobile app interfaces and experiences.",
+        "skills": [
+            "Mobile UI",
+            "Interaction Design",
+            "Wireframing"
+        ],
+        "image" : "./Images/courseImages/mobileapp.jpeg"
+    },
+    {
+        "id": 12,
+        "title": "Public Speaking Mastery",
+        "category": "Soft Skills",
+        "duration": "4 weeks",
+        "level": "Beginner",
+        "rating": 4.8,
+        "enrolled": 3456,
+        "description": "Build confidence and master the art of public speaking.",
+        "skills": [
+            "Public Speaking",
+            "Storytelling",
+            "Audience Engagement"
+        ],
+        "image" : "./Images/courseImages/Public-Speech-Course.png"
+    },
+    {
+        "id": 13,
+        "title": "Machine Learning Basics",
+        "category": "Information Technology",
+        "duration": "12 weeks",
+        "level": "Advanced",
+        "rating": 4.9,
+        "enrolled": 1789,
+        "description": "Introduction to machine learning algorithms and applications.",
+        "skills": [
+            "Python",
+            "Scikit-learn",
+            "TensorFlow"
+        ],
+        "image" : "./Images/courseImages/machinelearning.jpeg"
+    },
+    {
+        "id": 14,
+        "title": "Financial Management",
+        "category": "Finance and Banking",
+        "duration": "8 weeks",
+        "level": "Intermediate",
+        "rating": 4.6,
+        "enrolled": 2134,
+        "description": "Understand key concepts of financial management and analysis.",
+        "skills": [
+            "Financial Analysis",
+            "Budgeting",
+            "Risk Management"
+        ],
+        "image" : "./Images/courseImages/blog_og_Financial-Management.jpg"
+    },
+    {
+        "id": 15,
+        "title": "Cloud Computing Fundamentals",
+        "category": "Information Technology",
+        "duration": "10 weeks",
+        "level": "Intermediate",
+        "rating": 4.7,
+        "enrolled": 1567,
+        "description": "Learn basic concepts of cloud computing and major platforms.",
+        "skills": [
+            "AWS",
+            "Azure",
+            "Cloud Architecture"
+        ],
+        "image" : "./Images/courseImages/cloudcomputing.jpeg"
+    },
+    {
+        "id": 16,
+        "title": "Cybersecurity Essentials",
+        "category": "Information Technology",
+        "duration": "10 weeks",
+        "level": "Intermediate",
+        "rating": 4.8,
+        "enrolled": 2345,
+        "description": "Learn fundamental concepts of cybersecurity and network protection.",
+        "skills": [
+            "Network Security",
+            "Cryptography",
+            "Security Protocols"
+        ],
+        "image" : "./Images/courseImages/Cybersecurity-Essentials-Course-Header.png"
+    },
+    {
+        "id": 17,
+        "title": "Content Creation & Strategy",
+        "category": "Marketing & Advertising",
+        "duration": "6 weeks",
+        "level": "Beginner",
+        "rating": 4.6,
+        "enrolled": 1890,
+        "description": "Master the art of creating engaging content across different platforms.",
+        "skills": [
+            "Content Writing",
+            "Video Production",
+            "Social Media Strategy"
+        ],
+        "image" : "./Images/courseImages/Content Creation.jpeg"
+    },
+    {
+        "id": 18,
+        "title": "Advanced Data Visualization",
+        "category": "Information Technology",
+        "duration": "8 weeks",
+        "level": "Advanced",
+        "rating": 4.7,
+        "enrolled": 1456,
+        "description": "Create compelling data stories using advanced visualization techniques.",
+        "skills": [
+            "Tableau",
+            "D3.js",
+            "Data Storytelling"
+        ],
+        "image" : "./Images/courseImages/Advanced Data Visualization.png"
+    },
+    {
+        "id": 19,
+        "title": "Agile Product Management",
+        "category": "Soft Skills",
+        "duration": "8 weeks",
+        "level": "Intermediate",
+        "rating": 4.9,
+        "enrolled": 2156,
+        "description": "Learn to manage product development using agile methodologies.",
+        "skills": [
+            "Product Strategy",
+            "Scrum",
+            "User Stories"
+        ],
+        "image" : "./Images/courseImages/Agile Product Management.jpeg"
+    },
+    {
+        "id": 20,
+        "title": "Motion Graphics Design",
+        "category": "Design",
+        "duration": "10 weeks",
+        "level": "Intermediate",
+        "rating": 4.8,
+        "enrolled": 1678,
+        "description": "Create engaging motion graphics for digital platforms.",
+        "skills": [
+            "After Effects",
+            "Animation",
+            "Visual Storytelling"
+        ],
+        "image" : "./Images/courseImages/Motion-graphic.jpg"
+    },
+    {
+        "id": 21,
+        "title": "Emotional Intelligence at Work",
+        "category": "Soft Skills",
+        "duration": "4 weeks",
+        "level": "Beginner",
+        "rating": 4.7,
+        "enrolled": 2890,
+        "description": "Develop emotional intelligence skills for better workplace relationships.",
+        "skills": [
+            "Self-awareness",
+            "Empathy",
+            "Relationship Management"
+        ],
+        "image" : "./Images/courseImages/Motion-graphic.jpg"
+    },
+    {
+        "id": 22,
+        "title": "DevOps Engineering",
+        "category": "Information Technology",
+        "duration": "12 weeks",
+        "level": "Advanced",
+        "rating": 4.8,
+        "enrolled": 1567,
+        "description": "Master modern DevOps practices and tools.",
+        "skills": [
+            "Docker",
+            "Jenkins",
+            "Kubernetes"
+        ],
+        "image" : "./Images/courseImages/DevOps Engineering.jpeg"
+    },
+    {
+        "id": 23,
+        "title": "Advanced Excel for Business",
+        "category": "Finance and Banking",
+        "duration": "6 weeks",
+        "level": "Intermediate",
+        "rating": 4.6,
+        "enrolled": 3421,
+        "description": "Master advanced Excel functions for business analysis.",
+        "skills": [
+            "Excel",
+            "Pivot Tables",
+            "Macros"
+        ],
+        "image" : "./Images/courseImages/Advanced Excel for Business.jpeg"
+    },
+    {
+        "id": 24,
+        "title": "Natural Language Processing",
+        "category": "Information Technology",
+        "duration": "10 weeks",
+        "level": "Advanced",
+        "rating": 4.9,
+        "enrolled": 1234,
+        "description": "Learn to process and analyze text data using AI techniques.",
+        "skills": [
+            "Python",
+            "NLTK",
+            "SpaCy"
+        ],
+        "image" : "./Images/courseImages/Natural Language Processing.webp"
+    },
+    {
+        "id": 25,
+        "title": "3D Design Fundamentals",
+        "category": "Design",
+        "duration": "12 weeks",
+        "level": "Intermediate",
+        "rating": 4.7,
+        "enrolled": 1890,
+        "description": "Learn the basics of 3D modeling and rendering.",
+        "skills": [
+            "Blender",
+            "3D Modeling",
+            "Texturing"
+        ],
+        "image" : "./Images/courseImages/3D Design Fundamentals.jpeg"
+    },
+    {
+        "id": 26,
+        "title": "Email Marketing Mastery",
+        "category": "Marketing & Advertising",
+        "duration": "5 weeks",
+        "level": "Intermediate",
+        "rating": 4.5,
+        "enrolled": 2156,
+        "description": "Create effective email marketing campaigns and strategies.",
+        "skills": [
+            "Email Design",
+            "Campaign Management",
+            "Analytics"
+        ],
+        "image" : "./Images/courseImages/Email Marketing Mastery.jpeg"
+    },
+    {
+        "id": 27,
+        "title": "Critical Thinking and Problem Solving",
+        "category": "Soft Skills",
+        "duration": "6 weeks",
+        "level": "Intermediate",
+        "rating": 4.8,
+        "enrolled": 1789,
+        "description": "Develop advanced problem-solving and analytical thinking skills.",
+        "skills": [
+            "Analysis",
+            "Decision Making",
+            "Logic"
+        ],
+        "image" : "./Images/courseImages/Critical Thinking and Problem Solving.jpeg"
+    },
+    {
+        "id": 28,
+        "title": "Blockchain Development",
+        "category": "Information Technology",
+        "duration": "12 weeks",
+        "level": "Advanced",
+        "rating": 4.9,
+        "enrolled": 1456,
+        "description": "Learn to build applications using blockchain technology.",
+        "skills": [
+            "Solidity",
+            "Smart Contracts",
+            "Web3.js"
+        ],
+        "image" : "./Images/courseImages/Blockchain Development.jpeg"
+    },
+    {
+        "id": 29,
+        "title": "Business Analytics",
+        "category": "Finance and Banking",
+        "duration": "8 weeks",
+        "level": "Intermediate",
+        "rating": 4.7,
+        "enrolled": 2678,
+        "description": "Learn to use data analytics for business decision making.",
+        "skills": [
+            "Data Analysis",
+            "Business Intelligence",
+            "Reporting"
+        ],
+        "image" : "./Images/courseImages/Business Analytics.jpeg"
+    },
+    {
+        "id": 30,
+        "title": "Game Design Principles",
+        "category": "Design",
+        "duration": "10 weeks",
+        "level": "Intermediate",
+        "rating": 4.6,
+        "enrolled": 1567,
+        "description": "Master the fundamentals of game design and development.",
+        "skills": [
+            "Game Mechanics",
+            "Level Design",
+            "Unity"
+        ],
+        "image" : "./Images/courseImages/Game Design Principles.jpeg"
+    },
+    {
+        "id": 31,
+        "title": "Introduction to Healthcare Management",
+        "category": "Healthcare",
+        "duration": "6 weeks",
+        "level": "Beginner",
+        "rating": 4.8,
+        "enrolled": 1890,
+        "description": "Learn the basics of managing healthcare facilities and services.",
+        "skills": [
+            "Healthcare Administration",
+            "Patient Care",
+            "Health Policy"
+        ],
+        "image" : "./Images/courseImages/Introduction to Healthcare Management.jpeg"
+    },
+    {
+        "id": 32,
+        "title": "Public Health and Epidemiology",
+        "category": "Healthcare",
+        "duration": "8 weeks",
+        "level": "Intermediate",
+        "rating": 4.9,
+        "enrolled": 2100,
+        "description": "Understand the principles of public health and the study of disease patterns.",
+        "skills": [
+            "Epidemiology",
+            "Public Health Policy",
+            "Disease Prevention"
+        ],
+        "image" : "./Images/courseImages/Public Health and Epidemiology .jpeg"
+    },
+    {
+        "id": 33,
+        "title": "Digital Media Strategies",
+        "category": "Media & Communications",
+        "duration": "7 weeks",
+        "level": "Intermediate",
+        "rating": 4.5,
+        "enrolled": 1750,
+        "description": "Explore strategies for effective digital media campaigns.",
+        "skills": [
+            "Digital Marketing"
+        ],
+        "image" : "./Images/courseImages/Digital Media Strategies.jpeg"
+    },
+    {
+        "id": 34,
+        "title": "Introduction to Criminal Law",
+        "category": "Law",
+        "duration": "10 weeks",
+        "level": "Beginner",
+        "rating": 4.7,
+        "enrolled": 890,
+        "description": "Understand the basics of criminal law, including key concepts and case studies.",
+        "skills": [
+            "Legal Research",
+            "Case Analysis",
+            "Criminal Law"
+        ],
+        "image" : "./Images/courseImages/Introduction to Criminal Law.jpeg"
+    },
+    {
+        "id": 35,
+        "title": "Corporate Law Essentials",
+        "category": "Law",
+        "duration": "12 weeks",
+        "level": "Intermediate",
+        "rating": 4.6,
+        "enrolled": 760,
+        "description": "Learn about corporate law, including company formation, governance, and compliance.",
+        "skills": [
+            "Corporate Governance",
+            "Legal Compliance",
+            "Business Law"
+        ],
+        "image" : "./Images/courseImages/Corporate Law Essentials.jpeg"
+    },
+    {
+        "id": 36,
+        "title": "Family Law Fundamentals",
+        "category": "Law",
+        "duration": "8 weeks",
+        "level": "Beginner",
+        "rating": 4.5,
+        "enrolled": 540,
+        "description": "Explore the principles of family law, including marriage, divorce, and child custody.",
+        "skills": [
+            "Family Law",
+            "Legal Documentation",
+            "Client Counseling"
+        ],
+        "image" : "./Images/courseImages/Family Law Fundamentals.jpeg"
+    },
+    {
+        "id": 37,
+        "title": "International Law and Human Rights",
+        "category": "Law",
+        "duration": "14 weeks",
+        "level": "Advanced",
+        "rating": 4.8,
+        "enrolled": 430,
+        "description": "Study international law and human rights, focusing on global legal frameworks and issues.",
+        "skills": [
+            "International Law",
+            "Human Rights Advocacy",
+            "Legal Analysis"
+        ],
+        "image" : "./Images/courseImages/International Law and Human Rights.jpeg"
+    },
+    {
+        "id": 38,
+        "title": "Environmental Law and Policy",
+        "category": "Law",
+        "duration": "10 weeks",
+        "level": "Intermediate",
+        "rating": 4.7,
+        "enrolled": 620,
+        "description": "Learn about environmental law and policy, including regulations and sustainability practices.",
+        "skills": [
+            "Environmental Law",
+            "Policy Analysis",
+            "Sustainability"
+        ],
+        "image" : "./Images/courseImages/Environmental Law and Policy.webp"
+    },
+    {
+        "id": 39,
+        "title": "Introduction to Journalism",
+        "category": "Media & Communications",
+        "duration": "8 weeks",
+        "level": "Beginner",
+        "rating": 4.6,
+        "enrolled": 980,
+        "description": "Learn the basics of journalism, including news writing, reporting, and ethics.",
+        "skills": ["News Writing", "Reporting", "Media Ethics"],
+        "image" : "./Images/courseImages/Introduction to Journalism.jpeg"
+    },
+    {
+        "id": 40,
+        "title": "Digital Marketing Strategies",
+        "category": "Media & Communications",
+        "duration": "10 weeks",
+        "level": "Intermediate",
+        "rating": 4.7,
+        "enrolled": 1120,
+        "description": "Explore digital marketing strategies, including SEO, social media, and content marketing.",
+        "skills": ["SEO", "Social Media Marketing", "Content Creation"],
+        "image" : "./Images/courseImages/Digital Marketing Strategies.jpeg"
+    },
+    {
+        "id": 41,
+        "title": "Public Relations and Media Management",
+        "category": "Media & Communications",
+        "duration": "12 weeks",
+        "level": "Intermediate",
+        "rating": 4.5,
+        "enrolled": 870,
+        "description": "Understand public relations and media management, including crisis communication and branding.",
+        "skills": ["Public Relations", "Media Management", "Crisis Communication"],
+        "image" : "./Images/courseImages/Public Relations and Media Management.png"
+    },
+    {
+        "id": 42,
+        "title": "Film Production Basics",
+        "category": "Media & Communications",
+        "duration": "14 weeks",
+        "level": "Beginner",
+        "rating": 4.8,
+        "enrolled": 650,
+        "description": "Learn the fundamentals of film production, including directing, editing, and cinematography.",
+        "skills": ["Directing", "Editing", "Cinematography"],
+        "image" : "./Images/courseImages/Film Production Basics.jpeg"
+    },
+    {
+        "id": 43,
+        "title": "Advanced Communication Skills",
+        "category": "Media & Communications",
+        "duration": "8 weeks",
+        "level": "Advanced",
+        "rating": 4.9,
+        "enrolled": 720,
+        "description": "Enhance your communication skills, including public speaking, negotiation, and persuasion.",
+        "skills": ["Public Speaking", "Negotiation", "Persuasion"],
+        "image" : "./Images/courseImages/Advanced Communication Skills.png"
+    },
+    {
+        "id": 44,
+        "title": "Introduction to Sociology",
+        "category": "Social Science",
+        "duration": "8 weeks",
+        "level": "Beginner",
+        "rating": 4.5,
+        "enrolled": 1100,
+        "description": "Learn the basics of sociology, including social structures, institutions, and relationships.",
+        "skills": ["Sociological Analysis", "Research Methods", "Critical Thinking"],
+        "image" : "./Images/courseImages/Introduction to Sociology.jpeg"
+    },
+    {
+        "id": 45,
+        "title": "Psychology 101",
+        "category": "Social Science",
+        "duration": "10 weeks",
+        "level": "Beginner",
+        "rating": 4.7,
+        "enrolled": 950,
+        "description": "Explore the fundamentals of psychology, including human behavior, cognition, and emotions.",
+        "skills": ["Behavioral Analysis", "Cognitive Psychology", "Emotional Intelligence"],
+        "image" : "./Images/courseImages/Psychology 101.png"
+    },
+    {
+        "id": 46,
+        "title": "Cultural Anthropology",
+        "category": "Social Science",
+        "duration": "12 weeks",
+        "level": "Intermediate",
+        "rating": 4.6,
+        "enrolled": 780,
+        "description": "Study cultural anthropology, focusing on human cultures, traditions, and social practices.",
+        "skills": ["Cultural Analysis", "Ethnography", "Social Research"],
+        "image" : "./Images/courseImages/Cultural-Anthropology.webp"
+    },
+    {
+        "id": 47,
+        "title": "Political Science Basics",
+        "category": "Social Science",
+        "duration": "10 weeks",
+        "level": "Beginner",
+        "rating": 4.5,
+        "enrolled": 860,
+        "description": "Understand the basics of political science, including political systems, theories, and policies.",
+        "skills": ["Political Analysis", "Policy Evaluation", "Critical Thinking"],
+        "image" : "./Images/courseImages/Political Science Basics.jpeg"
+    },
+    {
+        "id": 48,
+        "title": "Social Psychology",
+        "category": "Social Science",
+        "duration": "8 weeks",
+        "level": "Intermediate",
+        "rating": 4.8,
+        "enrolled": 720,
+        "description": "Explore social psychology, focusing on how individuals influence and are influenced by others.",
+        "skills": ["Social Behavior Analysis", "Group Dynamics", "Interpersonal Skills"],
+        "image" : "./Images/courseImages/Social Psychology.webp"
+    },
+    {
+        "id": 49,
+        "title": "Teaching Strategies for the Classroom",
+        "category": "Education and Training",
+        "duration": "8 weeks",
+        "level": "Beginner",
+        "rating": 4.6,
+        "enrolled": 980,
+        "description": "Learn effective teaching strategies to engage students and enhance learning outcomes.",
+        "skills": ["Lesson Planning", "Classroom Management", "Student Engagement"],
+        "image" : "./Images/courseImages/Teaching Strategies for the Classroom.jpeg"
+    },
+    {
+        "id": 50,
+        "title": "Educational Psychology",
+        "category": "Education and Training",
+        "duration": "10 weeks",
+        "level": "Intermediate",
+        "rating": 4.7,
+        "enrolled": 870,
+        "description": "Understand the principles of educational psychology and how they apply to teaching and learning.",
+        "skills": ["Educational Theory", "Learning Strategies", "Student Assessment"],
+        "image" : "./Images/courseImages/Educational Psychology.jpeg"
+    },
+    {
+        "id": 51,
+        "title": "Curriculum Development",
+        "category": "Education and Training",
+        "duration": "12 weeks",
+        "level": "Advanced",
+        "rating": 4.8,
+        "enrolled": 650,
+        "description": "Learn how to develop effective curricula that meet educational standards and student needs.",
+        "skills": ["Curriculum Design", "Educational Standards", "Instructional Design"],
+        "image" : "./Images/courseImages/Curriculum Development.jpeg"
+    },
+    {
+        "id": 52,
+        "title": "Introduction to Mechanical Engineering",
+        "category": "Engineering",
+        "duration": "10 weeks",
+        "level": "Beginner",
+        "rating": 4.6,
+        "enrolled": 890,
+        "description": "Learn the basics of mechanical engineering, including thermodynamics, mechanics, and materials science.",
+        "skills": ["Thermodynamics", "Mechanics", "Materials Science"],
+        "image" : "./Images/courseImages/Introduction to Mechanical Engineering.jpeg"
+    },
+    {
+        "id": 53,
+        "title": "Electrical Engineering Fundamentals",
+        "category": "Engineering",
+        "duration": "12 weeks",
+        "level": "Intermediate",
+        "rating": 4.7,
+        "enrolled": 760,
+        "description": "Understand the principles of electrical engineering, including circuits, signals, and systems.",
+        "skills": ["Circuit Analysis", "Signal Processing", "Systems Engineering"],
+        "image" : "./Images/courseImages/Electrical Engineering Fundamentals.jpeg"
+    },
+    {
+        "id": 54,
+        "title": "Civil Engineering Basics",
+        "category": "Engineering",
+        "duration": "8 weeks",
+        "level": "Beginner",
+        "rating": 4.5,
+        "enrolled": 540,
+        "description": "Explore the fundamentals of civil engineering, including structural analysis, construction, and geotechnics.",
+        "skills": ["Structural Analysis", "Construction Management", "Geotechnical Engineering"],
+        "image" : "./Images/courseImages/Civil Engineering Basics.jpeg"
+    },
+    {
+        "id": 55,
+        "title": "Introduction to Chemical Engineering",
+        "category": "Engineering",
+        "duration": "14 weeks",
+        "level": "Advanced",
+        "rating": 4.8,
+        "enrolled": 430,
+        "description": "Study the basics of chemical engineering, including process design, thermodynamics, and reaction engineering.",
+        "skills": ["Process Design", "Thermodynamics", "Reaction Engineering"],
+        "image" : "./Images/courseImages/Introduction to Chemical Engineering.png"
+    },
+    {
+        "id": 56,
+        "title": "Retail Management Basics",
+        "category": "Retail and Customer Service",
+        "duration": "8 weeks",
+        "level": "Beginner",
+        "rating": 4.6,
+        "enrolled": 980,
+        "description": "Learn the fundamentals of retail management, including store operations, merchandising, and customer service.",
+        "skills": ["Store Operations", "Merchandising", "Customer Service"],
+        "image" : "./Images/courseImages/Retail Management Basics.jpeg"
+    },
+    {
+        "id": 57,
+        "title": "Customer Service Excellence",
+        "category": "Retail and Customer Service",
+        "duration": "10 weeks",
+        "level": "Intermediate",
+        "rating": 4.7,
+        "enrolled": 1120,
+        "description": "Understand the principles of excellent customer service, including communication skills, problem-solving, and customer satisfaction.",
+        "skills": ["Communication Skills", "Problem-Solving", "Customer Satisfaction"],
+        "image" : "./Images/courseImages/Customer Service Excellence.png"
+    },
+    {
+        "id": 58,
+        "title": "Sales Techniques and Strategies",
+        "category": "Retail and Customer Service",
+        "duration": "12 weeks",
+        "level": "Intermediate",
+        "rating": 4.5,
+        "enrolled": 870,
+        "description": "Explore effective sales techniques and strategies, including prospecting, closing deals, and relationship management.",
+        "skills": ["Prospecting", "Closing Deals", "Relationship Management"],
+        "image" : "./Images/courseImages/Sales Techniques and Strategies.jpeg"
+    },
+    {
+        "id": 59,
+        "title": "E-commerce Essentials",
+        "category": "Retail and Customer Service",
+        "duration": "14 weeks",
+        "level": "Beginner",
+        "rating": 4.8,
+        "enrolled": 650,
+        "description": "Learn the basics of e-commerce, including online store setup, digital marketing, and customer engagement.",
+        "skills": ["Online Store Setup", "Digital Marketing", "Customer Engagement"],
+        "image" : "./Images/courseImages/E-commerce Essentials.jpeg"
+    },
+    {
+        "id": 60,
+        "title": "Retail Analytics and Insights",
+        "category": "Retail and Customer Service",
+        "duration": "10 weeks",
+        "level": "Advanced",
+        "rating": 4.9,
+        "enrolled": 720,
+        "description": "Understand retail analytics and insights, including data analysis, inventory management, and sales forecasting.",
+        "skills": ["Data Analysis", "Inventory Management", "Sales Forecasting"],
+        "image" : "./Images/courseImages/Retail Analytics and Insights.jpeg"
+    },
+    {
+        "id": 61,
+        "title": "Introduction to Hospitality Management",
+        "category": "Hospitality and Tourism",
+        "duration": "8 weeks",
+        "level": "Beginner",
+        "rating": 4.6,
+        "enrolled": 980,
+        "description": "Learn the basics of hospitality management, including hotel operations, guest services, and event planning.",
+        "skills": ["Hotel Operations", "Guest Services", "Event Planning"],
+        "image" : "./Images/courseImages/Introduction to Hospitality Management.jpeg"
+    },
+    {
+        "id": 62,
+        "title": "Tourism Management Fundamentals",
+        "category": "Hospitality and Tourism",
+        "duration": "10 weeks",
+        "level": "Intermediate",
+        "rating": 4.7,
+        "enrolled": 1120,
+        "description": "Understand the principles of tourism management, including destination marketing, tour operations, and travel planning.",
+        "skills": ["Destination Marketing", "Tour Operations", "Travel Planning"],
+        "image" : "./Images/courseImages/Tourism Management Fundamentals.jpeg"
+    },
+    {
+        "id": 63,
+        "title": "Culinary Arts Basics",
+        "category": "Hospitality and Tourism",
+        "duration": "12 weeks",
+        "level": "Intermediate",
+        "rating": 4.5,
+        "enrolled": 870,
+        "description": "Explore the fundamentals of culinary arts, including cooking techniques, food safety, and menu planning.",
+        "skills": ["Cooking Techniques", "Food Safety", "Menu Planning"],
+        "image" : "./Images/courseImages/Culinary Arts Basics.webp"
+    },
+    {
+        "id": 64,
+        "title": "Event Management Essentials",
+        "category": "Hospitality and Tourism",
+        "duration": "14 weeks",
+        "level": "Beginner",
+        "rating": 4.8,
+        "enrolled": 650,
+        "description": "Learn the basics of event management, including event planning, coordination, and execution.",
+        "skills": ["Event Planning", "Coordination", "Execution"],
+        "image" : "./Images/courseImages/Event Management Essentials.jpeg"
+    },
+    {
+        "id": 65,
+        "title": "Sustainable Tourism Practices",
+        "category": "Hospitality and Tourism",
+        "duration": "10 weeks",
+        "level": "Advanced",
+        "rating": 4.9,
+        "enrolled": 720,
+        "description": "Understand sustainable tourism practices, including eco-friendly travel, community engagement, and conservation efforts.",
+        "skills": ["Eco-Friendly Travel", "Community Engagement", "Conservation"],
+        "image" : "./Images/courseImages/Sustainable Tourism Practices.png"
+    }
+
+]
