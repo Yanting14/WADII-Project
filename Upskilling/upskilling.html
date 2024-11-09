@@ -15,12 +15,12 @@
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.js"></script>
     <!-- Vue.js -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js" ></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <link rel="stylesheet" href="navbar.css">
 
     <style>
-        .card{
+        .card {
             border-radius: 25px;
             margin: 20px 0;
         }
@@ -30,6 +30,7 @@
             box-sizing: border-box;
 
         }
+
         .color-button {
             background-color: lightgrey;
             color: black;
@@ -47,52 +48,52 @@
         }
 
 
-        #nav-bar{
 
-width: 100%;
-margin:0;
-padding:0
+        #nav-bar {
+
+            width: 100%;
+            margin: 0;
+            padding: 0
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            padding-left: 30px;
+
+        }
+
+        .navbar-nav li {
+            padding: 0 10px;
+        }
+
+        .navbar-nav li a {
+            float: right;
+            text-align: left;
+        }
+
+        #nav-bar ul li a:hover {
+            color: #007bff;
+        }
+
+        .navbar {
+            background: #fff;
+        }
+
+        .navbar-toggle {
+            border: none
+        }
+
+        .nav-link {
+            color: #555;
+            font-weight: 600;
+            font-size: 16px;
+        }
 
 
-}
 
-.navbar-brand img{
-height: 50px;
-padding-left: 30px;
-
-}
-
-.navbar-nav li{
-padding: 0 10px;
-}
-
-.navbar-nav li a{
-float: right;
-text-align: left;
-}
-
-#nav-bar ul li a:hover{
-color: #007bff;
-}
-
-.navbar{
-background:#fff;
-}
-
-.navbar-toggle{
-border:none
-}
-
-.nav-link{
-color:#555;
-font-weight: 600;
-font-size: 16px;
-}
-
-body{
-    background-image: url(../images/careerbackg.jpg);
-}
-
+        body {
+            background-image: url(../images/careerbackg.jpg);
+        }
     </style>
 </head>
 
@@ -100,42 +101,45 @@ body{
 
     <div class="container" id="app">
 
-    
 
-    <section id="nav-bar">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="../images/logo.png" alt="Logo"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="../careersearch/careersearch.html">CAREER SEARCH</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="../careerexploration/career_exploration.html">CAREER EXPLORATION</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="../resume/resumeForm.html">RESUME CRAFTING</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" style="color:blue">UPSKILLING</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="../mentors/mentorCards.html">MENTORS</a>
-                          </li>
-                
-                          <li class="nav-item">
-                            <a class="nav-link" @click="logout">LOGOUT</a>
-                        </li>
 
-                    </ul>
+        <section id="nav-bar">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="../images/logo.png" alt="Logo"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../careersearch/careersearch.html">CAREER
+                                    SEARCH</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page"
+                                    href="../careerexploration/career_exploration.html">CAREER EXPLORATION</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../resume/resumeFormWorksDynamically.html">RESUME CRAFTING</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color:blue">UPSKILLING</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../mentors/mentorCards.html">MENTORS</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" @click="logout">LOGOUT</a>
+                            </li>
+
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </section>
+            </nav>
+        </section>
 
 
         <div class="row mt-4">
@@ -147,29 +151,35 @@ body{
         <div class="row">
             <div class="col p-0">
                 <i class="bi bi-search position-absolute p-1"></i>
-                <input type="text" placeholder="Search courses..." @keyup.enter="give" id="search" v-model="entered"/>
+                <input type="text" placeholder="Search courses..." @keyup.enter="give" id="search" v-model="entered" />
             </div>
         </div>
         <div class="row">
             <div>
-                <button v-for="(button, index) in buttons" :key="index" :class="['color-button', {active: activeButton === index }]" @click="setcolor(index)">{{button}}</button>
+                <button v-for="(button, index) in buttons" :key="index"
+                    :class="['color-button', {active: activeButton === index }]"
+                    @click="setcolor(index)">{{button}}</button>
             </div>
         </div>
         <div class="row" v-for="course in filteredCourses">
             <div class="card col-12">
                 <div class="row">
                     <div class="col-6">
-                        
+
                     </div>
                     <div class="col-6 d-flex align-items-center">
                         <div class="card-body">
                             <h3>{{course.title}}</h3>
-                            <p style="color:grey"><i class="bi bi-clock"></i> {{course.duration +" • "+ course.level}}</p>
+                            <p style="color:grey"><i class="bi bi-clock"></i> {{course.duration +" • "+ course.level}}
+                            </p>
                             <p>{{course.description}}</p>
                             <div class="container p-0" style="display:flex;">
-                                <p class="p-1 mr-1" v-for="skill in course.skills" style="border-radius: 10%; background-color: lightblue; color:blue;">{{skill + " "}}</p>
+                                <p class="p-1 mr-1" v-for="skill in course.skills"
+                                    style="border-radius: 10%; background-color: lightblue; color:blue;">{{skill + " "}}
+                                </p>
                             </div>
-                            <p><span style="color: gold">★</span>{{course.rating}}<span style="color:grey"> (Enrolled: {{course.enrolled}})</span> </p>
+                            <p><span style="color: gold">★</span>{{course.rating}}<span style="color:grey"> (Enrolled:
+                                    {{course.enrolled}})</span> </p>
                         </div>
                     </div>
                 </div>
@@ -191,43 +201,43 @@ body{
 
 
         const vueapp = Vue.createApp({
-            data(){
+            data() {
                 return {
-                    entered:'',
-                    courses:[],
-                    buttons: ["All Courses", "Information Technology", "Finance and Banking","Marketing & Advertising","Design", "Soft Skills", "Healthcare","Law","Media & Communications","Social Science","Education and Training","Engineering","Retail and Customer Service","Hospitality and Tourism"],
+                    entered: '',
+                    courses: [],
+                    buttons: ["All Courses", "Information Technology", "Finance and Banking", "Marketing & Advertising", "Design", "Soft Skills", "Healthcare", "Law", "Media & Communications", "Social Science", "Education and Training", "Engineering", "Retail and Customer Service", "Hospitality and Tourism"],
                     activeButton: null,
                     clicked: '',
                     interest: ''
                 }
             },
-            mounted(){
+            mounted() {
                 this.give();
                 this.fetchUserProfile();
             },
             methods: {
 
-async logout() {
-    try {
-        console.log("Logout function called"); // Check if logout is triggered
+                async logout() {
+                    try {
+                        console.log("Logout function called"); // Check if logout is triggered
 
-      await signOut(auth);
-      window.location = "../homepage/home.html";
-    } catch (error) {
-      console.error("Error logging out:", error);
-    }
-  },
-                give(){
-                    axios.get("./courses.php")
-                    .then(response => {
-                        console.log(response.data)
-                        this.courses = response.data
-                    })
-                    
+                        await signOut(auth);
+                        window.location = "../homepage/home.html";
+                    } catch (error) {
+                        console.error("Error logging out:", error);
+                    }
                 },
-                setcolor(index){
+                give() {
+                    axios.get("./courses.php")
+                        .then(response => {
+                            console.log(response.data)
+                            this.courses = response.data
+                        })
+
+                },
+                setcolor(index) {
                     this.activeButton = index,
-                    this.clicked = this.buttons[index]
+                        this.clicked = this.buttons[index]
                 },
                 async fetchUserProfile() {
                     onAuthStateChanged(auth, async (user) => {
@@ -255,12 +265,12 @@ async logout() {
                 filteredCourses() {
                     if (!this.courses || this.courses.length === 0) return [];
 
-                    const searchMatch = course => this.entered 
+                    const searchMatch = course => this.entered
                         ? course.title.toLowerCase().includes(this.entered.toLowerCase())
                         : true;
 
                     if (this.activeButton === null || this.buttons[this.activeButton] === "All Courses") {
-                        const interestMatch = course => course.category 
+                        const interestMatch = course => course.category
                             ? course.category.toLowerCase() === this.interest.toLowerCase()
                             : false;
 
@@ -269,7 +279,7 @@ async logout() {
 
                         return [...prioritizedCourses, ...otherCourses];
                     } else {
-                        const categoryMatch = course => course.category 
+                        const categoryMatch = course => course.category
                             ? course.category.toLowerCase() === this.buttons[this.activeButton].toLowerCase()
                             : false;
 
@@ -277,7 +287,7 @@ async logout() {
                     }
                 }
             }
-            
+
         }).mount("#app")
 
 
@@ -285,12 +295,12 @@ async logout() {
     </script>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+        </script>
 
 
 
-    <script src="./courses.js"></script>
 </body>
+
 </html>

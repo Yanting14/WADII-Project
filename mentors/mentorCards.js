@@ -1,6 +1,6 @@
 // Initialize Firebase
-import { collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.js';
+
+import {db,auth} from '../firebaseconfig.js'
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
@@ -9,11 +9,9 @@ import {
     getAuth
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
 
-import { ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
-
-
-// Initialize Firebas
-import {db,auth, getStorage} from '../firebaseconfig.js'
+import { collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
+import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.js';
 
 const storage = getStorage()
 

@@ -22,13 +22,11 @@
                 </div>
             </div>
             
-            <h1>Login</h1>
-
-    
+            <h1>Welcome Back!</h1>
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6">
                     <div class="input-group mb-4">
-                        <input id='email' type="email" class="form-control" placeholder="Email" aria-label="Email">
+                        <input id="email" type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
                     </div>
                 </div>
             </div>
@@ -40,25 +38,21 @@
                     </div>
                 </div>
             </div>
-    
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <button id="loginbutton" type="submit" class="btn btn-secondary btn-block">Login</button>
-                </div>
-            </div>
-    
-            <div class="row justify-content-center">
-                <div class="col-12 text-center mt-4">
-                    <a style="text-decoration: none; color: grey;" href="register.html">
-                        Don't have an account?
-                        <span style="font-weight: bold; font-size:20px; text-decoration: underline;">Register</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    
-    </div>
 
+            <div class="row">
+                <div class="col-12 text-center">
+                    <button id="loginbutton" type="submit" class="btn btn-secondary">Login</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center mt-4">
+                    <a href="register.html" style="text-decoration: none; color: grey;">Don't have an account? <span style="font-weight: bold; font-size:20px; text-decoration: underline;">Register</span></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
     
     <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -150,9 +144,11 @@
                             displayErrorMessage = 'Too many attempts. Please try again later.';
                             break;
                         case 'auth/weak-password':
-                            displayErrorMessage='Your password should have at least 6 characters'
+                            displayErrorMessage='Your password should have at least 6 characters.'
                             break;
-                            
+                        case 'auth/missing-email':
+                            displayErrorMessage='Please input your email.'
+                            break;
                         default:
                             displayErrorMessage = 'An error occurred: ' + errormessage;
 

@@ -91,7 +91,8 @@
         } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
        
         import { auth,db } from '../firebaseconfig.js';
-        
+
+
     
         const email=document.getElementById('email')
         const password=document.getElementById('password')
@@ -190,7 +191,7 @@
             // showModal("You have sucessfully registered");
 
                 setTimeout(() => {
-   window.location.href = 'homepage.html';
+              window.location.href = './login.html';
 
             }, 1000); 
             
@@ -206,8 +207,6 @@
         checkAuthstate();
 
     
-
-
 
 
 

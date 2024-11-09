@@ -1,29 +1,17 @@
 
 // to be exported and removed here
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-// to be edited
+// to be edite
 import {
-    getFirestore, doc, setDoc, getDoc
+   doc, setDoc, getDoc
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-// TODO: Replace the following with your app's Firebase project configuration
-// See: https://support.google.com/firebase/answer/7015592
-const firebaseConfig = {
-    apiKey: "AIzaSyCaCMLfzaAjedNd7ITsMmFwoskhIboREf0",
-    authDomain: "wadii-career-20ae3.firebaseapp.com",
-    projectId: "wadii-career-20ae3",
-    storageBucket: "wadii-career-20ae3.firebasestorage.app",
-    messagingSenderId: "967171133152",
-    appId: "1:967171133152:web:42cac325a66903712bca85"
-};
-const app = initializeApp(firebaseConfig);
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
-
-const auth = getAuth(app);
-
-
+import { db, auth, app } from '../firebaseconfig.js';
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut,
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
 
 const app1 = Vue.createApp({
     data() {
@@ -94,6 +82,15 @@ const app1 = Vue.createApp({
     },
     methods: {
         // for RESUME export
+        async logout() {
+            try {
+              await signOut(auth);
+              window.location = "../homepage/home.html";
+            } catch (error) {
+              console.error("Error logging out:", error);
+            }
+          },
+
         exportResume() {
             const newWindow = window.open('', '_blank');
 

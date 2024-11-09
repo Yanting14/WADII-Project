@@ -1,6 +1,7 @@
-import { db, auth, app } from './firebaseconfig.js';
+import { db, auth, app } from '../firebaseconfig.js';
 import { collection, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
 
 const vueApp = Vue.createApp({
     data() {
@@ -28,7 +29,19 @@ const vueApp = Vue.createApp({
                     github: ''
                 },
                 about: 'Recent computer science graduate passionate about web development and AI. Looking for opportunities to grow in the tech industry.',
-                industries: ['Education and Training', 'Information Technology', 'Finance and Banking', 'Healthcare','Social Science','Law','Media & Communications','Marketing & Advertising','Retail and Customer Service','Hospitality and Tourism',"Engineering"],
+                industries: [ "Healthcare",
+                "Tech",
+                "Education and Training",
+                "Engineering",
+                "Finance and Banking",
+                "Accountancy",
+                "Retail and Customer Service",
+                "Hospitality and Tourism",
+                "Legal and Compliance",
+                "Human Resources",
+                "Science and Research",
+                "Environmental Science and Sustainability"],
+                
                 selectedIndustries: [],
                 resume: false,
                 assessmentCompleted: false,
