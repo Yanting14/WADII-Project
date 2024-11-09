@@ -54,11 +54,12 @@
             width: 100%;
             height: auto;
         }
+
         .col-6 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -101,7 +102,7 @@
         </div>
     </nav>
     <div class="container" id="app">
-        <div class="row mt-4">
+        <div class="row mt-5 mb-3">
             <div>
                 <h1>Upskill Your Career</h1>
                 <p>Enhance your professional skills with our curated courses</p>
@@ -113,7 +114,7 @@
                 <input type="text" placeholder="Search courses..." @keyup.enter="give" id="search" v-model="entered" />
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-1">
             <div>
                 <button v-for="(button, index) in buttons" :key="index"
                     :class="['color-button', {active: activeButton === index }]"
@@ -121,7 +122,7 @@
             </div>
         </div>
         <div class="row mt-5" v-for="course in filteredCourses">
-            <div class="card col-12">
+            <a :href="course.website" class="card col-12" style="text-decoration: none; color: inherit;">
                 <div class="row">
                     <div class="col-6">
                         <img :src="course.image">
@@ -129,7 +130,8 @@
                     <div class="col-6 d-flex align-items-center">
                         <div class="card-body">
                             <h3>{{course.title}}</h3>
-                            <p style="color:grey"><i class="bi bi-clock"></i> {{course.duration +" • "+ course.level}}
+                            <p style="color:grey"><i class="bi bi-clock"></i> {{course.duration +" • "+
+                                course.level}}
                             </p>
                             <p>{{course.description}}</p>
                             <div class="container p-0" style="display:flex;">
@@ -137,12 +139,13 @@
                                     style="border-radius: 10%; background-color: lightblue; color:blue;">{{skill + " "}}
                                 </p>
                             </div>
-                            <p><span style="color: gold">★</span>{{course.rating}}<span style="color:grey"> (Enrolled:
+                            <p><span style="color: gold">★</span>{{course.rating}}<span style="color:grey">
+                                    (Enrolled:
                                     {{course.enrolled}})</span> </p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
 
     </div>

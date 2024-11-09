@@ -13,7 +13,8 @@
             "CSS",
             "JavaScript"
         ],
-        "image" : "./Images/courseImages/Web Development Introduction.png"
+        "image" : "./Images/courseImages/Web Development Introduction.png",
+        "website" : "https://www.coursera.org/enroll/learn/introduction-to-web-development/paidmedia?utm_medium=sem&utm_source=gg&utm_campaign=b2c_apac_microsoft-full-stack-developer_microsoft_ftcof_professional-certificates_px_dr_bau_gg_sem_pr_s1_en_m_hyb_24-q4_x&campaignid=21865493681&adgroupid=174998813732&device=c&keyword=&matchtype=&network=g&devicemodel=&creativeid=719513550376&assetgroupid=&targetid=dsa-2371735085173&extensionid=&placement=&gad_source=1&gbraid=0AAAAADdKX6afN4jyV8cHkQgMqSeSol9Kt&gclid=EAIaIQobChMI1IPwrPvPiQMV0cg8Ah1JViExEAAYASAAEgJ6UfD_BwE"
     },
     {
         "id": 2,
@@ -29,7 +30,8 @@
             "Presentation",
             "Writing"
         ],
-        "image" : "./Images/courseImages/business-communication.jpg"
+        "image" : "./Images/courseImages/business-communication.jpg",
+        "website" : "https://www.coursera.org/specializations/business-english"
         
     },
     {
@@ -46,7 +48,8 @@
             "Design Thinking",
             "Prototyping"
         ],
-        "image" : "./Images/courseImages/ui:ux design fundamentals.jpeg"
+        "image" : "./Images/courseImages/ui:ux design fundamentals.jpeg",
+        "website" : "https://www.coursera.org/specializations/ui-ux-design"
     },
     {
         "id": 4,
@@ -63,7 +66,9 @@
             "NumPy",
             "Matplotlib"
         ],
-        "image" : "./Images/courseImages/Python-Data-Science-Tutorial.jpg"
+        "image" : "./Images/courseImages/Python-Data-Science-Tutorial.jpg",
+        "website" : "https://www.coursera.org/learn/python-for-applied-data-science-ai"
+
     },
     {
         "id": 5,
@@ -79,7 +84,8 @@
             "SEO",
             "Content Marketing"
         ],
-        "image" : "./Images/courseImages/Digital marketing essential.png"
+        "image" : "./Images/courseImages/Digital marketing essential.png",
+        "website" : "https://www.coursera.org/specializations/digital-marketing"
     },
     {
         "id": 6,
@@ -95,7 +101,8 @@
             "Scrum",
             "Project Planning"
         ],
-        "image" : "./Images/courseImages/00960_AIM_Screens_ProjectManagementFundamentals_0.jpg"
+        "image" : "./Images/courseImages/00960_AIM_Screens_ProjectManagementFundamentals_0.jpg",
+        "website" : "https://www.coursera.org/learn/project-management-fundamentals-microsoft"
     },
     {
         "id": 7,
@@ -112,7 +119,9 @@
             "JavaScript",
             "REST APIs"
         ],
-        "image" : "./Images/courseImages/React js development.jpeg"
+        "image" : "./Images/courseImages/React js development.jpeg",
+        "website" : "https://www.coursera.org/learn/frontend-development-using-react"
+
     },
     {
         "id": 8,
@@ -128,7 +137,8 @@
             "Conflict Resolution",
             "Team Building"
         ],
-        "image" : "./Images/courseImages/leadership & team manageent.jpeg"
+        "image" : "./Images/courseImages/leadership & team manageent.jpeg",
+        "website" : "https://www.coursera.org/learn/fundamentals-of-effective-team-management"
     },
     {
         "id": 9,
@@ -144,7 +154,8 @@
             "Database Design",
             "Data Analysis"
         ],
-        "image" : "./Images/courseImages/SQL data analytics.png"
+        "image" : "./Images/courseImages/SQL data analytics.png",
+        "website" : "https://www.coursera.org/learn/sql-for-data-science"
     },
     {
         "id": 10,
@@ -160,7 +171,8 @@
             "Marketing Strategy",
             "Consumer Behavior"
         ],
-        "image" : "./Images/courseImages/Brand-Strategy-2.png"
+        "image" : "./Images/courseImages/Brand-Strategy-2.png",
+        "website" : "https://www.coursera.org/learn/brand-management-strategies-for-a-strong-brand"
     },
     {
         "id": 11,
@@ -176,7 +188,8 @@
             "Interaction Design",
             "Wireframing"
         ],
-        "image" : "./Images/courseImages/mobileapp.jpeg"
+        "image" : "./Images/courseImages/mobileapp.jpeg",
+        "website" : "https://www.coursera.org/learn/user-experience-design"
     },
     {
         "id": 12,
@@ -192,7 +205,8 @@
             "Storytelling",
             "Audience Engagement"
         ],
-        "image" : "./Images/courseImages/Public-Speech-Course.png"
+        "image" : "./Images/courseImages/Public-Speech-Course.png",
+        "website" : "https://www.coursera.org/learn/public-speaking"
     },
     {
         "id": 13,
@@ -208,7 +222,8 @@
             "Scikit-learn",
             "TensorFlow"
         ],
-        "image" : "./Images/courseImages/machinelearning.jpeg"
+        "image" : "./Images/courseImages/machinelearning.jpeg",
+        "website" : "https://www.coursera.org/learn/machine-learning-basics"
     },
     {
         "id": 14,
@@ -224,7 +239,8 @@
             "Budgeting",
             "Risk Management"
         ],
-        "image" : "./Images/courseImages/blog_og_Financial-Management.jpg"
+        "image" : "./Images/courseImages/blog_og_Financial-Management.jpg",
+        "website" : "https://www.coursera.org/specializations/business-financial-management"
     },
     {
         "id": 15,
@@ -240,7 +256,8 @@
             "Azure",
             "Cloud Architecture"
         ],
-        "image" : "./Images/courseImages/cloudcomputing.jpeg"
+        "image" : "./Images/courseImages/cloudcomputing.jpeg",
+        "website" : "https://www.coursera.org/learn/introduction-to-cloud"
     },
     {
         "id": 16,
@@ -256,7 +273,8 @@
             "Cryptography",
             "Security Protocols"
         ],
-        "image" : "./Images/courseImages/Cybersecurity-Essentials-Course-Header.png"
+        "image" : "./Images/courseImages/Cybersecurity-Essentials-Course-Header.png",
+        "website" : "https://www.coursera.org/learn/introduction-to-cybersecurity-essentials"
     },
     {
         "id": 17,
@@ -272,7 +290,8 @@
             "Video Production",
             "Social Media Strategy"
         ],
-        "image" : "./Images/courseImages/Content Creation.jpeg"
+        "image" : "./Images/courseImages/Content Creation.jpeg",
+        "website" : "https://www.coursera.org/learn/content-marketing"
     },
     {
         "id": 18,
@@ -288,7 +307,8 @@
             "D3.js",
             "Data Storytelling"
         ],
-        "image" : "./Images/courseImages/Advanced Data Visualization.png"
+        "image" : "./Images/courseImages/Advanced Data Visualization.png",
+        "website" : "https://www.coursera.org/learn/advanced-data-visualization-with-tableau-public"
     },
     {
         "id": 19,
@@ -304,7 +324,8 @@
             "Scrum",
             "User Stories"
         ],
-        "image" : "./Images/courseImages/Agile Product Management.jpeg"
+        "image" : "./Images/courseImages/Agile Product Management.jpeg",
+        "website" : "https://www.coursera.org/learn/agile-project-management"
     },
     {
         "id": 20,
@@ -320,7 +341,8 @@
             "Animation",
             "Visual Storytelling"
         ],
-        "image" : "./Images/courseImages/Motion-graphic.jpg"
+        "image" : "./Images/courseImages/Motion-graphic.jpg",
+        "website" : "https://www.coursera.org/specializations/graphic-design"
     },
     {
         "id": 21,
@@ -336,7 +358,8 @@
             "Empathy",
             "Relationship Management"
         ],
-        "image" : "./Images/courseImages/Motion-graphic.jpg"
+        "image" : "./Images/courseImages/Emotional Intelligence at Work.jpeg",
+        "website" : "https://hmi-ihs.com/emotional-intelligence-at-the-workplace/"
     },
     {
         "id": 22,
@@ -352,7 +375,8 @@
             "Jenkins",
             "Kubernetes"
         ],
-        "image" : "./Images/courseImages/DevOps Engineering.jpeg"
+        "image" : "./Images/courseImages/DevOps Engineering.jpeg",
+        "website" : "https://www.coursera.org/professional-certificates/ibm-applied-devops-engineering"
     },
     {
         "id": 23,
@@ -368,7 +392,8 @@
             "Pivot Tables",
             "Macros"
         ],
-        "image" : "./Images/courseImages/Advanced Excel for Business.jpeg"
+        "image" : "./Images/courseImages/Advanced Excel for Business.jpeg",
+        "website" : "https://www.coursera.org/learn/excel-advanced"
     },
     {
         "id": 24,
@@ -384,7 +409,8 @@
             "NLTK",
             "SpaCy"
         ],
-        "image" : "./Images/courseImages/Natural Language Processing.webp"
+        "image" : "./Images/courseImages/Natural Language Processing.webp",
+        "website" : "https://www.coursera.org/specializations/natural-language-processing"
     },
     {
         "id": 25,
@@ -400,7 +426,8 @@
             "3D Modeling",
             "Texturing"
         ],
-        "image" : "./Images/courseImages/3D Design Fundamentals.jpeg"
+        "image" : "./Images/courseImages/3D Design Fundamentals.jpeg",
+        "website" : "https://www.udemy.com/course/blendertutorial/?couponCode=2021PM20"
     },
     {
         "id": 26,
@@ -416,7 +443,8 @@
             "Campaign Management",
             "Analytics"
         ],
-        "image" : "./Images/courseImages/Email Marketing Mastery.jpeg"
+        "image" : "./Images/courseImages/Email Marketing Mastery.jpeg",
+        "website" : "https://www.udemy.com/course/email-marketing-mastery-guide/?couponCode=2021PM20"
     },
     {
         "id": 27,
@@ -432,7 +460,8 @@
             "Decision Making",
             "Logic"
         ],
-        "image" : "./Images/courseImages/Critical Thinking and Problem Solving.jpeg"
+        "image" : "./Images/courseImages/Critical Thinking and Problem Solving.jpeg",
+        "website" : "https://www.udemy.com/course/critical-thinking-plus-problem-solving/?couponCode=2021PM20"
     },
     {
         "id": 28,
@@ -448,7 +477,8 @@
             "Smart Contracts",
             "Web3.js"
         ],
-        "image" : "./Images/courseImages/Blockchain Development.jpeg"
+        "image" : "./Images/courseImages/Blockchain Development.jpeg",
+        "website" : "https://www.coursera.org/specializations/blockchain"
     },
     {
         "id": 29,
@@ -464,7 +494,8 @@
             "Business Intelligence",
             "Reporting"
         ],
-        "image" : "./Images/courseImages/Business Analytics.jpeg"
+        "image" : "./Images/courseImages/Business Analytics.jpeg",
+        "website" : "https://www.coursera.org/specializations/business-analytics"
     },
     {
         "id": 30,
@@ -480,7 +511,8 @@
             "Level Design",
             "Unity"
         ],
-        "image" : "./Images/courseImages/Game Design Principles.jpeg"
+        "image" : "./Images/courseImages/Game Design Principles.jpeg",
+        "website" : "https://www.coursera.org/learn/game-design"
     },
     {
         "id": 31,
@@ -496,7 +528,8 @@
             "Patient Care",
             "Health Policy"
         ],
-        "image" : "./Images/courseImages/Introduction to Healthcare Management.jpeg"
+        "image" : "./Images/courseImages/Introduction to Healthcare Management.jpeg",
+        "website" : "https://www.coursera.org/learn/introduction-to-healthcare-management"
     },
     {
         "id": 32,
@@ -512,7 +545,8 @@
             "Public Health Policy",
             "Disease Prevention"
         ],
-        "image" : "./Images/courseImages/Public Health and Epidemiology .jpeg"
+        "image" : "./Images/courseImages/Public Health and Epidemiology .jpeg",
+        "website" : "https://www.coursera.org/specializations/public-health-epidemiology"
     },
     {
         "id": 33,
@@ -526,7 +560,8 @@
         "skills": [
             "Digital Marketing"
         ],
-        "image" : "./Images/courseImages/Digital Media Strategies.jpeg"
+        "image" : "./Images/courseImages/Digital Media Strategies.jpeg",
+        "website" : "https://www.coursera.org/learn/marketing-plan"
     },
     {
         "id": 34,
@@ -542,7 +577,8 @@
             "Case Analysis",
             "Criminal Law"
         ],
-        "image" : "./Images/courseImages/Introduction to Criminal Law.jpeg"
+        "image" : "./Images/courseImages/Introduction to Criminal Law.jpeg",
+        "website" : "https://www.coursera.org/learn/international-criminal-law"
     },
     {
         "id": 35,
@@ -558,7 +594,8 @@
             "Legal Compliance",
             "Business Law"
         ],
-        "image" : "./Images/courseImages/Corporate Law Essentials.jpeg"
+        "image" : "./Images/courseImages/Corporate Law Essentials.jpeg",
+        "website" : "https://www.udemy.com/course/business-law-applied-fundamentalist/?couponCode=2021PM20"
     },
     {
         "id": 36,
@@ -574,7 +611,8 @@
             "Legal Documentation",
             "Client Counseling"
         ],
-        "image" : "./Images/courseImages/Family Law Fundamentals.jpeg"
+        "image" : "./Images/courseImages/Family Law Fundamentals.jpeg",
+        "website" : "https://alison.com/course/basics-of-family-law"
     },
     {
         "id": 37,
@@ -590,7 +628,8 @@
             "Human Rights Advocacy",
             "Legal Analysis"
         ],
-        "image" : "./Images/courseImages/International Law and Human Rights.jpeg"
+        "image" : "./Images/courseImages/International Law and Human Rights.jpeg",
+        "website" : "https://www.coursera.org/learn/international-humanitarian-law"
     },
     {
         "id": 38,
@@ -606,7 +645,8 @@
             "Policy Analysis",
             "Sustainability"
         ],
-        "image" : "./Images/courseImages/Environmental Law and Policy.webp"
+        "image" : "./Images/courseImages/Environmental Law and Policy.webp",
+        "website" : "https://www.coursera.org/learn/environmental-law"
     },
     {
         "id": 39,
@@ -618,7 +658,8 @@
         "enrolled": 980,
         "description": "Learn the basics of journalism, including news writing, reporting, and ethics.",
         "skills": ["News Writing", "Reporting", "Media Ethics"],
-        "image" : "./Images/courseImages/Introduction to Journalism.jpeg"
+        "image" : "./Images/courseImages/Introduction to Journalism.jpeg",
+        "website" : "https://www.udemy.com/course/how-to-be-a-journalist-the-complete-guide/?couponCode=2021PM20"
     },
     {
         "id": 40,
@@ -630,7 +671,8 @@
         "enrolled": 1120,
         "description": "Explore digital marketing strategies, including SEO, social media, and content marketing.",
         "skills": ["SEO", "Social Media Marketing", "Content Creation"],
-        "image" : "./Images/courseImages/Digital Marketing Strategies.jpeg"
+        "image" : "./Images/courseImages/Digital Marketing Strategies.jpeg",
+        "website" : "https://www.coursera.org/specializations/digital-marketing-strategy-planning"
     },
     {
         "id": 41,
@@ -642,7 +684,8 @@
         "enrolled": 870,
         "description": "Understand public relations and media management, including crisis communication and branding.",
         "skills": ["Public Relations", "Media Management", "Crisis Communication"],
-        "image" : "./Images/courseImages/Public Relations and Media Management.png"
+        "image" : "./Images/courseImages/Public Relations and Media Management.png",
+        "website" : "https://www.coursera.org/specializations/introduction-to-public-relations-and-the-media"
     },
     {
         "id": 42,
@@ -654,7 +697,8 @@
         "enrolled": 650,
         "description": "Learn the fundamentals of film production, including directing, editing, and cinematography.",
         "skills": ["Directing", "Editing", "Cinematography"],
-        "image" : "./Images/courseImages/Film Production Basics.jpeg"
+        "image" : "./Images/courseImages/Film Production Basics.jpeg",
+        "website" : "https://www.udemy.com/course/film-tv-video-game-music-composition-production/?couponCode=2021PM20"
     },
     {
         "id": 43,
@@ -666,7 +710,8 @@
         "enrolled": 720,
         "description": "Enhance your communication skills, including public speaking, negotiation, and persuasion.",
         "skills": ["Public Speaking", "Negotiation", "Persuasion"],
-        "image" : "./Images/courseImages/Advanced Communication Skills.png"
+        "image" : "./Images/courseImages/Advanced Communication Skills.png",
+        "website" : "https://www.coursera.org/learn/communication-skills"
     },
     {
         "id": 44,
@@ -678,7 +723,8 @@
         "enrolled": 1100,
         "description": "Learn the basics of sociology, including social structures, institutions, and relationships.",
         "skills": ["Sociological Analysis", "Research Methods", "Critical Thinking"],
-        "image" : "./Images/courseImages/Introduction to Sociology.jpeg"
+        "image" : "./Images/courseImages/Introduction to Sociology.jpeg",
+        "website" : "https://www.coursera.org/learn/classical-sociological-theory"
     },
     {
         "id": 45,
@@ -690,7 +736,8 @@
         "enrolled": 950,
         "description": "Explore the fundamentals of psychology, including human behavior, cognition, and emotions.",
         "skills": ["Behavioral Analysis", "Cognitive Psychology", "Emotional Intelligence"],
-        "image" : "./Images/courseImages/Psychology 101.png"
+        "image" : "./Images/courseImages/Psychology 101.png",
+        "website" : "https://www.coursera.org/learn/introduction-psychology"
     },
     {
         "id": 46,
@@ -702,7 +749,8 @@
         "enrolled": 780,
         "description": "Study cultural anthropology, focusing on human cultures, traditions, and social practices.",
         "skills": ["Cultural Analysis", "Ethnography", "Social Research"],
-        "image" : "./Images/courseImages/Cultural-Anthropology.webp"
+        "image" : "./Images/courseImages/Cultural-Anthropology.webp",
+        "website" : "https://www.udemy.com/course/cultural-anthropologist-introduction-to-anthropology/?couponCode=2021PM20"
     },
     {
         "id": 47,
@@ -714,7 +762,8 @@
         "enrolled": 860,
         "description": "Understand the basics of political science, including political systems, theories, and policies.",
         "skills": ["Political Analysis", "Policy Evaluation", "Critical Thinking"],
-        "image" : "./Images/courseImages/Political Science Basics.jpeg"
+        "image" : "./Images/courseImages/Political Science Basics.jpeg",
+        "website" : "https://www.udemy.com/course/basics-of-political-science/?couponCode=2021PM20"
     },
     {
         "id": 48,
@@ -726,7 +775,8 @@
         "enrolled": 720,
         "description": "Explore social psychology, focusing on how individuals influence and are influenced by others.",
         "skills": ["Social Behavior Analysis", "Group Dynamics", "Interpersonal Skills"],
-        "image" : "./Images/courseImages/Social Psychology.webp"
+        "image" : "./Images/courseImages/Social Psychology.webp",
+        "website" : "https://www.coursera.org/learn/social-psychology"
     },
     {
         "id": 49,
@@ -738,7 +788,8 @@
         "enrolled": 980,
         "description": "Learn effective teaching strategies to engage students and enhance learning outcomes.",
         "skills": ["Lesson Planning", "Classroom Management", "Student Engagement"],
-        "image" : "./Images/courseImages/Teaching Strategies for the Classroom.jpeg"
+        "image" : "./Images/courseImages/Teaching Strategies for the Classroom.jpeg",
+        "website" : "https://www.udemy.com/course/classroom-teaching-strategies-pre-primary-primary-grades/"
     },
     {
         "id": 50,
@@ -750,7 +801,8 @@
         "enrolled": 870,
         "description": "Understand the principles of educational psychology and how they apply to teaching and learning.",
         "skills": ["Educational Theory", "Learning Strategies", "Student Assessment"],
-        "image" : "./Images/courseImages/Educational Psychology.jpeg"
+        "image" : "./Images/courseImages/Educational Psychology.jpeg",
+        "website" : "https://www.dasacademy.edu.sg/certificate_courses/certificate-in-educational-psychology-2/"
     },
     {
         "id": 51,
@@ -762,7 +814,8 @@
         "enrolled": 650,
         "description": "Learn how to develop effective curricula that meet educational standards and student needs.",
         "skills": ["Curriculum Design", "Educational Standards", "Instructional Design"],
-        "image" : "./Images/courseImages/Curriculum Development.jpeg"
+        "image" : "./Images/courseImages/Curriculum Development.jpeg",
+        "website" : "https://gigis.edu.sg/pdc/certificate-of-professional-practice/curriculum-development-instruction"
     },
     {
         "id": 52,
@@ -774,7 +827,8 @@
         "enrolled": 890,
         "description": "Learn the basics of mechanical engineering, including thermodynamics, mechanics, and materials science.",
         "skills": ["Thermodynamics", "Mechanics", "Materials Science"],
-        "image" : "./Images/courseImages/Introduction to Mechanical Engineering.jpeg"
+        "image" : "./Images/courseImages/Introduction to Mechanical Engineering.jpeg",
+        "website" : "https://www.coursera.org/learn/engineering-mechanics-statics"
     },
     {
         "id": 53,
@@ -786,7 +840,8 @@
         "enrolled": 760,
         "description": "Understand the principles of electrical engineering, including circuits, signals, and systems.",
         "skills": ["Circuit Analysis", "Signal Processing", "Systems Engineering"],
-        "image" : "./Images/courseImages/Electrical Engineering Fundamentals.jpeg"
+        "image" : "./Images/courseImages/Electrical Engineering Fundamentals.jpeg",
+        "website" : "https://www.udemy.com/course/fundamentals-of-electrical-engineering/?couponCode=2021PM20"
     },
     {
         "id": 54,
@@ -798,7 +853,8 @@
         "enrolled": 540,
         "description": "Explore the fundamentals of civil engineering, including structural analysis, construction, and geotechnics.",
         "skills": ["Structural Analysis", "Construction Management", "Geotechnical Engineering"],
-        "image" : "./Images/courseImages/Civil Engineering Basics.jpeg"
+        "image" : "./Images/courseImages/Civil Engineering Basics.jpeg",
+        "website" : "https://www.udemy.com/course/basics-of-civil-engineering-in-construction-for-begineers/?couponCode=2021PM20"
     },
     {
         "id": 55,
@@ -810,7 +866,8 @@
         "enrolled": 430,
         "description": "Study the basics of chemical engineering, including process design, thermodynamics, and reaction engineering.",
         "skills": ["Process Design", "Thermodynamics", "Reaction Engineering"],
-        "image" : "./Images/courseImages/Introduction to Chemical Engineering.png"
+        "image" : "./Images/courseImages/Introduction to Chemical Engineering.png",
+        "website" : "https://www.udemy.com/course/chemical-engineering/?couponCode=2021PM20"
     },
     {
         "id": 56,
@@ -822,7 +879,8 @@
         "enrolled": 980,
         "description": "Learn the fundamentals of retail management, including store operations, merchandising, and customer service.",
         "skills": ["Store Operations", "Merchandising", "Customer Service"],
-        "image" : "./Images/courseImages/Retail Management Basics.jpeg"
+        "image" : "./Images/courseImages/Retail Management Basics.jpeg",
+        "website" : "https://www.udemy.com/course/akaaro-retail-management/?couponCode=2021PM20"
     },
     {
         "id": 57,
@@ -834,7 +892,8 @@
         "enrolled": 1120,
         "description": "Understand the principles of excellent customer service, including communication skills, problem-solving, and customer satisfaction.",
         "skills": ["Communication Skills", "Problem-Solving", "Customer Satisfaction"],
-        "image" : "./Images/courseImages/Customer Service Excellence.png"
+        "image" : "./Images/courseImages/Customer Service Excellence.png",
+        "website" : "https://www.udemy.com/course/customer-service-excellence-i/?couponCode=2021PM20"
     },
     {
         "id": 58,
@@ -846,7 +905,8 @@
         "enrolled": 870,
         "description": "Explore effective sales techniques and strategies, including prospecting, closing deals, and relationship management.",
         "skills": ["Prospecting", "Closing Deals", "Relationship Management"],
-        "image" : "./Images/courseImages/Sales Techniques and Strategies.jpeg"
+        "image" : "./Images/courseImages/Sales Techniques and Strategies.jpeg",
+        "website" : "https://www.udemy.com/course/learn-these-powerful-techniques-to-improve-your-sales/?couponCode=2021PM20"
     },
     {
         "id": 59,
@@ -858,7 +918,8 @@
         "enrolled": 650,
         "description": "Learn the basics of e-commerce, including online store setup, digital marketing, and customer engagement.",
         "skills": ["Online Store Setup", "Digital Marketing", "Customer Engagement"],
-        "image" : "./Images/courseImages/E-commerce Essentials.jpeg"
+        "image" : "./Images/courseImages/E-commerce Essentials.jpeg",
+        "website" : "https://www.skillshare.com/en/classes/e-commerce-essentials-how-to-start-a-successful-online-business/121692420?srsltid=AfmBOopJTn1aQVPZs8Z-XUYC9VTgc54yfryFsJ6kEURifIvUGqN95PD5"
     },
     {
         "id": 60,
@@ -870,7 +931,8 @@
         "enrolled": 720,
         "description": "Understand retail analytics and insights, including data analysis, inventory management, and sales forecasting.",
         "skills": ["Data Analysis", "Inventory Management", "Sales Forecasting"],
-        "image" : "./Images/courseImages/Retail Analytics and Insights.jpeg"
+        "image" : "./Images/courseImages/Retail Analytics and Insights.jpeg",
+        "website" : "https://www.udemy.com/course/master-retail-analytics-with-excel-and-python-part-1/?couponCode=2021PM20"
     },
     {
         "id": 61,
@@ -882,7 +944,8 @@
         "enrolled": 980,
         "description": "Learn the basics of hospitality management, including hotel operations, guest services, and event planning.",
         "skills": ["Hotel Operations", "Guest Services", "Event Planning"],
-        "image" : "./Images/courseImages/Introduction to Hospitality Management.jpeg"
+        "image" : "./Images/courseImages/Introduction to Hospitality Management.jpeg",
+        "website" : "https://www.coursera.org/learn/introduction-to-hospitality-management-in-the-21st-century"
     },
     {
         "id": 62,
@@ -894,7 +957,8 @@
         "enrolled": 1120,
         "description": "Understand the principles of tourism management, including destination marketing, tour operations, and travel planning.",
         "skills": ["Destination Marketing", "Tour Operations", "Travel Planning"],
-        "image" : "./Images/courseImages/Tourism Management Fundamentals.jpeg"
+        "image" : "./Images/courseImages/Tourism Management Fundamentals.jpeg",
+        "website" : "https://www.udemy.com/course/tourism-management-travel-management-travel-business-travel-tips/?couponCode=2021PM20"
     },
     {
         "id": 63,
@@ -906,7 +970,8 @@
         "enrolled": 870,
         "description": "Explore the fundamentals of culinary arts, including cooking techniques, food safety, and menu planning.",
         "skills": ["Cooking Techniques", "Food Safety", "Menu Planning"],
-        "image" : "./Images/courseImages/Culinary Arts Basics.webp"
+        "image" : "./Images/courseImages/Culinary Arts Basics.webp",
+        "website" : "https://www.udemy.com/course/cooking-101-the-basics-of-cooking/?couponCode=2021PM20"
     },
     {
         "id": 64,
@@ -918,7 +983,8 @@
         "enrolled": 650,
         "description": "Learn the basics of event management, including event planning, coordination, and execution.",
         "skills": ["Event Planning", "Coordination", "Execution"],
-        "image" : "./Images/courseImages/Event Management Essentials.jpeg"
+        "image" : "./Images/courseImages/Event Management Essentials.jpeg",
+        "website" : "https://www.udemy.com/course/certification-in-event-management/?couponCode=2021PM20"
     },
     {
         "id": 65,
@@ -930,7 +996,8 @@
         "enrolled": 720,
         "description": "Understand sustainable tourism practices, including eco-friendly travel, community engagement, and conservation efforts.",
         "skills": ["Eco-Friendly Travel", "Community Engagement", "Conservation"],
-        "image" : "./Images/courseImages/Sustainable Tourism Practices.png"
+        "image" : "./Images/courseImages/Sustainable Tourism Practices.png",
+        "website" : "https://www.udemy.com/course/sustainable-tourism-a-complete-guide/?couponCode=2021PM20"
     }
 
 ]
