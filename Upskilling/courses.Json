@@ -49,7 +49,7 @@
             "Design Thinking",
             "Prototyping"
         ],
-        "image" : "../Images/courseImages/ui:ux design fundamentals.jpeg",
+        "image" : "../images/courseImages/ui:ux design fundamentals.jpeg",
         "website" : "https://www.coursera.org/specializations/ui-ux-design"
     },
     {
@@ -67,7 +67,7 @@
             "NumPy",
             "Matplotlib"
         ],
-        "image" : "../Images/courseImages/Python-Data-Science-Tutorial.jpg",
+        "image" : "../images/courseImages/Python-Data-Science-Tutorial.jpg",
         "website" : "https://www.coursera.org/learn/python-for-applied-data-science-ai"
 
     },
@@ -85,7 +85,7 @@
             "SEO",
             "Content Marketing"
         ],
-        "image" : "../Images/courseImages/Digital marketing essential.png",
+        "image" : "../images/courseImages/Digital marketing essential.png",
         "website" : "https://www.coursera.org/specializations/digital-marketing"
     },
     {
@@ -102,7 +102,7 @@
             "Scrum",
             "Project Planning"
         ],
-        "image" : "../Images/courseImages/00960_AIM_Screens_ProjectManagementFundamentals_0.jpg",
+        "image" : "../images/courseImages/00960_AIM_Screens_ProjectManagementFundamentals_0.jpg",
         "website" : "https://www.coursera.org/learn/project-management-fundamentals-microsoft"
     },
     {
@@ -120,7 +120,7 @@
             "JavaScript",
             "REST APIs"
         ],
-        "image" : "../Images/courseImages/React js development.jpeg",
+        "image" : "../images/courseImages/React js development.jpeg",
         "website" : "https://www.coursera.org/learn/frontend-development-using-react"
 
     },
@@ -138,7 +138,7 @@
             "Conflict Resolution",
             "Team Building"
         ],
-        "image" : "../Images/courseImages/leadership & team manageent.jpeg",
+        "image" : "../images/courseImages/leadership & team manageent.jpeg",
         "website" : "https://www.coursera.org/learn/fundamentals-of-effective-team-management"
     },
     {
@@ -155,7 +155,7 @@
             "Database Design",
             "Data Analysis"
         ],
-        "image" : "../Images/courseImages/SQL data analytics.png",
+        "image" : "../images/courseImages/SQL data analytics.png",
         "website" : "https://www.coursera.org/learn/sql-for-data-science"
     },
     {
@@ -172,7 +172,7 @@
             "Marketing Strategy",
             "Consumer Behavior"
         ],
-        "image" : "../Images/courseImages/Brand-Strategy-2.png",
+        "image" : "../images/courseImages/Brand-Strategy-2.png",
         "website" : "https://www.coursera.org/learn/brand-management-strategies-for-a-strong-brand"
     },
     {
@@ -189,7 +189,7 @@
             "Interaction Design",
             "Wireframing"
         ],
-        "image" : "../Images/courseImages/mobileapp.jpeg",
+        "image" : "../images/courseImages/mobileapp.jpeg",
         "website" : "https://www.coursera.org/learn/user-experience-design"
     },
     {
@@ -206,7 +206,7 @@
             "Storytelling",
             "Audience Engagement"
         ],
-        "image" : "../Images/courseImages/Public-Speech-Course.png",
+        "image" : "../images/courseImages/Public-Speech-Course.png",
         "website" : "https://www.coursera.org/learn/public-speaking"
     },
     {
@@ -223,7 +223,7 @@
             "Scikit-learn",
             "TensorFlow"
         ],
-        "image" : "../Images/courseImages/machinelearning.jpeg",
+        "image" : "../images/courseImages/machinelearning.jpeg",
         "website" : "https://www.coursera.org/learn/machine-learning-basics"
     },
     {
@@ -240,7 +240,7 @@
             "Budgeting",
             "Risk Management"
         ],
-        "image" : "../Images/courseImages/blog_og_Financial-Management.jpg",
+        "image" : "../images/courseImages/blog_og_Financial-Management.jpg",
         "website" : "https://www.coursera.org/specializations/business-financial-management"
     },
     {
@@ -257,7 +257,7 @@
             "Azure",
             "Cloud Architecture"
         ],
-        "image" : "../Images/courseImages/cloudcomputing.jpeg",
+        "image" : "../images/courseImages/cloudcomputing.jpeg",
         "website" : "https://www.coursera.org/learn/introduction-to-cloud"
     },
     {
@@ -274,7 +274,7 @@
             "Cryptography",
             "Security Protocols"
         ],
-        "image" : "../Images/courseImages/Cybersecurity-Essentials-Course-Header.png",
+        "image" : "../images/courseImages/Cybersecurity-Essentials-Course-Header.png",
         "website" : "https://www.coursera.org/learn/introduction-to-cybersecurity-essentials"
     },
     {
@@ -291,7 +291,7 @@
             "Video Production",
             "Social Media Strategy"
         ],
-        "image" : "../Images/courseImages/Content Creation.jpeg",
+        "image" : "../images/courseImages/Content Creation.jpeg",
         "website" : "https://www.coursera.org/learn/content-marketing"
     },
     {
@@ -308,7 +308,7 @@
             "D3.js",
             "Data Storytelling"
         ],
-        "image" : "../Images/courseImages/Advanced Data Visualization.png",
+        "image" : "../images/courseImages/Advanced Data Visualization.png",
         "website" : "https://www.coursera.org/learn/advanced-data-visualization-with-tableau-public"
     },
     {
@@ -325,7 +325,7 @@
             "Scrum",
             "User Stories"
         ],
-        "image" : "../Images/courseImages/Agile Product Management.jpeg",
+        "image" : "../images/courseImages/Agile Product Management.jpeg",
         "website" : "https://www.coursera.org/learn/agile-project-management"
     },
     {
@@ -342,7 +342,7 @@
             "Animation",
             "Visual Storytelling"
         ],
-        "image" : "../Images/courseImages/Motion-graphic.jpg",
+        "image" : "../images/courseImages/Motion-graphic.jpg",
         "website" : "https://www.coursera.org/specializations/graphic-design"
     },
     {
@@ -359,7 +359,7 @@
             "Empathy",
             "Relationship Management"
         ],
-        "image" : "../Images/courseImages/Emotional Intelligence at Work.jpeg",
+        "image" : "../images/courseImages/Emotional Intelligence at Work.jpeg",
         "website" : "https://hmi-ihs.com/emotional-intelligence-at-the-workplace/"
     },
     {
@@ -376,7 +376,7 @@
             "Jenkins",
             "Kubernetes"
         ],
-        "image" : "../Images/courseImages/DevOps Engineering.jpeg",
+        "image" : "../images/courseImages/DevOps Engineering.jpeg",
         "website" : "https://www.coursera.org/professional-certificates/ibm-applied-devops-engineering"
     },
     {
@@ -393,7 +393,7 @@
             "Pivot Tables",
             "Macros"
         ],
-        "image" : "../Images/courseImages/Advanced Excel for Business.jpeg",
+        "image" : "../images/courseImages/Advanced Excel for Business.jpeg",
         "website" : "https://www.coursera.org/learn/excel-advanced"
     },
     {
@@ -410,7 +410,7 @@
             "NLTK",
             "SpaCy"
         ],
-        "image" : "../Images/courseImages/Natural Language Processing.webp",
+        "image" : "../images/courseImages/Natural Language Processing.webp",
         "website" : "https://www.coursera.org/specializations/natural-language-processing"
     },
     {
