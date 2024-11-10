@@ -111,7 +111,7 @@ const MentorList = {
          class="bg-white rounded-lg shadow-md overflow-hidden card"
          @click="expandCard(mentor)"
          style="width: 100%; max-width: 350px;">
-        <img :src="mentor.imageURL" alt="Image here" class="w-full h-48 object-cover" style="height: 200px; object-fit: cover;">
+        <img :src="mentor.imageURL" alt="Image here" class="w-full h-48 object-cover" style="height: 250px; object-fit: cover;">
         <div class="p-4" style="height: 200px;">
             <h5 class="text-l font-medium text-[#000080]">{{ mentor.name }}</h5>
             <hr class="pt-2">
