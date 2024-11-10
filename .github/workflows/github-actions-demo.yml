@@ -14,7 +14,7 @@ jobs:
           messagingSenderId: ${{ secrets.MESSAGINGSENDERID }}
           appId: ${{ secrets.APPID }}
         run: |
-          echo "module.exports = {
+          echo "export default {
             apiKey: '${{ secrets.APIKEY }}',
             authDomain: '${{ secrets.AUTHDOMAIN }}',
             projectId: '${{ secrets.PROJECTID }}',
