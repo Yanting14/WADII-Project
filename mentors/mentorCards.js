@@ -2,9 +2,6 @@
 
 import {db,auth} from '../firebaseconfig.js'
 import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
     signOut,
     getAuth
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
@@ -27,6 +24,17 @@ const MentorList = {
         };
     },
     methods: {
+
+        async logout() {
+            try {
+              await signOut(auth);
+              window.location = "../homepage/home.html";
+            } catch (error) {
+              console.error("Error logging out:", error);
+            }
+          },
+
+
         async fetchMentors() {
             const querySnapshot = await getDocs(collection(db, 'Mentors'));
     
@@ -84,7 +92,6 @@ const MentorList = {
     created() {
         this.fetchMentors();
     },
-    
     template: `
     <div>
         <div class="container mx-auto mt-6 mb-4 text-center">
@@ -95,12 +102,13 @@ const MentorList = {
             </select>
         </div>
         
-        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
+        <!-- Adjust grid layout for responsiveness -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <div v-for="mentor in filteredMentors"
                  :key="mentor.id"
                  class="bg-white rounded-lg shadow-md overflow-hidden card"
                  @click="expandCard(mentor)">
-                <img :src="mentor.imageURL" alt="Image here" class="w-full h-48 object-cover">
+                <img :src="mentor.imageUrl" alt="Image here" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h5 class="text-l font-medium text-[#000080]">{{ mentor.name }}</h5>
                     <hr class="pt-2">
@@ -111,11 +119,11 @@ const MentorList = {
 
             <div v-if="expandedMentor" class="modal active" @click.self="closeModal">
                 <div class="expanded bg-white shadow-lg rounded-lg" @click.stop>
-                    <div class = 'flex items-center mb-4'>
-                        <img :src="expandedMentor.imageURL" class="h-24 w-24 rounded-full mr-4">                                            
+                    <div class="flex items-center mb-4">
+                        <img :src="expandedMentor.imageUrl" class="h-24 w-24 rounded-full mr-4">                                            
                         <h2 class="text-xl font-medium text-[#000080]">  {{ expandedMentor.name }}</h2>
                     </div>
-                    <p class = "text-gray-500 mb-3">{{ expandedMentor.mentorEducation }} at {{ expandedMentor.graduatingInstitute}}</p>
+                    <p class="text-gray-500 mb-3">{{ expandedMentor.mentorEducation }} at {{ expandedMentor.graduatingInstitute }}</p>
                     <hr>
                     <p class="mb-4 pt-2">{{ expandedMentor.about }}</p>
                     
@@ -125,8 +133,9 @@ const MentorList = {
                 </div>
             </div>
         </div>
-        </div>
-    `
+    </div>
+`
+
 };
 
 document.addEventListener('DOMContentLoaded', () => {

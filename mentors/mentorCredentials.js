@@ -1,10 +1,15 @@
 import {doc, getDoc ,updateDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-import {db} from '../firebaseconfig.js'
+import {db,auth} from '../firebaseconfig.js'
+import {
+    signOut,
+    getAuth
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
 
 const API_KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTU0NjM2NmQtZDI0OC00NTE5LWI5MjMtNTVkZjQxOWQwZGI4IiwidHlwZSI6ImFwaV90b2tlbiJ9.FO6LLfcb6v-L_HtOE9mPyYSGpTlNunYkmZhVCQkyLHs";
 
 // Create Vue app for the form
+
 const app1 = Vue.createApp({
     data() {
         return {
@@ -22,6 +27,15 @@ const app1 = Vue.createApp({
         }
     },
     methods: {
+
+        async logout() {
+            try {
+              await signOut(auth);
+              window.location = "../homepage/home.html";
+            } catch (error) {
+              console.error("Error logging out:", error);
+            }
+          },
         async submitForm() {
             this.errors  = {}; // Clear previous errors
             this.loading = true;
@@ -199,3 +213,14 @@ async function pollForResult(executionId, interval = 3000, maxAttempts = 3) {
     throw new Error("Max attempts reached. Execution did not complete in time.");
 }
 
+
+
+document.getElementById('logout-link').addEventListener('click', (event) => {
+    event.preventDefault();
+    const auth = getAuth();
+    signOut(auth).then(() => {
+        window.location.href = "../homepage/home.html";
+    }).catch((error) => {
+        console.error("Error logging out:", error);
+    });
+})

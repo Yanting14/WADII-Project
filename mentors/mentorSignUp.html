@@ -15,24 +15,81 @@
     </script>
 
     <script src="mentorSignUp.js" type="module"></script>
+    <style>
+
+body {
+            background-image: url(../images/careerbackg.jpg);
+            background-size: cover;
+        }
+
+    </style>
 
 </head>
 
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
     <!-- Navbar -->
-    <nav class="bg-white p-4 md:mb-6">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-[#555] text-2xl font-bold">Navbar</a>
-            <div class="hidden md:flex space-x-4">
-                <a href="#" class="text-[#555] hover:text-[#007bff]">Home</a>
-                <a href="#" class="text-[#555] hover:text-[#007bff]">Link</a>
-                <a href="#" class="text-[#555] hover:text-[#007bff]">Dropdown</a>
-                <a href="#" class="text-[#555] hover:text-[#007bff]">Disabled</a>
-            </div>
-        </div>
-    </nav>
+    <section id="nav-bar">
+        <nav class="bg-gray-100 w-full shadow-lg">
+            <div class="container mx-auto flex flex-wrap items-center justify-between p-4">
+                <!-- Logo -->
+                <a href="#" class="flex-shrink-0">
+                    <img src="../images/logo.png" alt="Logo" class="h-10">
+                </a>
 
+                <!-- Navbar Toggler for Mobile -->
+                <button class="md:hidden flex flex-col items-center justify-center space-y-1" onclick="toggleNavbar()">
+                    <div class="w-6 h-0.5 bg-gray-700"></div>
+                    <div class="w-6 h-0.5 bg-gray-700"></div>
+                    <div class="w-6 h-0.5 bg-gray-700"></div>
+                </button>
+
+                <!-- Navbar Links -->
+                <div id="navbarNav" class="w-full md:flex md:w-auto hidden md:space-x-8 mt-4 md:mt-0 md:justify-end">
+                    <ul class="flex flex-col md:flex-row md:space-x-8 text-right w-full md:w-auto">
+                        <li>
+                            <a href="../careersearch/careersearch.html"
+                                class="text-gray-700 font-semibold hover:text-blue-500">CAREER SEARCH</a>
+                        </li>
+                        <li>
+                            <a href="../careerexploration/career_exploration.html"
+                                class="text-gray-700 font-semibold hover:text-blue-500">CAREER EXPLORATION</a>
+                        </li>
+                        <li>
+                            <a href="../resume/resumeFormWorksDynamically.html"
+                                class="text-gray-700 font-semibold hover:text-blue-500">RESUME GUIDANCE</a>
+                        </li>
+                        <li>
+                            <a href="../Upskilling/upskilling.html"
+                                class="text-gray-700 font-semibold hover:text-blue-500">UPSKILLING</a>
+                        </li>
+                        <li>
+                            <a href="" class="text-blue-600 font-semibold hover:text-blue-500">MENTORS</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-700 font-semibold hover:text-blue-500"
+                            id="logout-link" >LOGOUT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </section>  
     <!-- Main Container -->
+
+     
+    <script>
+        
+
+        function toggleNavbar() {
+            const navbarNav = document.getElementById('navbarNav');
+            navbarNav.classList.toggle('hidden');
+        }
+
+
+
+    </script>
+    
     <div class="container mx-auto md:py-8 ">
         <!-- Two Column Layout -->
         <div class="grid grid-cols-1 md:grid-cols-7 gap-6">

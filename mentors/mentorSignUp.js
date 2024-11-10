@@ -1,6 +1,12 @@
 // Import Firestore and Auth from Firebase
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { getAuth, createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import {db,app} from '../firebaseconfig.js'
+import {
+    signOut
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
     // Get form and input elements
@@ -172,3 +178,14 @@ document.addEventListener('DOMContentLoaded', function () {
         return methods.length > 0;
     }
 });
+
+
+document.getElementById('logout-link').addEventListener('click', (event) => {
+    event.preventDefault();
+    const auth = getAuth();
+    signOut(auth).then(() => {
+        window.location.href = "../homepage/home.html";
+    }).catch((error) => {
+        console.error("Error logging out:", error);
+    });
+})
