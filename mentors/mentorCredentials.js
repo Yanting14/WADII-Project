@@ -23,7 +23,8 @@ const app1 = Vue.createApp({
             graduatingInstitute: '',
             about              : '',
             errors             : {},
-            loading            : false
+            loading            : false,
+            imageURL:''
         }
     },
     methods: {
@@ -36,12 +37,12 @@ const app1 = Vue.createApp({
               console.error("Error logging out:", error);
             }
           },
-        async submitForm() {
+          async submitForm() {
             this.errors  = {}; // Clear previous errors
             this.loading = true;
-    
+
             const username = sessionStorage.getItem('username');
-    
+
             // Validate form fields
             const isValid = this.validateForm();
 
@@ -49,39 +50,45 @@ const app1 = Vue.createApp({
                 this.loading = false;
                 return;
             }
-    
-            else {
-                try {
-                    // Update Firestore with generated summary
-                    const docRef = doc(db, "Mentors", username);
-                    // Check if document exists before updating
-                    const docSnapshot = await getDoc(docRef);
 
-                    if (docSnapshot.exists()) {
-                        // only generate summary if this user exists
-                        const summary = await this.generateSummary();
+            try {
+                const docRef = doc(db, "Mentors", username);
+                const docSnapshot = await getDoc(docRef);
 
-                        await updateDoc(docRef, {
-                            mentorTitle        : this.mentorTitle,
-                            mentorExperience   : this.mentorExperience,
-                            mentorCompany      : this.mentorCompany,
-                            mentorIndustry     : this.mentorIndustry,
-                            mentorSkills       : this.mentorSkills,
-                            mentorEducation    : this.mentorEducation,
-                            mentorLinkedIn     : this.mentorLinkedIn,
-                            graduatingInstitute: this.graduatingInstitute,
-                            about              : summary,
-                        });
-     
-                    } 
-                    alert("Thank you for signing up!");
-                    window.location.href = "registeredLandingPage.html";
-                } catch (error) {
-                    console.error("Error adding document:", error);
-                    alert("There was an error signing up. Please try again later.");
-                    this.loading = false
+                if (docSnapshot.exists()) {
+                    const summary = await this.generateSummary();
+
+                    await updateDoc(docRef, {
+                        mentorTitle        : this.mentorTitle,
+                        mentorExperience   : this.mentorExperience,
+                        mentorCompany      : this.mentorCompany,
+                        mentorIndustry     : this.mentorIndustry,
+                        mentorSkills       : this.mentorSkills,
+                        mentorEducation    : this.mentorEducation,
+                        mentorLinkedIn     : this.mentorLinkedIn,
+                        graduatingInstitute: this.graduatingInstitute,
+                        about              : summary,
+                        imageURL : this.imageURL, // Save the Base64 image here
+                    });
                 } 
-            } 
+                alert("Thank you for signing up!");
+                window.location.href = "registeredLandingPage.html";
+            } catch (error) {
+                console.error("Error adding document:", error);
+                alert("There was an error signing up. Please try again later.");
+            } finally {
+                this.loading = false;
+            }
+        },
+        onFileChange(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    this.imageURL = e.target.result; // Set the Base64 URL of the image
+                };
+                reader.readAsDataURL(file); // Convert the image to Base64
+            }
         },
 
         validateForm() {
