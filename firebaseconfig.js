@@ -3,6 +3,8 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth
 import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import * as config from './firebaseconfig.js';  
 
+
+console.log(config);
 const app = initializeApp(config);
 const db = getFirestore(app);
 const auth = getAuth(app);
