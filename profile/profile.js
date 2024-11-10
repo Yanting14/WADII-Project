@@ -1,6 +1,10 @@
 import { db, auth, app } from '../firebaseconfig.js';
 import { collection, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import {
+
+    signOut
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
 
 
 const vueApp = Vue.createApp({
@@ -42,7 +46,7 @@ const vueApp = Vue.createApp({
                 "Science and Research",
                 "Environmental Science and Sustainability"],
                 
-                selectedIndustries: [],
+             selectedIndustries: [],
                 resume: false,
                 assessmentCompleted: false,
                 skills: []
@@ -55,6 +59,14 @@ const vueApp = Vue.createApp({
         }
     },
     methods: {
+        async logout() {
+            try {
+              await signOut(auth);
+              window.location = "../homepage/home.html";
+            } catch (error) {
+              console.error("Error logging out:", error);
+            }
+          },
         calculateProgressBar(){
             this.$nextTick(() => {
                 try {

@@ -8,6 +8,7 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="./mentorlogout.js"></script>
 
 
     <style>
@@ -58,10 +59,33 @@
         body{
             background-image: url(../images/careerbackg.jpg);
         }
+
+
+        .jumbotron {
+
+height: 200px;
+background-image: url(../images/jumbotron.jpg);
+background-size: cover;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.jumbotron h1 {
+font-weight: bold;
+font-size: 80px;
+color: white;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.jumbotron p {
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-size: 15px;
+color: white
+}
     </style>
 </head>
 
-<div id="app1" class="bg-gray-100 text-gray-800">
+<body id="app1" class="bg-gray-100 text-gray-800">
     <!-- Navbar -->
     <section id="nav-bar">
         <nav class="bg-gray-100 w-full shadow-lg">
@@ -70,25 +94,25 @@
                 <a href="#" class="flex-shrink-0">
                     <img src="../images/logo.png" alt="Logo" class="h-10">
                 </a>
-    
+
                 <!-- Navbar Toggler for Mobile -->
-                <button class="md:hidden flex items-center px-3 py-2 border rounded text-gray-700 border-gray-400" onclick="toggleNavbar()">
-                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                        <path d="M4 5h16M4 12H16m-7 7H20"></path>
-                    </svg>
+                <button class="md:hidden flex flex-col items-center justify-center space-y-1" onclick="toggleNavbar()">
+                    <div class="w-6 h-0.5 bg-gray-700"></div>
+                    <div class="w-6 h-0.5 bg-gray-700"></div>
+                    <div class="w-6 h-0.5 bg-gray-700"></div>
                 </button>
-    
+
                 <!-- Navbar Links -->
-                <div id="navbarNav" class="w-full md:flex md:w-auto hidden md:space-x-8 mt-4 md:mt-0">
-                    <ul class="flex flex-col md:flex-row md:space-x-8">
+                <div id="navbarNav" class="w-full md:flex md:w-auto hidden md:space-x-8 mt-4 md:mt-0 md:justify-end">
+                    <ul class="flex flex-col md:flex-row md:space-x-8 text-right w-full md:w-auto">
                         <li>
-                            <a href="../careersearch/careersearch.html" class="text-gray-700 font-semibold hover:text-blue-500" >CAREER SEARCH
+                            <a href="../careersearch/careersearch.html" class="text-gray-700 font-semibold hover:text-blue-500">CAREER SEARCH</a>
                         </li>
                         <li>
                             <a href="../careerexploration/career_exploration.html" class="text-gray-700 font-semibold hover:text-blue-500">CAREER EXPLORATION</a>
                         </li>
                         <li>
-                            <a href="../resume/resumeForm.html" class="text-gray-700 font-semibold hover:text-blue-500">RESUME CRAFTING</a>
+                            <a href="../resume/resumeFormWorksDynamically.html" class="text-gray-700 font-semibold hover:text-blue-500">RESUME GUIDANCE</a>
                         </li>
                         <li>
                             <a href="../Upskilling/upskilling.html" class="text-gray-700 font-semibold hover:text-blue-500">UPSKILLING</a>
@@ -97,18 +121,14 @@
                             <a href="" class="text-blue-600 font-semibold hover:text-blue-500">MENTORS</a>
                         </li>
                         <li>
-                            <a href="../profile/Profile.html" class="text-gray-700 font-semibold hover:text-blue-500">PROFILE</a>
-                        </li>
-                        
-                        <li>
-                            <a href="#" id='logout-link' class="text-gray-700 font-semibold hover:text-blue-500">LOGOUT</a>
+                            <a href="#" id="logout-link" class="text-gray-700 font-semibold hover:text-blue-500" @click="logout">LOGOUT</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </section>
-    </div>
+
     
     <script>
         function toggleNavbar() {
@@ -117,18 +137,17 @@
         }
     </script>
     
-    
-        
-
+    <div class="w-full h-52 bg-cover bg-center shadow-lg" style="background-image: url('../images/jumbotron.jpg')">
+        <div class="flex flex-col justify-center items-center text-center h-full">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                Our Mentors
+            </h1>
+            <p class="text-[15px] text-white mt-2" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-align: center;">
+                Explore our diverse group of experienced mentors, each here to support you on your journey. Whether you need advice, skills development, or guidance, select and contact a mentor whose expertise aligns with your goals and start building a meaningful connection today.</p>
+        </div>
+    </div>
     <!-- Main container -->
     <div class="container mx-auto px-4 py-8">
-
-        <!-- Heading -->
-        <div class="text-center ">
-            <h1 class = "text-6xl font-bold text-[#007bff] mb-3">Our Mentors</h1>
-            <p  class = "text-gray-500 mb-3 text-lg italic"> Explore our diverse group of experienced mentors, each here to support you on your journey. Whether you need advice, skills development, or guidance, select and contact a mentor whose expertise aligns with your goals and start building a meaningful connection today.
-            </p>
-        </div>
 
 
         <!-- Cards -->
@@ -140,7 +159,6 @@
     </div> <!-- container -->
 
     <script src = "mentorCards.js" type = "module"></script>
-
      
 </body>
 
