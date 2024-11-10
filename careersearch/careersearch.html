@@ -61,12 +61,11 @@
 
     <div class="row">
       <div
-        class="jumbotron d-flex flex-column justify-content-center align-items-center text-center bg-light mb-3 p-lg-5 p-md-4 p-3 w-100">
+        class="jumbotron d-flex flex-column justify-content-center align-items-center text-center bg-light mb-3">
         <div class="container">
           <h1 class="display-4 fs-1 fs-md-2 fs-lg-1">Career Search</h1>
           <p class="lead fs-5 fs-md-6">
             With countless job opportunities available, you’re sure to find one that suits you!
-
           </p>
         </div>
       </div>
@@ -138,44 +137,52 @@
     </div>
   
   
+
     <div class="container" v-if="!loading && !showsaved">
-      <div class="row">
-        <div v-for="(job, index) in page_results" :key="index"
-          class="col-lg-4 col-md-4 col-sm-12 d-flex align-items-stretch mb-4">
-          <div class="card position-relative" style="width: 100%;">
-            <button type="button" class="btn btn-secondary save-button" @click="saveJob(job)">
-              <i class="fas fa-bookmark"></i>
-            </button>
-
-            <div class="card-body">
-              <h5 class="Role card-title">{{job.name}}</h5>
-              <h6 class="category card-subtitle mb-2 text-muted">{{ job.categories && job.categories.length > 0 ?
-                job.categories[0].name :'Unknown Job Role' }}
-              </h6>
-              <h6 class="Company card-subtitle mb-2 text-muted">{{ job.company?.name || 'No company info' }}</h6>
-              <h6 class="Location card-subtitle mb-2 text-muted
-            "><i class="fas fa-map-marker-alt me-2"></i>
-                {{ job.locations && job.locations.length > 0 ? job.locations[0].name : 'No location' }}</h6>
-
-
-              <h6 class="Level card-subtitle mb-2 text-muted"><i class="fas fa-briefcase me-2"></i>
-                {{ job.levels && job.levels.length > 0 ? job.levels[0].name : 'No level' }}</h6>
-              <h6 class="Date card-subtitle mb-2 text-muted">
-                <i class="fas fa-calendar-alt me-2"></i>
-                {{ job.publication_date ?job.publication_date.slice(0, 10) : 'No date' }}
-              </h6>
-
-
-              <div class="d-flex justify-content-center align-items-center">
-                <a v-bind:href="job.refs?.landing_page || '#'" class="card-link"><button type="button"
-                    class="btn btn_design"><span style="color:white">Apply</span></button></a>
+          <div class="row">
+            <div v-for="(job, index) in page_results" :key="index"
+              class="col-lg-4 col-md-4 col-sm-12 d-flex align-items-stretch mb-4">
+              <div class="card position-relative" style="width: 100%;">
+    
+                <button type="button" class="btn btn-secondary save-button" @click="saveJob(job)">
+                  <i class="fas fa-bookmark"></i>
+                </button>
+    
+                <div class="card-body">
+                  <div class="row">
+                    
+                    <div class="col-11">
+                  <h5 class="Role card-title">{{job.name}}</h5>
+                  <h6 class="category card-subtitle mb-2 text-muted">{{ job.categories && job.categories.length > 0 ?
+                    job.categories[0].name :'Unknown Job Role' }}
+                  </h6>
+                  </div>
+                </div>
+    
+                  <h6 class="Company card-subtitle mb-2 text-muted">{{ job.company?.name || 'No company info' }}</h6>
+                  <h6 class="Location card-subtitle mb-2 text-muted
+                "><i class="fas fa-map-marker-alt me-2"></i>
+                    {{ job.locations && job.locations.length > 0 ? job.locations[0].name : 'No location' }}</h6>
+    
+    
+                  <h6 class="Level card-subtitle mb-2 text-muted"><i class="fas fa-briefcase me-2"></i>
+                    {{ job.levels && job.levels.length > 0 ? job.levels[0].name : 'No level' }}</h6>
+                  <h6 class="Date card-subtitle mb-2 text-muted">
+                    <i class="fas fa-calendar-alt me-2"></i>
+                    {{ job.publication_date ?job.publication_date.slice(0, 10) : 'No date' }}
+                  </h6>
+    
+    
+                  <div class="d-flex justify-content-center align-items-center">
+                    <a v-bind:href="job.refs?.landing_page || '#'" class="card-link"><button type="button"
+                        class="btn btn_design"><span style="color:white">Apply</span></button></a>
+                  </div>
+    
+                </div>
               </div>
-
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
 
     <div class="container" v-if="showsaved">

@@ -61,7 +61,6 @@
 }
 
 
-
 .heading {
     height: 200px;
     background-image: url(../images/resumeformbg4.avif);
@@ -71,10 +70,12 @@
 
 
 #nav-bar {
-
-    width: 100%;
-    margin: 0;
-    padding: 0
+    position:  sticky; /* Keeps it fixed at the top */
+    width: 100%;     /* Ensures it spans across the screen */
+    top: 0;
+    z-index: 1000;   /* Keeps it above other content */
+    /* margin-left: calc(-50vw + 50%); */
+    position: fixed;
 }
 
 .navbar-brand img {
@@ -164,29 +165,26 @@
 }
 
 
-.jumbotron{
-
-    height:200px;
+.jumbotron {
+    height: fit-content;
+    padding: 45px;
     background-image: url(../images/jumbotron.jpg);
     background-size: cover;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
 }
 
-.jumbotron h1{
-    font-weight: bold;
-    font-size: 80px;
+
+.jumbotron h1 {
     color: white;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-
+    font-weight: bold;
 }
 
-.jumbotron p{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 15px;
-    color:white
-}
+.jumbotron p {
+    color: white;
+    font-weight: bold;
 
+}
     
 .skill-match-badge {
 

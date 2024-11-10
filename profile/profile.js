@@ -54,11 +54,20 @@ const vueApp = Vue.createApp({
             percentage : 0,
             newSkill :"",
             maxSelections: 3,
-            uid: "DYLUE1cZeESWzlQnGfVAAW4iZUI2"
+            uid: "DYLUE1cZeESWzlQnGfVAAW4iZUI2",
+            modalMessage:""
 
         }
     },
     methods: {
+
+
+        showModal(message) {
+            this.modalMessage = message;
+            const messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
+            messageModal.show();
+          },
+
         async logout() {
             try {
               await signOut(auth);
@@ -102,7 +111,7 @@ const vueApp = Vue.createApp({
             try {
                 const user = auth.currentUser;
                 if (!user) {
-                    alert("Please log in to save your profile.");
+                    this.showModal("Please log in to save your profile.");
                     return;
                 }
         
@@ -122,7 +131,7 @@ const vueApp = Vue.createApp({
                     console.log("New profile created successfully!");
                 }
         
-                alert('Profile Saved!');
+                this.showModal('Profile Saved!');
         
         
                 // Hide the modal

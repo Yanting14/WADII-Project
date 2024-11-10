@@ -28,29 +28,28 @@ body{
 
 }
 
-.jumbotron{
 
-    height:200px;
-    background-image: url(../images/jumbotron.jpg);
-    background-size: cover;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
+
+.jumbotron {
+  height: fit-content;
+  padding: 45px;
+  background-image: url(../images/jumbotron.jpg);
+  background-size: cover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.jumbotron h1{
-    font-weight: bold;
-    font-size: 80px;
-    color: white;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 
+.jumbotron h1 {
+  color: white;
+  font-weight: bold;
 }
 
-.jumbotron p{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 15px;
-    color:white
-}
+.jumbotron p {
+  color: white;
+  font-weight: bold;
 
+}
 
 
 .btn_design:hover {
@@ -76,11 +75,11 @@ body{
 
 
   #nav-bar{
-
     width: 100%;
     margin:0;
-    padding:0
-
+    padding:0;
+    position: sticky;
+    top:0;
   
   }
 
