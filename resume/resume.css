@@ -89,12 +89,19 @@
 }
 
 
-#nav-bar {
+.navbar{
+    background:#fff;
 
-    width: 100%;
-    margin: 0;
-    padding: 0
+
+    position:  sticky; 
+    width: 100%;     
+    top: 0;
+    z-index: 1000;   
+
+    position: fixed;
+
 }
+
 
 .navbar-brand img {
     height: 50px;
@@ -134,14 +141,6 @@ body{
     background-size: cover;
 }
 
-.jumbotron {
-    height: fit-content;
-    padding: 45px;
-    background-image: url(../images/jumbotron.jpg);
-    background-size: cover;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-weight: bold;
-}
 
 .jumbotron h1{
     color:white;
@@ -153,3 +152,13 @@ font-weight: bold;
     font-weight: bold;
 
 }
+
+.jumbotron {
+    height: fit-content;
+    padding: 45px;
+    background-image: url(../images/jumbotron.jpg);
+    background-size: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top:55px;
+  }
+  

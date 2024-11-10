@@ -1001,6 +1001,19 @@
         "skills": ["Eco-Friendly Travel", "Community Engagement", "Conservation"],
         "image": "../images/courseImages/Sustainable Tourism Practices.png",
         "website": "https://www.udemy.com/course/sustainable-tourism-a-complete-guide/?couponCode=2021PM20"
+    },
+    {
+        "id": 66,
+        "title": "Coding for Everyone: C AND C++",
+        "category": "Information Technology",
+        "duration": "3-6 Months",
+        "level": "Beginner",
+        "rating": 4.5,
+        "enrolled": 1200,
+        "description": "Gain a solid understanding of C++ programming fundamentals and advanced techniques.",
+        "skills": ["Object-Oriented Programming", "Data Structures", "Memory Management", "Algorithms"],
+        "image": "../images/courseImages/C.png",
+        "website": "https://www.coursera.org/specializations/coding-for-everyone"
     }
 ]
 

@@ -33,20 +33,15 @@ const MentorList = {
               console.error("Error logging out:", error);
             }
           },
-
-
-        async fetchMentors() {
+          async fetchMentors() {
             const querySnapshot = await getDocs(collection(db, 'Mentors'));
     
-            // Use Promise.all to fetch image URLs asynchronously and retain the 'mentorIndustry' field
             this.mentors = await Promise.all(querySnapshot.docs.map(async (doc) => {
                 const mentorData = doc.data();
     
                 if (mentorData.imagePath) {
                     try {
-                        // Create a reference to the image in Firebase Storage
                         const imageRef = ref(storage, mentorData.imagePath);
-                        // Get the download URL
                         mentorData.imageUrl = await getDownloadURL(imageRef);
                     } catch (error) {
                         console.error("Error fetching image URL:", error);
@@ -57,13 +52,11 @@ const MentorList = {
                 return { id: doc.id, ...mentorData };
             }));
     
-            // Extract unique industries based on 'mentorIndustry' field for dropdown options
-            this.industries = [...new Set(this.mentors.map(mentor => mentor.mentorIndustry))];
-            console.log(this.industries); // Check if industries are populated correctly
-    
             // Initialize filteredMentors with all mentors
             this.filteredMentors = this.mentors;
         },
+                        // Get the download URL
+
 
         filterByIndustry() {
             if (this.selectedIndustry) {
@@ -92,23 +85,34 @@ const MentorList = {
     created() {
         this.fetchMentors();
     },
-    template: `
-    
-    <div class="container mx-auto mt-6 mb-4 text-center">
-    <label for="industry-select" class="text-lg font-medium mr-2">Filter by Industry:</label>
+    template: `<div class="container mx-auto mt-6 mb-4 text-center">
+    <label for="industry-select" class="text-lg font-medium mr-2">Filter by Industries</label>
     <select id="industry-select" v-model="selectedIndustry" @change="filterByIndustry" class="p-2 border rounded">
         <option value="">All Industries</option>
-        <option v-for="industry in industries" :key="industry" :value="industry">{{ industry }}</option>
+        <option value="Healthcare">Healthcare</option>
+        <option value="Tech">Tech</option>
+        <option value="Education and Training">Education and Training</option>
+        <option value="Engineering">Engineering</option>
+        <option value="Finance and Banking">Finance and Banking</option>
+        <option value="Accountancy">Accountancy</option>
+        <option value="Retail and Customer Service">Retail and Customer Service</option>
+        <option value="Hospitality and Tourism">Hospitality and Tourism</option>
+        <option value="Legal and Compliance">Legal and Compliance</option>
+        <option value="Human Resources">Human Resources</option>
+        <option value="Science and Research">Science and Research</option>
+        <option value="Environmental Science and Sustainability">Environmental Science and Sustainability</option>
     </select>
 </div>
 
-<div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
+
+<div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
     <div v-for="mentor in filteredMentors"
          :key="mentor.id"
          class="bg-white rounded-lg shadow-md overflow-hidden card"
-         @click="expandCard(mentor)">
-        <img :src="mentor.imageURL" alt="Image here" class="w-full h-48 object-cover">
-        <div class="p-4">
+         @click="expandCard(mentor)"
+         style="width: 100%; max-width: 350px;">
+        <img :src="mentor.imageURL" alt="Image here" class="w-full h-48 object-cover" style="height: 200px; object-fit: cover;">
+        <div class="p-4" style="height: 200px;">
             <h5 class="text-l font-medium text-[#000080]">{{ mentor.name }}</h5>
             <hr class="pt-2">
             <p class="text-sm text-gray-500">{{ mentor.mentorIndustry }}</p>
@@ -118,11 +122,11 @@ const MentorList = {
 
     <div v-if="expandedMentor" class="modal active" @click.self="closeModal">
         <div class="expanded bg-white shadow-lg rounded-lg" @click.stop>
-            <div class = 'flex items-center mb-4'>
+            <div class="flex items-center mb-4">
                 <img :src="expandedMentor.imageURL" class="h-24 w-24 rounded-full mr-4">                                            
-                <h2 class="text-xl font-medium text-[#000080]">  {{ expandedMentor.name }}</h2>
+                <h2 class="text-xl font-medium text-[#000080]">{{ expandedMentor.name }}</h2>
             </div>
-            <p class = "text-gray-500 mb-3">{{ expandedMentor.mentorEducation }} at {{ expandedMentor.graduatingInstitute}}</p>
+            <p class="text-gray-500 mb-3">{{ expandedMentor.mentorEducation }} at {{ expandedMentor.graduatingInstitute }}</p>
             <hr>
             <p class="mb-4 pt-2">{{ expandedMentor.about }}</p>
             
@@ -132,7 +136,9 @@ const MentorList = {
         </div>
     </div>
 </div>
-</div>
+
+
+
 `
 
 };
