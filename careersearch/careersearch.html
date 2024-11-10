@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                  <a style="color:blue" class="nav-link" aria-current="page">CAREER SEARCH</a>
+                  <a class="nav-link" aria-current="page" style="color:blue" >CAREER SEARCH</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="../careerexploration/career_exploration.html">CAREER EXPLORATION</a>
@@ -57,6 +57,8 @@
         </nav>
       </section>
 
+     
+
     </div>
 
     <div class="row">
@@ -66,6 +68,7 @@
           <h1 class="display-4 fs-1 fs-md-2 fs-lg-1">Career Search</h1>
           <p class="lead fs-5 fs-md-6">
             With countless job opportunities available, you’re sure to find one that suits you!
+
           </p>
         </div>
       </div>
@@ -344,7 +347,7 @@
         async logout() {
     try {
       await signOut(auth);
-      window.location = "../homepage/home.html";
+      window.location = "../index.html";
     } catch (error) {
       console.error("Error logging out:", error);
     }

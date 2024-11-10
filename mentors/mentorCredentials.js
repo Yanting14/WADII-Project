@@ -219,7 +219,7 @@ document.getElementById('logout-link').addEventListener('click', (event) => {
     event.preventDefault();
     const auth = getAuth();
     signOut(auth).then(() => {
-        window.location.href = "../homepage/home.html";
+        window.location.href = "../index.html";
     }).catch((error) => {
         console.error("Error logging out:", error);
     });

@@ -71,7 +71,7 @@ const vueApp = Vue.createApp({
         async logout() {
             try {
               await signOut(auth);
-              window.location = "../homepage/home.html";
+              window.location = "../index.html";
             } catch (error) {
               console.error("Error logging out:", error);
             }
