@@ -108,7 +108,7 @@ const MentorList = {
 <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 justfify-items-center">
     <div v-for="mentor in filteredMentors"
          :key="mentor.id"
-         class="bg-white rounded-lg shadow-md overflow-hidden card"
+         class="bg-white rounded-lg shadow-md overflow-hidden card mx-auto"
          @click="expandCard(mentor)"
          style="width: 100%; max-width: 350px;">
         <img :src="mentor.imageURL" alt="Image here" class="w-full h-48 object-cover" style="height: 250px; object-fit: cover;">
