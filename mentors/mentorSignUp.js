@@ -1,12 +1,6 @@
 // Import Firestore and Auth from Firebase
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import {db,app} from '../firebaseconfig.js'
-import {
-    signOut
-} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
-
-
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 document.addEventListener('DOMContentLoaded', function () {
     // Get form and input elements
@@ -29,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         clearErrors();
 
         const loading = true
-        const button  = document.getElementById('submitButton')
+        const button = document.getElementById('submitButton')
         const spinner = document.getElementById('spinner')
 
         button.classList.add('hidden')
@@ -46,17 +40,17 @@ document.addEventListener('DOMContentLoaded', function () {
         
         if (isValid) {
             try {
-                // Attempt to create the user in Firebase Authentication
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                const user = userCredential.user;
+                // Create a unique identifier for the user
+                const timestamp = new Date().getTime();
+                const uniqueId = `${username}_${timestamp}`;
 
-                // Store user data in Firestore
+                // Store user data in Firestore without authentication
                 await setDoc(doc(db, "Mentors", username), {
-                    uid     : user.uid,
-                    name    : fullName,
+                    uniqueId: uniqueId,
+                    name: fullName,
                     username: username,
-                    email   : email,
-                    phone   : phone,
+                    email: email,
+                    phone: phone,
                     imageURL: "https://firebasestorage.googleapis.com/v0/b/wadii-career-20ae3.firebasestorage.app/o/mentors%2Fdefault-profile-picture1.jpg?alt=media&token=74484aa9-4eee-4b2c-b9a4-2e1ec5fc7186",
                 });
 
@@ -66,14 +60,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 // next page
                 window.location.href = "mentorCredentials.html";
             } catch (error) {
-                if(error.code === 'auth/email-already-in-use'){
-                    showError(emailInput, 'This email has already been registered')
-                }
                 console.error("Error adding document: ", error);
-
+                button.classList.remove('hidden')
+                spinner.classList.add('hidden')
             }
         }
-        else{
+        else {
             button.classList.remove('hidden')
             spinner.classList.add('hidden')
         }
@@ -106,14 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Email Validation
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(emailInput.value)) {
-            showError(emailInput, 'Please enter a valid email');
+            showError(emailInput, 'Please enter a valid email format');
             valid = false;
-        } else {
-            const emailExists = await checkEmailExists(emailInput.value);
-            if (emailExists) {
-                showError(emailInput, 'This email is already registered');
-                valid = false;
-            }
         }
 
         // Phone Number Validation
@@ -172,20 +158,4 @@ document.addEventListener('DOMContentLoaded', function () {
         const docSnap = await getDoc(docRef);
         return docSnap.exists();
     }
-
-    async function checkEmailExists(email) {
-        const methods = await fetchSignInMethodsForEmail(auth, email);
-        return methods.length > 0;
-    }
 });
-
-
-document.getElementById('logout-link').addEventListener('click', (event) => {
-    event.preventDefault();
-    const auth = getAuth();
-    signOut(auth).then(() => {
-        window.location.href = "../index.html";
-    }).catch((error) => {
-        console.error("Error logging out:", error);
-    });
-})
