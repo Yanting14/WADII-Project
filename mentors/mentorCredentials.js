@@ -6,7 +6,7 @@ import {
     getAuth
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
 
-const API_KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTU0NjM2NmQtZDI0OC00NTE5LWI5MjMtNTVkZjQxOWQwZGI4IiwidHlwZSI6ImFwaV90b2tlbiJ9.FO6LLfcb6v-L_HtOE9mPyYSGpTlNunYkmZhVCQkyLHs";
+const API_KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjFmOWE2OTYtYjhiNS00MjdlLTlhNmYtMTIwZGQ0MDZkYjQzIiwidHlwZSI6ImFwaV90b2tlbiJ9.Lzvm5UmOcmtBHauBOPmPujnXC1ZYrY5FD4QTv4I--YI";
 
 // Create Vue app for the form
 
@@ -177,7 +177,7 @@ const vm = app2.mount('#app2')
 
 // EdenAI API Integration
 async function createExecution(text) {
-    const url     = "https://api.edenai.run/v2/workflow/32a81229-8846-4ec4-b639-597f3f6cb6d4/execution/";
+    const url     = "https://api.edenai.run/v2/workflow/05bca25d-a40e-48fa-b22b-499d10a65597/execution/";
     const payload = { text };
 
     const response = await fetch(url, {
@@ -196,7 +196,7 @@ async function createExecution(text) {
 }
 
 async function pollForResult(executionId, interval = 3000, maxAttempts = 3) {
-    const url = `https://api.edenai.run/v2/workflow/32a81229-8846-4ec4-b639-597f3f6cb6d4/execution/${executionId}/`;
+    const url = `https://api.edenai.run/v2/workflow/05bca25d-a40e-48fa-b22b-499d10a65597/execution/${executionId}/`;
 
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
         const response = await fetch(url, {
