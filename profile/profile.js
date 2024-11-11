@@ -46,7 +46,7 @@ const vueApp = Vue.createApp({
                 "Science and Research",
                 "Environmental Science and Sustainability"],
                 
-             selectedIndustries: [],
+                selectedIndustries: [],
                 resume: false,
                 assessmentCompleted: false,
                 skills: []
@@ -125,6 +125,7 @@ const vueApp = Vue.createApp({
                     // Document exists, so update it (merge fields)
                     await setDoc(userDocRef, this.profile, { merge: true });
                     console.log("Profile updated successfully!");
+
                 } else {
                     // Document does not exist, create a new one
                     await setDoc(userDocRef, this.profile);

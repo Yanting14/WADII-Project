@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const confirmPasswordInput = document.querySelector('input[aria-label="Confirm password"]');
     const termsCheckbox = document.querySelector('input#termsAndConditions');
 
-    // Initialize Firestore and Auth
     const db = getFirestore();
     const auth = getAuth();
 
@@ -122,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
             valid = false;
         }
 
-        // Terms and Conditions Checkbox Validation
         if (!termsCheckbox.checked) {
             showError(termsCheckbox, 'You must agree to the terms and conditions');
             valid = false;

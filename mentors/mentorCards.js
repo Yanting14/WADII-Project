@@ -105,7 +105,7 @@ const MentorList = {
 </div>
 
 
-<div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+<div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 justfify-items-center">
     <div v-for="mentor in filteredMentors"
          :key="mentor.id"
          class="bg-white rounded-lg shadow-md overflow-hidden card"

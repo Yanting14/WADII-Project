@@ -101,14 +101,13 @@
 
 .navbar{
     background:#fff;
-  
+
 
     position:  sticky; 
     width: 100%;     
     top: 0;
     z-index: 1000;   
 
-    position: fixed;
 
 }
 
@@ -184,7 +183,6 @@
   background-image: url(../images/jumbotron.jpg);
   background-size: cover;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top:55px;
 }
 
 

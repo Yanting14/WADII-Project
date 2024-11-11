@@ -80,21 +80,14 @@
   .nav-bar{
 
     background:#fff;
-  
-
   position:  sticky; 
   width: 100%;     
   top: 0;
   z-index: 1000;   
-
   position: fixed;
 
 
-
 }
-
-
-
 
 
 .navbar-brand img{
@@ -224,7 +217,7 @@ body{
           <div class="card mb-4">
             <div class="card-body">
               <h5 class="card-title">Skills</h5>
-              <div class="skill-badge" v-for="skill in skills">{{skill}}</div>
+              <div class="skill-badge" v-for="skill in profile.skills">{{skill}}</div>
             </div>
           </div>
 
@@ -244,10 +237,9 @@ body{
           <div class="card mb-4">
             <div class="card-body">
               <h5 class="card-title">Industry interest</h5>
-              <div v-for="int in profile.interest">
+              <div v-for="int in profile.selectedIndustries">
                 <ul style="list-style-type: none;">
                   <li>{{int}}</li>
-                  <li style="color:grey;">{{int}}</li>
                 </ul>
               </div>
             </div>
@@ -428,7 +420,7 @@ body{
               </div>
 
               <!-- Industry Interests -->
-              <div class="industry-options">
+             <div class="industry-options">
                 <h6 class="mb-3">Industry interests</h6>
                 <div v-for="industry in profile.industries" :key="industry" class="industry-item">
                   <label :for="industry">

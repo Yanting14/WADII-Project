@@ -556,7 +556,6 @@ async getSavedJobs(){
         this.showModal("Please log in to view saved jobs");
         return;
       }
-    //   this will set up a pointer reference to  document (db,collectionName,documentID)
       const userDocRef=doc(db,'users',user.email)
 
       //this is what retrieves  document
@@ -566,7 +565,6 @@ async getSavedJobs(){
       if(userDoc.exists()){
         this.savedJobs=userDoc.data().savedJobs||[];
         console.log(this.savedJobs)
-        // these is array of jobs saved
         this.showsaved=true;
         // user click on view save icon this.showsaved is tru
 
@@ -612,7 +610,6 @@ async removeJob(job){
         this.fetchResults()
       }
 
-      //use mounted such that it automatically fetch results when the page is load - lifecycle hook that is triggered when the Vue component is mounted
 
     }).mount('#app')
 
