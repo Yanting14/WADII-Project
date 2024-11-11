@@ -1,6 +1,13 @@
 # WADII-Project
 WADII Project
 
+
+
+GitHub Repo:
+
+https://github.com/Yanting14/WADII-Project.git
+
+
 To take Note of:
 
 #1. API KEYS USED:
@@ -15,5 +22,6 @@ https://textgears.com/api
 
 #3. The Muse API- limit to 500 API request per hour
 https://www.themuse.com/developers/api/v2
+
 
 
