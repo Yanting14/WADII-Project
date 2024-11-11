@@ -1,7 +1,6 @@
 # WADII-Project
 WADII Project
 
-
 GitHub Repo:
 https://github.com/Yanting14/WADII-Project.git
 
@@ -23,12 +22,22 @@ https://www.themuse.com/developers/api/v2
 
 
 You can register an account with your email and password.
+
+OR
+
+You can login with this existing account:
+email:jagat@gmail.com
+password:123456
+
 Features:
 Career search: Search, save jobs and apply jobs
 Career exploration: Get suggested job roles and explore jobs , Must configure interest in industry and skills in profile first to get suggestion
-Resume: Create resume with api grammar and spelling correction, change colours and export to browser
+Resume creation: Create resume with api grammar and spelling correction, change colours and export to browser
+Upskilling: View courses and click into courses to be redirected to course link.
 Profile: Configure profile
 Mentor: View mentor cards and contact mentors, can also sign up to be a mentor 
+
+
 
 
 
