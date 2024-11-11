@@ -7,7 +7,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
 
 const API_KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjFmOWE2OTYtYjhiNS00MjdlLTlhNmYtMTIwZGQ0MDZkYjQzIiwidHlwZSI6ImFwaV90b2tlbiJ9.Lzvm5UmOcmtBHauBOPmPujnXC1ZYrY5FD4QTv4I--YI";
-
 // Create Vue app for the form
 
 const app1 = Vue.createApp({
@@ -217,7 +216,7 @@ async function createExecution(text) {
 }
 
 async function pollForResult(executionId, interval = 3000, maxAttempts = 3) {
-    const url = `https://api.edenai.run/v2/workflow/05bca25d-a40e-48fa-b22b-499d10a65597/execution/${executionId}/`;
+    const url = https://api.edenai.run/v2/workflow/05bca25d-a40e-48fa-b22b-499d10a65597/execution/${executionId}/;
 
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
         const response = await fetch(url, {
