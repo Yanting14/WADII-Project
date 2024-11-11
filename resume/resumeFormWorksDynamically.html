@@ -25,61 +25,65 @@
 
 
 </head>
+
 <body>
-   <!-- Nav -->
+    <!-- Nav -->
     <!-- form -->
 
     <div id="app1">
 
-    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="messageModalLabel">JobBudds</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="messageModalLabel">JobBudds</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {{ modalMessage }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-              {{ modalMessage }}
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
         </div>
-      </div>
 
         <section id="nav-bar">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#"><img src="../images/logo.png" alt="Logo"></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="../careersearch/careersearch.html">CAREER SEARCH</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="../careerexploration/career_exploration.html">CAREER EXPLORATION</a>
-                              </li>
-                              <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../careersearch/careersearch.html">CAREER
+                                    SEARCH</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page"
+                                    href="../careerexploration/career_exploration.html">CAREER EXPLORATION</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" style="color: blue;">RESUME CRAFTING</a>
-                              </li>
-                              <li class="nav-item">
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="../Upskilling/upskilling.html">UPSKILLING</a>
-                              </li>
-                              <li class="nav-item">
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="../mentors/mentorCards.html">MENTORS</a>
-                              </li>
-                              <li class="nav-item">
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="../profile/Profile.html">PROFILE</a>
-                              </li>
-        
-                              <li class="nav-item">
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link" @click="logout">LOGOUT</a>
                             </li>
-        
+
                         </ul>
                     </div>
                 </div>
@@ -87,20 +91,20 @@
         </section>
 
 
-  
-          
-          <div class="row">
-            <div
-              class="jumbotron d-flex flex-column justify-content-center align-items-center text-center bg-light">
-              <div class="container">
-                <h1 class="display-4 fs-1 fs-md-2 fs-lg-1">Resume Crafting</h1>
-                <p class="lead fs-5 fs-md-6">Not sure where to start? Let us guide you to build a resume that gets you noticed by employers!
-      
-                </p>
-              </div>
+
+
+        <div class="row">
+            <div class="jumbotron d-flex flex-column justify-content-center align-items-center text-center bg-light">
+                <div class="container">
+                    <h1 class="display-4 fs-1 fs-md-2 fs-lg-1">Resume Crafting</h1>
+                    <p class="lead fs-5 fs-md-6">Not sure where to start? Let us guide you to build a resume that gets
+                        you noticed by employers!
+
+                    </p>
+                </div>
             </div>
-          </div>
-    
+        </div>
+
 
         <div class="container-fluid">
             <div class="row">
@@ -126,23 +130,27 @@
                                         <div class="col form-group">
                                             <label for="phone">Phone</label>
                                             <input type="text" class="form-control" id="phone"
-                                                placeholder="+65 9123 4567" v-model="phone" @input="autoSave('phone', phone)">
+                                                placeholder="+65 9123 4567" v-model="phone"
+                                                @input="autoSave('phone', phone)">
                                         </div>
                                         <div class="col form-group">
                                             <label for="email">Email address</label>
                                             <input type="email" class="form-control" id="email"
-                                                placeholder="name@example.com" v-model="email" @input="autoSave('email', email)">
+                                                placeholder="name@example.com" v-model="email"
+                                                @input="autoSave('email', email)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="location">Location</label>
                                         <input type="text" class="form-control" id="location"
-                                            placeholder="123 Orchard Road, Singapore" v-model="location" @input="autoSave('location', location)"> 
+                                            placeholder="123 Orchard Road, Singapore" v-model="location"
+                                            @input="autoSave('location', location)">
                                     </div>
                                     <div class="form-group">
                                         <label for="website">Website</label>
                                         <input type="text" class="form-control" id="website"
-                                            placeholder="linkedin.com/johndoe" v-model="website" @input="autoSave('website', website)">
+                                            placeholder="linkedin.com/johndoe" v-model="website"
+                                            @input="autoSave('website', website)">
                                     </div>
 
                                     <!-- input img -->
@@ -167,26 +175,30 @@
                                     <div class="form-group">
                                         <label for="company1">Company</label>
                                         <input type="text" class="form-control" id="company1"
-                                            placeholder="Singapore Management University" v-model="company1" @input="autoSave('company1', company1)">
+                                            placeholder="Singapore Management University" v-model="company1"
+                                            @input="autoSave('company1', company1)">
                                     </div>
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="job1">{{ job1 }}</label>
                                             <input type="text" class="form-control" id="job1"
-                                                placeholder="Part time retail associate" v-model="job1" @input="autoSave('job1', job1)">
+                                                placeholder="Part time retail associate" v-model="job1"
+                                                @input="autoSave('job1', job1)">
                                         </div>
                                         <div class="col form-group">
                                             <label for="job-date1">Date</label>
                                             <!-- change name -->
                                             <input type="text" class="form-control" id="job-date1"
-                                                placeholder="May 2024 - Present" v-model="jobDate1" @input="autoSave('jobDate1', jobDate1)">
+                                                placeholder="May 2024 - Present" v-model="jobDate1"
+                                                @input="autoSave('jobDate1', jobDate1)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="description1" style="height: fit-content;">Description</label>
                                         <textarea class="form-control" id="description1" rows="3"
                                             placeholder="Conducted market research to identify customer trends and opportunities."
-                                            v-model="description1" @input="autoSave('description1', description1)"></textarea>
+                                            v-model="description1"
+                                            @input="autoSave('description1', description1)"></textarea>
                                     </div>
                                     <hr>
                                     <!-- job 2 -->
@@ -196,26 +208,30 @@
                                     <div class="form-group">
                                         <label for="company2">Company</label>
                                         <input type="text" class="form-control" id="company2"
-                                            placeholder="Singapore Management University" v-model="company2" @input="autoSave('company2', company2)">
+                                            placeholder="Singapore Management University" v-model="company2"
+                                            @input="autoSave('company2', company2)">
                                     </div>
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="job2">Job Title</label>
                                             <input type="text" class="form-control" id="job2"
-                                                placeholder="Part time retail associate" v-model="job2" @input="autoSave('job2', job2)">
+                                                placeholder="Part time retail associate" v-model="job2"
+                                                @input="autoSave('job2', job2)">
                                         </div>
                                         <div class="col form-group">
                                             <label for="job-date2">Date</label>
                                             <!-- change name -->
                                             <input type="text" class="form-control" id="job-date2"
-                                                placeholder="May 2022 - May 2024" v-model="jobDate2" @input="autoSave('jobDate2', jobDate2)">
+                                                placeholder="May 2022 - May 2024" v-model="jobDate2"
+                                                @input="autoSave('jobDate2', jobDate2)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="description2" style="height: fit-content;">Description</label>
                                         <textarea class="form-control" id="description2" rows="3"
                                             placeholder="Conducted market research to identify customer trends and opportunities."
-                                            v-model="description2" @input="autoSave('description2', description2)"></textarea>
+                                            v-model="description2"
+                                            @input="autoSave('description2', description2)"></textarea>
                                     </div>
                                     <hr>
                                     <!-- job 3 -->
@@ -225,26 +241,30 @@
                                     <div class="form-group">
                                         <label for="company3">Company</label>
                                         <input type="text" class="form-control" id="company3"
-                                            placeholder="Singapore Management University" v-model="company3" @input="autoSave('company3', company3)">
+                                            placeholder="Singapore Management University" v-model="company3"
+                                            @input="autoSave('company3', company3)">
                                     </div>
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="job3">Job Title</label>
                                             <input type="text" class="form-control" id="job3"
-                                                placeholder="Part time retail associate" v-model="job3" @input="autoSave('job3', job3)">
+                                                placeholder="Part time retail associate" v-model="job3"
+                                                @input="autoSave('job3', job3)">
                                         </div>
                                         <div class="col form-group">
                                             <label for="job-date3">Date</label>
                                             <!-- change name -->
                                             <input type="text" class="form-control" id="job-date3"
-                                                placeholder="May 2021 - May 2022" v-model="jobDate3" @input="autoSave('jobDate3', jobDate3)">
+                                                placeholder="May 2021 - May 2022" v-model="jobDate3"
+                                                @input="autoSave('jobDate3', jobDate3)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="description3" style="height: fit-content;">Description</label>
                                         <textarea class="form-control" id="description3" rows="3"
                                             placeholder="Conducted market research to identify customer trends and opportunities."
-                                            v-model="description3" @input="autoSave('description3', description3)"></textarea>
+                                            v-model="description3"
+                                            @input="autoSave('description3', description3)"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -266,7 +286,8 @@
                                         <div class="col form-group">
                                             <label for="school1">School</label>
                                             <input type="text" class="form-control" id="school1"
-                                                placeholder="Singapore Management University" v-model="school1"  @input="autoSave('school1', school1)">
+                                                placeholder="Singapore Management University" v-model="school1"
+                                                @input="autoSave('school1', school1)">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -280,14 +301,16 @@
                                             <label for="school-date1">Date</label>
                                             <!-- change name -->
                                             <input type="text" class="form-control" id="school-date1"
-                                                placeholder="June 2024" v-model="schoolDate1" @input="autoSave('schoolDate1', schoolDate1)">
+                                                placeholder="June 2024" v-model="schoolDate1"
+                                                @input="autoSave('schoolDate1', schoolDate1)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="additional-information1" style="height: fit-content;">Additional
                                             Information (Optional)</label>
                                         <textarea class="form-control" id="additional-information1" rows="3"
-                                            placeholder="" v-model="additionalInformation1" @input="autoSave('additionalInformation1', additionalInformation1)"></textarea>
+                                            placeholder="" v-model="additionalInformation1"
+                                            @input="autoSave('additionalInformation1', additionalInformation1)"></textarea>
                                     </div>
 
                                     <hr>
@@ -305,7 +328,8 @@
                                         <div class="col form-group">
                                             <label for="school2">School</label>
                                             <input type="text" class="form-control" id="school2"
-                                                placeholder="Singapore Management University" v-model="school2" @input="autoSave('school2', school2)">
+                                                placeholder="Singapore Management University" v-model="school2"
+                                                @input="autoSave('school2', school2)">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -318,7 +342,8 @@
                                             <label for="school-date2">Date</label>
                                             <!-- change name -->
                                             <input type="text" class="form-control" id="school-date2"
-                                                placeholder="June 2024" v-model="schoolDate2" @input="autoSave('schoolDate2', schoolDate2)">
+                                                placeholder="June 2024" v-model="schoolDate2"
+                                                @input="autoSave('schoolDate2', schoolDate2)">
                                         </div>
                                     </div>
 
@@ -326,7 +351,8 @@
                                         <label for="additional-information2" style="height: fit-content;">Additional
                                             Information (Optional)</label>
                                         <textarea class="form-control" id="additional-information2" rows="3"
-                                            placeholder="" v-model="additionalInformation2" @input="autoSave('additionalInformation2', additionalInformation2)"></textarea>
+                                            placeholder="" v-model="additionalInformation2"
+                                            @input="autoSave('additionalInformation2', additionalInformation2)"></textarea>
                                     </div>
                                     <hr>
 
@@ -344,7 +370,8 @@
                                         <div class="col form-group">
                                             <label for="school3">School</label>
                                             <input type="text" class="form-control" id="school3"
-                                                placeholder="Singapore Management University" v-model="school3" @input="autoSave('school3', school3)">
+                                                placeholder="Singapore Management University" v-model="school3"
+                                                @input="autoSave('school3', school3)">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -357,7 +384,8 @@
                                             <label for="school-date3">Date</label>
                                             <!-- change name -->
                                             <input type="text" class="form-control" id="school-date3"
-                                                placeholder="June 2024" v-model="schoolDate3" @input="autoSave('schoolDate3', schoolDate3)">
+                                                placeholder="June 2024" v-model="schoolDate3"
+                                                @input="autoSave('schoolDate3', schoolDate3)">
                                         </div>
                                     </div>
 
@@ -365,7 +393,8 @@
                                         <label for="additional-information3" style="height: fit-content;">Additional
                                             Information (Optional)</label>
                                         <textarea class="form-control" id="additional-information3" rows="3"
-                                            placeholder="" v-model="additionalInformation3" @input="autoSave('additionalInformation3', additionalInformation3)"></textarea>
+                                            placeholder="" v-model="additionalInformation3"
+                                            @input="autoSave('additionalInformation3', additionalInformation3)"></textarea>
                                     </div>
                                 </div>
 
@@ -380,7 +409,8 @@
                                     <div class="form-group">
                                         <label for="skills" style="height: fit-content;">Skills List</label>
                                         <textarea class="form-control" id="skills" rows="3"
-                                            placeholder="Effective communication" v-model="skills" @input="autoSave('skills', skills)"></textarea>
+                                            placeholder="Effective communication" v-model="skills"
+                                            @input="autoSave('skills', skills)"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -428,18 +458,44 @@
                 <!-- DISPLAY RESUME ON RIGHT -->
                 <div class="col-sm-7">
                     <!-- choose color -->
-                    <div class="col-sm-5 text-center mt-4">
-                        <H3>Customise Your Resume</H3>
-                        Resume Title Colour: <input type="color" @input="changeTitleColour" v-model="title1"><br>
-                        Background Colour 1: <input type="color" @input="changeBackgroundColour1"
-                            v-model="background1"><br>
-                        Background Colour 2: <input type="color" @input="changeBackgroundColour2"
-                            v-model="background2"><br>
-                        Text Color: <input type="color" @input="changeTextColour"
-                            v-model="text1"><br>
-                            
-                    </div>
+                    <!-- changes -->
+                    <div class="container px-4">
+                        <div class="customise col-sm-5 text-center mt-4 mx-auto" style="font-size: 14px;">
+                            <h5 style="color: #535353;">Customise Your Resume</h5>
+                            <hr>
+                            <div class="row pt-1">
+                                <div class="col-sm-3">
+                                    <input type="color" @input="changeTitleColour" v-model="title1">
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="color" @input="changeBackgroundColour1" v-model="background1">
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="color" @input="changeBackgroundColour2" v-model="background2">
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="color" @input="changeTextColour" v-model="text1">
+                                </div>
+                            </div>
 
+                            <!-- 2nd row -->
+                            <div class="row" style="font-size: small;">
+                                <div class="col-sm-3">
+                                    Resume Title Colour
+                                </div>
+                                <div class="col-sm-3">
+                                    Background Colour 1
+                                </div>                                
+                                <div class="col-sm-3">
+                                    Background Colour 2
+                                </div>
+                                <div class="col-sm-3">
+                                    Text Color
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                     <!-- paper -->
                     <div id="resumeContent" class="paper sticky-top">
                         <!-- banner -->
@@ -529,9 +585,9 @@
                                     <div style="margin: 20px;" class="hover-word" id="profile-query">
                                         {{ profile }}
                                     </div>
-                                    
+
                                     <div class="hover-div" id="profile-result">
-                                        
+
                                     </div>
                                     <hr>
 
@@ -550,7 +606,7 @@
                                         </div>
 
                                         <div class="hover-div" id="description1-result">
-                                        
+
                                         </div>
 
 
@@ -562,13 +618,13 @@
                                         <span style="color:#535353; font-style: italic; font-weight: bold;">{{ job2
                                             }}</span><br>
 
-                                            <div class="hover-word" id="description2-query">
-                                                {{ description2 }}
-                                            </div>
-    
-                                            <div class="hover-div" id="description2-result">
-                                            
-                                            </div>
+                                        <div class="hover-word" id="description2-query">
+                                            {{ description2 }}
+                                        </div>
+
+                                        <div class="hover-div" id="description2-result">
+
+                                        </div>
                                     </div>
                                     <!-- third experience -->
                                     <div style="margin: 30px 20px;">
@@ -576,13 +632,13 @@
                                         <span style="color:#535353; float: right;">{{ jobDate3 }}</span><br>
                                         <span style="color:#535353; font-style: italic; font-weight: bold;">{{ job3
                                             }}</span><br>
-                                        
+
                                         <div class="hover-word" id="description3-query">
                                             {{ description3 }}
                                         </div>
 
                                         <div class="hover-div" id="description3-result">
-                                        
+
                                         </div>
 
                                     </div>
@@ -608,7 +664,7 @@
 
     <script type="module" src="./resumeForm.js">
         // firebase
-                // Initialize Firebase
+        // Initialize Firebase
 
         // add data
 
@@ -618,9 +674,9 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+        </script>
 
 </body>
 
