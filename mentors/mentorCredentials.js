@@ -216,8 +216,7 @@ async function createExecution(text) {
 }
 
 async function pollForResult(executionId, interval = 3000, maxAttempts = 3) {
-    const url = https://api.edenai.run/v2/workflow/05bca25d-a40e-48fa-b22b-499d10a65597/execution/${executionId}/;
-
+    const url     = "https://api.edenai.run/v2/workflow/05bca25d-a40e-48fa-b22b-499d10a65597/execution/"
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
         const response = await fetch(url, {
             method: "GET",
