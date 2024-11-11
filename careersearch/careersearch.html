@@ -433,9 +433,11 @@
           //we are trying to fetch the results of the current page we are in
 
           console.log("Query String:", params.toString());
+          const apiKey = 'cc23494713b9095b61c64ab85ac7d31308f4ffc2e52f0a2d42586bcb4c1a0be9';
+          const url = `https://www.themuse.com/api/public/jobs?api_key=${apiKey}&${params.toString()}`;
 
 
-          var url = `https://www.themuse.com/api/public/jobs?${params.toString()}`;
+
 
           axios.get(url)
 

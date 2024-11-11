@@ -29,6 +29,27 @@ const app1 = Vue.createApp({
     },
     methods: {
 
+
+        async showModal(message) {
+            document.getElementById('customModalMessage').textContent = message;
+            const customModal = new bootstrap.Modal(document.getElementById('customModal'));
+            customModal.show();
+        },
+        
+        async submitForm() {
+            // ... existing code
+            try {
+                // Perform form submission logic
+                this.showModal("Thank you for signing up!");  // Use modal here instead of alert()
+                window.location.href = "registeredLandingPage.html";
+            } catch (error) {
+                console.error("Error adding document:", error);
+                this.showModal("There was an error signing up. Please try again later.");
+            } finally {
+                this.loading = false;
+            }
+        },
+
         async logout() {
             try {
               await signOut(auth);
@@ -71,11 +92,11 @@ const app1 = Vue.createApp({
                         imageURL : this.imageURL, // Save the Base64 image here
                     });
                 } 
-                alert("Thank you for signing up!");
+                this.showModal("Thank you for signing up!");
                 window.location.href = "registeredLandingPage.html";
             } catch (error) {
                 console.error("Error adding document:", error);
-                alert("There was an error signing up. Please try again later.");
+                this.showModal("There was an error signing up. Please try again later.");
             } finally {
                 this.loading = false;
             }
