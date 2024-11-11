@@ -7,6 +7,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"
 
 const API_KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjFmOWE2OTYtYjhiNS00MjdlLTlhNmYtMTIwZGQ0MDZkYjQzIiwidHlwZSI6ImFwaV90b2tlbiJ9.Lzvm5UmOcmtBHauBOPmPujnXC1ZYrY5FD4QTv4I--YI";
+
 // Create Vue app for the form
 
 const app1 = Vue.createApp({
@@ -27,27 +28,6 @@ const app1 = Vue.createApp({
         }
     },
     methods: {
-
-
-        async showModal(message) {
-            document.getElementById('customModalMessage').textContent = message;
-            const customModal = new bootstrap.Modal(document.getElementById('customModal'));
-            customModal.show();
-        },
-        
-        async submitForm() {
-            // ... existing code
-            try {
-                // Perform form submission logic
-                this.showModal("Thank you for signing up!");  // Use modal here instead of alert()
-                window.location.href = "registeredLandingPage.html";
-            } catch (error) {
-                console.error("Error adding document:", error);
-                this.showModal("There was an error signing up. Please try again later.");
-            } finally {
-                this.loading = false;
-            }
-        },
 
         async logout() {
             try {
@@ -91,11 +71,11 @@ const app1 = Vue.createApp({
                         imageURL : this.imageURL, // Save the Base64 image here
                     });
                 } 
-                this.showModal("Thank you for signing up!");
+                alert("Thank you for signing up!");
                 window.location.href = "registeredLandingPage.html";
             } catch (error) {
                 console.error("Error adding document:", error);
-                this.showModal("There was an error signing up. Please try again later.");
+                alert("There was an error signing up. Please try again later.");
             } finally {
                 this.loading = false;
             }
@@ -216,7 +196,8 @@ async function createExecution(text) {
 }
 
 async function pollForResult(executionId, interval = 3000, maxAttempts = 3) {
-    const url     = "https://api.edenai.run/v2/workflow/05bca25d-a40e-48fa-b22b-499d10a65597/execution/"
+    const url = `https://api.edenai.run/v2/workflow/05bca25d-a40e-48fa-b22b-499d10a65597/execution/${executionId}/`;
+
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
         const response = await fetch(url, {
             method: "GET",
